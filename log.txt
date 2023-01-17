@@ -1,0 +1,250 @@
+2022/12/14：
+1. communication修改了主布局，使用QGroupBox更美观，同时统一变量命名规范，usb/tcp对称
+2. mainwindow 去除了工作模式、监控界面，以及对应的菜单功能，这些不是主窗口应该具有的功能
+3. 工作模式功能改作为主窗口的基本设置功能的子功能的一部分
+4. 监控界面移入communication的子功能，这样可以直接互相传递信息，无需借助主窗口之手
+5. 修改工作模式窗口的主布局
+6. 小改动，去除监控界面的1个信号
+7. 修复tablesuzedialog工作模式切换但是字段的enabled没有切换的bug
+8. 修复setting堆叠界面不能随项变化的bug
+9. 完全重构Usb线程的写法，原来的写法是继承QThread重载run函数，内部依靠互斥量和线程唤醒机制来控制，实现完全没有问题。
+不过写法上比较复杂，而且run函数要完成所有的工作不够灵活，使用继承QObject作为工作对象提供各种函数实现然后将其moveToThread的写法更高效更灵活
+之前tcp线程就是用这种方法，现在下定决心保持一致，进行了完全重构，并更改命名规范
+10. 合并tcp/usb到communication内，增加不扩散套接字错误到监控界面的错误处理机制，和usb保持一致
+11. 删除tcp线程不必要的错误码，并删除monitor翻译错误码的相关代码和core/enum中的枚举值，总之让tcp/usb基本完全统一工作流程，
+包括各种函数的命名变量的命名，利于维护
+12. 进一步抽象出工作流程，Query作为TcpQuery/UsbQuery的抽象基类，完善功能
+13. usbconfig的命名规范修改，合并几个源文件
+14. enum的命名规范修改
+15. spic命令面板终端功能的初步实现
+
+其它：完善各种信号-槽连接的细节，去除不必要的变量；更新翻译
+
+
+2022/12/15:
+① 迁徙日志周期设置的功能到settings，而非表格的一个子功能，符合用户习惯
+② 继续计划把日志保存字段设置的功能从表格功能剥离出来，同时思考如何保存用户设定的值和反馈值，之前只支持保存固定查询的VAPR4个数据
+
+
+2022/12/19：
+① 改造15号的②，首先要解决的问题如何区分出IO设备收到的数据，日志问题先搁置，也就是data_processing的处理程序要改写。
+	1. 返回的数据都是以\n作为一条完整的语句,如果包含;说明是固定查询的数据返回实时测量的VAPR4个值，处理去掉;后变成列表用1个信号发出去
+	2. 不包含;的回复，可能是设定查询的回复，也可能是terminal的回复。设定查询要先写入设定命令，所以要知道2个值，一个是设定的role是谁，
+	   一个是要设定的大小value是多大，这2个值是用户在monitor界面设置后同步发给communication的QueryWorker对象，调用该对象的setQuery方法
+	   同时这2个值也会同步发给dataprocessing更新，此时processor就可以依据当前的role和value，知道IO设备返回的值request是属于哪个role的,
+	   然后再把role和request再发回monitor的状态栏,和之前的value比对显示是否设置成功，这是一个闭环
+	3. 在没有加入terminal之前，2.的闭环是成功的,只有2类数据，现在加入了terminal。逻辑上是这样的，我将在dataprocessing内规定一个变量
+	   它来控制当前操作权正在归属谁，如果monitor的QueryWorker正在使用，调用setQuery方法时就会更新该变量含义为monitor发的消息，
+	   否则是terminal的消息，这个变量可以用枚举值设定，以便于以后再有新功能可以switch处理
+② 针对①的2和3，在Query增加了控制圈函数，考虑到全局只有1个控制权，1个处理数据的对象，所以还将Query内部相关数据对象全部改为静态对象。
+③ 增加了core/enum中的新枚举类型TerminalRole，对应MonitorRole(原来的Role改名)；
+   同时升级enum为enum class类型，这样枚举值具有强化的独立作用域不会污染全局枚举值；增加关于TerminalRole的相关信号
+④ terminal功能初步完成，并将功能移步至设置菜单下,Settings增加QWidget * statckWidget(int) const函数提供外部堆堆叠界面的访问，
+   communication增加currentDevice信号，利用中间人mainwindow连接currentDevice信号和statckWidget函数,将当前设备的指针信息传递给QueryPanel对象
+⑤ terminal基本完成，完成双击发送消息-接收消息显示的闭环
+
+
+2022/12/20：
+① 把spic_command.h的枚举类型全部改为enum class类型，并解决产生的
+no matching function for call to 'qHash(const SPICCOMAND::SYMbol&)'Q_DECL_NOEXCEPT_EXPR(noexcept(qHash(t)))问题
+解决方法是QString作为key,枚举值作为value，应该是原来的enum类型可以隐式转换为整型所以可以作为key，enum class不能隐式转换且qhash没有这样的构造函数才报错
+同时注释掉暂时不需要的枚举值变量，减少内存占用
+② 解决窗口总是靠前显示的问题，为了方便用户操作，所有窗口都可以通过点击鼠标靠前显示而不是模态显示，另外主窗口关闭事件会关闭所有窗口
+③ 由于terminalquery、monitorquery以及fixedquery在data_processing都已经完成了闭环，也就是2022/12/19的①完成，所以可以继续解决日志的问题
+   之前的日志是借助多个变量以及函数，并借助各种信号反射实现的，逻辑比较复杂，现在打算构造一个日志管理类，统一管理3+1类数据（1是指可能的信息丢包）
+   用户需要保存什么数据就可以保存什么数据，这都由日志管理类统一实现，便于维护。
+④ 对于③首先去除了之前所有关于log的逻辑，包括tableview的log，communication的log，将表格功能和日志的耦合分开。
+⑤ 考虑到terminal的闭环，其实角色本身没有什么用。monitor其实本质上也没什么用，role仅仅是用来翻译成命令，而terminal不需要翻译，双击项就拿到了命令
+   另外monitor的role也是用于监控状态栏对设定信息的一个描述，例如设定源电压成功或者失败，但是不要这个功能也是可以的。terminal就不需要这些功能，role仅仅
+   是为了验证逻辑是否闭环，既然已验证闭环，就不要携带多余的role信息，因为role最后还要翻译成字符串作为表格的表头，由于terminal多达188个命令
+   所以不会为此设置188个枚举值，然后提供一个函数再翻译，直接使用项信息也就是命令本身作为字段即可，避免脱裤子放屁的操作
+⑥ 初步完成Log类的功能编写
+
+
+2022/12/21：
+① 把workMode对话框美化一下，只有2个radioButton在那么空旷的界面确实有点难看，但是也没什么可以加的，昨天梦见可以加个QLabel
+   QLabel可以放图片，也可以放在QGroupBox就布局好看一些
+② 把不用的图片资源进行清理，同时考虑到自带的消息对话框比较丑，决定自定义消息对话框，其他任何类型的对话框都可以继承这个消息对话框。
+   消息对话框的功能，设置对话框的图标和标题，文字的图标和标题，以及按钮等，代码在在messagebox文件夹
+
+2022/12/23：
+① 继续完成自定义消息对话框的内容，使用css表美化边框、间距、文字颜色等
+② 定义错误对话框、提示对话框、警告对话框继承自消息对话框，以及小提示对话框(只有文字和1个按钮)
+③ 完成所有使用Qt对话框的替换，并解决产生对应的问题
+④ 解决表格导入导出并行计算异常退出的问题
+⑤ 合并一些代码到一个文件更简洁
+
+2022/12/24:
+① 日志是否全局启用的功能，还是不放在settings，只有一个checkbox组件也很难看，可以加在通讯界面的右下角，因为这个对话框本身也不大
+    而且符合用户习惯，用户点击通讯选择usb还是tcp的时候就可以勾选是否启用，比较方便
+② 根据②的功能，连接好Log对象和通讯对话框的信号传递，把用户的设置传递给Log，内部进行判断，就可以实现启用和不使用日志功能
+
+
+
+2022/12/26:
+① 提示对话框增加不再提示的功能，表格的自定义对话框全部替换完毕，并解决了出现的问题
+② 基本完成日志对三类数据的存储功能，通过自测，支持csv/txt的导出
+③ 增加一个计数变量，确保回复和收到的次数一致性，如果是设置性但非查询性质的命令，是没有回复的，这样需要计数变量来确保对应
+④ 增加小功能，让terminal面板的命令和回复的文字颜色不同，增加用户体验
+⑤ disconnect之后，通知用户保存的日志路径，可以选择不再提示
+
+-----------------------------------------------------------------------------------
+
+2023/01/04：
+
+① 迁徙表格功能从"设置"到"高级"下，独立的功能不放在"设置"，相应的tableview.h/cpp也从table移动到tool文件夹下
+② 完成"高级"对话框的布局，并绑定好按钮和表格功能，点击按钮启动表格窗口
+③ 初步完成绘图窗口的布局，左边是表，用于导入数据；右边是分页视图，有不同的页，每页是一个窗口，目前让折线图、散点图、直方图和饼图占位
+④ 暂时搁置绘图窗口的布局，开始折线图窗口的布局，左半部分显示图，右半部分是各种关于图/曲线/图例等各种相关设置的工具箱，顶部是3个动作触发
+出现的问题：
+QWaitCondition: Destroyed while threads are still waiting
+assert: "size == 0 || offset < 0 || size_t(offset) >= sizeof(qarraydata)
+
+2023/01/05：
+① 增加了图表数据生成类ChartDataGenerator，可以方便的返回随机序列、一些特定坐标轴，生成数据的代码放在这好维护
+② 增加了ChartBar，考虑到每种图都会有个工具条，都有3个动作触发(还可添加更多动作)，为了减少冗余代码写成一个类被调用
+③ 增加了Chart，继承QChart，并增加一些特性，同时设置好默认的属性，比默认的表美观，减少初始化的冗余代码
+④ 增加了ChartView，继承QChartView，完成了鼠标、键盘可以缩放图的大小的功能，同时还可以用鼠标拖动表
+⑤ 增加了ChartToolWidget实现工具页，每种表的工具栏的具体工具是不同的，这个灵活性将会以接口的形式给外部展现
+⑥ 增加了ChartTool，使用上述的ChartToolWidget工具页，默认具有3个工具页：曲线、图表和坐标轴设置，故内部有3个工具页指针
+ChartToolBox实现这种布局关系后，并提供适当的接口给子类，然后他的子类，例如折线图的工具类是LineChartTool，
+可以使用接口给布局添加多个QGroupBox，每个QGroupBox都有一些功能。
+这里解决了动态添加QGroupBox后但是工具栏的布局没有显示的问题，发现是工具栏的滚动区域QScrollArea的文档明确说明setWidget只能设置一次
+也就是说必须完成全部布局，最后设置布局所在的部件。如果布局实现创建了2个盒子，设置后再添加1个盒子，这个盒子不会显示
+所以解决方案就是ChartTool提供一个接口，接口函数内部调用QScrollArea.setWidget，这个接口用于外部动态添加完盒子后最后调用
+⑥ 增加了子类LineChartTool，明天将全力完成这个子类的功能，也就是折线图的工具栏
+
+
+2023/01/05：
+① 解决了图和工具栏的比例不协调问题，使其比例4：1比较美观，用户也可以通过分割条调整比例
+② 增加ChartSetting类，继承自 QVBoxLayout。考虑到关于图表的工具页布局基本是相同的(共同基类都是Chart)，所以将这部分布局写成一个单独的类减少冗余
+这个类将充分发掘QChart可设置的功能和属性，使其尽可能完善丰富。曲线和坐标轴工具页根据曲线类型是不同的，则由子类灵活实现。
+③ 解决"QLayout: Attempting to add QLayout "" to ChartToolBox "", which already has a layout"问题
+并非代码问题，而是ChartToolBox继承自QVBoxLayout，追溯继承自QLayout直到QLayoutItem，但是却不能被这两个顶级父类初始化，只能被QWidget初始化
+然鹅QWidget是自带布局的，所以才会弹出这个东西，既然不能用父类初始化，那就不提供父容器，构造函数去除这个父类初始化的参数即可，问题解决
+④ 完成LineChartTool的"标题"、"边距"、"动画"，和"图例"的部分功能
+
+
+
+2023/01/09：
+① 解决"pure virtual method called QWaitCondition: Destroyed while threads are still waiting terminate called without an active exception"问题
+将图例标记设置函数legend()->setMarkerShape(QLegend::MarkerShapeFromSeries);
+从选项QLegend::MarkerShapeFromSeries改为QLegend::MarkerShapeRectangle，fromSeries初始化的时候还没有addSeries所以导致异常，所以默认选项不能是这个
+② 把绘图窗口的主布局从grid改为splitter，更灵活，同时设置好tableview和tabwidget的最小宽度，拉动分割条不变形
+③ 分隔文件类型分别属于chart、charttool、chartview和chartsetting四个文件夹
+其中charttool是工具箱继承QToolBox的代码文件；chartsetting是具体的工具布局，继承QGroupBox
+④ 为了解决字体对话框和颜色对话框的图标问题，构造函数增加图标参数，这样可以让其和属于的QToolWidget小部件的图标一致
+⑤ 把内部的关于多个QGroupBox的初始化函数都写成类，比较好维护
+即initTitleBoxLayout()、initMarginBoxLayout()、initAnimationBoxLayout()、initLegendBoxLayout()改成4个类
+ChartTilte、ChartMargin、ChartAnimation和ChartLegend，并新增ChartBackground类，内部含有2个子类BackgroundBorder和BackgroundArea
+⑥ 新增BackgroundBorder类，完成图表背景边框设置的功能即边框的线型、线宽、颜色、端点样式、连接样式和画刷样式，
+⑦ 新增BackgroundArea类是背景区域设置工具栏，有圆角尺寸，边界粒度以及渐变基本/高级参数的设置，明日继续完成背景区域的颜色填充和渐变填充功能
+其中渐变填充专门使用BackgroundAreaGradient类实现
+
+2023/01/10：
+① 新增BackgroundAreaGradient类，用于背景区域的渐变填充，内部含有基本参数和高级参数设置，高级参数设置有3类，线性、径向和锥形渐变
+其中高级参数的有关设置分别使用3个类实现，分别是LinearGradientParamWidget、RadialGradientParamWidget、ConicalGradientParamWidget
+它们的共同基类是GradientParamWidget，下边依次介绍这4个类
+② 新增GradientParamWidget类，是线性、渐变和锥形渐变的共同基类，统一定义了垂直布局，定义了给用户理解含义的渐变参数描述文本和一个确定按钮
+③ 新增ColorButton类，是一个重载QPushButton的类，它将有一个颜色属性，其形状是圆形的而非默认的矩形，颜色属性决定按钮的背景颜色
+④ 新增LinearGradientParamSelector类，是一个包含QLabel和ColorButton的颜色选择器类，用于线性渐变高级参数设置方便使用的部件
+⑤ 新增LinearGradientParamSelectorWidget类，这个类内部包含11个GradientLinearParamSelector，用于线性渐变高级参数设置的窗口
+⑥ 新增LinearGradientParamWidget类，继承自GradientParamWidget，基本完成其功能
+包括信号传递和布局规划，另外新增一个文本输入的可选功能，用户可输入文本来设置自定义的线性渐变间隔颜色对，明日完成
+
+
+
+2023/01/11：
+① 完成很多类的重命名和文件的改名，使其更符合实际含义，概念清晰，容易体现窗口的父子性，方便查找
+② 完成全部LinearGradientParamWidget的功能，也就是背景的线性渐变填充功能，并新增设置渐变插值模式的功能
+③ 新增ForegroundArea、ForegroundBorder和ChartForeground类，完成前景的有关功能
+④ 图表设置功能只剩下径向和锥形渐变的功能了，后续将继续完成
+
+2023/01/12：
+① 整理有关渐变填充的笔记，注意到存在的共性，所以将LinearGradientParamSelector类名改为GradientParamSelector，
+相应的LinearGradientParamSelectorWidget也改名GradientParamSelectorWidget，这2个类其实3种渐变类型都可以用，所以去掉Linear的前缀
+② 新增RadialGradientParamWidget类，完成径向填充的高级参数设置功能
+③ 新增ConicalGradientParamWidget类，完成锥形填充的高级参数设置功能
+④ BackgroundArea新增initGradientDefaultParams()函数，这是为了渐变填充有个默认的背景
+⑤ colorBtn和gradientBtn的槽函数中增加切换上次设置的背景的功能，最初则使用提供的默认背景
+颜色填充的默认背景设置：mChart->setBackgroundBrush(QBrush(QColor("#0776a9"),Qt::DiagCrossPattern)); chart.cpp设定过
+渐变填充的默认背景设置：其配置情况默认的11个step值，从0.0到1.0的颜色为：
+QColor("#0776a9")、QColor("#FFC0CB")、Qt::red、QColor(255,165,0,255)、QColor("#FFFF00")
+QColor("#90EE90")、Qt::green、Qt::cyan、QColor("#6A5ACD")、Qt::blue << QColor("#800080")
+径向填充的额外参数设置：不提供focal-radius和radius，因为radius=center-radius，focal-radius则是不可预测非线性，所以不提供
+提供的是center、focal和center-radius，默认值依次(0,0),(0,0)和1.0
+锥形填充的额外参数设置：提供center和angle，默认(0,0)和0.0
+⑥ 至今图表设置工具栏的全部功能完成，即chartsettings下的功能，明天会对legend研究一下图例形状有没有可利用的丰富的功能
+
+2023/01/13：
+① 解决用户正在设置的渐变类型参数和当前选择的渐变类型不一致出现的背景设置混乱问题。
+渐变参数的更新只能由pushbutton点击确定完成，所以增加1个变量确定是否为pushbutton发出的即可
+如果是pushbutton发出的，直接更新参数并emit gradientTypeChanged()重设背景；
+如果不是，说明是spinbox发出的，此时又分为2种情况：
+	无论用户是否选择参数调整可视化，spinbox是没有最终的参数更新决定权的，不要改变原有的真正参数mLinearGradient等，
+		只是为了反馈效果，要落实需要点击pushbutton
+	所以如果选择参数调整可视化，直接调用setBackgroundBrush函数即可，而不是emit gradientTypeChanged();
+	如果没有选择参数调整可视化，什么也不做，不反馈效果也不改变参数，相当于没有这个功能
+② 新增GradientParamSpinBox类，重载wheelEvent事件，实现超过最大值就变成最小值，小于最小值就变成最大值的倒退效果，以及一些默认设置例如单步1精度0居中等
+③ 渐变参数的QComboBox在选择渐变类型这里信号绑定改用activated信号而非currentIndexChanged信号，区别是单击组合框就会发出信号而不是等到值改变才发出
+   这样方便在参数调整可视化后，点击当前下拉框就能更新，例如选择Radial，在参数可视化更改了颜色，组合框只需要再次点击Radial即可变为原有颜色
+   否则还需要切到Linear或者Conical再切回Radial才能更新
+④ 解决切换颜色填充，渐变填充的窗口没关闭的问题，增加closeChildrenWindows()函数
+⑤ GradientParamSelector增加setGrayStyle()和setDefaultStyle()函数，用于使能禁止时的风格变成灰色
+⑥ 增加ChartLegend关于手动调整位置的功能，即mChart->legend()->setGeometry(mLegendGeometry);
+⑦ 好的Qt文档案例，学习其中有用的知识
+Model Data Example（重载QAbstractModel并使用了高级技术QVXYModelMapper）
+Multiple Axes Example（多轴图表的创建方法）
+ScatterChart Example （ QPainterPath绘制path，QImage创建mask，让painter和mask关联，之后painter.drawPath(path)，mask就画好了，
+mask可以当成brush使用，让series设置brush就可以得到自定义的图例形状）
+Painter Paths Example （ QPainterPath绘制不同形状的图案的案例）
+Legend Example（使用图例的案例）
+LegendMarkers Example（使用图例控制显示曲线，利用clicked信号设置曲线的visibility即可）
+DateTimeAxis Example （时间轴，借助QDateTimeAxis实现坐标轴，series要添加的x数据是QDateTime::toMSecsSinceEpoch() ）
+Callout Example（鼠标点击和悬停事件得到一个点的坐标注释）
+
+2023/01/16：
+① 增加了图例控制曲线显示的效果，参考案例LegendMarkers Example
+② 图表增加了2个坐标显示的项QGraphicsSimpleTextItem，可以根据鼠标的移动实时显示位置，出现resizeEvent事件也可自动调整位置
+③ 利用曲线的悬停事件来显示当前点的坐标，connect(series, &QLineSeries::hovered, this, &LineChart::showToolTip);
+悬停效果利用QGraphicsSimpleTextItem来实现
+④ 解决no member named 'staticMetaObject' in 'QGraphicsItem'问题，必须同时继承QObject和QGraphicsItem，且QObject放第1个
+⑤ ChartBar增加截图功能，完成了全屏截图小功能，明天继续绘图区域截图
+
+2023/01/17：
+① 增加了QGraphicsRectItem来实现悬停时的矩形，矩形将文字包裹
+② 完成所有截图功能，将ChartBar的构造函数更改，传递chartview而不是chart，这样可以把绘图区域的大小也就是chartview的大小传递进去截图
+③ 参考ScatterChart Example绘制五角星，把返回的五角星图案作为函数添加到ChartDataGenerator类备用
+④ 增加AxisSetting类用于添加坐标轴设置的各类功能，类似ChartSetting，用于开发QAbstractAxis所具备的所有功能
+⑤ 增加AxisInfo类，用于显示坐标轴的visible,alignment,orientation,type共4个信息
+⑥ 增加LineAxisSetting类，继承自AxisSetting，用于折线图使用的轴设置
+⑦ 增加AxisRange类，同的轴设置范围的方式不同,需要重载，提供了一个垂直布局供子类使用，例如2个子类ValueAxisRange和LogAxisRange，
+关于AxisRange及其子类的开发放在最后
+⑧ 增加AxisTitle类，完成轴标题的有关设置，即visible,text,brush,font
+⑨ 增加AxisLabel类，完成轴标签的有关设置，即visible,color,brush,font,angle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        ^
