@@ -1,0 +1,81 @@
+#include <chart/chartdatagenerator.h>
+
+ChartDataGenerator::ChartDataGenerator(QObject *parent) : QObject(parent)
+{
+        mPen = QPen(QBrush(Qt::red,Qt::SolidPattern),2);
+        //mLineChart->setUseOpenGL(true);
+}
+
+
+QLineSeries * ChartDataGenerator::linechart(int amplitude,int count)
+{
+    QLineSeries * mLineChart = new QLineSeries;
+    mLineChart->setName("line chart");//曲线要设置名字,图例显示的是这个名字
+    mLineChart->setPen(mPen);
+    QPointF point;
+    qsrand(QTime::currentTime().second());
+    for(int x = 0; x <count; ++x){
+        point.setX((qreal)x);point.setY(qrand() % amplitude + 1);//至少1.0,防止非0对数错误
+        *mLineChart << point;// Logarithms of zero and negative values are undefined.
+    }
+    return mLineChart;
+}
+
+QLineSeries * ChartDataGenerator::sinechart(int amplitude, int count)
+{
+        QLineSeries * mSineChart = new QLineSeries;
+        mSineChart->setPen(mPen);
+        qsrand(QTime::currentTime().second());
+        for (int i = 0; i < count; ++i) {
+            QPointF p((qreal) i, qSin(Pi / 50 * i) * amplitude);
+            p.ry() += qrand() % 20;
+            *mSineChart << p;
+        }
+        return mSineChart;
+}
+
+
+QValueAxis * ChartDataGenerator::axis(int tickcount,const QString& title,const QString& format)
+{
+    QValueAxis * ax = new QValueAxis;
+    ax->setLabelsFont(QFont("Times New Roman",12));
+    ax->setTitleText(title);
+    ax->setLabelFormat(format); // 横轴是整数间隔
+    ax->setTickCount(tickcount);
+    ax->setTitleFont(QFont("Times New Roman",16));
+    return ax;
+
+}
+
+QLogValueAxis* ChartDataGenerator::logaxis(qreal base,const QString& title)
+{
+        QLogValueAxis *ax = new QLogValueAxis;
+        ax->setLabelsFont(QFont("Times New Roman",12));
+        ax->setTitleText(title);
+        ax->setLabelFormat("%g"); // 纵轴是对数间隔
+        ax->setBase(base); // log底数
+        ax->setMinorTickCount(-1); // 次要刻度线数自动计算
+        ax->setTitleFont(QFont("Times New Roman",16));
+        return ax;
+}
+
+QImage ChartDataGenerator::startPattern()
+{
+    QPainterPath starPath;
+    starPath.moveTo(28, 15);
+    for (int i = 1; i < 5; ++i) {
+        starPath.lineTo(14 + 14 * qCos(0.8 * i * Pi),
+                        15 + 14 * qSin(0.8 * i * Pi));
+    }
+    starPath.closeSubpath();
+
+    QImage star(30, 30, QImage::Format_ARGB32);
+    star.fill(Qt::transparent);
+
+    QPainter painter(&star);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setPen(QRgb(0xf6a625));
+    painter.setBrush(painter.pen().color());
+    painter.drawPath(starPath);
+    return star;
+}
