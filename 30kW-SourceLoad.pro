@@ -26,10 +26,13 @@ TRANSLATIONS = cn.ts \
 
 SOURCES += \
     axissetting/axisbox.cpp \
+    axissetting/axisgrid.cpp \
     axissetting/axisinfo.cpp \
     axissetting/axislabel.cpp \
+    axissetting/axisline.cpp \
     axissetting/axisrange.cpp \
     axissetting/axissetting.cpp \
+    axissetting/axisshade.cpp \
     axissetting/axistitle.cpp \
     axissetting/lineaxissetting.cpp \
     axissetting/logaxisrange.cpp \
@@ -110,10 +113,13 @@ SOURCES += \
 
 HEADERS += \
     axissetting/axisbox.h \
+    axissetting/axisgrid.h \
     axissetting/axisinfo.h \
     axissetting/axislabel.h \
+    axissetting/axisline.h \
     axissetting/axisrange.h \
     axissetting/axissetting.h \
+    axissetting/axisshade.h \
     axissetting/axistitle.h \
     axissetting/lineaxissetting.h \
     axissetting/logaxisrange.h \
@@ -215,7 +221,7 @@ RESOURCES += \
                 trans.qrc
 
 DISTFILES += \
-                readme.txt \
+                log.txt \
                 test/test_function.py \
                 test/test_plot.py \
                 test/test_python.py \
