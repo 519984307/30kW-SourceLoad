@@ -43,6 +43,21 @@ QValueAxis * ChartDataGenerator::axis(int tickcount,const QString& title,const Q
     ax->setLabelFormat(format); // 横轴是整数间隔
     ax->setTickCount(tickcount);
     ax->setTitleFont(QFont("Times New Roman",16));
+    //ax->setReverse(true);
+
+    //ax->setShadesVisible(true);
+    //ax->setShadesColor(Qt::blue);
+    //ax->setShadesBrush(QBrush(Qt::green)); // brush's color=shadecolor
+
+    //ax->setShadesBorderColor(Qt::red);
+    //ax->setShadesPen(QPen(QBrush(Qt::yellow),10)); // pen's color = bordercolor
+    //ax->setLineVisible(true);
+    //ax->setLinePenColor(Qt::red);
+    //ax->setLinePen(QPen(QBrush(Qt::blue,Qt::BrushStyle::SolidPattern),5)); // pen's color = pencolor,样式还是起作用的但是没多大意义
+
+    //ax->setGridLineVisible(true);
+    //ax->setGridLineColor(Qt::red);
+    //ax->setGridLinePen(QPen(QBrush(Qt::blue),5)); // pen's color = color ,minorgrid同理
     return ax;
 
 }
