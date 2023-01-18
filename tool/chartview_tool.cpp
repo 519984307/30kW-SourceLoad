@@ -32,18 +32,18 @@ void ChartViewWidget::init()
     tablebtnlay->addWidget(mImportFileBtn);
     tablebtnbox->setLayout(tablebtnlay);
 
-    mTable = new QTableView;
-    mTable->setMinimumWidth(400);
+    mTableView = new QTableView;
+    mTableView->setMinimumWidth(400);
     QGroupBox * tablebox = new QGroupBox;
     QVBoxLayout * tablelay = new QVBoxLayout;
-    tablelay->addWidget(mTable);
+    tablelay->addWidget(mTableView);
     tablelay->addWidget(tablebtnbox);
     tablebox->setLayout(tablelay);
 
     /*-----------------------------------------tab-----------------------------------------*/
     mTab = new QTabWidget;
     mTab->setMinimumWidth(1000);
-    mLineTab = new LineChart(mTab);
+    mLineTab = new LineChart(mTableView,mTab);
     mTab->addTab(mLineTab,QIcon(":/images/linechart.png"),tr("折线图"));
     /*-----------------------------------------layout-----------------------------------------*/
     QSplitter * splitter = new QSplitter(Qt::Horizontal);

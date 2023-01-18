@@ -11,8 +11,8 @@ class AxisGrid : public AxisBox
     Q_OBJECT
 public:
     explicit AxisGrid(QChart*, QAbstractAxis*,const QIcon&, QWidget*parent = Q_NULLPTR);
-    void updateState() override;
 private:
+    void updateState() override;
     QCheckBox * mAxisGridVisibility;
     QPushButton * mAxisGridColor;
     QSpinBox * mAxisGridWidth;

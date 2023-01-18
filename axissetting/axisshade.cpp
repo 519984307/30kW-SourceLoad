@@ -60,10 +60,17 @@ void AxisShade::updateBorderColorState()
 
 void AxisShade::changeBorderColor()
 {
-    QColor oldcolor = mCurrentAxis->shadesBorderColor(); // 和shadesPen().brush().color()等价,画笔颜色就是边框颜色,画笔的画刷样式对边框没有意义
+    QColor oldcolor = mCurrentAxis->shadesBorderColor(); // 画笔颜色就是边框颜色,画笔的画刷样式对边框没有意义
+    //QColor oldcolor = mCurrentAxis->shadesPen().brush().color();//和shadesPen().brush().color()等价
     QColorDialog * dlg = colorDialog(oldcolor);
     connect(dlg,static_cast<void (QColorDialog::*) (const QColor&)>(&QColorDialog::colorSelected)
-           ,this,[=](const QColor& color){ mCurrentAxis->setShadesBorderColor(color);
+           ,this,[=](const QColor& color){
+        mCurrentAxis->setShadesBorderColor(color); // 2种方式均可
+//        QPen pen = mCurrentAxis->shadesPen();
+//        QBrush brush = pen.brush();
+//        brush.setColor(color);
+//        pen.setBrush(brush);
+//        mCurrentAxis->setShadesPen(pen);
     });
     dlg->exec(); delete dlg;
 }
@@ -103,8 +110,8 @@ void AxisShade::updatePenWidthState()
 {
     mAxisShadePenWidth->setValue(mCurrentAxis->shadesPen().width());
 
-    //disconnect(mAxisShadePenWidth,SIGNAL(valueChanged(int)),this,SLOT(changePenWidth(int)));
-    //connect(mAxisShadePenWidth,SIGNAL(valueChanged(int)),this,SLOT(changePenWidth(int)));
+    disconnect(mAxisShadePenWidth,SIGNAL(valueChanged(int)),this,SLOT(changePenWidth(int)));
+    connect(mAxisShadePenWidth,SIGNAL(valueChanged(int)),this,SLOT(changePenWidth(int)));
 }
 
 void AxisShade::changePenWidth(int width)

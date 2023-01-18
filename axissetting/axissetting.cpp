@@ -1,27 +1,48 @@
 #include <axissetting/axissetting.h>
+#include <QDebug>
 
 AxisSetting::AxisSetting(QChart*chart):mChart(chart)
 {
     setObjectName("AxisSettingsLayout");
-    QIcon icon(":/images/toolbox_axis.png");
+    mIcon.addFile(":/images/toolbox_axis.png");
+    mCurrentAxis = mChart->axisX();// 默认X为操作轴
 
     mWhichAxis = new QGroupBox;
-    mAxisInfo = new AxisInfo(mChart,mChart->axisX(),icon); // 默认x为操作轴
-    mAxisTitle = new AxisTitle(mChart,mChart->axisX(),icon);
-    mAxisLabel = new AxisLabel(mChart,mChart->axisX(),icon);
-    mAxisShade = new AxisShade(mChart,mChart->axisX(),icon);
-    mAxisLine = new AxisLine(mChart,mChart->axisX(),icon);
-    mAxisGrid = new AxisGrid(mChart,mChart->axisX(),icon);
+    mAxisInfo = new AxisInfo(mChart,mCurrentAxis,mIcon);
+    mAxisTitle = new AxisTitle(mChart,mCurrentAxis,mIcon);
+    mAxisLabel = new AxisLabel(mChart,mCurrentAxis,mIcon);
+    mAxisShade = new AxisShade(mChart,mCurrentAxis,mIcon);
+    mAxisLine = new AxisLine(mChart,mCurrentAxis,mIcon);
+    mAxisGrid = new AxisGrid(mChart,mCurrentAxis,mIcon);
 
-    initWhichAxis(); // 最后初始化
+    //mCurrentAxis可能是任何类型,无论是否匹配都至少会把布局初始化完成
+    mAxisValue = new AxisValue(mChart,mCurrentAxis,mIcon);
+    mAxisLog = new AxisLog(mChart,mCurrentAxis,mIcon);
 
-    addWidget(mWhichAxis );
+    initWhichAxis();
+
+    addWidget(mWhichAxis);
     addWidget(mAxisInfo);
     addWidget(mAxisTitle);
     addWidget(mAxisLabel);
     addWidget(mAxisShade);
     addWidget(mAxisLine);
     addWidget(mAxisGrid);
+    addWidget(mAxisValue);
+    addWidget(mAxisLog);
+
+    //通过removeWidget和addWidget动态切换mAxisValue和mAxisLog有点难
+    // 而且由于QScrollArea布局必须事先确定的问题,不可能实现
+    // 但是可以通过hide和show来显示这种效果,布局也已经事先确定了
+    switch (mCurrentAxis->type()) {
+            case QAbstractAxis::AxisTypeValue:
+                    mAxisLog->hide();
+                    break;
+            case QAbstractAxis::AxisTypeLogValue:
+                    mAxisValue->hide();
+            default:break;
+    }
+
 }
 
 void AxisSetting::closeChildrenWindows()
@@ -46,27 +67,27 @@ void AxisSetting::initWhichAxis()
 
     connect(group,static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
             this,[=](int id){
-            if (id == 1){ // X轴操作
-                mAxisInfo->setCurrentAxis(mChart->axisX());
-                mAxisTitle->setCurrentAxis(mChart->axisX());
-                mAxisLabel->setCurrentAxis(mChart->axisX());
-                mAxisShade->setCurrentAxis(mChart->axisX());
-                mAxisLine->setCurrentAxis(mChart->axisX());
-                mAxisGrid->setCurrentAxis(mChart->axisX());
+            if (id == 1)  mCurrentAxis = mChart->axisX();// 对X轴操作
+            else mCurrentAxis = mChart->axisY(); // Y轴操作
+
+            switch (mCurrentAxis->type()) {
+                    case QAbstractAxis::AxisTypeValue:
+                            //mAxisValue->setCurrentAxis(mCurrentAxis); // 必须符合类型才能设置
+                            mAxisValue->show();
+                            mAxisLog->hide();
+                            break;
+                    case QAbstractAxis::AxisTypeLogValue:
+                            //mAxisLog->setCurrentAxis(mCurrentAxis);
+                            mAxisValue->hide();
+                            mAxisLog->show();
+                    default:break;
             }
-            else { // Y轴操作
-                mAxisInfo->setCurrentAxis(mChart->axisY());
-                mAxisTitle->setCurrentAxis(mChart->axisY());
-                mAxisLabel->setCurrentAxis(mChart->axisY());
-                mAxisShade->setCurrentAxis(mChart->axisY());
-                mAxisLine->setCurrentAxis(mChart->axisY());
-                mAxisGrid->setCurrentAxis(mChart->axisY());
-            }
-            mAxisInfo->updateState(); // 必须调用更新转换当前轴的状态
-            mAxisTitle->updateState();
-            mAxisLabel->updateState();
-            mAxisShade->updateState();
-            mAxisLine->updateState();
-            mAxisGrid->updateState();
+
+            mAxisInfo->setCurrentAxis(mCurrentAxis);
+            mAxisTitle->setCurrentAxis(mCurrentAxis);
+            mAxisLabel->setCurrentAxis(mCurrentAxis);
+            mAxisShade->setCurrentAxis(mCurrentAxis);
+            mAxisLine->setCurrentAxis(mCurrentAxis);
+            mAxisGrid->setCurrentAxis(mCurrentAxis);
     });
 }

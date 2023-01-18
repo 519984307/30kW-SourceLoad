@@ -28,7 +28,7 @@ class LineChart : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit LineChart(QWidget *parent = Q_NULLPTR);
+    explicit LineChart(QTableView *,QWidget *parent = Q_NULLPTR);
     void closeChildrenWindows();
     ~LineChart();
 private:
@@ -38,6 +38,7 @@ private:
     QSplitter * mSplitter;
     Chart * mChart;
     ChartView * mChartView;
+    QTableView * mTableView;
     LineChartTool * mToolBox;
     ChartDataGenerator * mGenerator;
     ChartBar * mToolBar;

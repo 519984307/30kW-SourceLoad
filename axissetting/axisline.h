@@ -12,8 +12,8 @@ class AxisLine : public AxisBox
     Q_OBJECT
 public:
     explicit AxisLine(QChart*, QAbstractAxis*,const QIcon&, QWidget*parent = Q_NULLPTR);
-    void updateState() override;
 private:
+    void updateState() override;
     QCheckBox * mAxisLineVisibility;
     QPushButton * mAxisLineColor;
     QSpinBox * mAxisLineWidth;

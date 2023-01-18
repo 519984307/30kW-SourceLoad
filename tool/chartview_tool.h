@@ -21,7 +21,7 @@ private:
     void init();
     void initConnections();
     QGridLayout * mLayout;
-    QTableView * mTable;
+    QTableView * mTableView;
     QPushButton * mImportLogBtn;
     QPushButton * mImportFileBtn;
     QTabWidget * mTab;

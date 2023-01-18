@@ -1,8 +1,8 @@
 #include <chartview/chartbar.h>
 #include <QDebug>
 
-ChartBar::ChartBar(QChartView* chartview,QWidget*parent):
-    QToolBar(parent),mChartView(chartview),mChart(chartview->chart())
+ChartBar::ChartBar(QTableView*tableview,QChartView* chartview,QWidget*parent):
+    QToolBar(parent),mTableView(tableview),mChartView(chartview),mChart(chartview->chart())
 {
     mScreenShot = new ScreenShoot(chartview);
 

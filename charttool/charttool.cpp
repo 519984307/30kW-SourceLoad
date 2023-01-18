@@ -13,7 +13,7 @@ ChartTool::ChartTool(QChart* chart,QWidget*parent):QToolBox(parent),mChart(chart
     addItem(mChartWidget,QIcon(":/images/toolbox_chart.png"),tr("图表设置"));
     mChartSetting = new ChartSetting(mChart); // 图表工具栏的布局都是相同的,在ChartToolBox(this)就预设好
     mChartWidget->addLayout(mChartSetting);
-    mChartWidget->updateScrollArea(); // 只能调用1次,必须完成所有布局后调用
+    //mChartWidget->updateScrollArea(); // 只能调用1次,必须完成所有布局后调用,外部调用
 
     mSeriesWidget = new ChartToolWidget(this);
     mSeriesWidget->setObjectName("SeriesSettingPage");

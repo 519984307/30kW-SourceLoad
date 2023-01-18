@@ -13,8 +13,8 @@ class AxisLabel : public AxisBox
     Q_OBJECT
 public:
     explicit AxisLabel(QChart*, QAbstractAxis*,const QIcon&, QWidget*parent = Q_NULLPTR);
-    void updateState() override;
 private:
+    void updateState() override;
     QCheckBox * mAxisLabelVisibility;
     GradientParamSpinBox * mAxisLabelAngle;// 借助内部重载的wheelEvent
     QPushButton * mAxisLabelColor;

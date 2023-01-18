@@ -24,10 +24,10 @@ public:
     QColorDialog* colorDialog(const QColor&);
     QFontDialog* fontDialog(const QFont&);
     QComboBox * brushStyleCombo();
-    virtual void updateState()= 0;
 protected:
     QChart * mChart;
     QAbstractAxis * mCurrentAxis;
     QIcon mIcon;
+    virtual void updateState()= 0;
 };
 #endif // AXISBOX_H

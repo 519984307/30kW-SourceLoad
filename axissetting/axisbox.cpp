@@ -21,6 +21,7 @@ QChart* AxisBox::chart() const
 void AxisBox::setCurrentAxis(QAbstractAxis *axis)
 {
     mCurrentAxis = axis;
+    updateState(); // 切换轴后更新状态
 }
 
 QAbstractAxis* AxisBox::currentAxis() const

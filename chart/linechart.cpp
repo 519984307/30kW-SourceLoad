@@ -1,6 +1,6 @@
 #include <chart/linechart.h>
 
-LineChart::LineChart(QWidget *parent) : QMainWindow(parent)
+LineChart::LineChart(QTableView * tableview,QWidget *parent) : QMainWindow(parent),mTableView(tableview)
 {
     setFont(QFont("Times New Roman",12));
     setWindowIcon(QIcon(":/images/linechart.png"));
@@ -19,7 +19,7 @@ LineChart::LineChart(QWidget *parent) : QMainWindow(parent)
 
     initChart(); // 注意先初始化,mChart具备标题序列和轴了再被后边所用
     mChartView = new ChartView(mChart,this);
-    mToolBar = new ChartBar(mChartView,this);
+    mToolBar = new ChartBar(mTableView,mChartView,this);
     addToolBar(Qt::TopToolBarArea,mToolBar);
     mToolBox = new LineChartTool(mChart,this);
     mSplitter = new QSplitter(Qt::Horizontal);

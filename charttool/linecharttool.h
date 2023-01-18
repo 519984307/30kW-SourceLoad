@@ -2,17 +2,14 @@
 #define LINECHARTTOOL_H
 
 #include <charttool/charttool.h>
-#include <axissetting/lineaxissetting.h>
-#include <QPushButton>
-#include <QLineEdit>
-#include <QHBoxLayout>
+#include <axissetting/axissetting.h>
 
 class LineChartTool : public ChartTool
 {
     Q_OBJECT
 public:
-    explicit LineChartTool(QChart* chart,QWidget*parent=Q_NULLPTR);
+    explicit LineChartTool(QChart*,QWidget*parent=Q_NULLPTR);
 private:
-    LineAxisSetting * mLineAxisSetting;
+    AxisSetting * mAxisSetting;
 };
 #endif // LINECHARTTOOL_H

@@ -12,8 +12,8 @@ class AxisInfo : public AxisBox
     Q_OBJECT
 public:
     AxisInfo(QChart*, QAbstractAxis*,const QIcon&, QWidget*parent = Q_NULLPTR);
-    void updateState() override;
 private:
+    void updateState() override;
     QCheckBox * mAxisVisible;
     QCheckBox * mAxisReverse;
     QLabel * mAxisAlignment;

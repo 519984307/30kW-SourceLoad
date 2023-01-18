@@ -1,0 +1,12 @@
+#include <axissetting/axissettingvaue.h>
+
+AxisSettingValue::AxisSettingValue(QChart * chart):AxisSetting(chart)
+{
+        // 除了AxisSetting提供的QAbstractAxis的共有功能之外,对于QValueAxis还有自己的功能
+        // range,labelformat以及tickcount
+        
+        //mAxisValue = new AxisValue(chart,mIcon);
+
+//        addWidget(mAxisRange);
+}
+

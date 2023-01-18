@@ -1,12 +1,17 @@
 #include <charttool/linecharttool.h>
 
-LineChartTool::LineChartTool(QChart* chart,QWidget*parent):ChartTool(chart,parent)
+LineChartTool::LineChartTool(QChart* chart,QWidget*parent)
+    :ChartTool(chart,parent)
 {
-    //mChartWidget->updateScrollArea(); // 图表设置都相同,只需调用一次更新滑动区域，ChartTool内部已调用过
-    //mSeriesWidget->updateScrollArea(); // 曲线和坐标轴设置不同,在这里调用
+    mChartWidget->updateScrollArea(); // 图表设置都相同,只需调用一次更新滑动区域，ChartTool内部已调用过
 
-    mLineAxisSetting = new LineAxisSetting(chart);
-    mAxisWidget->addLayout(mLineAxisSetting); // 坐标轴工具页的发挥由mAxisSetting决定
+    mSeriesWidget->updateScrollArea(); // 曲线和坐标轴设置不同,在这里调用
+
+    // 针对折线图常用的XY轴有4套组合使用(根据情况可以在chartbar的associatetable内增加类型)
+    // 1.AxisSettingValue和AxisSettingValue 2.AxisSettingValue和AxisSettingLog
+    // 3.AxisSettingLog和AxisSettingValue 4.AxisSettingLog和AxisSettingLog
+    mAxisSetting = new AxisSetting(mChart); // 根据传来的轴组合确定内部的4种组合之一
+    mAxisWidget->addLayout(mAxisSetting);
     mAxisWidget->updateScrollArea();
 
 }

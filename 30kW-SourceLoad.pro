@@ -30,13 +30,11 @@ SOURCES += \
     axissetting/axisinfo.cpp \
     axissetting/axislabel.cpp \
     axissetting/axisline.cpp \
-    axissetting/axisrange.cpp \
+    axissetting/axislog.cpp \
     axissetting/axissetting.cpp \
     axissetting/axisshade.cpp \
     axissetting/axistitle.cpp \
-    axissetting/lineaxissetting.cpp \
-    axissetting/logaxisrange.cpp \
-    axissetting/valueaxisrange.cpp \
+    axissetting/axisvalue.cpp \
     chart/chart.cpp \
     chart/linechart.cpp \
     chart/chartdatagenerator.cpp \
@@ -117,13 +115,11 @@ HEADERS += \
     axissetting/axisinfo.h \
     axissetting/axislabel.h \
     axissetting/axisline.h \
-    axissetting/axisrange.h \
+    axissetting/axislog.h \
     axissetting/axissetting.h \
     axissetting/axisshade.h \
     axissetting/axistitle.h \
-    axissetting/lineaxissetting.h \
-    axissetting/logaxisrange.h \
-    axissetting/valueaxisrange.h \
+    axissetting/axisvalue.h \
     chart/chart.h \
     chart/linechart.h \
     chart/chartdatagenerator.h \

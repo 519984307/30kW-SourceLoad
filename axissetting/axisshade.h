@@ -12,8 +12,8 @@ class AxisShade : public AxisBox
     Q_OBJECT
 public:
     explicit AxisShade(QChart*, QAbstractAxis*,const QIcon&, QWidget*parent = Q_NULLPTR);
-    void updateState() override;
 private:
+    void updateState() override;
     QCheckBox * mAxisShadeVisibility;
     QPushButton * mAxisShadeBorderColor;
     QPushButton * mAxisShadeBrushColor;
