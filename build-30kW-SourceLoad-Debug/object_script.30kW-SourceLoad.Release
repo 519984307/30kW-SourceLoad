@@ -1,9 +1,12 @@
 INPUT(
 ./release\axisbox.o
+./release\axisgrid.o
 ./release\axisinfo.o
 ./release\axislabel.o
+./release\axisline.o
 ./release\axisrange.o
 ./release\axissetting.o
+./release\axisshade.o
 ./release\axistitle.o
 ./release\lineaxissetting.o
 ./release\logaxisrange.o
@@ -84,10 +87,13 @@ INPUT(
 ./release\qrc_images.o
 ./release\qrc_trans.o
 ./release\moc_axisbox.o
+./release\moc_axisgrid.o
 ./release\moc_axisinfo.o
 ./release\moc_axislabel.o
+./release\moc_axisline.o
 ./release\moc_axisrange.o
 ./release\moc_axissetting.o
+./release\moc_axisshade.o
 ./release\moc_axistitle.o
 ./release\moc_lineaxissetting.o
 ./release\moc_logaxisrange.o

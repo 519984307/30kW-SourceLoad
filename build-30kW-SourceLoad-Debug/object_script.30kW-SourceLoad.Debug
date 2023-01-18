@@ -1,9 +1,12 @@
 INPUT(
 ./debug\axisbox.o
+./debug\axisgrid.o
 ./debug\axisinfo.o
 ./debug\axislabel.o
+./debug\axisline.o
 ./debug\axisrange.o
 ./debug\axissetting.o
+./debug\axisshade.o
 ./debug\axistitle.o
 ./debug\lineaxissetting.o
 ./debug\logaxisrange.o
@@ -84,10 +87,13 @@ INPUT(
 ./debug\qrc_images.o
 ./debug\qrc_trans.o
 ./debug\moc_axisbox.o
+./debug\moc_axisgrid.o
 ./debug\moc_axisinfo.o
 ./debug\moc_axislabel.o
+./debug\moc_axisline.o
 ./debug\moc_axisrange.o
 ./debug\moc_axissetting.o
+./debug\moc_axisshade.o
 ./debug\moc_axistitle.o
 ./debug\moc_lineaxissetting.o
 ./debug\moc_logaxisrange.o
