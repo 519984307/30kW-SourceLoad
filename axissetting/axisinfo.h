@@ -15,14 +15,17 @@ public:
     void updateState() override;
 private:
     QCheckBox * mAxisVisible;
+    QCheckBox * mAxisReverse;
     QLabel * mAxisAlignment;
     QLabel * mAxisOrientation;
     QLabel * mAxisType;
     void updateVisibilityState();
+    void updateReversedState();
     void updateAlignmentState();
     void updateOrientationState();
     void updateTypeState();
     void changeVisibility(int);
+    void changeReversed(int);
 };
 
 #endif // AXISINFO_H

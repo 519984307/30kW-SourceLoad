@@ -7,6 +7,9 @@ AxisInfo::AxisInfo(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*p
     mAxisVisible = new QCheckBox;
     updateVisibilityState();
 
+    mAxisReverse = new QCheckBox;
+    updateReversedState();
+
     mAxisAlignment = new QLabel;
     updateAlignmentState();
 
@@ -21,6 +24,7 @@ AxisInfo::AxisInfo(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*p
     lay->addRow(tr("轴方向: "),mAxisOrientation);
     lay->addRow(tr("轴类型: "),mAxisType);
     lay->addRow(tr("轴可见"),mAxisVisible);
+    lay->addRow(tr("轴反转"),mAxisReverse);
     setLayout(lay);
     setTitle(tr("轴"));
 }
@@ -28,6 +32,7 @@ AxisInfo::AxisInfo(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*p
 void AxisInfo::updateState()
 {
         updateVisibilityState();
+        updateReversedState();
         updateAlignmentState();
         updateOrientationState();
         updateTypeState();
@@ -47,6 +52,20 @@ void AxisInfo::changeVisibility(int state)
 {
     bool s = state == Qt::Checked;
     mCurrentAxis->setVisible(s);
+}
+
+void AxisInfo::updateReversedState()
+{
+    Qt::CheckState state = mCurrentAxis->isReverse()?Qt::Checked:Qt::Unchecked;
+    mAxisReverse->setCheckState(state);
+    disconnect(mAxisReverse,&QCheckBox::stateChanged,this,&AxisInfo::changeReversed);
+    connect(mAxisReverse,&QCheckBox::stateChanged,this,&AxisInfo::changeReversed);
+}
+
+void AxisInfo::changeReversed(int state)
+{
+    bool s = state == Qt::Checked;
+    mCurrentAxis->setReverse(s);
 }
 
 void AxisInfo::updateAlignmentState()
