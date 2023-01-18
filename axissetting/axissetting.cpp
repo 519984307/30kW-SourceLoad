@@ -9,6 +9,9 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     mAxisInfo = new AxisInfo(mChart,mChart->axisX(),icon); // 默认x为操作轴
     mAxisTitle = new AxisTitle(mChart,mChart->axisX(),icon);
     mAxisLabel = new AxisLabel(mChart,mChart->axisX(),icon);
+    mAxisShade = new AxisShade(mChart,mChart->axisX(),icon);
+    mAxisLine = new AxisLine(mChart,mChart->axisX(),icon);
+    mAxisGrid = new AxisGrid(mChart,mChart->axisX(),icon);
 
     initWhichAxis(); // 最后初始化
 
@@ -16,6 +19,9 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     addWidget(mAxisInfo);
     addWidget(mAxisTitle);
     addWidget(mAxisLabel);
+    addWidget(mAxisShade);
+    addWidget(mAxisLine);
+    addWidget(mAxisGrid);
 }
 
 void AxisSetting::closeChildrenWindows()
@@ -44,14 +50,23 @@ void AxisSetting::initWhichAxis()
                 mAxisInfo->setCurrentAxis(mChart->axisX());
                 mAxisTitle->setCurrentAxis(mChart->axisX());
                 mAxisLabel->setCurrentAxis(mChart->axisX());
+                mAxisShade->setCurrentAxis(mChart->axisX());
+                mAxisLine->setCurrentAxis(mChart->axisX());
+                mAxisGrid->setCurrentAxis(mChart->axisX());
             }
             else { // Y轴操作
                 mAxisInfo->setCurrentAxis(mChart->axisY());
                 mAxisTitle->setCurrentAxis(mChart->axisY());
                 mAxisLabel->setCurrentAxis(mChart->axisY());
+                mAxisShade->setCurrentAxis(mChart->axisY());
+                mAxisLine->setCurrentAxis(mChart->axisY());
+                mAxisGrid->setCurrentAxis(mChart->axisY());
             }
             mAxisInfo->updateState(); // 必须调用更新转换当前轴的状态
             mAxisTitle->updateState();
             mAxisLabel->updateState();
+            mAxisShade->updateState();
+            mAxisLine->updateState();
+            mAxisGrid->updateState();
     });
 }

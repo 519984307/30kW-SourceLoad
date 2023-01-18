@@ -4,6 +4,9 @@
 #include <axissetting/axisinfo.h>
 #include <axissetting/axistitle.h>
 #include <axissetting/axislabel.h>
+#include <axissetting/axisshade.h>
+#include <axissetting/axisline.h>
+#include <axissetting/axisgrid.h>
 
 //QAbstractAxis具有的所有属性设置,所有子类均可继承
 class AxisSetting : public QVBoxLayout
@@ -21,5 +24,8 @@ private:
     AxisInfo * mAxisInfo;
     AxisTitle * mAxisTitle;
     AxisLabel * mAxisLabel;
+    AxisShade * mAxisShade;
+    AxisLine * mAxisLine;
+    AxisGrid * mAxisGrid;
 };
 #endif // AXISSETTING_H
