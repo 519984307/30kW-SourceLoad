@@ -15,9 +15,8 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     mAxisLine = new AxisLine(mChart,mCurrentAxis,mIcon);
     mAxisGrid = new AxisGrid(mChart,mCurrentAxis,mIcon);
 
-    //mCurrentAxis可能是任何类型,无论是否匹配都至少会把布局初始化完成
-    mAxisValue = new AxisValue(mChart,mCurrentAxis,mIcon);
-    mAxisLog = new AxisLog(mChart,mCurrentAxis,mIcon);
+    mAxisValue = new AxisValue(mChart); //初始化布局,与mCurrentAxis是何类型无关
+    mAxisLog = new AxisLog(mChart);
 
     initWhichAxis();
 
@@ -30,16 +29,20 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     addWidget(mAxisGrid);
     addWidget(mAxisValue);
     addWidget(mAxisLog);
+    addWidget(new QGroupBox);//为了防止挤压尾部留些空间
 
     //通过removeWidget和addWidget动态切换mAxisValue和mAxisLog有点难
     // 而且由于QScrollArea布局必须事先确定的问题,不可能实现
     // 但是可以通过hide和show来显示这种效果,布局也已经事先确定了
     switch (mCurrentAxis->type()) {
             case QAbstractAxis::AxisTypeValue:
+                    mAxisValue->setCurrentAxis(static_cast<QValueAxis*>(mCurrentAxis)); // 确实是value类型才会初始化内部的信号连接
                     mAxisLog->hide();
                     break;
             case QAbstractAxis::AxisTypeLogValue:
+                    mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
                     mAxisValue->hide();
+                    break;
             default:break;
     }
 
@@ -69,25 +72,26 @@ void AxisSetting::initWhichAxis()
             this,[=](int id){
             if (id == 1)  mCurrentAxis = mChart->axisX();// 对X轴操作
             else mCurrentAxis = mChart->axisY(); // Y轴操作
-
-            switch (mCurrentAxis->type()) {
-                    case QAbstractAxis::AxisTypeValue:
-                            //mAxisValue->setCurrentAxis(mCurrentAxis); // 必须符合类型才能设置
-                            mAxisValue->show();
-                            mAxisLog->hide();
-                            break;
-                    case QAbstractAxis::AxisTypeLogValue:
-                            //mAxisLog->setCurrentAxis(mCurrentAxis);
-                            mAxisValue->hide();
-                            mAxisLog->show();
-                    default:break;
-            }
-
             mAxisInfo->setCurrentAxis(mCurrentAxis);
             mAxisTitle->setCurrentAxis(mCurrentAxis);
             mAxisLabel->setCurrentAxis(mCurrentAxis);
             mAxisShade->setCurrentAxis(mCurrentAxis);
             mAxisLine->setCurrentAxis(mCurrentAxis);
             mAxisGrid->setCurrentAxis(mCurrentAxis);
+
+            // 和共有的工具不同,这2个要有条件的setCurrentAxis
+            switch (mCurrentAxis->type()) { // 无论切换的X还是Y,类型都可能是Value或Log,都要去判断,只要是value类型就让value布局显示
+                    case QAbstractAxis::AxisTypeValue:
+                            mAxisValue->setCurrentAxis(static_cast<QValueAxis*>(mCurrentAxis));
+                            mAxisValue->show();
+                            mAxisLog->hide();
+                            break;
+                    case QAbstractAxis::AxisTypeLogValue:
+                            mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
+                            mAxisValue->hide();
+                            mAxisLog->show();
+                            break;
+                    default:break;
+            }
     });
 }
