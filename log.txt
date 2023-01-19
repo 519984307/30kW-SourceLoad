@@ -319,6 +319,12 @@ Callout Example（鼠标点击和悬停事件得到一个点的坐标注释）
 ④ AxisInfo增加轴翻转的功能
 ⑤ 缕清如何根据当前轴的类型去切换工具栏的布局，可以利用hide和show实现
 
+2023/01/19：
+① 增加AxisValue类，不继承AxisBox，完成QValueAxis特有的功能，区别构造函数不再初始化mCurrentAxis因为这个取决于Chart需要切换
+② 增加AxisLog类，不继承AxisBox，完成QLogValueAxis特有的功能，区别构造函数不再初始化mCurrentAxis因为这个取决于Chart需要切换
+③ 在AxisSetting中，增加对radiobutton切换XY轴时对mCurrentAxis的类型判断，只要是value就用value布局，是log就用log布局
+区别只是在setCurrentAxis被调用后才会初始化布局真正的功能信号槽连接，因为那个时候才知道mCurrentAxis是谁且符合要求
+
 
 
 
