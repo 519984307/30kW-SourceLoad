@@ -14,4 +14,5 @@ LineChartTool::LineChartTool(QChart* chart,QWidget*parent)
     mAxisWidget->addLayout(mAxisSetting);
     mAxisWidget->updateScrollArea();
 
+    connect(this,&LineChartTool::tableChanged,mAxisSetting,&AxisSetting::tableChanged);
 }

@@ -148,7 +148,7 @@ void MainWindow::initConnections()
    connect(mainCommunication,&Communication::terminalQueryData,mainSettings,&Setting::terminalQueryData);
    connect(mainCommunication,static_cast<void (Communication::*)(QIODevice*)>(&Communication::currentDevice)
            ,this,[=](QIODevice* device){ // usb/tcp connect clicked trigger this signal,set device for querypanel
-            QueryPanel * querypanel = static_cast<QueryPanel*>(mainSettings->statckWidget(3));
+            QueryPanel * querypanel = static_cast<QueryPanel*>(mainSettings->statckWidget(2));
             querypanel->setDevice(device);
    });
 }

@@ -327,8 +327,21 @@ Callout Example（鼠标点击和悬停事件得到一个点的坐标注释）
 
 
 
+2023/01/29：
+① 增加TableViewModel类，实现表格和图表的数据-曲线映射功能
+② 增加AssociateTable类，用于用户设置曲线如何关联表格
+③ 增加信号函数tableChanged,当用户关联表格后，把该消息通知给ChartBar和LineChartTool
 
-
+2023/01/30：
+① 完成tableChanged信号的传递，在LineChart内部直接通知给LineChartTool
+LineChartTool内部的ChartSetting无需通知与其无关，AxisSetting和SeriesSetting需要通知，由于曲线的变化轴也会变化
+由于mChart的实际地址也就是指针并没有变化，只是其内容(曲线/轴)变化但是界面没跟上而已,界面跟上就切换下轴自动会更新了
+② 完成单映射函数void AssociateTable::singleMapping()
+TableViewModel类增加colData()函数和tagYColumn()函数用于获取指定列的数据以及标记指定列的背景颜色，用于表格和曲线的颜色映射
+③ 完成void AssociateTable::doubleMapping()函数
+TableViewModel类增加tagXYColumn()函数用于对选择的2列数据进行映射
+④ 完成之前开发功能的英文界面翻译，纠正部分错误
+⑤ 出具一份文档，对目前开发的上位机功能的简单介绍
 
 
 

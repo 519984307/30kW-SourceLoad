@@ -2,6 +2,592 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
+    <name>AssociateTable</name>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="18"/>
+        <source>关联模式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="19"/>
+        <location filename="chartview/associatetable.cpp" line="27"/>
+        <source>单列关联</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="20"/>
+        <location filename="chartview/associatetable.cpp" line="35"/>
+        <source>双列关联</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="31"/>
+        <location filename="chartview/associatetable.cpp" line="41"/>
+        <source>X轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="31"/>
+        <source>自动生成</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="32"/>
+        <location filename="chartview/associatetable.cpp" line="42"/>
+        <source>Y轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="46"/>
+        <source>关联</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisBox</name>
+    <message>
+        <location filename="axissetting/axisbox.cpp" line="38"/>
+        <source>设置颜色</source>
+        <oldsource>设置标题颜色</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisbox.cpp" line="47"/>
+        <source>设置格式</source>
+        <oldsource>设置标题格式</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisGrid</name>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="10"/>
+        <source>设置主网格颜色</source>
+        <oldsource>设置颜色</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="11"/>
+        <source>设置次网格颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="18"/>
+        <source>&amp;主网格可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="19"/>
+        <source>&amp;主网格颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="20"/>
+        <source>&amp;主网格宽度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="21"/>
+        <source>&amp;次网格可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="22"/>
+        <source>&amp;次网格颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="23"/>
+        <source>&amp;次网格宽度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisgrid.cpp" line="24"/>
+        <source>轴网格</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisInfo</name>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="23"/>
+        <source>轴对齐: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="24"/>
+        <source>轴方向: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="25"/>
+        <source>轴类型: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="26"/>
+        <source>轴可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="27"/>
+        <source>轴反转</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="29"/>
+        <source>轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="75"/>
+        <source>左对齐</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="76"/>
+        <source>右对齐</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="77"/>
+        <source>顶部对齐</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="78"/>
+        <source>底部对齐</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="86"/>
+        <source>水平</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="86"/>
+        <source>垂直</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="94"/>
+        <source>无坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="95"/>
+        <source>线性坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="96"/>
+        <source>条形坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="97"/>
+        <source>类别坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="98"/>
+        <source>时间坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisinfo.cpp" line="99"/>
+        <source>对数坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisLabel</name>
+    <message>
+        <location filename="axissetting/axislabel.cpp" line="15"/>
+        <source>设置标签颜色</source>
+        <oldsource>设置颜色</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislabel.cpp" line="21"/>
+        <source>设置标签格式</source>
+        <oldsource>设置格式</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislabel.cpp" line="25"/>
+        <source>&amp;标签可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislabel.cpp" line="26"/>
+        <source>&amp;标签角度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislabel.cpp" line="27"/>
+        <source>&amp;标签颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislabel.cpp" line="28"/>
+        <source>&amp;标签格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislabel.cpp" line="31"/>
+        <source>轴标签</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisLine</name>
+    <message>
+        <location filename="axissetting/axisline.cpp" line="8"/>
+        <source>设置轴线颜色</source>
+        <oldsource>设置颜色</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisline.cpp" line="13"/>
+        <source>&amp;轴线可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisline.cpp" line="14"/>
+        <source>&amp;轴线颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisline.cpp" line="15"/>
+        <source>&amp;轴线宽度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisline.cpp" line="16"/>
+        <source>轴线</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisLog</name>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="19"/>
+        <source>设置刻度格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="20"/>
+        <source>支持格式字符串(d,i,o,x,X,f,F,e,E,g,G,c)等</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="24"/>
+        <source>&amp;轴主刻度个数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="25"/>
+        <source>&amp;轴次刻度个数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="26"/>
+        <source>&amp;轴底数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="27"/>
+        <source>&amp;轴下限值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="28"/>
+        <source>&amp;轴上限值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="40"/>
+        <source>其它</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="107"/>
+        <source>%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisSetting</name>
+    <message>
+        <location filename="axissetting/axissetting.cpp" line="60"/>
+        <source>X轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axissetting.cpp" line="61"/>
+        <source>Y轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axissetting.cpp" line="71"/>
+        <source>当前轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisShade</name>
+    <message>
+        <location filename="axissetting/axisshade.cpp" line="9"/>
+        <source>设置边框颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisshade.cpp" line="12"/>
+        <source>设置背景颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisshade.cpp" line="22"/>
+        <source>&amp;阴影可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisshade.cpp" line="23"/>
+        <source>&amp;边框颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisshade.cpp" line="24"/>
+        <source>&amp;边框宽度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisshade.cpp" line="25"/>
+        <source>&amp;背景颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisshade.cpp" line="26"/>
+        <source>&amp;背景样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisshade.cpp" line="27"/>
+        <source>轴阴影</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisTitle</name>
+    <message>
+        <location filename="axissetting/axistitle.cpp" line="9"/>
+        <source>设置标题颜色</source>
+        <oldsource>设置颜色</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistitle.cpp" line="12"/>
+        <source>设置标题格式</source>
+        <oldsource>设置格式</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistitle.cpp" line="19"/>
+        <source>&amp;标题可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistitle.cpp" line="20"/>
+        <source>&amp;标题颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistitle.cpp" line="21"/>
+        <source>&amp;标题格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistitle.cpp" line="25"/>
+        <source>设置标题</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistitle.cpp" line="34"/>
+        <source>轴标题</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisValue</name>
+    <message>
+        <location filename="axissetting/axisvalue.cpp" line="16"/>
+        <source>设置刻度格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisvalue.cpp" line="20"/>
+        <source>轴下限值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisvalue.cpp" line="22"/>
+        <source>轴上限值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisvalue.cpp" line="24"/>
+        <source>轴主刻度个数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisvalue.cpp" line="26"/>
+        <source>轴次刻度个数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisvalue.cpp" line="30"/>
+        <source>支持格式字符串(d,i,o,x,X,f,F,e,E,g,G,c)等</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisvalue.cpp" line="34"/>
+        <source>其它</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BackgroundArea</name>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="209"/>
+        <source>颜色填充</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="210"/>
+        <source>渐变填充</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="218"/>
+        <source>设置颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="256"/>
+        <source>设置背景颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="265"/>
+        <source>&amp;圆角直径</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="266"/>
+        <source>&amp;区域粒度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="267"/>
+        <source>&amp;填充方式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="268"/>
+        <source>&amp;颜色填充</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundarea.cpp" line="269"/>
+        <source>&amp;渐变填充</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BackgroundAreaGradient</name>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="13"/>
+        <source>渐变基本参数设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="38"/>
+        <source>&amp;插值对象</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="39"/>
+        <source>&amp;坐标模式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="40"/>
+        <source>&amp;延展方法</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="41"/>
+        <source>&amp;渐变类型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="45"/>
+        <source>渐变高级参数设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="46"/>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="47"/>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="48"/>
+        <source>设置参数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="50"/>
+        <source>&amp;线性渐变</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="51"/>
+        <source>&amp;径向渐变</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundareagradient.cpp" line="52"/>
+        <source>&amp;锥形渐变</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BackgroundBorder</name>
+    <message>
+        <location filename="chartsetting/backgroundborder.cpp" line="39"/>
+        <source>&amp;线型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundborder.cpp" line="40"/>
+        <source>&amp;线宽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundborder.cpp" line="41"/>
+        <source>&amp;填充样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundborder.cpp" line="42"/>
+        <source>&amp;连接样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/backgroundborder.cpp" line="43"/>
+        <source>&amp;端点样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CSVExport</name>
     <message>
         <location filename="csv/csvexport.cpp" line="48"/>
@@ -85,6 +671,337 @@
     </message>
 </context>
 <context>
+    <name>ChartAnimation</name>
+    <message>
+        <location filename="chartsetting/chartanimation.cpp" line="5"/>
+        <source>动画效果</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartanimation.cpp" line="6"/>
+        <source>动画曲线</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartanimation.cpp" line="7"/>
+        <source>动画主题</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartanimation.cpp" line="8"/>
+        <source>动画时长</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartanimation.cpp" line="77"/>
+        <source>动画</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartBackground</name>
+    <message>
+        <location filename="chartsetting/chartbackground.cpp" line="20"/>
+        <source>设置背景</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartbackground.cpp" line="24"/>
+        <source>设置边框</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartbackground.cpp" line="29"/>
+        <source>&amp;背景可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartbackground.cpp" line="30"/>
+        <source>&amp;阴影效果</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartbackground.cpp" line="31"/>
+        <source>&amp;背景画刷</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartbackground.cpp" line="32"/>
+        <source>&amp;背景边框</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartbackground.cpp" line="33"/>
+        <source>背景</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartBar</name>
+    <message>
+        <location filename="chartview/chartbar.cpp" line="9"/>
+        <source>放大</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/chartbar.cpp" line="10"/>
+        <source>缩小</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/chartbar.cpp" line="11"/>
+        <source>还原</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/chartbar.cpp" line="12"/>
+        <source>关联表格</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/chartbar.cpp" line="13"/>
+        <source>截图</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartBox</name>
+    <message>
+        <location filename="chartsetting/chartbox.cpp" line="21"/>
+        <source>设置颜色</source>
+        <oldsource>设置标题颜色</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartbox.cpp" line="36"/>
+        <source>设置格式</source>
+        <oldsource>设置标题格式</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartForeground</name>
+    <message>
+        <location filename="chartsetting/chartforeground.cpp" line="16"/>
+        <source>设置前景边框</source>
+        <oldsource>设置</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartforeground.cpp" line="20"/>
+        <source>&amp;前景可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartforeground.cpp" line="22"/>
+        <source>&amp;前景颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartforeground.cpp" line="23"/>
+        <source>&amp;前景样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartforeground.cpp" line="24"/>
+        <source>&amp;前景边框</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartforeground.cpp" line="25"/>
+        <source>前景</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartLegend</name>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="6"/>
+        <source>图例可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="7"/>
+        <source>边框可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="22"/>
+        <source>上方</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="23"/>
+        <source>下方</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="24"/>
+        <source>左侧</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="25"/>
+        <source>右侧</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="73"/>
+        <source>x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="74"/>
+        <source>y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="75"/>
+        <source>w</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="76"/>
+        <source>h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="79"/>
+        <source>文字颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="88"/>
+        <source>文字字体</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="98"/>
+        <source>边框颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="108"/>
+        <source>图例标记</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartlegend.cpp" line="124"/>
+        <source>图例</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartMargin</name>
+    <message>
+        <location filename="chartsetting/chartmargin.cpp" line="5"/>
+        <source>左边距</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartmargin.cpp" line="6"/>
+        <source>右边距</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartmargin.cpp" line="7"/>
+        <source>上边距</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartmargin.cpp" line="8"/>
+        <source>下边距</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartmargin.cpp" line="17"/>
+        <source>恢复默认边距</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/chartmargin.cpp" line="55"/>
+        <source>边距</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartTitle</name>
+    <message>
+        <location filename="chartsetting/charttitle.cpp" line="5"/>
+        <source>标题</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/charttitle.cpp" line="7"/>
+        <source>设置标题</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/charttitle.cpp" line="8"/>
+        <source>设置标题字体</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/charttitle.cpp" line="9"/>
+        <source>设置标题颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartTool</name>
+    <message>
+        <location filename="charttool/charttool.cpp" line="13"/>
+        <source>图表设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="charttool/charttool.cpp" line="20"/>
+        <source>曲线设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="charttool/charttool.cpp" line="23"/>
+        <source>坐标轴设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChartViewWidget</name>
+    <message>
+        <location filename="tool/chartview_tool.cpp" line="27"/>
+        <source>导入文件</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/chartview_tool.cpp" line="28"/>
+        <source>文件带表头?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/chartview_tool.cpp" line="56"/>
+        <source>折线图</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/chartview_tool.cpp" line="80"/>
+        <source>Txt/Csv文件</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/chartview_tool.cpp" line="80"/>
+        <source>*.txt *.csv</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ColorButton</name>
+    <message>
+        <location filename="chartsetting/colorbutton.cpp" line="70"/>
+        <source>设置颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Communication</name>
     <message>
         <location filename="communication/communication.cpp" line="98"/>
@@ -141,7 +1058,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="186"/>
+        <location filename="communication/communication_connect.cpp" line="184"/>
         <source>USB通讯已断开!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -151,55 +1068,84 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="191"/>
+        <location filename="communication/communication_connect.cpp" line="188"/>
+        <location filename="communication/communication_connect.cpp" line="317"/>
         <source>日志默认保存的路径为:
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="210"/>
+        <location filename="communication/communication_connect.cpp" line="206"/>
         <source>套接字错误类型: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="231"/>
+        <location filename="communication/communication_connect.cpp" line="227"/>
         <source>IP地址：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="232"/>
+        <location filename="communication/communication_connect.cpp" line="228"/>
         <source>端口号：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="237"/>
+        <location filename="communication/communication_connect.cpp" line="233"/>
         <source>确定</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="238"/>
+        <location filename="communication/communication_connect.cpp" line="234"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="248"/>
+        <location filename="communication/communication_connect.cpp" line="244"/>
         <source>IP地址格式不合法!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="282"/>
+        <location filename="communication/communication_connect.cpp" line="278"/>
         <source>TCP通讯连接失败!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="289"/>
+        <location filename="communication/communication_connect.cpp" line="285"/>
         <source>TCP通讯已连接!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="319"/>
+        <location filename="communication/communication_connect.cpp" line="315"/>
         <source>TCP通讯已断开!</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>ConicalGradientParamWidget</name>
+    <message>
+        <location filename="chartsetting/conicalgradientparamwidget.cpp" line="7"/>
+        <source>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 过渡线 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+9.锥形渐变的特点是围绕中心点插入颜色,过渡效果是锥形的.锥形渐变提供额外2个参数:渐变中心center,渐变起始角度angle.
+10.center默认在绘图区域左上角(0,0).
+11.angle默认是0°,范围在[0°,360°]之间.
+12.注意,延展方法的设置对锥形渐变没有影响,原因是锥形梯度是封闭的,即锥形渐变从0到360度填充整个圆,而径向或线性渐变的边界可以分别通过其半径或最终停止点指定.
+13.注意:参数动态可视化不代表已设置该参数,设置完成按钮具有最终确定权.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/conicalgradientparamwidget.cpp" line="19"/>
+        <source>注意:参数动态可视化不代表已设置该参数,设置完成按钮具有最终确定权</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/conicalgradientparamwidget.cpp" line="31"/>
+        <source>参数设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/conicalgradientparamwidget.cpp" line="33"/>
+        <source>&amp;是否参数动态可视化?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -261,6 +1207,115 @@
     </message>
 </context>
 <context>
+    <name>ForegroundArea</name>
+    <message>
+        <location filename="chartsetting/foregroundarea.cpp" line="12"/>
+        <source>设置前景颜色</source>
+        <oldsource>设置</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/foregroundarea.cpp" line="22"/>
+        <source>设置颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ForegroundBorder</name>
+    <message>
+        <location filename="chartsetting/foregroundborder.cpp" line="36"/>
+        <source>&amp;线型</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/foregroundborder.cpp" line="37"/>
+        <source>&amp;线宽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/foregroundborder.cpp" line="38"/>
+        <source>&amp;边框样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/foregroundborder.cpp" line="39"/>
+        <source>&amp;连接样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/foregroundborder.cpp" line="40"/>
+        <source>&amp;端点样式</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GradientParamWidget</name>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="15"/>
+        <source>渐变参数含义说明</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="23"/>
+        <source>1.渐变参数使用&lt;step,color&gt;来描述.其中step表示步数,范围[0.0,1.0];color表示颜色.
+2.允许通过按钮选择默认提供的11个颜色,也可以文本输入自定义间隔的颜色.
+3.文本必须用分号分隔开,键和值用逗号隔开,结尾可以没有分号.
+4.step至少有2个,只设置1个等同于颜色填充而非渐变填充.
+5.step允许不设置0.0和1.0,例如只设置0.2和0.6的颜色也是可以的.
+6.step允许使用0,1代替0.0和1.0
+7.color支持#或rgb(a)表示,注意rgb(a)值必须是整数且在[0,255]之间.
+8.文本示例: &apos;0.0,#90EE90;0.5,rgb(255,0,0);1,rgba(0,0,255,200)&apos;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="35"/>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="51"/>
+        <source>按钮选择</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="45"/>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="52"/>
+        <source>文本输入</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="66"/>
+        <source>设置方式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="77"/>
+        <source>设置完成</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="143"/>
+        <source>输入文本格式错误!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="241"/>
+        <source>输入的步值[%1]无效!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="253"/>
+        <source>输入的颜色%1无效!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="280"/>
+        <source>输入的颜色[rgb(%1,%2,%3)]无效!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/gradientparamwidget.cpp" line="284"/>
+        <source>输入的颜色[rgba(%1,%2,%3,%4)]无效!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Infomation</name>
     <message>
         <location filename="messagebox/infomation.cpp" line="13"/>
@@ -274,11 +1329,21 @@
     </message>
 </context>
 <context>
+    <name>LinearGradientParamWidget</name>
+    <message>
+        <location filename="chartsetting/lineargradientparamwidget.cpp" line="7"/>
+        <source>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 过渡线 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+9.线性渐变的特点是在起点和终点之间插入颜色,过渡效果是线性的.
+10.线性渐变没有额外参数设置,与径向和锥形渐变不同.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogPeriod</name>
     <message>
         <location filename="setting/logperiod.cpp" line="30"/>
-        <location filename="setting/logperiod.cpp" line="78"/>
-        <location filename="setting/logperiod.cpp" line="86"/>
+        <location filename="setting/logperiod.cpp" line="81"/>
+        <location filename="setting/logperiod.cpp" line="89"/>
         <source>自定义</source>
         <translation type="unfinished"></translation>
     </message>
@@ -288,32 +1353,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/logperiod.cpp" line="38"/>
+        <location filename="setting/logperiod.cpp" line="39"/>
         <source>自定义周期单位: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/logperiod.cpp" line="43"/>
+        <location filename="setting/logperiod.cpp" line="44"/>
         <source>自定义周期输入: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/logperiod.cpp" line="47"/>
+        <location filename="setting/logperiod.cpp" line="48"/>
         <source>保存自定义周期</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/logperiod.cpp" line="48"/>
+        <location filename="setting/logperiod.cpp" line="49"/>
         <source>完成输入</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/logperiod.cpp" line="136"/>
+        <location filename="setting/logperiod.cpp" line="139"/>
         <source>推荐300ms的公倍数,否则将取整处理!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/logperiod.cpp" line="105"/>
+        <location filename="setting/logperiod.cpp" line="108"/>
         <source>已成功设置日志周期为%1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -328,12 +1393,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/logperiod.cpp" line="148"/>
+        <location filename="setting/logperiod.cpp" line="151"/>
         <source>不支持小于300ms的日志周期!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/logperiod.cpp" line="162"/>
+        <location filename="setting/logperiod.cpp" line="165"/>
         <source>不支持小于0.3s的日志周期!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -410,38 +1475,38 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.cpp" line="136"/>
+        <location filename="mainwindow.cpp" line="132"/>
         <source>关于Qt</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="24"/>
+        <location filename="mainwindow.cpp" line="25"/>
         <source>基本设置</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="25"/>
+        <location filename="mainwindow.cpp" line="26"/>
         <source>硬件</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="26"/>
+        <location filename="mainwindow.cpp" line="27"/>
         <source>软件</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="27"/>
+        <location filename="mainwindow.cpp" line="28"/>
         <source>Qt</source>
         <oldsource>qt</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="28"/>
+        <location filename="mainwindow.cpp" line="29"/>
         <source>中文</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="29"/>
+        <location filename="mainwindow.cpp" line="30"/>
         <source>英文</source>
         <translation></translation>
     </message>
@@ -943,6 +2008,34 @@
     </message>
 </context>
 <context>
+    <name>RadialGradientParamWidget</name>
+    <message>
+        <location filename="chartsetting/radialgradientparamwidget.cpp" line="9"/>
+        <source>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 过渡线 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+9.简单径向渐变的特点是在焦点和围绕它的圆上的端点之间插入颜色,扩展径向渐变在焦点和中心圆之间插入颜色,过渡效果是辐射的.径向渐变提供额外3个参数:渐变中心半径center-radius,渐变中心center,渐变焦点focal.
+10.center-radius表示辐射的半径,一般不超过绘图区域本身的宽度,超过的话不会有错误但是没有意义.默认值1.0.
+11.center默认在绘图区域左上角(0,0),取值(0,center-radius)或者(center-radius,0)会起到与center-radius的设置抵消的作用.12.focal在简单径向渐变中位于中心圆内,在扩展径向渐变中可以具有任何位置,如果希望得到对称的渐变效果,center和focal坐标要相等.
+13.这些参数设置的上限理论上没有限制,但是仍然需要规定一个上限值,开发者设定为20000.
+14.注意:参数动态可视化不代表已设置该参数,设置完成按钮具有最终确定权.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/radialgradientparamwidget.cpp" line="21"/>
+        <source>注意:参数动态可视化不代表已设置该参数,设置完成按钮具有最终确定权</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/radialgradientparamwidget.cpp" line="34"/>
+        <source>参数设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartsetting/radialgradientparamwidget.cpp" line="36"/>
+        <source>&amp;是否参数动态可视化?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RetrieveFirst</name>
     <message>
         <location filename="login/login_retrieve_first.cpp" line="4"/>
@@ -1043,6 +2136,49 @@
     </message>
 </context>
 <context>
+    <name>ScreenShoot</name>
+    <message>
+        <location filename="chartview/screenshoot.cpp" line="8"/>
+        <source>截图区域</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/screenshoot.cpp" line="10"/>
+        <source>全屏</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/screenshoot.cpp" line="11"/>
+        <source>图表</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/screenshoot.cpp" line="17"/>
+        <source>图像格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/screenshoot.cpp" line="25"/>
+        <source>&amp;格式选择</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/screenshoot.cpp" line="26"/>
+        <source>&amp;输出质量</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/screenshoot.cpp" line="30"/>
+        <source>截图</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/screenshoot.cpp" line="43"/>
+        <source>图片保存路径</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SerialConfig</name>
     <message>
         <location filename="communication/usbconfig.h" line="22"/>
@@ -1059,11 +2195,6 @@
     </message>
     <message>
         <location filename="setting/setting.cpp" line="15"/>
-        <source>表格功能</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="setting/setting.cpp" line="15"/>
         <source>日志周期</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1073,17 +2204,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/setting.cpp" line="38"/>
+        <location filename="setting/setting.cpp" line="37"/>
         <source>确定</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/setting.cpp" line="39"/>
+        <location filename="setting/setting.cpp" line="38"/>
         <source>取消</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setting/setting.cpp" line="54"/>
+        <location filename="setting/setting.cpp" line="53"/>
         <source>基本设置</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1096,27 +2227,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/table.cpp" line="456"/>
+        <location filename="table/table.cpp" line="462"/>
         <source>清理表格成功!(耗时%1s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/table.cpp" line="469"/>
+        <location filename="table/table.cpp" line="475"/>
         <source>表格行列数不能小于0!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/table.cpp" line="493"/>
+        <location filename="table/table.cpp" line="499"/>
         <source>表格不为空,重置丢失内容,是否要继续?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/table.cpp" line="494"/>
+        <location filename="table/table.cpp" line="500"/>
         <source>继续</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/table.cpp" line="495"/>
+        <location filename="table/table.cpp" line="501"/>
         <source>取消</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1144,8 +2275,8 @@
         <location filename="table/table_impexort.cpp" line="106"/>
         <location filename="table/table_impexort.cpp" line="130"/>
         <location filename="table/table_impexort.cpp" line="277"/>
-        <location filename="table/table_impexort_concurrent.cpp" line="211"/>
-        <location filename="table/table_impexort_concurrent.cpp" line="264"/>
+        <location filename="table/table_impexort_concurrent.cpp" line="210"/>
+        <location filename="table/table_impexort_concurrent.cpp" line="263"/>
         <source>*.csv</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1236,30 +2367,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/table_impexort_concurrent.cpp" line="211"/>
-        <location filename="table/table_impexort_concurrent.cpp" line="264"/>
+        <location filename="table/table_impexort_concurrent.cpp" line="210"/>
+        <location filename="table/table_impexort_concurrent.cpp" line="263"/>
         <source>Csv文件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="table/table_impexort.cpp" line="11"/>
-        <location filename="table/table_impexort_concurrent.cpp" line="213"/>
+        <location filename="table/table_impexort_concurrent.cpp" line="212"/>
         <source>取消导入Csv文件!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="table/table_impexort.cpp" line="37"/>
-        <location filename="table/table_impexort_concurrent.cpp" line="255"/>
+        <location filename="table/table_impexort_concurrent.cpp" line="254"/>
         <source>成功导入Csv文件!(耗时%1s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/table_impexort_concurrent.cpp" line="309"/>
+        <location filename="table/table_impexort_concurrent.cpp" line="308"/>
         <source>成功导出Csv文件!(耗时%1s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/table_impexort_concurrent.cpp" line="266"/>
+        <location filename="table/table_impexort_concurrent.cpp" line="265"/>
         <source>取消导出Csv文件!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1362,126 +2493,124 @@
     </message>
 </context>
 <context>
-    <name>TableView</name>
+    <name>TableViewWidget</name>
     <message>
-        <location filename="table/tableview.cpp" line="6"/>
-        <source>添加行</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="6"/>
-        <source>添加列</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="7"/>
-        <source>插入行</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="7"/>
-        <source>插入列</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="8"/>
-        <source>删除行</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="8"/>
-        <source>删除列</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="9"/>
-        <source>加粗</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="9"/>
-        <source>斜体</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="10"/>
-        <source>居左</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="10"/>
-        <source>居中</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="10"/>
-        <source>居右</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="11"/>
-        <source>导入Txt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="11"/>
-        <source>导出Txt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="12"/>
-        <source>导入Csv</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="12"/>
-        <source>导出Csv</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="13"/>
-        <source>设置</source>
-        <oldsource>设置颜色</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="table/tableview.cpp" line="5"/>
+        <location filename="tool/tableview_tool.cpp" line="5"/>
         <source>位置: 未知</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/tableview.cpp" line="5"/>
+        <location filename="tool/tableview_tool.cpp" line="5"/>
         <source>文本: 未知</source>
-        <oldsource>内容: 未知</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/tableview.cpp" line="5"/>
+        <location filename="tool/tableview_tool.cpp" line="5"/>
         <source>工具提示: 未知</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/tableview.cpp" line="9"/>
+        <location filename="tool/tableview_tool.cpp" line="6"/>
+        <source>添加行</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="6"/>
+        <source>添加列</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="7"/>
+        <source>插入行</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="7"/>
+        <source>插入列</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="8"/>
+        <source>删除行</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="8"/>
+        <source>删除列</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="9"/>
+        <source>加粗</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="9"/>
+        <source>斜体</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="9"/>
         <source>清空</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/tableview.cpp" line="9"/>
+        <location filename="tool/tableview_tool.cpp" line="9"/>
         <source>画笔</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/tableview.cpp" line="84"/>
+        <location filename="tool/tableview_tool.cpp" line="10"/>
+        <source>居左</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="10"/>
+        <source>居中</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="10"/>
+        <source>居右</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="11"/>
+        <source>导入Txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="11"/>
+        <source>导出Txt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="12"/>
+        <source>导入Csv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="12"/>
+        <source>导出Csv</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="13"/>
+        <source>设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tableview_tool.cpp" line="85"/>
         <source>位置: ( %1, %2 )</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/tableview.cpp" line="91"/>
+        <location filename="tool/tableview_tool.cpp" line="92"/>
         <source>文本: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table/tableview.cpp" line="183"/>
+        <location filename="tool/tableview_tool.cpp" line="184"/>
         <source>工具提示: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1496,6 +2625,19 @@
     <message>
         <location filename="messagebox/tip.cpp" line="46"/>
         <source>小提示</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Tool</name>
+    <message>
+        <location filename="tool/tool.cpp" line="16"/>
+        <source>启动表格工具</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/tool.cpp" line="17"/>
+        <source>启动绘图工具</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

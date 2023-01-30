@@ -2,8 +2,8 @@
 
 ChartViewWidget::ChartViewWidget(QWidget *parent) : QWidget(parent)
 {
-        init();
-        initConnections();
+    init();
+    initConnections();
 }
 
 void ChartViewWidget::closeEvent(QCloseEvent *e)
@@ -24,16 +24,25 @@ void ChartViewWidget::init()
     setFont(QFont("Times New Roman",12));
 
     /*-----------------------------------------table-----------------------------------------*/
-    mImportLogBtn = new QPushButton(tr("导入日志文件"));
-    mImportFileBtn = new QPushButton(tr("导入普通文件"));
+    mImportFileBtn = new QPushButton(tr("导入文件"));
+    mImportHeaderBtn = new QCheckBox(tr("文件带表头?"));
+    mImportHeaderBtn->setCheckState(Qt::Checked);
     QGroupBox * tablebtnbox = new QGroupBox;
     QHBoxLayout * tablebtnlay = new QHBoxLayout;
-    tablebtnlay->addWidget(mImportLogBtn);
     tablebtnlay->addWidget(mImportFileBtn);
+    tablebtnlay->addWidget(mImportHeaderBtn);
     tablebtnbox->setLayout(tablebtnlay);
 
     mTableView = new QTableView;
     mTableView->setMinimumWidth(400);
+    mTableModel = new TableViewModel;
+    mTableView->setModel(mTableModel);
+    QItemSelectionModel * selection = new QItemSelectionModel(mTableModel);
+    mTableView->setSelectionModel(selection);
+    mTableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    mTableView->setSelectionBehavior(QAbstractItemView::SelectItems);
+    mTableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    mTableView->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     QGroupBox * tablebox = new QGroupBox;
     QVBoxLayout * tablelay = new QVBoxLayout;
     tablelay->addWidget(mTableView);
@@ -65,5 +74,44 @@ void ChartViewWidget::init()
 
 void ChartViewWidget::initConnections()
 {
+    connect(mImportFileBtn,&QPushButton::clicked,this,[=]{
+        QDir debugDir= QDir::current();
+        debugDir.cdUp();
+        QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR, tr("Txt/Csv文件"), debugDir.path(),tr("*.txt *.csv"));
+        if (fileName.isEmpty()) return; // 弹窗类型语句不可以放在run函数内执行
 
+        bool withHeader = mImportHeaderBtn->isChecked();
+        bool isCsv = fileName.contains(".csv");
+
+        QFuture<void> future =QtConcurrent::run([=]{
+            mTableModel->clear();
+            mTableModel->clearMapping();
+
+            QFile outFile(fileName);
+            outFile.open( QIODevice::ReadOnly );
+            QTextStream ts(&outFile);
+            ts.setAutoDetectUnicode(true);
+            ts.setCodec(QTextCodec::codecForName("UTF-8"));
+            if (isCsv) ts.setCodec(QTextCodec::codecForName("gbk"));
+
+            if (withHeader) { // 如果导入文件带有表头
+                QString header = ts.readLine(); // 事先读取1行
+                if (header.isEmpty()) return; // 至少应该有1行表头
+
+                QStringList headerList;
+                headerList = isCsv? header.split(',',QString::SkipEmptyParts):
+                                    header.split(QRegExp("\\s+"),QString::SkipEmptyParts);
+                mTableModel->setHorizontalHeaderLabels(headerList);//设置表头
+            }
+
+            while (!ts.atEnd()) {
+                QString line= ts.readLine();
+                QStringList lineList =isCsv?line.split(',',QString::SkipEmptyParts):
+                                            line.split(QRegExp("\\s+"),QString::SkipEmptyParts);
+                mTableModel->appendRow(lineList);
+            }
+            outFile.close();
+        });
+        while (!future.isFinished()) QApplication::processEvents(QEventLoop::AllEvents, 5);
+    });
 }

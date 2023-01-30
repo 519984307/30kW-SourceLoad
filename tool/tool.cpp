@@ -15,7 +15,7 @@ Tool::Tool(QWidget *parent) : QWidget(parent)
 
     mStartTableBtn = new QPushButton(tr("启动表格工具"));
     mStartPlotBtn = new QPushButton(tr("启动绘图工具"));
-    mMainLayout = new QGridLayout(this);
+    mMainLayout = new QVBoxLayout(this);
 
     QPushButton * A = new QPushButton("启动AA工具");
     QPushButton * B = new QPushButton("启动BB工具");
@@ -26,7 +26,7 @@ Tool::Tool(QWidget *parent) : QWidget(parent)
     QHBoxLayout * lay1 = new QHBoxLayout;
     lay1->addWidget(mStartTableBtn);
     lay1->addWidget(mStartPlotBtn);
-    lay1->addWidget(A);
+    //lay1->addWidget(A);
     box1->setLayout(lay1);
 
     QGroupBox * box2 = new QGroupBox;
@@ -36,8 +36,7 @@ Tool::Tool(QWidget *parent) : QWidget(parent)
     lay2->addWidget(D);
     box2->setLayout(lay2);
 
-    mMainLayout->addWidget(box1,0,0);
-    mMainLayout->addWidget(box2,1,0);
+    mMainLayout->addWidget(box1);
     mMainLayout->setSpacing(10);
 
     connect(mStartTableBtn,&QPushButton::clicked,this,[=]{mTableTool->show();});

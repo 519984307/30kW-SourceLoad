@@ -5,7 +5,7 @@ AxisLine::AxisLine(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*p
 {
     mAxisLineVisibility = new QCheckBox;
     updateVisibilityState();
-    mAxisLineColor = new QPushButton(tr("设置颜色"));
+    mAxisLineColor = new QPushButton(tr("设置轴线颜色"));
     updaterColorState();
     mAxisLineWidth = new QSpinBox;
     updatePenWidthState();

@@ -52,15 +52,20 @@ private:
     WORKMODE mWorkMode;
 private:
     QSplitter * mainLayout;
-    QLabel* IsShowResistanceLabel; QCheckBox* IsShowResistance;
+    QLabel* IsShowResistanceLabel;
+    QCheckBox* IsShowResistance;
 
     MonitorLabel * ShowPower;
-    QLabel * SetPowerSourceLabel; MonitorSpinBox * SetPowerSource;
-    QLabel * SetPowerLoadLabel; MonitorSpinBox * SetPowerLoad;
+    QLabel * SetPowerSourceLabel;
+    MonitorSpinBox * SetPowerSource;
+    QLabel * SetPowerLoadLabel;
+    MonitorSpinBox * SetPowerLoad;
 
     MonitorLabel * ShowResistance;
-    QLabel * SetResistanceSourceLabel; MonitorSpinBox * SetResistanceSource;
-    QLabel * SetResistanceLoadLabel; MonitorSpinBox * SetResistanceLoad;
+    QLabel * SetResistanceSourceLabel;
+    MonitorSpinBox * SetResistanceSource;
+    QLabel * SetResistanceLoadLabel;
+    MonitorSpinBox * SetResistanceLoad;
 
     MonitorLabel * ShowVoltage;
     MonitorLabel * ShowCurrent;

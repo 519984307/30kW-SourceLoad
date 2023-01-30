@@ -13,7 +13,7 @@ ChartForeground::ChartForeground(QChart *chart,const QIcon& icon,QWidget*parent)
     mForegroundArea = new ForegroundArea(chart,icon);
 
     mForegroundBorder = new ForegroundBorder(chart,icon);
-    QPushButton * b = new QPushButton(tr("设置"));
+    QPushButton * b = new QPushButton(tr("设置前景边框"));
     connect(b,&QPushButton::clicked,this,[=]{mForegroundBorder->show();});
 
     QFormLayout * lay = new QFormLayout;

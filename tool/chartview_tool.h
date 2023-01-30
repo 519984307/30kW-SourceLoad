@@ -9,7 +9,11 @@
 #include <QPushButton>
 #include <QTableView>
 #include <QTabWidget>
+#include <QItemSelectionModel>
 #include <chart/linechart.h>
+#include <tool/tableviewmodel.h>
+#include <QtConcurrent/QtConcurrent>
+using namespace  QtConcurrent;
 
 class ChartViewWidget : public QWidget
 {
@@ -22,8 +26,9 @@ private:
     void initConnections();
     QGridLayout * mLayout;
     QTableView * mTableView;
-    QPushButton * mImportLogBtn;
+    TableViewModel * mTableModel;
     QPushButton * mImportFileBtn;
+    QCheckBox * mImportHeaderBtn;
     QTabWidget * mTab;
     LineChart * mLineTab;
 };

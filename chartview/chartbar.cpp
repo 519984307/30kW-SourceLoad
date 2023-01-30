@@ -1,10 +1,10 @@
 #include <chartview/chartbar.h>
-#include <QDebug>
 
 ChartBar::ChartBar(QTableView*tableview,QChartView* chartview,QWidget*parent):
     QToolBar(parent),mTableView(tableview),mChartView(chartview),mChart(chartview->chart())
 {
     mScreenShot = new ScreenShoot(chartview);
+    mAssociateTable = new AssociateTable(tableview,chartview);
 
     QAction * zoombig = new QAction(QIcon(":/images/zoombig.bmp"),tr("放大"));
     QAction * zoomsmall = new QAction(QIcon(":/images/zoomsmall.bmp"),tr("缩小"));
@@ -21,10 +21,7 @@ ChartBar::ChartBar(QTableView*tableview,QChartView* chartview,QWidget*parent):
     connect(zoombig,&QAction::triggered,this,[=]{mChart->zoom(1.2);});
     connect(zoomsmall,&QAction::triggered,this,[=]{mChart->zoom(0.8);});
     connect(zoom,&QAction::triggered,this,[=]{mChart->zoomReset();});
-    connect(associatetable,&QAction::triggered,this,[=]{
-
-    });
-    connect(screenshot,&QAction::triggered,this,[=]{
-            mScreenShot->exec();
-    });
+    connect(screenshot,&QAction::triggered,this,[=]{mScreenShot->exec();});
+    connect(associatetable,&QAction::triggered,this,[=]{ mAssociateTable->exec();});
+    connect(mAssociateTable,&AssociateTable::tableChanged,this,&ChartBar::tableChanged);
 }

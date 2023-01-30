@@ -36,6 +36,7 @@ INPUT(
 ./release\charttool.o
 ./release\charttoolwidget.o
 ./release\linecharttool.o
+./release\associatetable.o
 ./release\chartbar.o
 ./release\chartview.o
 ./release\screenshoot.o
@@ -81,6 +82,7 @@ INPUT(
 ./release\tablesizedialog.o
 ./release\tableview_tool.o
 ./release\chartview_tool.o
+./release\tableviewmodel.o
 ./release\tool.o
 ./release\qrc_images.o
 ./release\qrc_trans.o
@@ -121,6 +123,7 @@ INPUT(
 ./release\moc_charttool.o
 ./release\moc_charttoolwidget.o
 ./release\moc_linecharttool.o
+./release\moc_associatetable.o
 ./release\moc_chartbar.o
 ./release\moc_chartview.o
 ./release\moc_screenshoot.o
@@ -158,5 +161,6 @@ INPUT(
 ./release\moc_tablesizedialog.o
 ./release\moc_chartview_tool.o
 ./release\moc_tableview_tool.o
+./release\moc_tableviewmodel.o
 ./release\moc_tool.o
 );

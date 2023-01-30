@@ -1,4 +1,4 @@
-#include "axistitle.h"
+#include <axissetting/axistitle.h>
 
 AxisTitle::AxisTitle(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*parent):
     AxisBox(chart,axis,icon,parent)
@@ -6,10 +6,10 @@ AxisTitle::AxisTitle(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget
         mAxisTitleVisible = new QCheckBox;
         updateTitleVisibilityState();
 
-        mAxisTitleColor = new QPushButton(tr("设置颜色"));
+        mAxisTitleColor = new QPushButton(tr("设置标题颜色"));
         updateTitleColorState();
 
-        mAxisTitleFont = new QPushButton(tr("设置格式"));
+        mAxisTitleFont = new QPushButton(tr("设置标题格式"));
         updateTitleFontState();
 
         //mAxisTitleBrush = brushStyleCombo();

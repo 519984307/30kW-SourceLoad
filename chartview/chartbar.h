@@ -2,10 +2,8 @@
 #define CHARTBAR_H
 
 #include <QToolBar>
-#include <QtCharts/QChart>
-#include <QTableView>
 #include <chartview/screenshoot.h>
-using namespace QtCharts;
+#include <chartview/associatetable.h>
 
 class ChartBar : public QToolBar
 {
@@ -17,6 +15,9 @@ private:
     QChartView * mChartView;
     QChart * mChart;
     ScreenShoot * mScreenShot;
+    AssociateTable * mAssociateTable;
+signals:
+    void tableChanged();
 };
 
 #endif // CHARTBAR_H

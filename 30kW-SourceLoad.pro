@@ -62,6 +62,7 @@ SOURCES += \
     charttool/charttool.cpp \
     charttool/charttoolwidget.cpp \
     charttool/linecharttool.cpp \
+    chartview/associatetable.cpp \
     chartview/chartbar.cpp \
     chartview/chartview.cpp \
     chartview/screenshoot.cpp \
@@ -107,6 +108,7 @@ SOURCES += \
     table/tablesizedialog.cpp \
     tool/tableview_tool.cpp \
     tool/chartview_tool.cpp \
+    tool/tableviewmodel.cpp \
     tool/tool.cpp
 
 HEADERS += \
@@ -147,6 +149,7 @@ HEADERS += \
     charttool/charttool.h \
     charttool/charttoolwidget.h \
     charttool/linecharttool.h \
+    chartview/associatetable.h \
     chartview/chartbar.h \
     chartview/chartview.h \
     chartview/screenshoot.h \
@@ -205,6 +208,7 @@ HEADERS += \
     test/test.h \
     tool/chartview_tool.h \
     tool/tableview_tool.h \
+    tool/tableviewmodel.h \
     tool/tool.h
 
 # Default rules for deployment.

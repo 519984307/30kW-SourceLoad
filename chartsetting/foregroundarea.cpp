@@ -9,7 +9,7 @@ ForegroundArea::ForegroundArea(QChart* chart,const QIcon&icon,QWidget *parent) :
     //setMinimumSize(QSize(600,200));//不要设置这个否则无法自适应
 
     QHBoxLayout * lay = new QHBoxLayout;
-    mColorButton = new QPushButton(tr("设置"));
+    mColorButton = new QPushButton(tr("设置前景颜色"));
     mBrushStyle = new QComboBox;
     initBrushStyleComboBox();
 
@@ -19,7 +19,7 @@ ForegroundArea::ForegroundArea(QChart* chart,const QIcon&icon,QWidget *parent) :
         dlg->setFixedSize(800,400);
         dlg->setWindowIcon(mIcon);
         dlg->setOptions(QColorDialog::ShowAlphaChannel|QColorDialog::DontUseNativeDialog);
-        dlg->setWindowTitle(tr("设置前景颜色"));
+        dlg->setWindowTitle(tr("设置颜色"));
         connect(dlg,static_cast<void (QColorDialog::*) (const QColor&)>(&QColorDialog::colorSelected)
                ,this,[=](const QColor& color){
             mChart->setPlotAreaBackgroundBrush(QBrush(color,Qt::BrushStyle(mBrushStyle->currentIndex())));

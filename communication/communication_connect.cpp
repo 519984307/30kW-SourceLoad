@@ -154,7 +154,6 @@ void Communication::usbConnect()
          if (!mUsbPort->open(QIODevice::ReadWrite)) return;
 
          showInfo(tr("USB通讯已连接!"));
-
          mCommunicationType = Type::Serial; // 更新通讯类型
 
          mUsbQueryThread->start();
@@ -163,9 +162,8 @@ void Communication::usbConnect()
          mUsbConnectBtn->setEnabled(false);
          mUsbDisconnectBtn->setEnabled(true);
          mUsbConfigureBtn->setEnabled(false);
-
          mMonitor->show();
-
+    qDebug()<<4;
          emit currentDevice(mUsbPort);
 }
 
@@ -221,6 +219,7 @@ void Communication::tcpCycle()
 void Communication::tcpConfigure()
 {
         QDialog * dlg = new QDialog;
+        dlg->setWindowIcon(QIcon(":/images/portsettings.png"));
         QPalette pal = dlg->palette();
         pal.setBrush(QPalette::Background,QBrush(QPixmap(":/images/tcp.jpg")));
         dlg->setPalette(pal);

@@ -30,6 +30,8 @@ LineChart::LineChart(QTableView * tableview,QWidget *parent) : QMainWindow(paren
     mSplitter->setStretchFactor(0,4); // 4:1的宽度
     mSplitter->setStretchFactor(1,1);
     setCentralWidget(mSplitter);
+
+    connect(mToolBar,&ChartBar::tableChanged,mToolBox,&LineChartTool::tableChanged);
 }
 
 LineChart::~LineChart()
@@ -50,24 +52,79 @@ void LineChart::closeChildrenWindows()
 
 void LineChart::initChart()
 {
+    // 任选1种初始化方式
+    //initRandomChart();
+    initMappingChart();
+    mChart->setTitle("Line Chart Example");
+    const auto markers = mChart->legend()->markers(); // 初始化曲线后再连接
+    for (QLegendMarker *marker : markers) { // 利用返回的图例标记的clicked信号实现点击图例变暗并隐藏曲线的效果
+        QObject::disconnect(marker, &QLegendMarker::clicked,this, &LineChart::legendMarkerClicked); // 先断开以防重复连接
+        QObject::connect(marker, &QLegendMarker::clicked, this, &LineChart::legendMarkerClicked);
+    }
+}
+
+void LineChart::initRandomChart()
+{
     QLineSeries *series = mGenerator->linechart(5000,100);//幅值5000配合对数坐标轴
-    QValueAxis *axisX = mGenerator->axis(series->count()/5); // 默认100个值,间隔5
+    QValueAxis *axisX = mGenerator->axis(series->count()/10); // 默认100个值,间隔10
     QLogValueAxis *axisY = mGenerator->logaxis(4.0,"value"); // 对数底数4
     mChart->addSeries(series); // addSeries要先调用
-    mChart->setTitle("Line Chart Example");
+
     mChart->addAxis(axisX, Qt::AlignBottom); // 表添加轴确定好方向
     mChart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisX); // 将轴和曲线关联
     series->attachAxis(axisY);// 这步操作切记必须在表先addAxis之后再附着到曲线上
     //qDebug()<<mChart->axisX()<<axisX; // 是1个地址
     //qDebug()<<axisX->type()<<axisY->type(); // 1,16=AxisTypeValue,AxisTypeLogValue
-    const auto markers = mChart->legend()->markers(); // 初始化曲线后再连接
-    for (QLegendMarker *marker : markers) { // 利用返回的图例标记的clicked信号实现点击图例变暗并隐藏曲线的效果
-        QObject::disconnect(marker, &QLegendMarker::clicked,this, &LineChart::legendMarkerClicked); // 先断开以防重复连接
-        QObject::connect(marker, &QLegendMarker::clicked, this, &LineChart::legendMarkerClicked);
-    }
-
     connect(series, &QLineSeries::hovered, this, &LineChart::showToolTip);
+}
+
+void LineChart::initMappingChart()
+{
+    auto model = static_cast<TableViewModel*>(mTableView->model());
+
+    QLineSeries * series1 = new QLineSeries;
+    series1->setPen(QPen(QBrush(Qt::red,Qt::SolidPattern),2));
+    series1->setName("line1");
+    QLineSeries * series2 = new QLineSeries;
+    series2->setPen(QPen(QBrush(Qt::green,Qt::SolidPattern),2));
+    series2->setName("line2");
+    QLineSeries * series3 = new QLineSeries;
+    series3->setPen(QPen(QBrush(Qt::yellow,Qt::SolidPattern),2));
+    series3->setName("line3");
+
+     QVXYModelMapper *mapper = new QVXYModelMapper(this);
+    mapper->setXColumn(0);
+    mapper->setYColumn(1);
+    mapper->setSeries(series1);
+    mapper->setModel(model);
+    QString seriesColorHex = "#" + QString::number(series1->pen().color().rgb(), 16).right(6).toUpper();
+    model->addMapping(seriesColorHex, QRect(0, 0, 2, model->rowCount())); //前2列
+    mChart->addSeries(series1);
+
+    mapper = new QVXYModelMapper(this);
+    mapper->setXColumn(2);
+    mapper->setYColumn(3);
+    mapper->setSeries(series2);
+    mapper->setModel(model);
+    seriesColorHex = "#" + QString::number(series2->pen().color().rgb(), 16).right(6).toUpper();
+    model->addMapping(seriesColorHex, QRect(2, 0, 2, model->rowCount())); //中间2列
+    mChart->addSeries(series2);
+
+    mapper = new QVXYModelMapper(this);
+    mapper->setXColumn(4);
+    mapper->setYColumn(5);
+    mapper->setSeries(series3);
+    mapper->setModel(model);
+    seriesColorHex = "#" + QString::number(series3->pen().color().rgb(), 16).right(6).toUpper();
+    model->addMapping(seriesColorHex, QRect(4, 0, 2, model->rowCount())); //后2列
+    mChart->addSeries(series3);
+
+    mChart->createDefaultAxes();
+
+    connect(series1, &QLineSeries::hovered, this, &LineChart::showToolTip);
+    connect(series2, &QLineSeries::hovered, this, &LineChart::showToolTip);
+    connect(series3, &QLineSeries::hovered, this, &LineChart::showToolTip);
 }
 
 void LineChart::legendMarkerClicked() // 这个函数不能放在chart.cpp连接因为那个时候还没有曲线,图例尚未创建出来,必须先初始化曲线后再连接
@@ -117,7 +174,6 @@ void LineChart::showToolTip(QPointF point, bool state)
         mCoordRect->setRect(QRectF(pos,QSizeF(213.,38.))); //长213高38的矩形刚好把文字放进去
         mCoordTip->show();
         mCoordRect->show();
-
     }
     else {
         mCoordTip->hide();

@@ -46,6 +46,8 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
             default:break;
     }
 
+    connect(this,&AxisSetting::tableChanged,this,[=]{mAxisX->click();});// mChart也会改变,执行1次更新界面
+
 }
 
 void AxisSetting::closeChildrenWindows()

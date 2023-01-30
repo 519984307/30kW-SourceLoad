@@ -45,19 +45,19 @@ int main(int argc, char *argv[])
         Language == QStringLiteral("cn")? translator->load(QStringLiteral(":/cn.qm")):translator->load(QStringLiteral(":/en.qm"));
         LANUAGE lan = Language==QStringLiteral("cn")?LANUAGE ::CN:LANUAGE ::EN;
         a.installTranslator(translator);
-//      Login * login = new Login; // 带登录模块
-//      if (login->exec() == QDialog::Accepted)
-//      {
-//          MainWindow w;
-//          w.setLanuage(lan);
-//          w.show();
-//          int ret = a.exec();
-//          if (ret == 773) { // exit(773)时重启,这个在切换语言中使用
-//              QProcess::startDetached(qApp->applicationFilePath(), QStringList());
-//          }
-//          return ret;
-//      }
-//      else return 0;
+//        Login * login = new Login; // 带登录模块
+//        if (login->exec() == QDialog::Accepted)
+//        {
+//              MainWindow w;
+//              w.setLanuage(lan);
+//              w.show();
+//              int ret = a.exec();
+//              if (ret == 773) { // exit(773)时重启,这个在切换语言中使用
+//                  QProcess::startDetached(qApp->applicationFilePath(), QStringList());
+//              }
+//              return ret;
+//        }
+//        else return 0;
 
         // 不带登录模块
         MainWindow w;

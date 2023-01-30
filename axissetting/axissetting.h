@@ -33,5 +33,7 @@ private:
     AxisGrid * mAxisGrid;
     AxisValue * mAxisValue;
     AxisLog * mAxisLog;
+signals:
+    void tableChanged();
 };
 #endif // AXISSETTING_H

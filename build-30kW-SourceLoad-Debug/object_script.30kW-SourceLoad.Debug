@@ -36,6 +36,7 @@ INPUT(
 ./debug\charttool.o
 ./debug\charttoolwidget.o
 ./debug\linecharttool.o
+./debug\associatetable.o
 ./debug\chartbar.o
 ./debug\chartview.o
 ./debug\screenshoot.o
@@ -81,6 +82,7 @@ INPUT(
 ./debug\tablesizedialog.o
 ./debug\tableview_tool.o
 ./debug\chartview_tool.o
+./debug\tableviewmodel.o
 ./debug\tool.o
 ./debug\qrc_images.o
 ./debug\qrc_trans.o
@@ -121,6 +123,7 @@ INPUT(
 ./debug\moc_charttool.o
 ./debug\moc_charttoolwidget.o
 ./debug\moc_linecharttool.o
+./debug\moc_associatetable.o
 ./debug\moc_chartbar.o
 ./debug\moc_chartview.o
 ./debug\moc_screenshoot.o
@@ -158,5 +161,6 @@ INPUT(
 ./debug\moc_tablesizedialog.o
 ./debug\moc_chartview_tool.o
 ./debug\moc_tableview_tool.o
+./debug\moc_tableviewmodel.o
 ./debug\moc_tool.o
 );

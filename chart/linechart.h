@@ -21,6 +21,7 @@
 #include <chartview/chartview.h>
 #include <chartview/chartbar.h>
 #include <charttool/linecharttool.h>
+#include <tool/tableviewmodel.h>
 #include <QGraphicsSimpleTextItem>
 #include <QGraphicsRectItem>
 
@@ -33,6 +34,8 @@ public:
     ~LineChart();
 private:
     void initChart();
+    void initRandomChart();
+    void initMappingChart();
     void legendMarkerClicked();
     void showToolTip(QPointF point, bool state);
     QSplitter * mSplitter;

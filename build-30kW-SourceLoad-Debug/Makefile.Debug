@@ -82,6 +82,7 @@ SOURCES       = ..\axissetting\axisbox.cpp \
 		..\charttool\charttool.cpp \
 		..\charttool\charttoolwidget.cpp \
 		..\charttool\linecharttool.cpp \
+		..\chartview\associatetable.cpp \
 		..\chartview\chartbar.cpp \
 		..\chartview\chartview.cpp \
 		..\chartview\screenshoot.cpp \
@@ -127,6 +128,7 @@ SOURCES       = ..\axissetting\axisbox.cpp \
 		..\table\tablesizedialog.cpp \
 		..\tool\tableview_tool.cpp \
 		..\tool\chartview_tool.cpp \
+		..\tool\tableviewmodel.cpp \
 		..\tool\tool.cpp debug\qrc_images.cpp \
 		debug\qrc_trans.cpp \
 		debug\moc_axisbox.cpp \
@@ -166,6 +168,7 @@ SOURCES       = ..\axissetting\axisbox.cpp \
 		debug\moc_charttool.cpp \
 		debug\moc_charttoolwidget.cpp \
 		debug\moc_linecharttool.cpp \
+		debug\moc_associatetable.cpp \
 		debug\moc_chartbar.cpp \
 		debug\moc_chartview.cpp \
 		debug\moc_screenshoot.cpp \
@@ -203,6 +206,7 @@ SOURCES       = ..\axissetting\axisbox.cpp \
 		debug\moc_tablesizedialog.cpp \
 		debug\moc_chartview_tool.cpp \
 		debug\moc_tableview_tool.cpp \
+		debug\moc_tableviewmodel.cpp \
 		debug\moc_tool.cpp
 OBJECTS       = debug/axisbox.o \
 		debug/axisgrid.o \
@@ -241,6 +245,7 @@ OBJECTS       = debug/axisbox.o \
 		debug/charttool.o \
 		debug/charttoolwidget.o \
 		debug/linecharttool.o \
+		debug/associatetable.o \
 		debug/chartbar.o \
 		debug/chartview.o \
 		debug/screenshoot.o \
@@ -286,6 +291,7 @@ OBJECTS       = debug/axisbox.o \
 		debug/tablesizedialog.o \
 		debug/tableview_tool.o \
 		debug/chartview_tool.o \
+		debug/tableviewmodel.o \
 		debug/tool.o \
 		debug/qrc_images.o \
 		debug/qrc_trans.o \
@@ -326,6 +332,7 @@ OBJECTS       = debug/axisbox.o \
 		debug/moc_charttool.o \
 		debug/moc_charttoolwidget.o \
 		debug/moc_linecharttool.o \
+		debug/moc_associatetable.o \
 		debug/moc_chartbar.o \
 		debug/moc_chartview.o \
 		debug/moc_screenshoot.o \
@@ -363,6 +370,7 @@ OBJECTS       = debug/axisbox.o \
 		debug/moc_tablesizedialog.o \
 		debug/moc_chartview_tool.o \
 		debug/moc_tableview_tool.o \
+		debug/moc_tableviewmodel.o \
 		debug/moc_tool.o
 
 DIST          = log.txt \
@@ -408,6 +416,7 @@ DIST          = log.txt \
 		..\charttool\charttool.h \
 		..\charttool\charttoolwidget.h \
 		..\charttool\linecharttool.h \
+		..\chartview\associatetable.h \
 		..\chartview\chartbar.h \
 		..\chartview\chartview.h \
 		..\chartview\screenshoot.h \
@@ -466,6 +475,7 @@ DIST          = log.txt \
 		..\test\test.h \
 		..\tool\chartview_tool.h \
 		..\tool\tableview_tool.h \
+		..\tool\tableviewmodel.h \
 		..\tool\tool.h ..\axissetting\axisbox.cpp \
 		..\axissetting\axisgrid.cpp \
 		..\axissetting\axisinfo.cpp \
@@ -503,6 +513,7 @@ DIST          = log.txt \
 		..\charttool\charttool.cpp \
 		..\charttool\charttoolwidget.cpp \
 		..\charttool\linecharttool.cpp \
+		..\chartview\associatetable.cpp \
 		..\chartview\chartbar.cpp \
 		..\chartview\chartview.cpp \
 		..\chartview\screenshoot.cpp \
@@ -548,6 +559,7 @@ DIST          = log.txt \
 		..\table\tablesizedialog.cpp \
 		..\tool\tableview_tool.cpp \
 		..\tool\chartview_tool.cpp \
+		..\tool\tableviewmodel.cpp \
 		..\tool\tool.cpp
 QMAKE_TARGET  = 30kW-SourceLoad
 DESTDIR        = debug\ #avoid trailing-slash linebreak
@@ -568,11 +580,11 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) 30kW-SourceLoad.zip $(SOURCES) $(DIST) ..\..\30kW-SourceLoad.pro E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\spec_pre.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\qdevice.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\device_config.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\common\sanitize.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\common\gcc-base.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\common\g++-base.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\common\angle.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\qconfig.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3danimation.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3danimation_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3drender.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axbase.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axserver.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_charts.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_core.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_core_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_datavisualization.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_datavisualization_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_dbus.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_designer.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_gui.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_help.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_help_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_location.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_location_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_network.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_network_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_networkauth.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_networkauth_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_nfc.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_opengl.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_positioning.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qml.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quick.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_remoteobjects.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_remoteobjects_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_repparser.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_repparser_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_script.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_script_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_scxml.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_sensors.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_serialport.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_sql.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_svg.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_testlib.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_uitools.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_websockets.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_widgets.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_winextras.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_xml.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qt_functions.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qt_config.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\win32-g++\qmake.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\exclusive_builds.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\toolchain.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\default_pre.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\win32\default_pre.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\resolve_config.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\exclusive_builds_post.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\default_post.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\build_pass.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qml_debug.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\precompile_header.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\warn_on.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qt.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\resources.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\moc.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\win32\opengl.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\uic.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qmake_use.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\file_copies.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\win32\windows.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\testcase_targets.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\exceptions.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\yacc.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\lex.prf ..\30kW-SourceLoad.pro ..\images.qrc ..\trans.qrc E:\Qt5.9.9\5.9.9\mingw53_32\lib\qtmaind.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Chartsd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Widgetsd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Guid.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5SerialPortd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Networkd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Xmld.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Concurrentd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Cored.prl "cn.ts en.ts" cn.ts en.ts  ..\images.qrc ..\trans.qrc E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\data\dummy.cpp ..\axissetting\axisbox.h ..\axissetting\axisgrid.h ..\axissetting\axisinfo.h ..\axissetting\axislabel.h ..\axissetting\axisline.h ..\axissetting\axislog.h ..\axissetting\axissetting.h ..\axissetting\axisshade.h ..\axissetting\axistitle.h ..\axissetting\axisvalue.h ..\chart\chart.h ..\chart\linechart.h ..\chart\chartdatagenerator.h ..\chartsetting\backgroundarea.h ..\chartsetting\backgroundareagradient.h ..\chartsetting\backgroundborder.h ..\chartsetting\chartanimation.h ..\chartsetting\chartbackground.h ..\chartsetting\chartbox.h ..\chartsetting\chartforeground.h ..\chartsetting\chartlegend.h ..\chartsetting\chartmargin.h ..\chartsetting\chartsetting.h ..\chartsetting\charttitle.h ..\chartsetting\colorbutton.h ..\chartsetting\conicalgradientparamwidget.h ..\chartsetting\foregroundarea.h ..\chartsetting\foregroundborder.h ..\chartsetting\gradientparamselector.h ..\chartsetting\gradientparamselectorwidget.h ..\chartsetting\gradientparamspinbox.h ..\chartsetting\gradientparamwidget.h ..\chartsetting\lineargradientparamwidget.h ..\chartsetting\radialgradientparamwidget.h ..\charttool\charttool.h ..\charttool\charttoolwidget.h ..\charttool\linecharttool.h ..\chartview\chartbar.h ..\chartview\chartview.h ..\chartview\screenshoot.h ..\communication\communication.h ..\communication\query.h ..\communication\usbquery.h ..\communication\usbconfig.h ..\communication\tcpquery.h ..\core\data_processing.h ..\core\enum.h ..\core\list_files.h ..\core\spic_command.h ..\csv\csvexport.h ..\csv\csvexport_test.h ..\log\log.h ..\log\logfixedprocessor.h ..\log\logmonitorprocessor.h ..\log\logprocessor.h ..\log\logterminalprocessor.h ..\login\login.h ..\login\login_create_account.h ..\login\login_retrieve_password.h ..\mainwindow.h ..\messagebox\critical.h ..\messagebox\infomation.h ..\messagebox\messagebox.h ..\messagebox\messagebutton.h ..\messagebox\tip.h ..\messagebox\warning.h ..\monitor\monitor.h ..\monitor\monitor_label.h ..\monitor\monitor_spinbox.h ..\setting\logperiod.h ..\setting\setting.h ..\setting\workmodedialog.h ..\setting\querypanel.h ..\table\table.h ..\table\tablecolordialog.h ..\table\tablesizedialog.h ..\test\animation_test.h ..\test\pytest_agreement_api.h ..\test\pytest_agreement_test.h ..\test\pytest_intro_api.h ..\test\pytest_intro_test.h ..\test\pytest_print.h ..\test\pytest_print_test.h ..\test\pytest_spec_datatype_api.h ..\test\pytest_spec_funcobj_api.h ..\test\pytest_spec_objlayer_test.h ..\test\pytest_tool_api.h ..\test\pytest_tool_test.h ..\test\pytest_useful_macro_api.h ..\test\pytest_useful_macro_test.h ..\test\concurrent_test.h ..\test\listfiles_test.h ..\test\test.h ..\tool\chartview_tool.h ..\tool\tableview_tool.h ..\tool\tool.h ..\axissetting\axisbox.cpp ..\axissetting\axisgrid.cpp ..\axissetting\axisinfo.cpp ..\axissetting\axislabel.cpp ..\axissetting\axisline.cpp ..\axissetting\axislog.cpp ..\axissetting\axissetting.cpp ..\axissetting\axisshade.cpp ..\axissetting\axistitle.cpp ..\axissetting\axisvalue.cpp ..\chart\chart.cpp ..\chart\linechart.cpp ..\chart\chartdatagenerator.cpp ..\chartsetting\backgroundarea.cpp ..\chartsetting\backgroundareagradient.cpp ..\chartsetting\backgroundborder.cpp ..\chartsetting\chartanimation.cpp ..\chartsetting\chartbackground.cpp ..\chartsetting\chartbox.cpp ..\chartsetting\chartforeground.cpp ..\chartsetting\chartlegend.cpp ..\chartsetting\chartmargin.cpp ..\chartsetting\chartsetting.cpp ..\chartsetting\charttitle.cpp ..\chartsetting\colorbutton.cpp ..\chartsetting\conicalgradientparamwidget.cpp ..\chartsetting\foregroundarea.cpp ..\chartsetting\foregroundborder.cpp ..\chartsetting\gradientparamselector.cpp ..\chartsetting\gradientparamselectorwidget.cpp ..\chartsetting\gradientparamspinbox.cpp ..\chartsetting\gradientparamwidget.cpp ..\chartsetting\lineargradientparamwidget.cpp ..\chartsetting\radialgradientparamwidget.cpp ..\charttool\charttool.cpp ..\charttool\charttoolwidget.cpp ..\charttool\linecharttool.cpp ..\chartview\chartbar.cpp ..\chartview\chartview.cpp ..\chartview\screenshoot.cpp ..\communication\communication.cpp ..\communication\communication_connect.cpp ..\communication\query.cpp ..\communication\usbquery.cpp ..\communication\usbconfig.cpp ..\communication\tcpquery.cpp ..\csv\csvexport.cpp ..\csv\csvexport_py.cpp ..\log\log.cpp ..\log\logfixedprocessor.cpp ..\log\logmonitorprocessor.cpp ..\log\logprocessor.cpp ..\log\logterminalprocessor.cpp ..\login\login.cpp ..\login\login_create_account.cpp ..\login\login_retrieve_first.cpp ..\login\login_retrieve_password.cpp ..\login\login_retrieve_second.cpp ..\login\login_retrieve_third.cpp ..\main.cpp ..\mainwindow.cpp ..\messagebox\critical.cpp ..\messagebox\infomation.cpp ..\messagebox\messagebox.cpp ..\messagebox\messagebutton.cpp ..\messagebox\tip.cpp ..\messagebox\warning.cpp ..\monitor\monitor.cpp ..\monitor\monitor_initial.cpp ..\monitor\monitor_label.cpp ..\monitor\monitor_spinbox.cpp ..\setting\logperiod.cpp ..\setting\setting.cpp ..\setting\workmodedialog.cpp ..\setting\querypanel.cpp ..\table\table.cpp ..\table\table_impexort.cpp ..\table\table_impexort_concurrent.cpp ..\table\tablecolordialog.cpp ..\table\tablesizedialog.cpp ..\tool\tableview_tool.cpp ..\tool\chartview_tool.cpp ..\tool\tool.cpp     
+	$(ZIP) 30kW-SourceLoad.zip $(SOURCES) $(DIST) ..\..\30kW-SourceLoad.pro E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\spec_pre.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\qdevice.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\device_config.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\common\sanitize.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\common\gcc-base.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\common\g++-base.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\common\angle.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\qconfig.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3danimation.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3danimation_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3drender.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axbase.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axserver.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_charts.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_charts_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_core.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_core_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_datavisualization.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_datavisualization_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_dbus.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_designer.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_gui.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_help.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_help_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_location.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_location_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_network.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_network_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_networkauth.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_networkauth_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_nfc.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_opengl.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_positioning.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_purchasing.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_purchasing_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qml.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quick.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_remoteobjects.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_remoteobjects_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_repparser.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_repparser_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_script.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_script_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_scripttools.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_scripttools_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_scxml.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_sensors.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_serialport.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_sql.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_svg.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_testlib.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_uitools.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_websockets.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_widgets.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_winextras.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_xml.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qt_functions.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qt_config.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\win32-g++\qmake.conf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\exclusive_builds.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\toolchain.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\default_pre.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\win32\default_pre.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\resolve_config.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\exclusive_builds_post.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\default_post.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\build_pass.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qml_debug.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\precompile_header.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\warn_on.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qt.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\resources.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\moc.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\win32\opengl.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\uic.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\qmake_use.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\file_copies.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\win32\windows.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\testcase_targets.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\exceptions.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\yacc.prf E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\lex.prf ..\30kW-SourceLoad.pro ..\images.qrc ..\trans.qrc E:\Qt5.9.9\5.9.9\mingw53_32\lib\qtmaind.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Chartsd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Widgetsd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Guid.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5SerialPortd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Networkd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Xmld.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Concurrentd.prl E:\Qt5.9.9\5.9.9\mingw53_32\lib\Qt5Cored.prl "cn.ts en.ts" cn.ts en.ts  ..\images.qrc ..\trans.qrc E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\data\dummy.cpp ..\axissetting\axisbox.h ..\axissetting\axisgrid.h ..\axissetting\axisinfo.h ..\axissetting\axislabel.h ..\axissetting\axisline.h ..\axissetting\axislog.h ..\axissetting\axissetting.h ..\axissetting\axisshade.h ..\axissetting\axistitle.h ..\axissetting\axisvalue.h ..\chart\chart.h ..\chart\linechart.h ..\chart\chartdatagenerator.h ..\chartsetting\backgroundarea.h ..\chartsetting\backgroundareagradient.h ..\chartsetting\backgroundborder.h ..\chartsetting\chartanimation.h ..\chartsetting\chartbackground.h ..\chartsetting\chartbox.h ..\chartsetting\chartforeground.h ..\chartsetting\chartlegend.h ..\chartsetting\chartmargin.h ..\chartsetting\chartsetting.h ..\chartsetting\charttitle.h ..\chartsetting\colorbutton.h ..\chartsetting\conicalgradientparamwidget.h ..\chartsetting\foregroundarea.h ..\chartsetting\foregroundborder.h ..\chartsetting\gradientparamselector.h ..\chartsetting\gradientparamselectorwidget.h ..\chartsetting\gradientparamspinbox.h ..\chartsetting\gradientparamwidget.h ..\chartsetting\lineargradientparamwidget.h ..\chartsetting\radialgradientparamwidget.h ..\charttool\charttool.h ..\charttool\charttoolwidget.h ..\charttool\linecharttool.h ..\chartview\associatetable.h ..\chartview\chartbar.h ..\chartview\chartview.h ..\chartview\screenshoot.h ..\communication\communication.h ..\communication\query.h ..\communication\usbquery.h ..\communication\usbconfig.h ..\communication\tcpquery.h ..\core\data_processing.h ..\core\enum.h ..\core\list_files.h ..\core\spic_command.h ..\csv\csvexport.h ..\csv\csvexport_test.h ..\log\log.h ..\log\logfixedprocessor.h ..\log\logmonitorprocessor.h ..\log\logprocessor.h ..\log\logterminalprocessor.h ..\login\login.h ..\login\login_create_account.h ..\login\login_retrieve_password.h ..\mainwindow.h ..\messagebox\critical.h ..\messagebox\infomation.h ..\messagebox\messagebox.h ..\messagebox\messagebutton.h ..\messagebox\tip.h ..\messagebox\warning.h ..\monitor\monitor.h ..\monitor\monitor_label.h ..\monitor\monitor_spinbox.h ..\setting\logperiod.h ..\setting\setting.h ..\setting\workmodedialog.h ..\setting\querypanel.h ..\table\table.h ..\table\tablecolordialog.h ..\table\tablesizedialog.h ..\test\animation_test.h ..\test\pytest_agreement_api.h ..\test\pytest_agreement_test.h ..\test\pytest_intro_api.h ..\test\pytest_intro_test.h ..\test\pytest_print.h ..\test\pytest_print_test.h ..\test\pytest_spec_datatype_api.h ..\test\pytest_spec_funcobj_api.h ..\test\pytest_spec_objlayer_test.h ..\test\pytest_tool_api.h ..\test\pytest_tool_test.h ..\test\pytest_useful_macro_api.h ..\test\pytest_useful_macro_test.h ..\test\concurrent_test.h ..\test\listfiles_test.h ..\test\test.h ..\tool\chartview_tool.h ..\tool\tableview_tool.h ..\tool\tableviewmodel.h ..\tool\tool.h ..\axissetting\axisbox.cpp ..\axissetting\axisgrid.cpp ..\axissetting\axisinfo.cpp ..\axissetting\axislabel.cpp ..\axissetting\axisline.cpp ..\axissetting\axislog.cpp ..\axissetting\axissetting.cpp ..\axissetting\axisshade.cpp ..\axissetting\axistitle.cpp ..\axissetting\axisvalue.cpp ..\chart\chart.cpp ..\chart\linechart.cpp ..\chart\chartdatagenerator.cpp ..\chartsetting\backgroundarea.cpp ..\chartsetting\backgroundareagradient.cpp ..\chartsetting\backgroundborder.cpp ..\chartsetting\chartanimation.cpp ..\chartsetting\chartbackground.cpp ..\chartsetting\chartbox.cpp ..\chartsetting\chartforeground.cpp ..\chartsetting\chartlegend.cpp ..\chartsetting\chartmargin.cpp ..\chartsetting\chartsetting.cpp ..\chartsetting\charttitle.cpp ..\chartsetting\colorbutton.cpp ..\chartsetting\conicalgradientparamwidget.cpp ..\chartsetting\foregroundarea.cpp ..\chartsetting\foregroundborder.cpp ..\chartsetting\gradientparamselector.cpp ..\chartsetting\gradientparamselectorwidget.cpp ..\chartsetting\gradientparamspinbox.cpp ..\chartsetting\gradientparamwidget.cpp ..\chartsetting\lineargradientparamwidget.cpp ..\chartsetting\radialgradientparamwidget.cpp ..\charttool\charttool.cpp ..\charttool\charttoolwidget.cpp ..\charttool\linecharttool.cpp ..\chartview\associatetable.cpp ..\chartview\chartbar.cpp ..\chartview\chartview.cpp ..\chartview\screenshoot.cpp ..\communication\communication.cpp ..\communication\communication_connect.cpp ..\communication\query.cpp ..\communication\usbquery.cpp ..\communication\usbconfig.cpp ..\communication\tcpquery.cpp ..\csv\csvexport.cpp ..\csv\csvexport_py.cpp ..\log\log.cpp ..\log\logfixedprocessor.cpp ..\log\logmonitorprocessor.cpp ..\log\logprocessor.cpp ..\log\logterminalprocessor.cpp ..\login\login.cpp ..\login\login_create_account.cpp ..\login\login_retrieve_first.cpp ..\login\login_retrieve_password.cpp ..\login\login_retrieve_second.cpp ..\login\login_retrieve_third.cpp ..\main.cpp ..\mainwindow.cpp ..\messagebox\critical.cpp ..\messagebox\infomation.cpp ..\messagebox\messagebox.cpp ..\messagebox\messagebutton.cpp ..\messagebox\tip.cpp ..\messagebox\warning.cpp ..\monitor\monitor.cpp ..\monitor\monitor_initial.cpp ..\monitor\monitor_label.cpp ..\monitor\monitor_spinbox.cpp ..\setting\logperiod.cpp ..\setting\setting.cpp ..\setting\workmodedialog.cpp ..\setting\querypanel.cpp ..\table\table.cpp ..\table\table_impexort.cpp ..\table\table_impexort_concurrent.cpp ..\table\tablecolordialog.cpp ..\table\tablesizedialog.cpp ..\tool\tableview_tool.cpp ..\tool\chartview_tool.cpp ..\tool\tableviewmodel.cpp ..\tool\tool.cpp     
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\axisbox.o debug\axisgrid.o debug\axisinfo.o debug\axislabel.o debug\axisline.o debug\axislog.o debug\axissetting.o debug\axisshade.o debug\axistitle.o debug\axisvalue.o debug\chart.o debug\linechart.o debug\chartdatagenerator.o debug\backgroundarea.o debug\backgroundareagradient.o debug\backgroundborder.o debug\chartanimation.o debug\chartbackground.o debug\chartbox.o debug\chartforeground.o debug\chartlegend.o debug\chartmargin.o debug\chartsetting.o debug\charttitle.o debug\colorbutton.o debug\conicalgradientparamwidget.o debug\foregroundarea.o debug\foregroundborder.o debug\gradientparamselector.o debug\gradientparamselectorwidget.o debug\gradientparamspinbox.o debug\gradientparamwidget.o debug\lineargradientparamwidget.o debug\radialgradientparamwidget.o debug\charttool.o debug\charttoolwidget.o debug\linecharttool.o debug\chartbar.o debug\chartview.o debug\screenshoot.o debug\communication.o debug\communication_connect.o debug\query.o debug\usbquery.o debug\usbconfig.o debug\tcpquery.o debug\csvexport.o debug\csvexport_py.o debug\log.o debug\logfixedprocessor.o debug\logmonitorprocessor.o debug\logprocessor.o debug\logterminalprocessor.o debug\login.o debug\login_create_account.o debug\login_retrieve_first.o debug\login_retrieve_password.o debug\login_retrieve_second.o debug\login_retrieve_third.o debug\main.o debug\mainwindow.o debug\critical.o debug\infomation.o debug\messagebox.o debug\messagebutton.o debug\tip.o debug\warning.o debug\monitor.o debug\monitor_initial.o debug\monitor_label.o debug\monitor_spinbox.o debug\logperiod.o debug\setting.o debug\workmodedialog.o debug\querypanel.o debug\table.o debug\table_impexort.o debug\table_impexort_concurrent.o debug\tablecolordialog.o debug\tablesizedialog.o debug\tableview_tool.o debug\chartview_tool.o debug\tool.o debug\qrc_images.o debug\qrc_trans.o debug\moc_axisbox.o debug\moc_axisgrid.o debug\moc_axisinfo.o debug\moc_axislabel.o debug\moc_axisline.o debug\moc_axislog.o debug\moc_axissetting.o debug\moc_axisshade.o
-	-$(DEL_FILE) debug\moc_axistitle.o debug\moc_axisvalue.o debug\moc_chart.o debug\moc_linechart.o debug\moc_chartdatagenerator.o debug\moc_backgroundarea.o debug\moc_backgroundareagradient.o debug\moc_backgroundborder.o debug\moc_chartanimation.o debug\moc_chartbackground.o debug\moc_chartbox.o debug\moc_chartforeground.o debug\moc_chartlegend.o debug\moc_chartmargin.o debug\moc_chartsetting.o debug\moc_charttitle.o debug\moc_colorbutton.o debug\moc_conicalgradientparamwidget.o debug\moc_foregroundarea.o debug\moc_foregroundborder.o debug\moc_gradientparamselector.o debug\moc_gradientparamselectorwidget.o debug\moc_gradientparamspinbox.o debug\moc_gradientparamwidget.o debug\moc_lineargradientparamwidget.o debug\moc_radialgradientparamwidget.o debug\moc_charttool.o debug\moc_charttoolwidget.o debug\moc_linecharttool.o debug\moc_chartbar.o debug\moc_chartview.o debug\moc_screenshoot.o debug\moc_communication.o debug\moc_query.o debug\moc_usbquery.o debug\moc_usbconfig.o debug\moc_tcpquery.o debug\moc_data_processing.o debug\moc_csvexport.o debug\moc_log.o debug\moc_logfixedprocessor.o debug\moc_logmonitorprocessor.o debug\moc_logprocessor.o debug\moc_logterminalprocessor.o debug\moc_login.o debug\moc_login_create_account.o debug\moc_login_retrieve_password.o debug\moc_mainwindow.o debug\moc_critical.o debug\moc_infomation.o debug\moc_messagebox.o debug\moc_messagebutton.o debug\moc_tip.o debug\moc_warning.o debug\moc_monitor.o debug\moc_monitor_label.o debug\moc_monitor_spinbox.o debug\moc_logperiod.o debug\moc_setting.o debug\moc_workmodedialog.o debug\moc_querypanel.o debug\moc_table.o debug\moc_tablecolordialog.o debug\moc_tablesizedialog.o debug\moc_chartview_tool.o debug\moc_tableview_tool.o debug\moc_tool.o
+	-$(DEL_FILE) debug\axisbox.o debug\axisgrid.o debug\axisinfo.o debug\axislabel.o debug\axisline.o debug\axislog.o debug\axissetting.o debug\axisshade.o debug\axistitle.o debug\axisvalue.o debug\chart.o debug\linechart.o debug\chartdatagenerator.o debug\backgroundarea.o debug\backgroundareagradient.o debug\backgroundborder.o debug\chartanimation.o debug\chartbackground.o debug\chartbox.o debug\chartforeground.o debug\chartlegend.o debug\chartmargin.o debug\chartsetting.o debug\charttitle.o debug\colorbutton.o debug\conicalgradientparamwidget.o debug\foregroundarea.o debug\foregroundborder.o debug\gradientparamselector.o debug\gradientparamselectorwidget.o debug\gradientparamspinbox.o debug\gradientparamwidget.o debug\lineargradientparamwidget.o debug\radialgradientparamwidget.o debug\charttool.o debug\charttoolwidget.o debug\linecharttool.o debug\associatetable.o debug\chartbar.o debug\chartview.o debug\screenshoot.o debug\communication.o debug\communication_connect.o debug\query.o debug\usbquery.o debug\usbconfig.o debug\tcpquery.o debug\csvexport.o debug\csvexport_py.o debug\log.o debug\logfixedprocessor.o debug\logmonitorprocessor.o debug\logprocessor.o debug\logterminalprocessor.o debug\login.o debug\login_create_account.o debug\login_retrieve_first.o debug\login_retrieve_password.o debug\login_retrieve_second.o debug\login_retrieve_third.o debug\main.o debug\mainwindow.o debug\critical.o debug\infomation.o debug\messagebox.o debug\messagebutton.o debug\tip.o debug\warning.o debug\monitor.o debug\monitor_initial.o debug\monitor_label.o debug\monitor_spinbox.o debug\logperiod.o debug\setting.o debug\workmodedialog.o debug\querypanel.o debug\table.o debug\table_impexort.o debug\table_impexort_concurrent.o debug\tablecolordialog.o debug\tablesizedialog.o debug\tableview_tool.o debug\chartview_tool.o debug\tableviewmodel.o debug\tool.o debug\qrc_images.o debug\qrc_trans.o debug\moc_axisbox.o debug\moc_axisgrid.o debug\moc_axisinfo.o debug\moc_axislabel.o debug\moc_axisline.o debug\moc_axislog.o
+	-$(DEL_FILE) debug\moc_axissetting.o debug\moc_axisshade.o debug\moc_axistitle.o debug\moc_axisvalue.o debug\moc_chart.o debug\moc_linechart.o debug\moc_chartdatagenerator.o debug\moc_backgroundarea.o debug\moc_backgroundareagradient.o debug\moc_backgroundborder.o debug\moc_chartanimation.o debug\moc_chartbackground.o debug\moc_chartbox.o debug\moc_chartforeground.o debug\moc_chartlegend.o debug\moc_chartmargin.o debug\moc_chartsetting.o debug\moc_charttitle.o debug\moc_colorbutton.o debug\moc_conicalgradientparamwidget.o debug\moc_foregroundarea.o debug\moc_foregroundborder.o debug\moc_gradientparamselector.o debug\moc_gradientparamselectorwidget.o debug\moc_gradientparamspinbox.o debug\moc_gradientparamwidget.o debug\moc_lineargradientparamwidget.o debug\moc_radialgradientparamwidget.o debug\moc_charttool.o debug\moc_charttoolwidget.o debug\moc_linecharttool.o debug\moc_associatetable.o debug\moc_chartbar.o debug\moc_chartview.o debug\moc_screenshoot.o debug\moc_communication.o debug\moc_query.o debug\moc_usbquery.o debug\moc_usbconfig.o debug\moc_tcpquery.o debug\moc_data_processing.o debug\moc_csvexport.o debug\moc_log.o debug\moc_logfixedprocessor.o debug\moc_logmonitorprocessor.o debug\moc_logprocessor.o debug\moc_logterminalprocessor.o debug\moc_login.o debug\moc_login_create_account.o debug\moc_login_retrieve_password.o debug\moc_mainwindow.o debug\moc_critical.o debug\moc_infomation.o debug\moc_messagebox.o debug\moc_messagebutton.o debug\moc_tip.o debug\moc_warning.o debug\moc_monitor.o debug\moc_monitor_label.o debug\moc_monitor_spinbox.o debug\moc_logperiod.o debug\moc_setting.o debug\moc_workmodedialog.o debug\moc_querypanel.o debug\moc_table.o debug\moc_tablecolordialog.o debug\moc_tablesizedialog.o debug\moc_chartview_tool.o debug\moc_tableview_tool.o debug\moc_tableviewmodel.o debug\moc_tool.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -681,10 +693,10 @@ compiler_moc_predefs_clean:
 debug/moc_predefs.h: E:/Qt5.9.9/5.9.9/mingw53_32/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -W -Wextra -dM -E -o debug\moc_predefs.h E:\Qt5.9.9\5.9.9\mingw53_32\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: debug/moc_axisbox.cpp debug/moc_axisgrid.cpp debug/moc_axisinfo.cpp debug/moc_axislabel.cpp debug/moc_axisline.cpp debug/moc_axislog.cpp debug/moc_axissetting.cpp debug/moc_axisshade.cpp debug/moc_axistitle.cpp debug/moc_axisvalue.cpp debug/moc_chart.cpp debug/moc_linechart.cpp debug/moc_chartdatagenerator.cpp debug/moc_backgroundarea.cpp debug/moc_backgroundareagradient.cpp debug/moc_backgroundborder.cpp debug/moc_chartanimation.cpp debug/moc_chartbackground.cpp debug/moc_chartbox.cpp debug/moc_chartforeground.cpp debug/moc_chartlegend.cpp debug/moc_chartmargin.cpp debug/moc_chartsetting.cpp debug/moc_charttitle.cpp debug/moc_colorbutton.cpp debug/moc_conicalgradientparamwidget.cpp debug/moc_foregroundarea.cpp debug/moc_foregroundborder.cpp debug/moc_gradientparamselector.cpp debug/moc_gradientparamselectorwidget.cpp debug/moc_gradientparamspinbox.cpp debug/moc_gradientparamwidget.cpp debug/moc_lineargradientparamwidget.cpp debug/moc_radialgradientparamwidget.cpp debug/moc_charttool.cpp debug/moc_charttoolwidget.cpp debug/moc_linecharttool.cpp debug/moc_chartbar.cpp debug/moc_chartview.cpp debug/moc_screenshoot.cpp debug/moc_communication.cpp debug/moc_query.cpp debug/moc_usbquery.cpp debug/moc_usbconfig.cpp debug/moc_tcpquery.cpp debug/moc_data_processing.cpp debug/moc_csvexport.cpp debug/moc_log.cpp debug/moc_logfixedprocessor.cpp debug/moc_logmonitorprocessor.cpp debug/moc_logprocessor.cpp debug/moc_logterminalprocessor.cpp debug/moc_login.cpp debug/moc_login_create_account.cpp debug/moc_login_retrieve_password.cpp debug/moc_mainwindow.cpp debug/moc_critical.cpp debug/moc_infomation.cpp debug/moc_messagebox.cpp debug/moc_messagebutton.cpp debug/moc_tip.cpp debug/moc_warning.cpp debug/moc_monitor.cpp debug/moc_monitor_label.cpp debug/moc_monitor_spinbox.cpp debug/moc_logperiod.cpp debug/moc_setting.cpp debug/moc_workmodedialog.cpp debug/moc_querypanel.cpp debug/moc_table.cpp debug/moc_tablecolordialog.cpp debug/moc_tablesizedialog.cpp debug/moc_chartview_tool.cpp debug/moc_tableview_tool.cpp debug/moc_tool.cpp
+compiler_moc_header_make_all: debug/moc_axisbox.cpp debug/moc_axisgrid.cpp debug/moc_axisinfo.cpp debug/moc_axislabel.cpp debug/moc_axisline.cpp debug/moc_axislog.cpp debug/moc_axissetting.cpp debug/moc_axisshade.cpp debug/moc_axistitle.cpp debug/moc_axisvalue.cpp debug/moc_chart.cpp debug/moc_linechart.cpp debug/moc_chartdatagenerator.cpp debug/moc_backgroundarea.cpp debug/moc_backgroundareagradient.cpp debug/moc_backgroundborder.cpp debug/moc_chartanimation.cpp debug/moc_chartbackground.cpp debug/moc_chartbox.cpp debug/moc_chartforeground.cpp debug/moc_chartlegend.cpp debug/moc_chartmargin.cpp debug/moc_chartsetting.cpp debug/moc_charttitle.cpp debug/moc_colorbutton.cpp debug/moc_conicalgradientparamwidget.cpp debug/moc_foregroundarea.cpp debug/moc_foregroundborder.cpp debug/moc_gradientparamselector.cpp debug/moc_gradientparamselectorwidget.cpp debug/moc_gradientparamspinbox.cpp debug/moc_gradientparamwidget.cpp debug/moc_lineargradientparamwidget.cpp debug/moc_radialgradientparamwidget.cpp debug/moc_charttool.cpp debug/moc_charttoolwidget.cpp debug/moc_linecharttool.cpp debug/moc_associatetable.cpp debug/moc_chartbar.cpp debug/moc_chartview.cpp debug/moc_screenshoot.cpp debug/moc_communication.cpp debug/moc_query.cpp debug/moc_usbquery.cpp debug/moc_usbconfig.cpp debug/moc_tcpquery.cpp debug/moc_data_processing.cpp debug/moc_csvexport.cpp debug/moc_log.cpp debug/moc_logfixedprocessor.cpp debug/moc_logmonitorprocessor.cpp debug/moc_logprocessor.cpp debug/moc_logterminalprocessor.cpp debug/moc_login.cpp debug/moc_login_create_account.cpp debug/moc_login_retrieve_password.cpp debug/moc_mainwindow.cpp debug/moc_critical.cpp debug/moc_infomation.cpp debug/moc_messagebox.cpp debug/moc_messagebutton.cpp debug/moc_tip.cpp debug/moc_warning.cpp debug/moc_monitor.cpp debug/moc_monitor_label.cpp debug/moc_monitor_spinbox.cpp debug/moc_logperiod.cpp debug/moc_setting.cpp debug/moc_workmodedialog.cpp debug/moc_querypanel.cpp debug/moc_table.cpp debug/moc_tablecolordialog.cpp debug/moc_tablesizedialog.cpp debug/moc_chartview_tool.cpp debug/moc_tableview_tool.cpp debug/moc_tableviewmodel.cpp debug/moc_tool.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_axisbox.cpp debug\moc_axisgrid.cpp debug\moc_axisinfo.cpp debug\moc_axislabel.cpp debug\moc_axisline.cpp debug\moc_axislog.cpp debug\moc_axissetting.cpp debug\moc_axisshade.cpp debug\moc_axistitle.cpp debug\moc_axisvalue.cpp debug\moc_chart.cpp debug\moc_linechart.cpp debug\moc_chartdatagenerator.cpp debug\moc_backgroundarea.cpp debug\moc_backgroundareagradient.cpp debug\moc_backgroundborder.cpp debug\moc_chartanimation.cpp debug\moc_chartbackground.cpp debug\moc_chartbox.cpp debug\moc_chartforeground.cpp debug\moc_chartlegend.cpp debug\moc_chartmargin.cpp debug\moc_chartsetting.cpp debug\moc_charttitle.cpp debug\moc_colorbutton.cpp debug\moc_conicalgradientparamwidget.cpp debug\moc_foregroundarea.cpp debug\moc_foregroundborder.cpp debug\moc_gradientparamselector.cpp debug\moc_gradientparamselectorwidget.cpp debug\moc_gradientparamspinbox.cpp debug\moc_gradientparamwidget.cpp debug\moc_lineargradientparamwidget.cpp debug\moc_radialgradientparamwidget.cpp debug\moc_charttool.cpp debug\moc_charttoolwidget.cpp debug\moc_linecharttool.cpp debug\moc_chartbar.cpp debug\moc_chartview.cpp debug\moc_screenshoot.cpp debug\moc_communication.cpp debug\moc_query.cpp debug\moc_usbquery.cpp debug\moc_usbconfig.cpp debug\moc_tcpquery.cpp debug\moc_data_processing.cpp debug\moc_csvexport.cpp debug\moc_log.cpp debug\moc_logfixedprocessor.cpp debug\moc_logmonitorprocessor.cpp debug\moc_logprocessor.cpp debug\moc_logterminalprocessor.cpp debug\moc_login.cpp debug\moc_login_create_account.cpp debug\moc_login_retrieve_password.cpp debug\moc_mainwindow.cpp debug\moc_critical.cpp debug\moc_infomation.cpp debug\moc_messagebox.cpp debug\moc_messagebutton.cpp debug\moc_tip.cpp debug\moc_warning.cpp debug\moc_monitor.cpp debug\moc_monitor_label.cpp debug\moc_monitor_spinbox.cpp debug\moc_logperiod.cpp debug\moc_setting.cpp debug\moc_workmodedialog.cpp debug\moc_querypanel.cpp debug\moc_table.cpp debug\moc_tablecolordialog.cpp debug\moc_tablesizedialog.cpp debug\moc_chartview_tool.cpp debug\moc_tableview_tool.cpp
-	-$(DEL_FILE) debug\moc_tool.cpp
+	-$(DEL_FILE) debug\moc_axisbox.cpp debug\moc_axisgrid.cpp debug\moc_axisinfo.cpp debug\moc_axislabel.cpp debug\moc_axisline.cpp debug\moc_axislog.cpp debug\moc_axissetting.cpp debug\moc_axisshade.cpp debug\moc_axistitle.cpp debug\moc_axisvalue.cpp debug\moc_chart.cpp debug\moc_linechart.cpp debug\moc_chartdatagenerator.cpp debug\moc_backgroundarea.cpp debug\moc_backgroundareagradient.cpp debug\moc_backgroundborder.cpp debug\moc_chartanimation.cpp debug\moc_chartbackground.cpp debug\moc_chartbox.cpp debug\moc_chartforeground.cpp debug\moc_chartlegend.cpp debug\moc_chartmargin.cpp debug\moc_chartsetting.cpp debug\moc_charttitle.cpp debug\moc_colorbutton.cpp debug\moc_conicalgradientparamwidget.cpp debug\moc_foregroundarea.cpp debug\moc_foregroundborder.cpp debug\moc_gradientparamselector.cpp debug\moc_gradientparamselectorwidget.cpp debug\moc_gradientparamspinbox.cpp debug\moc_gradientparamwidget.cpp debug\moc_lineargradientparamwidget.cpp debug\moc_radialgradientparamwidget.cpp debug\moc_charttool.cpp debug\moc_charttoolwidget.cpp debug\moc_linecharttool.cpp debug\moc_associatetable.cpp debug\moc_chartbar.cpp debug\moc_chartview.cpp debug\moc_screenshoot.cpp debug\moc_communication.cpp debug\moc_query.cpp debug\moc_usbquery.cpp debug\moc_usbconfig.cpp debug\moc_tcpquery.cpp debug\moc_data_processing.cpp debug\moc_csvexport.cpp debug\moc_log.cpp debug\moc_logfixedprocessor.cpp debug\moc_logmonitorprocessor.cpp debug\moc_logprocessor.cpp debug\moc_logterminalprocessor.cpp debug\moc_login.cpp debug\moc_login_create_account.cpp debug\moc_login_retrieve_password.cpp debug\moc_mainwindow.cpp debug\moc_critical.cpp debug\moc_infomation.cpp debug\moc_messagebox.cpp debug\moc_messagebutton.cpp debug\moc_tip.cpp debug\moc_warning.cpp debug\moc_monitor.cpp debug\moc_monitor_label.cpp debug\moc_monitor_spinbox.cpp debug\moc_logperiod.cpp debug\moc_setting.cpp debug\moc_workmodedialog.cpp debug\moc_querypanel.cpp debug\moc_table.cpp debug\moc_tablecolordialog.cpp debug\moc_tablesizedialog.cpp debug\moc_chartview_tool.cpp
+	-$(DEL_FILE) debug\moc_tableview_tool.cpp debug\moc_tableviewmodel.cpp debug\moc_tool.cpp
 debug/moc_axisbox.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
@@ -1537,8 +1549,7 @@ debug/moc_axisline.cpp: ../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
 	E:\Qt5.9.9\5.9.9\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IE:/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++ -IC:/Users/Lenovo/Desktop/30kW-SourceLoad-abridged -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/libs -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtANGLE -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtXml -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore -I. -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\axissetting\axisline.h -o debug\moc_axisline.cpp
 
-debug/moc_axislog.cpp: ../axissetting/axisbox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
+debug/moc_axislog.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
@@ -1640,22 +1651,23 @@ debug/moc_axislog.cpp: ../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfiledevice.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvector2d.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QColorDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcolordialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFontDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qfontdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QIcon \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDoubleSpinBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
@@ -1663,12 +1675,6 @@ debug/moc_axislog.cpp: ../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QListWidget \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlistwidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlistview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
@@ -1691,17 +1697,21 @@ debug/moc_axislog.cpp: ../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDoubleSpinBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlineedit.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextcursor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qpushbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLogValueAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlogvalueaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
 		../axissetting/axislog.h \
 		debug/moc_predefs.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -1897,6 +1907,9 @@ debug/moc_axissetting.cpp: ../axissetting/axisinfo.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLogValueAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlogvalueaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
 		../axissetting/axissetting.h \
 		debug/moc_predefs.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -2251,8 +2264,7 @@ debug/moc_axistitle.cpp: ../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
 	E:\Qt5.9.9\5.9.9\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IE:/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++ -IC:/Users/Lenovo/Desktop/30kW-SourceLoad-abridged -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/libs -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtANGLE -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtXml -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore -I. -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\axissetting\axistitle.h -o debug\moc_axistitle.cpp
 
-debug/moc_axisvalue.cpp: ../axissetting/axisbox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
+debug/moc_axisvalue.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
@@ -2354,57 +2366,6 @@ debug/moc_axisvalue.cpp: ../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfiledevice.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvector2d.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QColorDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcolordialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFontDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qfontdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QIcon \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QListWidget \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlistwidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlistview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
@@ -2414,8 +2375,55 @@ debug/moc_axisvalue.cpp: ../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDoubleSpinBox \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlineedit.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextcursor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qpushbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
 		../axissetting/axisvalue.h \
 		debug/moc_predefs.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -2751,10 +2759,6 @@ debug/moc_linechart.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWind
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		../chartview/chartbar.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../chartview/screenshoot.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
@@ -2781,6 +2785,11 @@ debug/moc_linechart.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWind
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -3172,6 +3181,11 @@ debug/moc_linechart.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWind
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem \
 		../chart/linechart.h \
@@ -9468,10 +9482,184 @@ debug/moc_linecharttool.cpp: ../charttool/charttool.h \
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLogValueAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
 		../charttool/linecharttool.h \
 		debug/moc_predefs.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
 	E:\Qt5.9.9\5.9.9\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IE:/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++ -IC:/Users/Lenovo/Desktop/30kW-SourceLoad-abridged -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/libs -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtANGLE -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtXml -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore -I. -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\charttool\linecharttool.h -o debug\moc_linecharttool.cpp
+
+debug/moc_associatetable.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtcore-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsystemdetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qprocessordetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcompilerdetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtypeinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsysinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlogging.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qflags.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbasicatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qgenericatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_msvc.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobalstatic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmutex.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnumeric.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qversiontagging.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtgui-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qwidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnamespace.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstring.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qchar.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearray.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrefcount.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qarraydata.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringbuilder.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qalgorithms.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhashfunctions.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpair.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearraylist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringlist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregexp.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringmatcher.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmetatype.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvarlengtharray.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontainerfwd.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmargins.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpaintdevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrect.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsize.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpalette.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcolor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgb.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgba64.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qbrush.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qmatrix.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpolygon.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qregion.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatastream.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qline.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtransform.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainterpath.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qimage.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpixelformat.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpixmap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfont.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontmetrics.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcursor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qkeysequence.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qevent.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qurl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qurlquery.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfile.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfiledevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvector2d.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qradiobutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpinBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
+		../chartview/associatetable.h \
+		debug/moc_predefs.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
+	E:\Qt5.9.9\5.9.9\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IE:/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++ -IC:/Users/Lenovo/Desktop/30kW-SourceLoad-abridged -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/libs -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtANGLE -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtXml -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore -I. -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\chartview\associatetable.h -o debug\moc_associatetable.cpp
 
 debug/moc_chartbar.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QToolBar \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtoolbar.h \
@@ -9577,35 +9765,23 @@ debug/moc_chartbar.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QToolBar \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../chartview/screenshoot.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qradiobutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
@@ -9617,22 +9793,7 @@ debug/moc_chartbar.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QToolBar \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
-		../chartview/screenshoot.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qradiobutton.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
@@ -9649,6 +9810,7 @@ debug/moc_chartbar.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QToolBar \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QScreen \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qscreen.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QList \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QRect \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QSize \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QSizeF \
@@ -9664,6 +9826,27 @@ debug/moc_chartbar.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QToolBar \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qapplication.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
@@ -9671,7 +9854,13 @@ debug/moc_chartbar.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QToolBar \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
+		../chartview/associatetable.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../chartview/chartbar.h \
 		debug/moc_predefs.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -13170,6 +13359,7 @@ debug/moc_mainwindow.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog 
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -13423,6 +13613,11 @@ debug/moc_mainwindow.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog 
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem \
 		../mainwindow.h \
@@ -15983,6 +16178,7 @@ debug/moc_chartview_tool.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QWid
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTabWidget \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QItemSelectionModel \
 		../chart/linechart.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWindow \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qmainwindow.h \
@@ -16088,6 +16284,7 @@ debug/moc_chartview_tool.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QWid
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -16477,8 +16674,31 @@ debug/moc_chartview_tool.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QWid
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/QtConcurrent \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/QtConcurrentDepends \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentcompilertest.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrent_global.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentexception.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentfilter.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentfilterkernel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentiteratekernel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentmedian.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentthreadengine.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentmapkernel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentreducekernel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentfunctionwrappers.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentmap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentrun.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentrunbase.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentversion.h \
 		../tool/chartview_tool.h \
 		debug/moc_predefs.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -16833,6 +17053,87 @@ debug/moc_tableview_tool.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMai
 		debug/moc_predefs.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
 	E:\Qt5.9.9\5.9.9\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IE:/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++ -IC:/Users/Lenovo/Desktop/30kW-SourceLoad-abridged -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/libs -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtANGLE -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtXml -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore -I. -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\tool\tableview_tool.h -o debug\moc_tableview_tool.cpp
+
+debug/moc_tableviewmodel.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtcore-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsystemdetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qprocessordetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcompilerdetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtypeinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsysinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlogging.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qflags.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobalstatic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmutex.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnumeric.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qversiontagging.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbasicatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qgenericatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_msvc.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearray.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrefcount.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnamespace.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qarraydata.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstring.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qchar.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringbuilder.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qalgorithms.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhashfunctions.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpair.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearraylist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringlist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregexp.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringmatcher.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmetatype.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvarlengtharray.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontainerfwd.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QHash \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QRect \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrect.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmargins.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsize.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcolor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtgui-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgb.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgba64.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QTime \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
+		../tool/tableviewmodel.h \
+		debug/moc_predefs.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
+	E:\Qt5.9.9\5.9.9\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IE:/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++ -IC:/Users/Lenovo/Desktop/30kW-SourceLoad-abridged -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/libs -IC:/Users/Lenovo/AppData/Local/Programs/Python/Python37-32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtANGLE -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtSerialPort -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtNetwork -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtXml -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent -IE:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore -I. -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IE:/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IE:/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\tool\tableviewmodel.h -o debug\moc_tableviewmodel.cpp
 
 debug/moc_tool.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QWidget \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qwidget.h \
@@ -17248,6 +17549,7 @@ debug/moc_tool.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QWidget \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -17508,6 +17810,11 @@ debug/moc_tool.cpp: E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QWidget \
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem \
 		../tool/tool.h \
@@ -18375,7 +18682,6 @@ debug/axisline.o: ../axissetting/axisline.cpp ../axissetting/axisline.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\axisline.o ..\axissetting\axisline.cpp
 
 debug/axislog.o: ../axissetting/axislog.cpp ../axissetting/axislog.h \
-		../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
@@ -18478,22 +18784,23 @@ debug/axislog.o: ../axissetting/axislog.cpp ../axissetting/axislog.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfiledevice.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvector2d.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QColorDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcolordialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFontDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qfontdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QIcon \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDoubleSpinBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
@@ -18501,12 +18808,6 @@ debug/axislog.o: ../axissetting/axislog.cpp ../axissetting/axislog.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QListWidget \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlistwidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlistview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
@@ -18529,17 +18830,21 @@ debug/axislog.o: ../axissetting/axislog.cpp ../axissetting/axislog.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDoubleSpinBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlineedit.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextcursor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qpushbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLogValueAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlogvalueaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\axislog.o ..\axissetting\axislog.cpp
 
 debug/axissetting.o: ../axissetting/axissetting.cpp ../axissetting/axissetting.h \
@@ -18732,7 +19037,11 @@ debug/axissetting.o: ../axissetting/axissetting.cpp ../axissetting/axissetting.h
 		../axissetting/axisvalue.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
-		../axissetting/axislog.h
+		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLogValueAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlogvalueaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\axissetting.o ..\axissetting\axissetting.cpp
 
 debug/axisshade.o: ../axissetting/axisshade.cpp ../axissetting/axisshade.h \
@@ -19081,7 +19390,6 @@ debug/axistitle.o: ../axissetting/axistitle.cpp ../axissetting/axistitle.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\axistitle.o ..\axissetting\axistitle.cpp
 
 debug/axisvalue.o: ../axissetting/axisvalue.cpp ../axissetting/axisvalue.h \
-		../axissetting/axisbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
@@ -19184,57 +19492,6 @@ debug/axisvalue.o: ../axissetting/axisvalue.cpp ../axissetting/axisvalue.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfiledevice.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvector2d.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QColorDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcolordialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFontDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qfontdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QIcon \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QListWidget \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlistwidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlistview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
@@ -19244,8 +19501,55 @@ debug/axisvalue.o: ../axissetting/axisvalue.cpp ../axissetting/axisvalue.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QValueAxis \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qvalueaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDoubleSpinBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlineedit.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextcursor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qpushbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\axisvalue.o ..\axissetting\axisvalue.cpp
 
 debug/chart.o: ../chart/chart.cpp ../chart/chart.h \
@@ -19577,10 +19881,6 @@ debug/linechart.o: ../chart/linechart.cpp ../chart/linechart.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		../chartview/chartbar.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../chartview/screenshoot.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
@@ -19607,6 +19907,11 @@ debug/linechart.o: ../chart/linechart.cpp ../chart/linechart.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -19998,6 +20303,11 @@ debug/linechart.o: ../chart/linechart.cpp ../chart/linechart.h \
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\linechart.o ..\chart\linechart.cpp
@@ -26243,8 +26553,180 @@ debug/linecharttool.o: ../charttool/linecharttool.cpp ../charttool/linecharttool
 		../axissetting/axisline.h \
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
-		../axissetting/axislog.h
+		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLogValueAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\linecharttool.o ..\charttool\linecharttool.cpp
+
+debug/associatetable.o: ../chartview/associatetable.cpp ../chartview/associatetable.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtcore-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsystemdetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qprocessordetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcompilerdetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtypeinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsysinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlogging.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qflags.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbasicatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qgenericatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_msvc.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobalstatic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmutex.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnumeric.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qversiontagging.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtgui-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qwidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnamespace.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstring.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qchar.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearray.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrefcount.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qarraydata.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringbuilder.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qalgorithms.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhashfunctions.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpair.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearraylist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringlist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregexp.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringmatcher.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmetatype.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvarlengtharray.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontainerfwd.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmargins.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpaintdevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrect.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsize.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpalette.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcolor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgb.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgba64.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qbrush.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qmatrix.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpolygon.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qregion.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatastream.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qline.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtransform.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainterpath.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qimage.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpixelformat.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpixmap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfont.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontmetrics.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcursor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qkeysequence.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qevent.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qurl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qurlquery.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfile.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qfiledevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvector2d.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qradiobutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpinBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qspinbox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\associatetable.o ..\chartview\associatetable.cpp
 
 debug/chartbar.o: ../chartview/chartbar.cpp ../chartview/chartbar.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QToolBar \
@@ -26351,35 +26833,23 @@ debug/chartbar.o: ../chartview/chartbar.cpp ../chartview/chartbar.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtouchdevice.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../chartview/screenshoot.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qradiobutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
@@ -26391,22 +26861,7 @@ debug/chartbar.o: ../chartview/chartbar.cpp ../chartview/chartbar.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
-		../chartview/screenshoot.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QDialog \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdialog.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QVBoxLayout \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qboxlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgridlayout.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGroupBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgroupbox.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHBoxLayout \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QRadioButton \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qradiobutton.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QComboBox \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qcombobox.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
@@ -26423,6 +26878,7 @@ debug/chartbar.o: ../chartview/chartbar.cpp ../chartview/chartbar.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QScreen \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qscreen.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QList \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QObject \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QRect \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QSize \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QSizeF \
@@ -26438,6 +26894,27 @@ debug/chartbar.o: ../chartview/chartbar.cpp ../chartview/chartbar.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qapplication.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChart \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchart.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractSeries \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractseries.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtGlobal \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QAbstractAxis \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qabstractaxis.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QPen \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QFont \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QLegend \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qlegend.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsWidget \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicswidget.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicslayoutitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsitem.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QBrush \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QMargins \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QChartView \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/qchartview.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsView \
@@ -26445,8 +26922,13 @@ debug/chartbar.o: ../chartview/chartbar.cpp ../chartview/chartbar.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpainter.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qscrollarea.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDebug
+		../chartview/associatetable.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableView \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtableview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\chartbar.o ..\chartview\chartbar.cpp
 
 debug/chartview.o: ../chartview/chartview.cpp ../chartview/chartview.h \
@@ -30967,6 +31449,7 @@ debug/main.o: ../main.cpp ../test/test.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -31219,11 +31702,14 @@ debug/main.o: ../main.cpp ../test/test.h \
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem \
 		../login/login.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QMouseEvent \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QXmlStreamReader \
 		../login/login_create_account.h \
@@ -31711,6 +32197,7 @@ debug/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -31964,6 +32451,11 @@ debug/mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\mainwindow.cpp
@@ -35603,6 +36095,7 @@ debug/chartview_tool.o: ../tool/chartview_tool.cpp ../tool/chartview_tool.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTabWidget \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QItemSelectionModel \
 		../chart/linechart.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QMainWindow \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qmainwindow.h \
@@ -35708,6 +36201,7 @@ debug/chartview_tool.o: ../tool/chartview_tool.cpp ../tool/chartview_tool.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -36097,9 +36591,112 @@ debug/chartview_tool.o: ../tool/chartview_tool.cpp ../tool/chartview_tool.h \
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
-		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/QtConcurrent \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/QtConcurrentDepends \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentcompilertest.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrent_global.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentexception.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentfilter.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentfilterkernel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentiteratekernel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentmedian.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentthreadengine.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentmapkernel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentreducekernel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentfunctionwrappers.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentmap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentrun.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentrunbase.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentstoredfunctioncall.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtConcurrent/qtconcurrentversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\chartview_tool.o ..\tool\chartview_tool.cpp
+
+debug/tableviewmodel.o: ../tool/tableviewmodel.cpp ../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvariant.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qconfig.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtcore-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsystemdetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qprocessordetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcompilerdetection.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtypeinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsysinfo.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlogging.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qflags.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qglobalstatic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmutex.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnumeric.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qversiontagging.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbasicatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qgenericatomic.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qatomic_msvc.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearray.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrefcount.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qnamespace.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qarraydata.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstring.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qchar.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringbuilder.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qalgorithms.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiterator.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhashfunctions.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpair.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qbytearraylist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringlist.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregexp.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qstringmatcher.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmetatype.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvarlengtharray.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontainerfwd.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmap.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdebug.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qhash.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qtextstream.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qiodevice.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreevent.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qscopedpointer.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qobject_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qlocale.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qshareddata.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qvector.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qpoint.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qset.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcontiguouscache.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QHash \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QRect \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qrect.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qmargins.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qsize.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qcolor.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtguiglobal.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtgui-config.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgb.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrgba64.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QTime \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qdatetime.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tableviewmodel.o ..\tool\tableviewmodel.cpp
 
 debug/tool.o: ../tool/tool.cpp ../tool/tool.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QWidget \
@@ -36516,6 +37113,7 @@ debug/tool.o: ../tool/tool.cpp ../tool/tool.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFormLayout \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLayout \
+		../chartview/associatetable.h \
 		../charttool/linecharttool.h \
 		../charttool/charttool.h \
 		../charttool/charttoolwidget.h \
@@ -36776,6 +37374,11 @@ debug/tool.o: ../tool/tool.cpp ../tool/tool.h \
 		../axissetting/axisgrid.h \
 		../axissetting/axisvalue.h \
 		../axissetting/axislog.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSpacerItem \
+		../tool/tableviewmodel.h \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QAbstractTableModel \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVector \
+		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QColor \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsSimpleTextItem \
 		E:/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QGraphicsRectItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tool.o ..\tool\tool.cpp
@@ -36897,6 +37500,9 @@ debug/moc_charttoolwidget.o: debug/moc_charttoolwidget.cpp
 debug/moc_linecharttool.o: debug/moc_linecharttool.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_linecharttool.o debug\moc_linecharttool.cpp
 
+debug/moc_associatetable.o: debug/moc_associatetable.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_associatetable.o debug\moc_associatetable.cpp
+
 debug/moc_chartbar.o: debug/moc_chartbar.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_chartbar.o debug\moc_chartbar.cpp
 
@@ -37007,6 +37613,9 @@ debug/moc_chartview_tool.o: debug/moc_chartview_tool.cpp
 
 debug/moc_tableview_tool.o: debug/moc_tableview_tool.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_tableview_tool.o debug\moc_tableview_tool.cpp
+
+debug/moc_tableviewmodel.o: debug/moc_tableviewmodel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_tableviewmodel.o debug\moc_tableviewmodel.cpp
 
 debug/moc_tool.o: debug/moc_tool.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_tool.o debug\moc_tool.cpp

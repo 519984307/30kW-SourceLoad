@@ -7,8 +7,8 @@ AxisGrid::AxisGrid(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*p
     mAxisGridVisibility = new QCheckBox;
     mAxisMinorGridVisibility = new QCheckBox;
     updateVisibilityState();
-    mAxisGridColor = new QPushButton(tr("设置颜色"));
-    mAxisMinorGridColor = new QPushButton(tr("设置颜色"));
+    mAxisGridColor = new QPushButton(tr("设置主网格颜色"));
+    mAxisMinorGridColor = new QPushButton(tr("设置次网格颜色"));
     updateColorState();
     mAxisGridWidth = new QSpinBox;
     mAxisMinorGridWidth = new QSpinBox;

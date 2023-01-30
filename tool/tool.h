@@ -16,7 +16,7 @@ public:
     explicit Tool(QWidget *parent =Q_NULLPTR);
     void closeEvent(QCloseEvent *) override;
 private:
-    QGridLayout * mMainLayout;
+    QVBoxLayout* mMainLayout;
     QPushButton * mStartTableBtn;
     QPushButton * mStartPlotBtn;
     TableViewWidget * mTableTool;

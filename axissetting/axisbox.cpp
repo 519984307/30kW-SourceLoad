@@ -35,7 +35,7 @@ QColorDialog* AxisBox::colorDialog(const QColor&initColor)
     dlg->setFixedSize(800,400);
     dlg->setWindowIcon(mIcon);
     dlg->setOptions(QColorDialog::ShowAlphaChannel|QColorDialog::DontUseNativeDialog);//QColorDialog::NoButtons|
-    dlg->setWindowTitle(tr("设置标题颜色"));
+    dlg->setWindowTitle(tr("设置颜色"));
     return dlg;
 }
 
@@ -44,7 +44,7 @@ QFontDialog* AxisBox::fontDialog(const QFont &initFont)
     QFontDialog * dlg = new QFontDialog(initFont);
     dlg->setFixedSize(800,400);
     dlg->setWindowIcon(mIcon);
-    dlg->setWindowTitle(tr("设置标题格式"));
+    dlg->setWindowTitle(tr("设置格式"));
     dlg->setOptions(QFontDialog::DontUseNativeDialog);
     return dlg;
 }

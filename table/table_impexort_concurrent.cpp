@@ -202,7 +202,6 @@ void Table::exportTxtConcurrent()
     }
 }
 
-
 void Table::importCsvConcurrent()
 {
     showTips();

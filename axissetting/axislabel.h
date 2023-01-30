@@ -7,7 +7,6 @@
 #include <QPushButton>
 #include <QCheckBox>
 
-
 class AxisLabel : public AxisBox
 {
     Q_OBJECT

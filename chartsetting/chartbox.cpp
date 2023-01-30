@@ -18,7 +18,7 @@ QColorDialog* ChartBox::colorDialog(const QColor&initColor)
     dlg->setFixedSize(800,400);
     dlg->setWindowIcon(mIcon);
     dlg->setOptions(QColorDialog::ShowAlphaChannel|QColorDialog::DontUseNativeDialog);//QColorDialog::NoButtons|
-    dlg->setWindowTitle(tr("设置标题颜色"));
+    dlg->setWindowTitle(tr("设置颜色"));
     //connect(dlg,static_cast<void (QColorDialog::*) (const QColor&)>(&QColorDialog::currentColorChanged)
            //,this,[=](const QColor& color){mChart->setTitleBrush(QBrush(color));} // 此信号切换颜色就会选择,使用这个信号其实2个按钮就没有意义
     //);
@@ -33,7 +33,7 @@ QFontDialog* ChartBox::fontDialog(const QFont &initFont)
     QFontDialog * dlg = new QFontDialog(initFont);
     dlg->setFixedSize(800,400);
     dlg->setWindowIcon(mIcon);
-    dlg->setWindowTitle(tr("设置标题格式"));
+    dlg->setWindowTitle(tr("设置格式"));
     dlg->setOptions(QFontDialog::DontUseNativeDialog);
     return dlg;
 }

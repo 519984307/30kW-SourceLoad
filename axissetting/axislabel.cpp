@@ -12,13 +12,13 @@ AxisLabel::AxisLabel(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget
     mAxisLabelAngle->setSuffix("°");
     updateAngleState();
 
-    mAxisLabelColor = new QPushButton(tr("设置颜色"));
+    mAxisLabelColor = new QPushButton(tr("设置标签颜色"));
     updateColorState();
 
     //mAxisLabelBrush = brushStyleCombo();
     //updateBrushState();
 
-    mAxisLabelFont = new QPushButton(tr("设置格式"));
+    mAxisLabelFont = new QPushButton(tr("设置标签格式"));
     updateFontState();
 
     QFormLayout* lay = new QFormLayout;
