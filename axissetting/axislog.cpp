@@ -2,7 +2,7 @@
 
 AxisLog::AxisLog(QChart * chart,QWidget*parent):
     QGroupBox(parent),mChart(chart),mCurrentAxis(nullptr)
-{
+{// 必须是QLogValueAxis,所以不继承AxisBox,也无需构造函数,而是动态设定
     // 针对QLogValueAxis使用minortickcount,labelformat,range,base,tickcount随base变化不能设置
    mBase = new QDoubleSpinBox;
    mMinRange = new QDoubleSpinBox;

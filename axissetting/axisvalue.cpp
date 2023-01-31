@@ -2,7 +2,7 @@
 
 AxisValue::AxisValue(QChart * chart,QWidget*parent):
     QGroupBox(parent),mChart(chart),mCurrentAxis(nullptr)
-{
+{// 必须是QValueAxis,所以不继承AxisBox,也无需构造函数,而是动态设定
      // 针对QValueAxis使用minortickcount,tickcount,labelformat,range,
     mMinRange = new QDoubleSpinBox;
     mMaxRange = new QDoubleSpinBox;

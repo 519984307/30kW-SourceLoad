@@ -18,6 +18,7 @@ public:
     explicit ChartDataGenerator(QObject *parent = Q_NULLPTR);
     QLineSeries * linechart(int=1,int=100);
     QLineSeries * sinechart(int=1,int=100);
+    QLineSeries * lineseries(const QString&,const QColor&);
     QValueAxis * axis(int,const QString& ="data point",const QString& ="%i");
     QLogValueAxis * logaxis(qreal,const QString& ="data point");
     QImage startPattern();

@@ -1,10 +1,6 @@
 #ifndef AXISTITLE_H
 #define AXISTITLE_H
 #include <axissetting/axisbox.h>
-#include <QLineEdit>
-#include <QFormLayout>
-#include <QCheckBox>
-#include <QPushButton>
 
 class AxisTitle : public AxisBox
 {

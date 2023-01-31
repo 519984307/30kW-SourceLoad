@@ -1,9 +1,7 @@
 #ifndef SERIESSETTING_H
 #define SERIESSETTING_H
 
-#include <QVBoxLayout>
-#include <QtCharts>
-using namespace QtCharts;
+#include <seriessetting/seriesinfo.h>
 
 class SeriesSetting : public QVBoxLayout
 {
@@ -12,10 +10,18 @@ public:
     explicit SeriesSetting(QChart*);
     void closeChildrenWindows();
 private:
-    QChart * mChart;
     QIcon mIcon;
+    QChart * mChart;
+    QAbstractSeries * mCurrentSeries;
+    QGroupBox * mWhichSeries;
+    QComboBox * mCurrentSeriesCombo;
+    void initWhichSeries();
+    SeriesInfo * mSeriesInfo;
+private slots:
+    void onNameChanged(const QString&,int);
 signals:
     void tableChanged();
+    void seriesChanged(int);
 };
 
 #endif // SERIESSETTING_H

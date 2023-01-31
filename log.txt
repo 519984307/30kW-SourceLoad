@@ -343,9 +343,17 @@ TableViewModel类增加tagXYColumn()函数用于对选择的2列数据进行映�
 ④ 完成之前开发功能的英文界面翻译，纠正部分错误
 ⑤ 出具一份文档，对目前开发的上位机功能的简单介绍
 
+2023/01/31：
+① 增加SeriesBox类，和AxisBox、ChartBox功能类似
+② 增加SeriesInfo类，继承SeriesBox，为曲线的通用功能
+③ 增加SeriesLine类，特定曲线QValueSeries类型的功能
+④ 增加SeriesSetting类，内部组合了SeriesInfo类
+⑤ 增加LineSeriesSetting类，内部组合了SeriesSetting和SeriesLine，组成折线图具备的曲线设置功能
+⑥ 考虑到反复添加曲线后必然有重复的颜色，所以放弃表格颜色和图表映射的问题，干脆每次都清除掉以前所有的颜色
+⑦ 解决图表添加新的曲线后就会导致原有的曲线点击图例显示隐藏效果失灵问题
+⑧ 明日要解决曲线颜色修改后更新搭配表格的对应列上这个问题
 
-
-
+2023/2/1：
 
 
 

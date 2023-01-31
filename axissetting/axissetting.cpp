@@ -15,7 +15,7 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     mAxisLine = new AxisLine(mChart,mCurrentAxis,mIcon);
     mAxisGrid = new AxisGrid(mChart,mCurrentAxis,mIcon);
 
-    mAxisValue = new AxisValue(mChart); //初始化布局,与mCurrentAxis是何类型无关
+    mAxisValue = new AxisValue(mChart); //初始化布局,根据当前轴类型动态的显示和隐藏
     mAxisLog = new AxisLog(mChart);
 
     initWhichAxis();
@@ -69,6 +69,7 @@ void AxisSetting::initWhichAxis()
     lay->addWidget(mAxisY);
     mWhichAxis ->setLayout(lay);
     mWhichAxis->setTitle(tr("当前轴"));
+    mWhichAxis->setMinimumWidth(450);
 
     connect(group,static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
             this,[=](int id){

@@ -5,6 +5,8 @@ LineChartTool::LineChartTool(QChart* chart,QWidget*parent)
 {
     mChartWidget->updateScrollArea(); // 图表设置都相同,只需调用一次更新滑动区域，ChartTool内部已调用过
 
+    mSeriesSetting = new LineSeriesSetting(mChart); // 通用设置
+    mSeriesWidget->addLayout(mSeriesSetting);
     mSeriesWidget->updateScrollArea(); // 曲线和坐标轴设置不同,在这里调用
 
     // 针对折线图常用的XY轴有4套组合使用(根据情况可以在chartbar的associatetable内增加类型)
@@ -15,4 +17,5 @@ LineChartTool::LineChartTool(QChart* chart,QWidget*parent)
     mAxisWidget->updateScrollArea();
 
     connect(this,&LineChartTool::tableChanged,mAxisSetting,&AxisSetting::tableChanged);
+    connect(this,&LineChartTool::tableChanged,mSeriesSetting,&LineSeriesSetting::tableChanged);
 }

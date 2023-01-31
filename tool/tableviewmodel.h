@@ -31,16 +31,16 @@ public:
     QStringList horizontalHeaderLabels() const;
 
     void tagYColumn(int,const QColor&);
-    QLineSeries* tagXYColumn(int,int,const QColor&);
+    void tagXYColumn(QLineSeries*,int,int);
 
     void appendRow(QVector<QVariant> *);
     void appendRow(const QStringList&);
     QVector<QVariant> rowData(int) const;
     QVector<QVariant> colData(int) const;
 
-    void addMapping(QString color, QRect area);
+    void addMapping(QString, QRect);
     void clearMapping() { mMapping.clear(); }
-
+    void removeMapping(QString);
 private:
     QList<QVector<QVariant> * > mData;
     QHash<QString, QRect> mMapping;

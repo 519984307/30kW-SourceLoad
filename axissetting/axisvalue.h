@@ -13,7 +13,6 @@
 #include <QPushButton>
 using namespace QtCharts;
 
-// 作为widget被axissettingvalue(layout)使用
 class AxisValue: public QGroupBox
 {
     Q_OBJECT

@@ -16,6 +16,8 @@
 #include <QGraphicsSimpleTextItem>
 #include <QGraphicsRectItem>
 #include <QLegendMarker>
+#include <QLineEdit>
+#include <QColorDialog>
 #include <QDebug>
 #include <tool/tableviewmodel.h>
 using namespace QtCharts;
@@ -31,12 +33,15 @@ private:
     QChartView *mChartView;
     QGraphicsSimpleTextItem * mCoordTip;
     QGraphicsRectItem * mCoordRect;
+    QColor mLineColor;
+    int mLineWidth;
     void initConnections();
     void onOkBtn();
     void singleMapping();
     void doubleMapping();
     void showToolTip(QPointF point, bool state);
     void legendMarkerClicked();
+    bool mShowLegend;
 private:
     QGroupBox * mAssociateModeBox;
     QRadioButton * mSingleBtn;
@@ -46,6 +51,14 @@ private:
     QGroupBox * mDoubleAssociateBox;
     QSpinBox * mDoubleSpinX;
     QSpinBox * mDoubleSpinY;
+    QSpinBox * mLineWidthSpin;
+    QPushButton * mLineColorBtn;
+    QLineEdit * mLineColorEdit;
+    QRadioButton * mHorizonalValueAxis;
+    QRadioButton * mHorizonalLogAxis;
+    QRadioButton * mVerticalValueAxis;
+    QRadioButton * mVerticalLogAxis;
+    QSpinBox * mLogBase;
     QPushButton * mOkBtn;
 signals:
     void tableChanged();

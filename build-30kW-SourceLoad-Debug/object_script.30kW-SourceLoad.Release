@@ -71,6 +71,11 @@ INPUT(
 ./release\monitor_initial.o
 ./release\monitor_label.o
 ./release\monitor_spinbox.o
+./release\lineseriessetting.o
+./release\seriesbox.o
+./release\seriesinfo.o
+./release\seriesline.o
+./release\seriessetting.o
 ./release\logperiod.o
 ./release\setting.o
 ./release\workmodedialog.o
@@ -152,6 +157,11 @@ INPUT(
 ./release\moc_monitor.o
 ./release\moc_monitor_label.o
 ./release\moc_monitor_spinbox.o
+./release\moc_lineseriessetting.o
+./release\moc_seriesbox.o
+./release\moc_seriesinfo.o
+./release\moc_seriesline.o
+./release\moc_seriessetting.o
 ./release\moc_logperiod.o
 ./release\moc_setting.o
 ./release\moc_workmodedialog.o

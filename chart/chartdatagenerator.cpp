@@ -6,6 +6,18 @@ ChartDataGenerator::ChartDataGenerator(QObject *parent) : QObject(parent)
         //mLineChart->setUseOpenGL(true);
 }
 
+QLineSeries * ChartDataGenerator:: lineseries(const QString &name, const QColor &color)
+{
+    QLineSeries * series = new QLineSeries;
+    series->setName(name);
+    series->setColor(color);
+    QPen pen = series->pen();
+    pen.setWidth(2);
+    series->setPen(pen);
+    series->setPointLabelsFormat("((@xPoint, @yPoint))");
+    series->setPointLabelsFont(QFont("Times New Roman",8));
+    return series;
+}
 
 QLineSeries * ChartDataGenerator::linechart(int amplitude,int count)
 {

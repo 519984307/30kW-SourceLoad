@@ -107,23 +107,21 @@ void TableViewModel::tagYColumn(int col, const QColor &color)
     // 虚函数setItemData除非重载才能起作用,data()已经规定了表格显示数据的方式
     // 直接改变mMapping就可以了,就像XY映射那样做,QAbstractTableModel内部已经设定好了映射的机制
     clearMapping();
-    addMapping(color.name(),QRect(col,0,1,mRowCount)); // x坐标实际是列
+    QRect rect(col,0,1,mRowCount);// x坐标实际是列
+    addMapping(color.name(),rect);
 }
 
-QLineSeries * TableViewModel::tagXYColumn(int xCol , int yCol, const QColor & color)
+void TableViewModel::tagXYColumn(QLineSeries*series,int xCol , int yCol)
 {
-   QLineSeries * series = new QLineSeries;
-   series->setPen(QPen(QBrush(color,Qt::SolidPattern),2));
    QVXYModelMapper *mapper = new QVXYModelMapper;
    mapper->setXColumn(xCol);
    mapper->setYColumn(yCol);
    mapper->setSeries(series);
    mapper->setModel(this);
-   QString seriesColorHex = "#" + QString::number(series->pen().color().rgb(), 16).right(6).toUpper();
+   QString seriesColorHex = "#" + QString::number(series->color().rgb(), 16).right(6).toUpper();
    clearMapping();
    addMapping(seriesColorHex, QRect(xCol, 0, 1, rowCount())); //指定的2列
    addMapping(seriesColorHex, QRect(yCol, 0, 1, rowCount()));
-   return series;
 }
 
 void TableViewModel::appendRow(QVector<QVariant>*data)
@@ -165,4 +163,9 @@ Qt::ItemFlags TableViewModel::flags(const QModelIndex &index) const
 void TableViewModel::addMapping(QString color, QRect area)
 {
     mMapping.insertMulti(color, area);
+}
+
+void TableViewModel::removeMapping(QString color)
+{
+    mMapping.remove(color);
 }

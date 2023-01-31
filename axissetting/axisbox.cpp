@@ -1,4 +1,4 @@
-#include "axisbox.h"
+#include <axissetting/axisbox.h>
 
 AxisBox::AxisBox(QChart *chart,QAbstractAxis*axis, const QIcon&icon,QWidget*parent):
     QGroupBox(parent),mChart(chart),mCurrentAxis(axis),mIcon(icon)

@@ -83,41 +83,17 @@ void LineChart::initMappingChart()
 {
     auto model = static_cast<TableViewModel*>(mTableView->model());
 
-    QLineSeries * series1 = new QLineSeries;
-    series1->setPen(QPen(QBrush(Qt::red,Qt::SolidPattern),2));
-    series1->setName("line1");
-    QLineSeries * series2 = new QLineSeries;
-    series2->setPen(QPen(QBrush(Qt::green,Qt::SolidPattern),2));
-    series2->setName("line2");
-    QLineSeries * series3 = new QLineSeries;
-    series3->setPen(QPen(QBrush(Qt::yellow,Qt::SolidPattern),2));
-    series3->setName("line3");
+    QLineSeries * series1 = mGenerator->lineseries("line1",Qt::red);
+    QLineSeries * series2 = mGenerator->lineseries("line2",Qt::green);
+    QLineSeries * series3 = mGenerator->lineseries("line3",Qt::yellow);
 
-     QVXYModelMapper *mapper = new QVXYModelMapper(this);
-    mapper->setXColumn(0);
-    mapper->setYColumn(1);
-    mapper->setSeries(series1);
-    mapper->setModel(model);
-    QString seriesColorHex = "#" + QString::number(series1->pen().color().rgb(), 16).right(6).toUpper();
-    model->addMapping(seriesColorHex, QRect(0, 0, 2, model->rowCount())); //前2列
+    addMapping(model,series1,0,1);
     mChart->addSeries(series1);
 
-    mapper = new QVXYModelMapper(this);
-    mapper->setXColumn(2);
-    mapper->setYColumn(3);
-    mapper->setSeries(series2);
-    mapper->setModel(model);
-    seriesColorHex = "#" + QString::number(series2->pen().color().rgb(), 16).right(6).toUpper();
-    model->addMapping(seriesColorHex, QRect(2, 0, 2, model->rowCount())); //中间2列
+    addMapping(model,series2,2,3);
     mChart->addSeries(series2);
 
-    mapper = new QVXYModelMapper(this);
-    mapper->setXColumn(4);
-    mapper->setYColumn(5);
-    mapper->setSeries(series3);
-    mapper->setModel(model);
-    seriesColorHex = "#" + QString::number(series3->pen().color().rgb(), 16).right(6).toUpper();
-    model->addMapping(seriesColorHex, QRect(4, 0, 2, model->rowCount())); //后2列
+    addMapping(model,series3,4,5);
     mChart->addSeries(series3);
 
     mChart->createDefaultAxes();
@@ -125,6 +101,17 @@ void LineChart::initMappingChart()
     connect(series1, &QLineSeries::hovered, this, &LineChart::showToolTip);
     connect(series2, &QLineSeries::hovered, this, &LineChart::showToolTip);
     connect(series3, &QLineSeries::hovered, this, &LineChart::showToolTip);
+}
+
+void  LineChart::addMapping(TableViewModel*model, QXYSeries *series, int x, int y)
+{
+   QVXYModelMapper *mapper = new QVXYModelMapper(this);
+   mapper->setXColumn(x);
+   mapper->setYColumn(y);
+   mapper->setSeries(series);
+   mapper->setModel(model);
+   QString seriesColorHex = "#" + QString::number(series->pen().color().rgb(), 16).right(6).toUpper();
+   model->addMapping(seriesColorHex, QRect(x, 0, 2, model->rowCount()));// 第x列开始的2列
 }
 
 void LineChart::legendMarkerClicked() // 这个函数不能放在chart.cpp连接因为那个时候还没有曲线,图例尚未创建出来,必须先初始化曲线后再连接

@@ -36,6 +36,7 @@ private:
     void initChart();
     void initRandomChart();
     void initMappingChart();
+    void addMapping(TableViewModel*,QXYSeries*,int,int);
     void legendMarkerClicked();
     void showToolTip(QPointF point, bool state);
     QSplitter * mSplitter;

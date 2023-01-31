@@ -1,12 +1,30 @@
 #ifndef SERIESINFO_H
 #define SERIESINFO_H
 
+#include <seriessetting/seriesbox.h>
 
 class SeriesInfo : public SeriesBox
 {
     Q_OBJECT
 public:
-    SeriesInfo();
+    explicit SeriesInfo(QChart *,QAbstractSeries*, const QIcon&, QWidget* = Q_NULLPTR);
+private:
+    void updateState() override;
+    QCheckBox * mSeriseVisible;
+    QDoubleSpinBox * mSeriesOpacity;
+    QLineEdit * mSeriesNameEdit;
+    QPushButton * mSeriesNameBtn;
+    QLabel * mSeriesType;
+    void updateTypeState();
+    void updateVisibilityState();
+    void updateOpacityState();
+    void updateNameState();
+private slots:
+    void changeVisibility(int);
+    void changeOpacity(double);
+    void changeName();
+signals:
+    void nameChanged(const QString&,int);
 };
 
 #endif // SERIESINFO_H

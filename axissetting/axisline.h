@@ -2,10 +2,6 @@
 #define AXISLINE_H
 
 #include <axissetting/axisbox.h>
-#include <QFormLayout>
-#include <QPushButton>
-#include <QCheckBox>
-#include <QSpinBox>
 
 class AxisLine : public AxisBox
 {

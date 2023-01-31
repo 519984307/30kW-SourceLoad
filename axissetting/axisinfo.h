@@ -2,10 +2,6 @@
 #define AXISINFO_H
 
 #include <axissetting/axisbox.h>
-#include <QCheckBox>
-#include <QRadioButton>
-#include <QButtonGroup>
-#include <QFormLayout>
 
 class AxisInfo : public AxisBox
 {
