@@ -3,9 +3,6 @@
 
 #include <axissetting/axisbox.h>
 #include <chartsetting/gradientparamspinbox.h>
-#include <QFormLayout>
-#include <QPushButton>
-#include <QCheckBox>
 
 class AxisLabel : public AxisBox
 {

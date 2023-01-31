@@ -97,6 +97,8 @@ SOURCES += \
     monitor/monitor_initial.cpp \
     monitor/monitor_label.cpp \
     monitor/monitor_spinbox.cpp \
+    seriessetting/seriesbox.cpp \
+    seriessetting/seriessetting.cpp \
     setting/logperiod.cpp \
     setting/setting.cpp \
     setting/workmodedialog.cpp \
@@ -182,6 +184,8 @@ HEADERS += \
     monitor/monitor.h \
     monitor/monitor_label.h \
     monitor/monitor_spinbox.h \
+    seriessetting/seriesbox.h \
+    seriessetting/seriessetting.h \
     setting/logperiod.h \
     setting/setting.h \
     setting/workmodedialog.h \

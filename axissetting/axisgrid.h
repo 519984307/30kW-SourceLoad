@@ -1,10 +1,6 @@
 #ifndef AXISGRID_H
 #define AXISGRID_H
 #include <axissetting/axisbox.h>
-#include <QFormLayout>
-#include <QPushButton>
-#include <QCheckBox>
-#include <QSpinBox>
 
 class AxisGrid : public AxisBox
 {

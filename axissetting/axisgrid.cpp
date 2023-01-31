@@ -1,5 +1,4 @@
 #include <axissetting/axisgrid.h>
-#include <QDebug>
 
 AxisGrid::AxisGrid(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*parent):
     AxisBox(chart,axis,icon,parent)

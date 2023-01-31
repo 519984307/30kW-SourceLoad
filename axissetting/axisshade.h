@@ -2,10 +2,6 @@
 #define AXISSHADE_H
 
 #include <axissetting/axisbox.h>
-#include <QFormLayout>
-#include <QPushButton>
-#include <QCheckBox>
-#include <QSpinBox>
 
 class AxisShade : public AxisBox
 {

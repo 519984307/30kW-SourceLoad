@@ -6,9 +6,17 @@
 #include <QFontDialog>
 #include <QIcon>
 #include <QLabel>
+#include <QLineEdit>
 #include <QComboBox>
 #include <QListWidget>
 #include <QtCharts/QChart>
+#include <QFormLayout>
+#include <QPushButton>
+#include <QCheckBox>
+#include <QRadioButton>
+#include <QButtonGroup>
+#include <QSpinBox>
+#include <QDebug>
 using namespace QtCharts;
 
 // 和chartbox完全一样,只是为了对称性保持风格一致
