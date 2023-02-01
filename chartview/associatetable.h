@@ -35,6 +35,7 @@ private:
     QGraphicsRectItem * mCoordRect;
     QColor mLineColor;
     int mLineWidth;
+    QHash<QLineSeries*,QPair<int,int>> mSeriesXYColumn;
     void initConnections();
     void onOkBtn();
     void singleMapping();
@@ -61,7 +62,10 @@ private:
     QSpinBox * mLogBase;
     QPushButton * mOkBtn;
 signals:
+    void associateCompeleted();
     void tableChanged();
+    void seriesColorChanged(QLineSeries*);
+    void seriesRemoved(QLineSeries*);
 };
 
 #endif // ASSOCIATETABLE_H

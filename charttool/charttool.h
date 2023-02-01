@@ -20,6 +20,6 @@ protected:
 private:
     ChartSetting * mChartSetting;//图表工具栏所有曲线类型都可使用
 signals:
-    void tableChanged();
+    void associateCompeleted();
 };
 #endif // CHARTTOOL_H

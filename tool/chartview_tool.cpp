@@ -69,11 +69,17 @@ void ChartViewWidget::init()
 //    mLayout->addWidget(mTab, 1, 1);
 //    mLayout->setColumnStretch(1, 1);
 //    mLayout->setColumnStretch(0, 0);
-
+    connect(this,&ChartViewWidget::tableChanged,this,[=]{
+        mTableModel->clearMapping();// 把颜色去掉,不过颜色的去除稍有延迟,update不起作用
+        mTableView->update(QRect(0,0,mTableModel->columnCount(),mTableModel->rowCount()));
+        mLineTab->clearChart();
+    });
 }
 
 void ChartViewWidget::initConnections()
 {
+    connect(this,&ChartViewWidget::tableChanged,mLineTab,&LineChart::tableChanged);
+
     connect(mImportFileBtn,&QPushButton::clicked,this,[=]{
         QDir debugDir= QDir::current();
         debugDir.cdUp();
@@ -85,7 +91,6 @@ void ChartViewWidget::initConnections()
 
         QFuture<void> future =QtConcurrent::run([=]{
             mTableModel->clear();
-            mTableModel->clearMapping();
 
             QFile outFile(fileName);
             outFile.open( QIODevice::ReadOnly );
@@ -113,5 +118,6 @@ void ChartViewWidget::initConnections()
             outFile.close();
         });
         while (!future.isFinished()) QApplication::processEvents(QEventLoop::AllEvents, 5);
+        emit tableChanged();
     });
 }

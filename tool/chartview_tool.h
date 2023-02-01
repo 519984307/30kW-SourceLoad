@@ -31,6 +31,8 @@ private:
     QCheckBox * mImportHeaderBtn;
     QTabWidget * mTab;
     LineChart * mLineTab;
+signals:
+    void tableChanged();
 };
 
 #endif // CHARTVIEWWIDGET_H

@@ -31,6 +31,7 @@ class LineChart : public QMainWindow
 public:
     explicit LineChart(QTableView *,QWidget *parent = Q_NULLPTR);
     void closeChildrenWindows();
+    void clearChart();
     ~LineChart();
 private:
     void initChart();
@@ -39,8 +40,12 @@ private:
     void addMapping(TableViewModel*,QXYSeries*,int,int);
     void legendMarkerClicked();
     void showToolTip(QPointF point, bool state);
+    void onSeriesColorChanged(QLineSeries*);
+    void onSeriesRemoved(QLineSeries*);
+    QHash<QLineSeries*,QPair<int,int>> mSeriesXYColumn;
     QSplitter * mSplitter;
     Chart * mChart;
+    TableViewModel * mTableModel;
     ChartView * mChartView;
     QTableView * mTableView;
     LineChartTool * mToolBox;
@@ -48,6 +53,10 @@ private:
     ChartBar * mToolBar;
     QGraphicsSimpleTextItem * mCoordTip;
     QGraphicsRectItem * mCoordRect;
+signals:
+    void tableChanged();
+    void associateCompeleted();
+    void seriesColorChanged(QColor,int);
 };
 
 #endif // LINECHART_H

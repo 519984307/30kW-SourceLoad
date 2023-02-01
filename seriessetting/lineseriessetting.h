@@ -15,7 +15,9 @@ private:
     SeriesSetting * mGenericSetting; // 使用组合
     SeriesLine * mLineSetting;
 signals:
-    void tableChanged();
+    void associateCompeleted();
+    void seriesColorChanged(QLineSeries*);
+    void seriesRemoved(QLineSeries*);
 };
 
 #endif // LINESERIESSETTING_H

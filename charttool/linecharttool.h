@@ -13,5 +13,8 @@ public:
 private:
     AxisSetting * mAxisSetting;
     LineSeriesSetting * mSeriesSetting;
+signals:
+    void seriesColorChanged(QLineSeries*);
+    void seriesRemoved(QLineSeries*);
 };
 #endif // LINECHARTTOOL_H

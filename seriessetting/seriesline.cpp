@@ -146,7 +146,7 @@ void SeriesLine::changeColor()
     QColorDialog * dlg = colorDialog(oldcolor);
     connect(dlg,static_cast<void (QColorDialog::*) (const QColor&)>(&QColorDialog::colorSelected)
            ,this,[=](const QColor& color){ mCurrentSeries->setColor(color); //对曲线来说brush没有意义,color=pen's color
-            emit colorChanged(color); // 曲线颜色改变以后要让做表格对应的列也变成相应颜色
+            emit seriesColorChanged(mCurrentSeries); // 曲线颜色改变以后要让做表格对应的列也变成相应颜色,列可以在linechart/associatetable通过曲线指针找到
     });
     dlg->exec(); delete dlg;
 }

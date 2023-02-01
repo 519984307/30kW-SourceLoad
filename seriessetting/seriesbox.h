@@ -9,7 +9,7 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <QListWidget>
-#include <QtCharts/QChart>
+#include <QtCharts>
 #include <QFormLayout>
 #include <QPushButton>
 #include <QCheckBox>

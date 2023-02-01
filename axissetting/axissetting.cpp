@@ -46,7 +46,7 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
             default:break;
     }
 
-    connect(this,&AxisSetting::tableChanged,this,[=]{mAxisX->click();});// mChart也会改变,执行1次更新界面
+    connect(this,&AxisSetting::associateCompeleted,this,[=]{mAxisX->click();});// 表格关联完成当前曲线变化导致其携带的当前轴可能变化故要更新
 
 }
 
@@ -75,6 +75,10 @@ void AxisSetting::initWhichAxis()
             this,[=](int id){
             if (id == 1)  mCurrentAxis = mChart->axisX();// 对X轴操作
             else mCurrentAxis = mChart->axisY(); // Y轴操作
+
+            // 清除所有曲线时会导致返回的轴是空指针,提前返回,因为下边的groupbox不允许空指针
+            if (mCurrentAxis == nullptr) return;
+
             mAxisInfo->setCurrentAxis(mCurrentAxis);
             mAxisTitle->setCurrentAxis(mCurrentAxis);
             mAxisLabel->setCurrentAxis(mCurrentAxis);

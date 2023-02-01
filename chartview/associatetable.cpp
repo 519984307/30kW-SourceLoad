@@ -32,7 +32,7 @@ AssociateTable::AssociateTable(QTableView*tableview,QChartView*chartview,QWidget
     mSingleSpin = new QSpinBox;
     mSingleSpin->setRange(1,mTableModel->columnCount());
     QFormLayout * lay2 = new QFormLayout;
-    lay2->addRow(tr("X轴"),new QLabel(tr("自动生成")));
+    lay2->addRow(tr("X轴"),new QLabel(tr("自动")));
     lay2->addRow(tr("Y轴"),mSingleSpin);
     mSingleAssociateBox->setLayout(lay2);
 
@@ -46,6 +46,12 @@ AssociateTable::AssociateTable(QTableView*tableview,QChartView*chartview,QWidget
     lay3->addRow(tr("Y轴"),mDoubleSpinY);
     mDoubleAssociateBox->setLayout(lay3);
     mDoubleAssociateBox->setEnabled(false);
+
+    QGroupBox * relatebox = new QGroupBox(tr("关联设置"));
+    QHBoxLayout * relatelay  = new QHBoxLayout;
+    relatelay->addWidget(mSingleAssociateBox);
+    relatelay->addWidget(mDoubleAssociateBox);
+    relatebox->setLayout(relatelay);
 
     QGroupBox * linebox = new QGroupBox(tr("曲线"));
     mLineWidthSpin = new QSpinBox;
@@ -67,8 +73,9 @@ AssociateTable::AssociateTable(QTableView*tableview,QChartView*chartview,QWidget
     lay4->addWidget(mOkBtn);
 
     lay->addWidget(mAssociateModeBox);
-    lay->addWidget(mSingleAssociateBox);
-    lay->addWidget(mDoubleAssociateBox);
+    //lay->addWidget(mSingleAssociateBox);
+    //lay->addWidget(mDoubleAssociateBox);
+    lay->addWidget(relatebox); // 组合上边2个
     lay->addWidget(linebox);
     lay->addWidget(axisbox);
     lay->addLayout(lay4);
@@ -109,14 +116,37 @@ void AssociateTable::initConnections()
             this,[=](int width){mLineWidth = width;});
 
     connect(mOkBtn,&QPushButton::clicked,this,&AssociateTable::onOkBtn);
-    // 文件随时可能重新导入更新tableview'smodel
-    connect(this,&AssociateTable::tableChanged,this,[=]{
+
+    connect(this,&AssociateTable::tableChanged,this,[=]{ // 导入文件后表格model发生了更新
         disconnect(mOkBtn,&QPushButton::clicked,this,&AssociateTable::onOkBtn);
         mTableModel = static_cast<TableViewModel*>(mTableView->model()); //更新model再连
         connect(mOkBtn,&QPushButton::clicked,this,&AssociateTable::onOkBtn);
+
         mSingleSpin->setRange(1,mTableModel->columnCount());
         mDoubleSpinX->setRange(1,mTableModel->columnCount());
         mDoubleSpinY->setRange(1,mTableModel->columnCount());
+    });
+
+    connect(this,static_cast<void (AssociateTable::*)(QLineSeries*)>(&AssociateTable::seriesColorChanged),
+            this,[=](QLineSeries*series){
+            if (mSeriesXYColumn.keys().contains(series))
+            { // 说明修改的是这里创建出来的series,有可能是linechart.cpp初始化创建的那3个
+                auto cols = mSeriesXYColumn[series];
+                mTableModel->addColMapping(cols.first,series->color());
+                if (cols.second < 0) return; // 说明是单列映射
+                mTableModel->addColMapping(cols.second,series->color());
+            }
+    });
+    connect(this,static_cast<void (AssociateTable::*)(QLineSeries*)>(&AssociateTable::seriesRemoved),
+            this,[=](QLineSeries*series){
+            if (mSeriesXYColumn.keys().contains(series))
+            {
+                auto cols = mSeriesXYColumn[series];
+                mTableModel->addColMapping(cols.first,Qt::white);
+                if (cols.second < 0) return; // 说明是单列映射
+                mTableModel->addColMapping(cols.second,Qt::white);
+                mSeriesXYColumn.remove(series);
+            }
     });
 }
 
@@ -125,12 +155,14 @@ void AssociateTable::onOkBtn()
     bool isSingle = mSingleBtn->isChecked();
     if (isSingle) singleMapping();
     else doubleMapping();
-    emit tableChanged(); // 不要导入表格时就发送,而是关联表格才发送,然后通知给工具栏的曲线和轴工具界面进行更新
+
     const auto markers = mChartView->chart()->legend()->markers(); // 初始化曲线后再连接
     for (QLegendMarker *marker : markers) { // 利用返回的图例标记的clicked信号实现点击图例变暗并隐藏曲线的效果
         QObject::disconnect(marker, &QLegendMarker::clicked,this, &AssociateTable::legendMarkerClicked); // 先断开以防重复连接
         QObject::connect(marker, &QLegendMarker::clicked, this, &AssociateTable::legendMarkerClicked);
     }
+
+    emit associateCompeleted(); // 通知曲线工具栏进行界面更新
     accept();
 }
 
@@ -145,7 +177,8 @@ void AssociateTable::singleMapping()
     pen.setColor(mLineColor);
     series->setPen(pen);
 
-    mTableModel->tagYColumn(col,mLineColor);
+    mTableModel->addColMapping(col,mLineColor);
+    mSeriesXYColumn[series] = qMakePair<int,int>(col,-1);
 
     QString name = mTableModel->horizontalHeaderLabels()[col];
     if (name.toInt()) series->setName("col"+name); // 如果是数字1,2,3..就加上前缀
@@ -159,12 +192,9 @@ void AssociateTable::singleMapping()
     }
 
     connect(series, &QLineSeries::hovered, this, &AssociateTable::showToolTip);
-    QChart * chart = mChartView->chart();
-    chart->removeAllSeries();
-    chart->addSeries(series);
-
-    chart->createDefaultAxes();
-    mChartView->setChart(chart);
+    //chart->removeAllSeries();
+    mChartView->chart()->addSeries(series);
+    mChartView->chart()->createDefaultAxes();
 }
 
 void AssociateTable::doubleMapping()
@@ -179,7 +209,8 @@ void AssociateTable::doubleMapping()
     pen.setColor(mLineColor);
     series->setPen(pen);
 
-    mTableModel->tagXYColumn(series,xCol,yCol); // 曲线先设置颜色再关联表格否则不体现
+    mTableModel->addDoubleColMapping(series,xCol,yCol); // 曲线先设置颜色再关联表格否则不体现
+    mSeriesXYColumn[series] = qMakePair<int,int>(xCol,yCol);
 
     QString name1 = mTableModel->horizontalHeaderLabels()[xCol];
     QString name2 = mTableModel->horizontalHeaderLabels()[yCol];
@@ -219,11 +250,14 @@ void AssociateTable::legendMarkerClicked() // 这个函数不能放在chart.cpp�
     {
         case QLegendMarker::LegendMarkerTypeXY: // QXYLegendMarker=直线+样条曲线+散点系列的效果
         {
+                  //qDebug()<<marker->series()->name();
 //                bool isVisible = marker->series()->isVisible();
 //                marker->series()->setVisible(isVisible);
 
-                mShowLegend = !mShowLegend; // 改用这2行代码的原因是 图表添加新的曲线后就会导致原有的曲线点击图例显示隐藏效果失灵
+                mShowLegend = !mShowLegend; // 2023,1.31,改用这2行代码的原因是 图表添加新的曲线后就会导致原有的曲线点击图例显示隐藏效果失灵
                 marker->series()->setVisible(mShowLegend); // 原因每次isVisible=marker->series()->isVisible()都是false,但是setVisible确实起作用,所以不清楚为何返回不变的原因
+                // 2023/2.1 经过对mapping的修改不再使用原来的string,rect映射而是改用int,color让单元格和颜色一一对应
+                // 发现这个问题得到了解决,上边2行代码又可以使用
 
                 marker->setVisible(true); // 曲线隐藏会让图例也隐藏,所以恢复图例显示,只是变暗
                 qreal alpha = 1.0;

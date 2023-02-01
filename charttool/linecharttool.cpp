@@ -16,6 +16,8 @@ LineChartTool::LineChartTool(QChart* chart,QWidget*parent)
     mAxisWidget->addLayout(mAxisSetting);
     mAxisWidget->updateScrollArea();
 
-    connect(this,&LineChartTool::tableChanged,mAxisSetting,&AxisSetting::tableChanged);
-    connect(this,&LineChartTool::tableChanged,mSeriesSetting,&LineSeriesSetting::tableChanged);
+    connect(this,&LineChartTool::associateCompeleted,mAxisSetting,&AxisSetting::associateCompeleted);
+    connect(this,&LineChartTool::associateCompeleted,mSeriesSetting,&LineSeriesSetting::associateCompeleted);
+    connect(mSeriesSetting,&LineSeriesSetting::seriesColorChanged,this,&LineChartTool::seriesColorChanged);
+    connect(mSeriesSetting,&LineSeriesSetting::seriesRemoved,this,&LineChartTool::seriesRemoved);
 }

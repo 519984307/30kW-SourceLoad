@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ChartTool_t {
     QByteArrayData data[3];
-    char stringdata0[24];
+    char stringdata0[31];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,11 +32,11 @@ struct qt_meta_stringdata_ChartTool_t {
 static const qt_meta_stringdata_ChartTool_t qt_meta_stringdata_ChartTool = {
     {
 QT_MOC_LITERAL(0, 0, 9), // "ChartTool"
-QT_MOC_LITERAL(1, 10, 12), // "tableChanged"
-QT_MOC_LITERAL(2, 23, 0) // ""
+QT_MOC_LITERAL(1, 10, 19), // "associateCompeleted"
+QT_MOC_LITERAL(2, 30, 0) // ""
 
     },
-    "ChartTool\0tableChanged\0"
+    "ChartTool\0associateCompeleted\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,14 +68,14 @@ void ChartTool::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         ChartTool *_t = static_cast<ChartTool *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->tableChanged(); break;
+        case 0: _t->associateCompeleted(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             typedef void (ChartTool::*_t)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ChartTool::tableChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ChartTool::associateCompeleted)) {
                 *result = 0;
                 return;
             }
@@ -121,7 +121,7 @@ int ChartTool::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void ChartTool::tableChanged()
+void ChartTool::associateCompeleted()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }

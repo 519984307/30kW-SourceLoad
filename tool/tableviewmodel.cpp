@@ -53,11 +53,12 @@ QVariant TableViewModel::data(const QModelIndex &index, int role) const
     }
     else if (role == Qt::BackgroundRole)
     {
-        for (const QRect &rect : mMapping) {
-            if (rect.contains(index.column(), index.row()))
-                return QColor(mMapping.key(rect)); // 返回单元格背景颜色
+        for (int id : mCellMapping.keys())
+        {
+              int rectId = index.column()+1 + (index.row() + 1) * 10;
+              if (rectId == id) // 根据索引也就是单元格左上角得到这个单元格的标记
+                  return mCellMapping.value(id); // 返回单元格对应的颜色
         }
-        return QColor(Qt::white); // 默认单元格背景都是白色
     }
     return QVariant();
 }
@@ -88,40 +89,6 @@ void TableViewModel::setHorizontalHeaderLabels(const QStringList &labels)
 QStringList TableViewModel::horizontalHeaderLabels() const
 {
     return mHeader;
-}
-
-void TableViewModel::tagYColumn(int col, const QColor &color)
-{//QMap((0, QVariant(int, 1520))(2, QVariant(int, 1520))(8, QVariant(QColor, QColor(ARGB 1, 1, 0, 0))))
-//    QModelIndex idx;
-//    for(int r = 0 ; r < mRowCount; ++r)
-//    {
-//        idx = index(r,col);
-//        QMap<int,QVariant> m = itemData(idx);
-
-//        qDebug()<<"before : "<<m[8];
-//        m[8].setValue(color);
-//        qDebug()<<"after : "<<m[8];
-//        setItemData(idx,m);
-//        qDebug()<<"last: "<<itemData(idx)[8];
-//    }
-    // 虚函数setItemData除非重载才能起作用,data()已经规定了表格显示数据的方式
-    // 直接改变mMapping就可以了,就像XY映射那样做,QAbstractTableModel内部已经设定好了映射的机制
-    clearMapping();
-    QRect rect(col,0,1,mRowCount);// x坐标实际是列
-    addMapping(color.name(),rect);
-}
-
-void TableViewModel::tagXYColumn(QLineSeries*series,int xCol , int yCol)
-{
-   QVXYModelMapper *mapper = new QVXYModelMapper;
-   mapper->setXColumn(xCol);
-   mapper->setYColumn(yCol);
-   mapper->setSeries(series);
-   mapper->setModel(this);
-   QString seriesColorHex = "#" + QString::number(series->color().rgb(), 16).right(6).toUpper();
-   clearMapping();
-   addMapping(seriesColorHex, QRect(xCol, 0, 1, rowCount())); //指定的2列
-   addMapping(seriesColorHex, QRect(yCol, 0, 1, rowCount()));
 }
 
 void TableViewModel::appendRow(QVector<QVariant>*data)
@@ -160,12 +127,36 @@ Qt::ItemFlags TableViewModel::flags(const QModelIndex &index) const
     return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
 }
 
-void TableViewModel::addMapping(QString color, QRect area)
+void TableViewModel::addCellMapping(QRect rect,QColor color)
 {
-    mMapping.insertMulti(color, area);
+    Q_ASSERT(rect.width() == rect.height() == 1); // 限制区域必须是单个单元格
+    int rows = rect.y()+1, cols = rect.x()+1;// x()是列数-1,y()是行数-1
+    int rectId = rows * 10 + cols;// 第1行第1列其标记11,第3行第4列其标记 34
+    // 水平区域标记是11,12,...,1n 以及垂直21,31,...n1,这样每个单元格有唯一键值
+
+    mCellMapping.insert(rectId,color);// 单元格和颜色一一对应,覆盖插入
 }
 
-void TableViewModel::removeMapping(QString color)
+void TableViewModel::addColMapping(int col ,QColor color)
+{ // 对整列单元格进行映射
+    for(int y = 0;y <mRowCount; ++ y)
+    { // col是水平方向,表示x坐标, y坐标遍历行即可
+        addCellMapping(QRect(col,y,1,1),color);
+    }
+}
+
+void TableViewModel::addDoubleColMapping(QLineSeries* series,int xCol, int yCol)
 {
-    mMapping.remove(color);
+   QVXYModelMapper *mapper = new QVXYModelMapper;
+   mapper->setXColumn(xCol);
+   mapper->setYColumn(yCol);
+   mapper->setSeries(series);
+   mapper->setModel(this);
+   addColMapping(xCol,series->color());
+   addColMapping(yCol,series->color());
+}
+
+void TableViewModel::clearMapping()
+{
+    mCellMapping.clear();
 }

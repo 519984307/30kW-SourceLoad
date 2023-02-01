@@ -4,43 +4,84 @@
 <context>
     <name>AssociateTable</name>
     <message>
-        <location filename="chartview/associatetable.cpp" line="18"/>
+        <location filename="chartview/associatetable.cpp" line="22"/>
         <source>关联模式</source>
         <translation>Association Mode</translation>
     </message>
     <message>
-        <location filename="chartview/associatetable.cpp" line="19"/>
-        <location filename="chartview/associatetable.cpp" line="27"/>
+        <location filename="chartview/associatetable.cpp" line="23"/>
+        <location filename="chartview/associatetable.cpp" line="31"/>
         <source>单列关联</source>
         <translation>Single</translation>
     </message>
     <message>
-        <location filename="chartview/associatetable.cpp" line="20"/>
-        <location filename="chartview/associatetable.cpp" line="35"/>
+        <location filename="chartview/associatetable.cpp" line="24"/>
+        <location filename="chartview/associatetable.cpp" line="39"/>
         <source>双列关联</source>
         <translation>Double</translation>
     </message>
     <message>
-        <location filename="chartview/associatetable.cpp" line="31"/>
-        <location filename="chartview/associatetable.cpp" line="41"/>
+        <location filename="chartview/associatetable.cpp" line="35"/>
+        <location filename="chartview/associatetable.cpp" line="45"/>
         <source>X轴</source>
         <translation>AxisX</translation>
     </message>
     <message>
-        <location filename="chartview/associatetable.cpp" line="31"/>
-        <source>自动生成</source>
-        <translation>Automatic Generation</translation>
+        <location filename="chartview/associatetable.cpp" line="35"/>
+        <source>自动</source>
+        <translation>auto</translation>
     </message>
     <message>
-        <location filename="chartview/associatetable.cpp" line="32"/>
-        <location filename="chartview/associatetable.cpp" line="42"/>
+        <location filename="chartview/associatetable.cpp" line="36"/>
+        <location filename="chartview/associatetable.cpp" line="46"/>
         <source>Y轴</source>
         <translation>AxisY</translation>
     </message>
     <message>
-        <location filename="chartview/associatetable.cpp" line="46"/>
+        <location filename="chartview/associatetable.cpp" line="50"/>
+        <source>关联设置</source>
+        <oldsource>关联选择</oldsource>
+        <translation>Association Setting</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="56"/>
+        <source>曲线</source>
+        <translation>Series</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="59"/>
+        <source>设置曲线颜色</source>
+        <translation>SetSeriesColor</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="63"/>
+        <source>&amp;线宽</source>
+        <translation>&amp;LineWidth</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="64"/>
+        <source>&amp;颜色</source>
+        <translation>&amp;Color</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="65"/>
+        <source>&amp;当前颜色</source>
+        <translation>&amp;Current Color</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="68"/>
+        <source>坐标轴</source>
+        <translation>Axis</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="70"/>
         <source>关联</source>
         <translation>Relate</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="107"/>
+        <source>设置颜色</source>
+        <translation>Set Color</translation>
     </message>
 </context>
 <context>
@@ -61,48 +102,48 @@
 <context>
     <name>AxisGrid</name>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="10"/>
+        <location filename="axissetting/axisgrid.cpp" line="9"/>
         <source>设置主网格颜色</source>
         <oldsource>设置颜色</oldsource>
         <translation>SetMajorGridColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="11"/>
+        <location filename="axissetting/axisgrid.cpp" line="10"/>
         <source>设置次网格颜色</source>
         <translation>SetMinorGridColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="18"/>
+        <location filename="axissetting/axisgrid.cpp" line="17"/>
         <source>&amp;主网格可见</source>
         <translation>&amp;MajorGridVisible</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="19"/>
+        <location filename="axissetting/axisgrid.cpp" line="18"/>
         <source>&amp;主网格颜色</source>
         <translation>&amp;MajorGridColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="20"/>
+        <location filename="axissetting/axisgrid.cpp" line="19"/>
         <source>&amp;主网格宽度</source>
         <translation>&amp;MajorGridWidth</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="21"/>
+        <location filename="axissetting/axisgrid.cpp" line="20"/>
         <source>&amp;次网格可见</source>
         <translation>&amp;MinorGridVisible</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="22"/>
+        <location filename="axissetting/axisgrid.cpp" line="21"/>
         <source>&amp;次网格颜色</source>
         <translation>&amp;MinorGridColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="23"/>
+        <location filename="axissetting/axisgrid.cpp" line="22"/>
         <source>&amp;次网格宽度</source>
         <translation>&amp;MinorGridWidth</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="24"/>
+        <location filename="axissetting/axisgrid.cpp" line="23"/>
         <source>轴网格</source>
         <translation>Grid</translation>
     </message>
@@ -760,6 +801,11 @@
     </message>
     <message>
         <location filename="chartview/chartbar.cpp" line="13"/>
+        <source>清空</source>
+        <translation>Empty</translation>
+    </message>
+    <message>
+        <location filename="chartview/chartbar.cpp" line="14"/>
         <source>截图</source>
         <translation>ScreenShot</translation>
     </message>
@@ -983,12 +1029,12 @@
         <translation>LineChart</translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="80"/>
+        <location filename="tool/chartview_tool.cpp" line="86"/>
         <source>Txt/Csv文件</source>
         <translation>Txt/Csv Files</translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="80"/>
+        <location filename="tool/chartview_tool.cpp" line="86"/>
         <source>*.txt *.csv</source>
         <translation>*.txt *.csv</translation>
     </message>
@@ -1094,7 +1140,7 @@ connection before closing it!</translation>
     </message>
     <message>
         <location filename="communication/communication_connect.cpp" line="188"/>
-        <location filename="communication/communication_connect.cpp" line="317"/>
+        <location filename="communication/communication_connect.cpp" line="318"/>
         <source>日志默认保存的路径为:
 %1</source>
         <translation>The default path for saving logs is:
@@ -1106,27 +1152,27 @@ connection before closing it!</translation>
         <translation>TcpErrorType: %1</translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="227"/>
+        <location filename="communication/communication_connect.cpp" line="228"/>
         <source>IP地址：</source>
         <translation>IP Address:</translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="228"/>
+        <location filename="communication/communication_connect.cpp" line="229"/>
         <source>端口号：</source>
         <translation>Port ID:</translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="233"/>
+        <location filename="communication/communication_connect.cpp" line="234"/>
         <source>确定</source>
         <translation>ok</translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="234"/>
+        <location filename="communication/communication_connect.cpp" line="235"/>
         <source>取消</source>
         <translation>cancel</translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="278"/>
+        <location filename="communication/communication_connect.cpp" line="279"/>
         <source>TCP通讯连接失败!</source>
         <translation>TCP connecting failed!</translation>
     </message>
@@ -1135,7 +1181,7 @@ connection before closing it!</translation>
         <translation type="vanished">Error</translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="244"/>
+        <location filename="communication/communication_connect.cpp" line="245"/>
         <source>IP地址格式不合法!</source>
         <translation>The IP addr format is illegal!</translation>
     </message>
@@ -1144,12 +1190,12 @@ connection before closing it!</translation>
         <translation type="vanished">Port opening error, please check portname!</translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="285"/>
+        <location filename="communication/communication_connect.cpp" line="286"/>
         <source>TCP通讯已连接!</source>
         <translation>TCP have connected!</translation>
     </message>
     <message>
-        <location filename="communication/communication_connect.cpp" line="315"/>
+        <location filename="communication/communication_connect.cpp" line="316"/>
         <source>TCP通讯已断开!</source>
         <translation>TCP have disconnected!</translation>
     </message>
@@ -1264,7 +1310,7 @@ connection before closing it!</translation>
     <message>
         <location filename="chartsetting/foregroundarea.cpp" line="22"/>
         <source>设置颜色</source>
-        <translation type="unfinished"></translation>
+        <translation>Set Color</translation>
     </message>
 </context>
 <context>
@@ -2536,6 +2582,134 @@ You can view the existing numbers by traversing the button list~</translation>
     <message>
         <source>产品编号：%1</source>
         <translation type="vanished">Identifier: %1</translation>
+    </message>
+</context>
+<context>
+    <name>SeriesInfo</name>
+    <message>
+        <location filename="seriessetting/seriesinfo.cpp" line="19"/>
+        <source>设置曲线名称</source>
+        <translation>SetCurveName</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesinfo.cpp" line="26"/>
+        <source>&amp;曲线类型</source>
+        <translation>&amp;Type</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesinfo.cpp" line="27"/>
+        <source>&amp;曲线可见</source>
+        <translation>&amp;Visible</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesinfo.cpp" line="28"/>
+        <source>&amp;曲线透明</source>
+        <translation>&amp;Opacity</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesinfo.cpp" line="34"/>
+        <source>曲线</source>
+        <translation>Info</translation>
+    </message>
+</context>
+<context>
+    <name>SeriesLine</name>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="18"/>
+        <source>设置曲线颜色</source>
+        <translation>SetCurveColor</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="24"/>
+        <source>设置标签颜色</source>
+        <translation>SetLabelColor</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="27"/>
+        <source>设置标签格式</source>
+        <translation>SetLabelFont</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="40"/>
+        <source>&amp;数据可见</source>
+        <translation>&amp;PointVisible</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="41"/>
+        <source>&amp;标签可见</source>
+        <translation>&amp;LabelVisible</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="42"/>
+        <source>&amp;标签剪裁</source>
+        <translation>&amp;LabelClipped</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="43"/>
+        <source>&amp;曲线颜色</source>
+        <translation>&amp;CurveColor</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="44"/>
+        <source>&amp;曲线宽度</source>
+        <translation>&amp;CurveWidth</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="45"/>
+        <source>&amp;标签颜色</source>
+        <translation>&amp;LabelColor</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="46"/>
+        <source>&amp;标签格式</source>
+        <translation>&amp;LabelFont</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="49"/>
+        <source>数据格式</source>
+        <translation>PointFormat</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="57"/>
+        <source>数据点</source>
+        <translation>Points</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="230"/>
+        <source>设置颜色</source>
+        <translation>SetColor</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesline.cpp" line="239"/>
+        <source>设置格式</source>
+        <translation>SetFont</translation>
+    </message>
+</context>
+<context>
+    <name>SeriesSetting</name>
+    <message>
+        <location filename="seriessetting/seriessetting.cpp" line="10"/>
+        <source>当前曲线</source>
+        <translation>Current Curve</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriessetting.cpp" line="34"/>
+        <source>移除</source>
+        <translation>remove</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriessetting.cpp" line="37"/>
+        <source>&amp;切换曲线</source>
+        <translation>&amp;Toggle Curve</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriessetting.cpp" line="38"/>
+        <source>&amp;移除曲线</source>
+        <translation>&amp;Remove Curve</translation>
+    </message>
+    <message>
+        <source>切换曲线</source>
+        <translation type="vanished">Toggle Curve</translation>
     </message>
 </context>
 <context>

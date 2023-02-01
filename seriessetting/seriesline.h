@@ -72,7 +72,7 @@ private slots:
      void changeWidth(int);
      void changeFormat(int);
 signals:
-     void colorChanged(const QColor&);
+     void seriesColorChanged(QLineSeries*);
 };
 
 #endif // SERIESLINE_H

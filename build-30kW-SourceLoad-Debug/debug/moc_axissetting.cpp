@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_AxisSetting_t {
     QByteArrayData data[3];
-    char stringdata0[26];
+    char stringdata0[33];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,11 +32,11 @@ struct qt_meta_stringdata_AxisSetting_t {
 static const qt_meta_stringdata_AxisSetting_t qt_meta_stringdata_AxisSetting = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "AxisSetting"
-QT_MOC_LITERAL(1, 12, 12), // "tableChanged"
-QT_MOC_LITERAL(2, 25, 0) // ""
+QT_MOC_LITERAL(1, 12, 19), // "associateCompeleted"
+QT_MOC_LITERAL(2, 32, 0) // ""
 
     },
-    "AxisSetting\0tableChanged\0"
+    "AxisSetting\0associateCompeleted\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,14 +68,14 @@ void AxisSetting::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         AxisSetting *_t = static_cast<AxisSetting *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->tableChanged(); break;
+        case 0: _t->associateCompeleted(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             typedef void (AxisSetting::*_t)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AxisSetting::tableChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AxisSetting::associateCompeleted)) {
                 *result = 0;
                 return;
             }
@@ -121,7 +121,7 @@ int AxisSetting::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void AxisSetting::tableChanged()
+void AxisSetting::associateCompeleted()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }

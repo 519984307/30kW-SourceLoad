@@ -15,13 +15,16 @@ private:
     QAbstractSeries * mCurrentSeries;
     QGroupBox * mWhichSeries;
     QComboBox * mCurrentSeriesCombo;
+    QPushButton * mRemoveSeriesBtn;
     void initWhichSeries();
     SeriesInfo * mSeriesInfo;
 private slots:
     void onNameChanged(const QString&,int);
 signals:
-    void tableChanged();
-    void seriesChanged(int);
+    void associateCompeleted();
+    void seriesToggled(int);
+    void seriesRemoved(int);
+    void seriesRemoved(QAbstractSeries*);
 };
 
 #endif // SERIESSETTING_H

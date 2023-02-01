@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SeriesLine_t {
-    QByteArrayData data[11];
-    char stringdata0[165];
+    QByteArrayData data[12];
+    char stringdata0[184];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,19 +32,21 @@ struct qt_meta_stringdata_SeriesLine_t {
 static const qt_meta_stringdata_SeriesLine_t qt_meta_stringdata_SeriesLine = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "SeriesLine"
-QT_MOC_LITERAL(1, 11, 12), // "colorChanged"
-QT_MOC_LITERAL(2, 24, 0), // ""
-QT_MOC_LITERAL(3, 25, 18), // "changePointVisible"
-QT_MOC_LITERAL(4, 44, 24), // "changePointLabelsVisible"
-QT_MOC_LITERAL(5, 69, 25), // "changePointLabelsClipping"
-QT_MOC_LITERAL(6, 95, 11), // "changeColor"
-QT_MOC_LITERAL(7, 107, 16), // "changeLabelColor"
-QT_MOC_LITERAL(8, 124, 15), // "changeLabelFont"
-QT_MOC_LITERAL(9, 140, 11), // "changeWidth"
-QT_MOC_LITERAL(10, 152, 12) // "changeFormat"
+QT_MOC_LITERAL(1, 11, 18), // "seriesColorChanged"
+QT_MOC_LITERAL(2, 30, 0), // ""
+QT_MOC_LITERAL(3, 31, 12), // "QLineSeries*"
+QT_MOC_LITERAL(4, 44, 18), // "changePointVisible"
+QT_MOC_LITERAL(5, 63, 24), // "changePointLabelsVisible"
+QT_MOC_LITERAL(6, 88, 25), // "changePointLabelsClipping"
+QT_MOC_LITERAL(7, 114, 11), // "changeColor"
+QT_MOC_LITERAL(8, 126, 16), // "changeLabelColor"
+QT_MOC_LITERAL(9, 143, 15), // "changeLabelFont"
+QT_MOC_LITERAL(10, 159, 11), // "changeWidth"
+QT_MOC_LITERAL(11, 171, 12) // "changeFormat"
 
     },
-    "SeriesLine\0colorChanged\0\0changePointVisible\0"
+    "SeriesLine\0seriesColorChanged\0\0"
+    "QLineSeries*\0changePointVisible\0"
     "changePointLabelsVisible\0"
     "changePointLabelsClipping\0changeColor\0"
     "changeLabelColor\0changeLabelFont\0"
@@ -69,17 +71,17 @@ static const uint qt_meta_data_SeriesLine[] = {
        1,    1,   59,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,   62,    2, 0x08 /* Private */,
-       4,    1,   65,    2, 0x08 /* Private */,
-       5,    1,   68,    2, 0x08 /* Private */,
-       6,    0,   71,    2, 0x08 /* Private */,
-       7,    0,   72,    2, 0x08 /* Private */,
-       8,    0,   73,    2, 0x08 /* Private */,
-       9,    1,   74,    2, 0x08 /* Private */,
-      10,    1,   77,    2, 0x08 /* Private */,
+       4,    1,   62,    2, 0x08 /* Private */,
+       5,    1,   65,    2, 0x08 /* Private */,
+       6,    1,   68,    2, 0x08 /* Private */,
+       7,    0,   71,    2, 0x08 /* Private */,
+       8,    0,   72,    2, 0x08 /* Private */,
+       9,    0,   73,    2, 0x08 /* Private */,
+      10,    1,   74,    2, 0x08 /* Private */,
+      11,    1,   77,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QColor,    2,
+    QMetaType::Void, 0x80000000 | 3,    2,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -100,7 +102,7 @@ void SeriesLine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         SeriesLine *_t = static_cast<SeriesLine *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->colorChanged((*reinterpret_cast< const QColor(*)>(_a[1]))); break;
+        case 0: _t->seriesColorChanged((*reinterpret_cast< QLineSeries*(*)>(_a[1]))); break;
         case 1: _t->changePointVisible((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->changePointLabelsVisible((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 3: _t->changePointLabelsClipping((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -111,11 +113,22 @@ void SeriesLine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->changeFormat((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QLineSeries* >(); break;
+            }
+            break;
+        }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef void (SeriesLine::*_t)(const QColor & );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&SeriesLine::colorChanged)) {
+            typedef void (SeriesLine::*_t)(QLineSeries * );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&SeriesLine::seriesColorChanged)) {
                 *result = 0;
                 return;
             }
@@ -153,14 +166,14 @@ int SeriesLine::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 9)
-            *reinterpret_cast<int*>(_a[0]) = -1;
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 9;
     }
     return _id;
 }
 
 // SIGNAL 0
-void SeriesLine::colorChanged(const QColor & _t1)
+void SeriesLine::seriesColorChanged(QLineSeries * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

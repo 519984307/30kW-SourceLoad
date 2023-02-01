@@ -17,7 +17,10 @@ private:
     ScreenShoot * mScreenShot;
     AssociateTable * mAssociateTable;
 signals:
+    void associateCompeleted();
     void tableChanged();
+    void seriesColorChanged(QLineSeries*);
+    void seriesRemoved(QLineSeries*);
 };
 
 #endif // CHARTBAR_H

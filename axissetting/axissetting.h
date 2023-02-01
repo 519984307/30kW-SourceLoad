@@ -34,6 +34,6 @@ private:
     AxisValue * mAxisValue;
     AxisLog * mAxisLog;
 signals:
-    void tableChanged();
+    void associateCompeleted();
 };
 #endif // AXISSETTING_H

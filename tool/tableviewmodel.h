@@ -7,9 +7,10 @@
 #include <QRect>
 #include <QColor>
 #include <QTime>
-#include <QMap>
+
 #include <QVXYModelMapper>
 #include <QLineSeries>
+#include <QPair>
 using namespace QtCharts;
 
 class TableViewModel : public QAbstractTableModel
@@ -30,20 +31,18 @@ public:
     void setHorizontalHeaderLabels(const QStringList &labels);
     QStringList horizontalHeaderLabels() const;
 
-    void tagYColumn(int,const QColor&);
-    void tagXYColumn(QLineSeries*,int,int);
-
     void appendRow(QVector<QVariant> *);
     void appendRow(const QStringList&);
     QVector<QVariant> rowData(int) const;
     QVector<QVariant> colData(int) const;
 
-    void addMapping(QString, QRect);
-    void clearMapping() { mMapping.clear(); }
-    void removeMapping(QString);
+    void addCellMapping(QRect,QColor);
+    void addColMapping(int,QColor);
+    void addDoubleColMapping(QLineSeries*,int,int);
+    void clearMapping();
 private:
     QList<QVector<QVariant> * > mData;
-    QHash<QString, QRect> mMapping;
+    QHash<int,QColor> mCellMapping;
     QStringList mHeader;
     int mColumnCount;
     int mRowCount;
