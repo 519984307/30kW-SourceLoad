@@ -2,25 +2,13 @@
 #define ASSOCIATETABLE_H
 
 #include <QDialog>
-#include <QTableView>
-#include <QChartView>
-#include <QVBoxLayout>
-#include <QGroupBox>
-#include <QRadioButton>
-#include <QSpinBox>
-#include <QFormLayout>
-#include <QLabel>
-#include <QPushButton>
 #include <QVXYModelMapper>
-#include <QLineSeries>
-#include <QGraphicsSimpleTextItem>
-#include <QGraphicsRectItem>
 #include <QLegendMarker>
-#include <QLineEdit>
-#include <QColorDialog>
-#include <QDebug>
-#include <tool/tableviewmodel.h>
-using namespace QtCharts;
+#include <chart/chartshowtip.h>
+#include <chart/chartshowlegend.h>
+#include <chartview/associateaxis.h>
+#include <chartview/associateseries.h>
+#include <chartview/associatemode.h>
 
 class AssociateTable : public QDialog
 {
@@ -31,36 +19,20 @@ private:
     QTableView * mTableView;
     TableViewModel * mTableModel;
     QChartView *mChartView;
-    QGraphicsSimpleTextItem * mCoordTip;
-    QGraphicsRectItem * mCoordRect;
-    QColor mLineColor;
-    int mLineWidth;
     QHash<QLineSeries*,QPair<int,int>> mSeriesXYColumn;
     void initConnections();
     void onOkBtn();
     void singleMapping();
     void doubleMapping();
-    void showToolTip(QPointF point, bool state);
-    void legendMarkerClicked();
-    bool mShowLegend;
+    void setHorizontalAxis(QLineSeries*);
+    void setVerticalAxis(QLineSeries*);
 private:
-    QGroupBox * mAssociateModeBox;
-    QRadioButton * mSingleBtn;
-    QRadioButton * mDoubleBtn;
-    QGroupBox * mSingleAssociateBox;
-    QSpinBox * mSingleSpin;
-    QGroupBox * mDoubleAssociateBox;
-    QSpinBox * mDoubleSpinX;
-    QSpinBox * mDoubleSpinY;
-    QSpinBox * mLineWidthSpin;
-    QPushButton * mLineColorBtn;
-    QLineEdit * mLineColorEdit;
-    QRadioButton * mHorizonalValueAxis;
-    QRadioButton * mHorizonalLogAxis;
-    QRadioButton * mVerticalValueAxis;
-    QRadioButton * mVerticalLogAxis;
-    QSpinBox * mLogBase;
     QPushButton * mOkBtn;
+    ChartShowLegend * mLegend;
+    ChartShowTip * mTip;
+    AssociateMode * mMode;
+    AssociateSeries * mSeries;
+    AssociateAxis * mAxis;
 signals:
     void associateCompeleted();
     void tableChanged();

@@ -12,7 +12,7 @@ TableViewModel::TableViewModel(QObject *parent):QAbstractTableModel(parent)
     for (int i = 0; i < mRowCount; i++) {
         QVector<QVariant> * dataVec = new QVector<QVariant>(mColumnCount); // 6个值的行向量
         for (int k = 0; k < dataVec->size(); k++) {
-            if (k % 2 == 0) dataVec->replace(k, i * 50 + qrand() % 20); // 偶数列
+            if (k % 2 == 0) dataVec->replace(k, i * 50 + qrand() % 20 + 1); // 偶数列
             else dataVec->replace(k, qrand() % 5000);  // 幅值5000
         }
         mData.append(dataVec);

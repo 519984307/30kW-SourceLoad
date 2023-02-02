@@ -10,6 +10,8 @@ INPUT(
 ./release\axistitle.o
 ./release\axisvalue.o
 ./release\chart.o
+./release\chartshowlegend.o
+./release\chartshowtip.o
 ./release\linechart.o
 ./release\chartdatagenerator.o
 ./release\backgroundarea.o
@@ -36,7 +38,10 @@ INPUT(
 ./release\charttool.o
 ./release\charttoolwidget.o
 ./release\linecharttool.o
+./release\associatemode.o
+./release\associateseries.o
 ./release\associatetable.o
+./release\associatexyaxis.o
 ./release\chartbar.o
 ./release\chartview.o
 ./release\screenshoot.o
@@ -102,6 +107,8 @@ INPUT(
 ./release\moc_axistitle.o
 ./release\moc_axisvalue.o
 ./release\moc_chart.o
+./release\moc_chartshowlegend.o
+./release\moc_chartshowtip.o
 ./release\moc_linechart.o
 ./release\moc_chartdatagenerator.o
 ./release\moc_backgroundarea.o
@@ -128,7 +135,10 @@ INPUT(
 ./release\moc_charttool.o
 ./release\moc_charttoolwidget.o
 ./release\moc_linecharttool.o
+./release\moc_associatemode.o
+./release\moc_associateseries.o
 ./release\moc_associatetable.o
+./release\moc_associatexyaxis.o
 ./release\moc_chartbar.o
 ./release\moc_chartview.o
 ./release\moc_screenshoot.o

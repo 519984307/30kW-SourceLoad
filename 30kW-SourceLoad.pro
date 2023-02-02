@@ -36,6 +36,8 @@ SOURCES += \
     axissetting/axistitle.cpp \
     axissetting/axisvalue.cpp \
     chart/chart.cpp \
+    chart/chartshowlegend.cpp \
+    chart/chartshowtip.cpp \
     chart/linechart.cpp \
     chart/chartdatagenerator.cpp \
     chartsetting/backgroundarea.cpp \
@@ -62,6 +64,9 @@ SOURCES += \
     charttool/charttool.cpp \
     charttool/charttoolwidget.cpp \
     charttool/linecharttool.cpp \
+    chartview/associateaxis.cpp \
+    chartview/associatemode.cpp \
+    chartview/associateseries.cpp \
     chartview/associatetable.cpp \
     chartview/chartbar.cpp \
     chartview/chartview.cpp \
@@ -128,6 +133,8 @@ HEADERS += \
     axissetting/axistitle.h \
     axissetting/axisvalue.h \
     chart/chart.h \
+    chart/chartshowlegend.h \
+    chart/chartshowtip.h \
     chart/linechart.h \
     chart/chartdatagenerator.h \
     chartsetting/backgroundarea.h \
@@ -154,6 +161,9 @@ HEADERS += \
     charttool/charttool.h \
     charttool/charttoolwidget.h \
     charttool/linecharttool.h \
+    chartview/associateaxis.h \
+    chartview/associatemode.h \
+    chartview/associateseries.h \
     chartview/associatetable.h \
     chartview/chartbar.h \
     chartview/chartview.h \

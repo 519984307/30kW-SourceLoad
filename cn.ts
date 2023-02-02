@@ -2,85 +2,125 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
-    <name>AssociateTable</name>
+    <name>AssociateMode</name>
     <message>
-        <location filename="chartview/associatetable.cpp" line="22"/>
-        <source>关联模式</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="23"/>
-        <location filename="chartview/associatetable.cpp" line="31"/>
-        <source>单列关联</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="24"/>
-        <location filename="chartview/associatetable.cpp" line="39"/>
-        <source>双列关联</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="35"/>
-        <location filename="chartview/associatetable.cpp" line="45"/>
-        <source>X轴</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="35"/>
-        <source>自动</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="36"/>
-        <location filename="chartview/associatetable.cpp" line="46"/>
-        <source>Y轴</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="50"/>
-        <source>关联设置</source>
-        <oldsource>关联选择</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="56"/>
-        <source>曲线</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="59"/>
-        <source>设置曲线颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="63"/>
-        <source>&amp;线宽</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="64"/>
-        <source>&amp;颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="65"/>
-        <source>&amp;当前颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="68"/>
-        <source>坐标轴</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="70"/>
+        <location filename="chartview/associatemode.cpp" line="8"/>
         <source>关联</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/associatetable.cpp" line="107"/>
+        <location filename="chartview/associatemode.cpp" line="10"/>
+        <source>关联模式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatemode.cpp" line="11"/>
+        <location filename="chartview/associatemode.cpp" line="19"/>
+        <source>单列关联</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatemode.cpp" line="12"/>
+        <location filename="chartview/associatemode.cpp" line="27"/>
+        <source>双列关联</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatemode.cpp" line="23"/>
+        <location filename="chartview/associatemode.cpp" line="33"/>
+        <source>X轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatemode.cpp" line="23"/>
+        <source>自动</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatemode.cpp" line="24"/>
+        <location filename="chartview/associatemode.cpp" line="34"/>
+        <source>Y轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatemode.cpp" line="38"/>
+        <source>关联设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AssociateSeries</name>
+    <message>
+        <location filename="chartview/associateseries.cpp" line="8"/>
+        <source>曲线</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateseries.cpp" line="12"/>
+        <source>设置曲线颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateseries.cpp" line="16"/>
+        <source>&amp;线宽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateseries.cpp" line="17"/>
+        <source>&amp;颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateseries.cpp" line="18"/>
+        <source>&amp;当前颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateseries.cpp" line="26"/>
         <source>设置颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AssociateTable</name>
+    <message>
+        <location filename="chartview/associatetable.cpp" line="16"/>
+        <source>关联</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AssociateXYAxis</name>
+    <message>
+        <location filename="chartview/associatexyaxis.cpp" line="12"/>
+        <source>坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyaxis.cpp" line="23"/>
+        <location filename="chartview/associatexyaxis.cpp" line="72"/>
+        <source>线性</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyaxis.cpp" line="24"/>
+        <source>时间</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyaxis.cpp" line="25"/>
+        <location filename="chartview/associatexyaxis.cpp" line="73"/>
+        <source>对数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyaxis.cpp" line="33"/>
+        <source>水平坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyaxis.cpp" line="80"/>
+        <source>垂直坐标轴</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

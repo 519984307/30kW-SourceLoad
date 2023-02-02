@@ -1,6 +1,7 @@
 #include <chart/linechart.h>
 #include <QPair>
-LineChart::LineChart(QTableView * tableview,QWidget *parent) : QMainWindow(parent),mTableView(tableview)
+LineChart::LineChart(QTableView * tableview,QWidget *parent)
+    :QMainWindow(parent),mTableView(tableview)
 {
     setFont(QFont("Times New Roman",12));
     setWindowIcon(QIcon(":/images/linechart.png"));
@@ -8,17 +9,11 @@ LineChart::LineChart(QTableView * tableview,QWidget *parent) : QMainWindow(paren
     mGenerator = new ChartDataGenerator;
     mChart = new Chart;
     mTableModel = static_cast<TableViewModel*>(mTableView->model());
-
-    mCoordTip = new QGraphicsSimpleTextItem(mChart);
-    mCoordTip->setPen(QPen(QColor("#8B008B")));
-    mCoordTip->setFont(QFont("Times New Roman",14));
-    mCoordTip->setZValue(10);
-    mCoordRect = new QGraphicsRectItem(mChart);
-    mCoordRect->setZValue(9);
-    mCoordRect->setBrush(QColor("#FFFFE0"));
-    mCoordRect->setPen(QPen(QColor(0,0,0)));
+    mLegend = new ChartShowLegend;
+    mTip = new ChartShowTip;
 
     initChart(); // 注意先初始化,mChart具备标题序列和轴了再被后边所用
+    mTip->setChart(mChart);
     mChartView = new ChartView(mChart,this);
     mToolBar = new ChartBar(mTableView,mChartView,this);
     addToolBar(Qt::TopToolBarArea,mToolBar);
@@ -73,11 +68,7 @@ void LineChart::initChart()
     //initRandomChart();
     initMappingChart();
     mChart->setTitle("Line Chart Example");
-    const auto markers = mChart->legend()->markers(); // 初始化曲线后再连接
-    for (QLegendMarker *marker : markers) { // 利用返回的图例标记的clicked信号实现点击图例变暗并隐藏曲线的效果
-        QObject::disconnect(marker, &QLegendMarker::clicked,this, &LineChart::legendMarkerClicked); // 先断开以防重复连接
-        QObject::connect(marker, &QLegendMarker::clicked, this, &LineChart::legendMarkerClicked);
-    }
+    mLegend->mapping(mChart);
 }
 
 void LineChart::initRandomChart()
@@ -93,7 +84,7 @@ void LineChart::initRandomChart()
     series->attachAxis(axisX); // 将轴和曲线关联
     series->attachAxis(axisY);// 这步操作切记必须在表先addAxis之后再附着到曲线上
 
-    connect(series, &QLineSeries::hovered, this, &LineChart::showToolTip);
+    mTip->mapping(series);
 }
 
 void LineChart::initMappingChart()
@@ -119,9 +110,9 @@ void LineChart::initMappingChart()
 
     mChart->createDefaultAxes();
 
-    connect(series1, &QLineSeries::hovered, this, &LineChart::showToolTip);
-    connect(series2, &QLineSeries::hovered, this, &LineChart::showToolTip);
-    connect(series3, &QLineSeries::hovered, this, &LineChart::showToolTip);
+    mTip->mapping(series1);
+    mTip->mapping(series2);
+    mTip->mapping(series3);
 }
 
 void  LineChart::addMapping(TableViewModel*model, QXYSeries *series, int col1, int col2)
@@ -141,60 +132,7 @@ void  LineChart::addMapping(TableViewModel*model, QXYSeries *series, int col1, i
    model->addColMapping(col2,series->color());
 }
 
-void LineChart::legendMarkerClicked() // 这个函数不能放在chart.cpp连接因为那个时候还没有曲线,图例尚未创建出来,必须先初始化曲线后再连接
-{
-    QLegendMarker* marker = qobject_cast<QLegendMarker*> (sender()); // 发送clicked的图例标记
-    switch (marker->type())
-    {
-        case QLegendMarker::LegendMarkerTypeXY: // QXYLegendMarker=直线+样条曲线+散点系列的效果
-        {
-                marker->series()->setVisible(!marker->series()->isVisible());
-                marker->setVisible(true); // 曲线隐藏会让图例也隐藏,还是要显示的只是变暗
-                qreal alpha = 1.0;
-                if (!marker->series()->isVisible())
-                    alpha = 0.5;
 
-                QColor color;
-                QBrush brush = marker->labelBrush(); // 图例的文字
-                color = brush.color();
-                color.setAlphaF(alpha);
-                brush.setColor(color);
-                marker->setLabelBrush(brush);
-
-                brush = marker->brush(); //图例标记的背景
-                color = brush.color();
-                color.setAlphaF(alpha);
-                brush.setColor(color);
-                marker->setBrush(brush);
-
-                QPen pen = marker->pen(); // 图例标记的方框
-                color = pen.color();
-                color.setAlphaF(alpha);
-                pen.setColor(color);
-                marker->setPen(pen);
-                break;
-        }
-    default: break;
-    }
-}
-
-void LineChart::showToolTip(QPointF point, bool state)
-{
-    if (state)
-    {
-        QPointF pos = mChart->mapToPosition(point);
-        mCoordTip->setPos(pos); // 把曲线的坐标值映射为改点在全局的位置
-        mCoordTip->setText(QString("[%1, %2] ").arg(point.x()).arg(point.y()));
-        mCoordRect->setRect(QRectF(pos,QSizeF(213.,38.))); //长213高38的矩形刚好把文字放进去
-        mCoordTip->show();
-        mCoordRect->show();
-    }
-    else {
-        mCoordTip->hide();
-        mCoordRect->hide();
-    }
-
-}
 
 void LineChart::onSeriesColorChanged(QLineSeries*series)
 {

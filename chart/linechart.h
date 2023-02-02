@@ -2,28 +2,18 @@
 #define LINECHART_H
 
 #include <QMainWindow>
-#include <QPushButton>
-#include <QRadioButton>
-#include <QDoubleSpinBox>
-#include <QLabel>
-#include <QGroupBox>
-#include <QLineEdit>
-#include <QAction>
-#include <QCheckBox>
-#include <QComboBox>
 #include <QToolBox>
 #include <QToolBar>
 #include <QSplitter>
 #include <QTime>
-#include <QDebug>
 #include <chart/chart.h>
+#include <chart/chartshowtip.h>
+#include <chart/chartshowlegend.h>
 #include <chart/chartdatagenerator.h>
 #include <chartview/chartview.h>
 #include <chartview/chartbar.h>
 #include <charttool/linecharttool.h>
 #include <tool/tableviewmodel.h>
-#include <QGraphicsSimpleTextItem>
-#include <QGraphicsRectItem>
 
 class LineChart : public QMainWindow
 {
@@ -38,8 +28,6 @@ private:
     void initRandomChart();
     void initMappingChart();
     void addMapping(TableViewModel*,QXYSeries*,int,int);
-    void legendMarkerClicked();
-    void showToolTip(QPointF point, bool state);
     void onSeriesColorChanged(QLineSeries*);
     void onSeriesRemoved(QLineSeries*);
     QHash<QLineSeries*,QPair<int,int>> mSeriesXYColumn;
@@ -51,8 +39,8 @@ private:
     LineChartTool * mToolBox;
     ChartDataGenerator * mGenerator;
     ChartBar * mToolBar;
-    QGraphicsSimpleTextItem * mCoordTip;
-    QGraphicsRectItem * mCoordRect;
+    ChartShowLegend * mLegend;
+    ChartShowTip * mTip;
 signals:
     void tableChanged();
     void associateCompeleted();
