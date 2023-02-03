@@ -38,10 +38,10 @@ INPUT(
 ./release\charttool.o
 ./release\charttoolwidget.o
 ./release\linecharttool.o
+./release\associateaxis.o
 ./release\associatemode.o
 ./release\associateseries.o
 ./release\associatetable.o
-./release\associatexyaxis.o
 ./release\chartbar.o
 ./release\chartview.o
 ./release\screenshoot.o
@@ -135,10 +135,10 @@ INPUT(
 ./release\moc_charttool.o
 ./release\moc_charttoolwidget.o
 ./release\moc_linecharttool.o
+./release\moc_associateaxis.o
 ./release\moc_associatemode.o
 ./release\moc_associateseries.o
 ./release\moc_associatetable.o
-./release\moc_associatexyaxis.o
 ./release\moc_chartbar.o
 ./release\moc_chartview.o
 ./release\moc_screenshoot.o

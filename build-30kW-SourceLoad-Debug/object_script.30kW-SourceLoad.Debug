@@ -38,10 +38,10 @@ INPUT(
 ./debug\charttool.o
 ./debug\charttoolwidget.o
 ./debug\linecharttool.o
+./debug\associateaxis.o
 ./debug\associatemode.o
 ./debug\associateseries.o
 ./debug\associatetable.o
-./debug\associatexyaxis.o
 ./debug\chartbar.o
 ./debug\chartview.o
 ./debug\screenshoot.o
@@ -135,10 +135,10 @@ INPUT(
 ./debug\moc_charttool.o
 ./debug\moc_charttoolwidget.o
 ./debug\moc_linecharttool.o
+./debug\moc_associateaxis.o
 ./debug\moc_associatemode.o
 ./debug\moc_associateseries.o
 ./debug\moc_associatetable.o
-./debug\moc_associatexyaxis.o
 ./debug\moc_chartbar.o
 ./debug\moc_chartview.o
 ./debug\moc_screenshoot.o
