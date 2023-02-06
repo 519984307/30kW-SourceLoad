@@ -1,10 +1,10 @@
-#include <seriessetting/seriesline.h>
+#include <seriessetting/seriesxy.h>
 
-SeriesLine::SeriesLine(QChart * chart,QWidget* parent):
+SeriesXY::SeriesXY(QChart * chart,QWidget* parent):
     QGroupBox(parent),mChart(chart),mCurrentSeries(nullptr),mCurrentSeriesId(0)
-{// 必须是QLineSeries,所以不继承SeriesBox,也无需构造函数,而是动态设定
+{// 必须是QXYSeries,所以不继承SeriesBox,也无需构造函数,而是动态设定
         mIcon.addFile(":/images/toolbox_series.png");
-        mCurrentSeries = static_cast<QLineSeries*>(mChart->series().at(0));
+        mCurrentSeries = static_cast<QXYSeries*>(mChart->series().at(0));
 
         mPointVisible = new QCheckBox;
         updatePointVisible();
@@ -58,29 +58,29 @@ SeriesLine::SeriesLine(QChart * chart,QWidget* parent):
         setLayout(lay);
 }
 
-void SeriesLine::setCurrentSeries(QLineSeries *series,int id)
+void SeriesXY::setCurrentSeries(QXYSeries *series,int id)
 {
     mCurrentSeries = series;
     mCurrentSeriesId = id;
     updateState();
 }
 
-QLineSeries * SeriesLine::currentSeries() const
+QXYSeries * SeriesXY::currentSeries() const
 {
     return mCurrentSeries;
 }
 
-void SeriesLine::setCurrentSeriesId(int id)
+void SeriesXY::setCurrentSeriesId(int id)
 {
     mCurrentSeriesId = id;
 }
 
-int SeriesLine::currentSeriesId() const
+int SeriesXY::currentSeriesId() const
 {
     return mCurrentSeriesId;
 }
 
-void SeriesLine::updateState()
+void SeriesXY::updateState()
 {
     updateColorState();
     updateWidthState();
@@ -92,55 +92,55 @@ void SeriesLine::updateState()
     updatePointLabelsFormat();
 }
 
-void SeriesLine::updatePointVisible()
+void SeriesXY::updatePointVisible()
 {
     Qt::CheckState state = mCurrentSeries->pointsVisible()?Qt::Checked:Qt::Unchecked;
     mPointVisible->setCheckState(state); // 当前曲线会切换,都要连接,又要避免重复连接
-    disconnect(mPointVisible,&QCheckBox::stateChanged,this,&SeriesLine::changePointVisible);
-    connect(mPointVisible,&QCheckBox::stateChanged,this,&SeriesLine::changePointVisible);
+    disconnect(mPointVisible,&QCheckBox::stateChanged,this,&SeriesXY::changePointVisible);
+    connect(mPointVisible,&QCheckBox::stateChanged,this,&SeriesXY::changePointVisible);
 }
 
-void SeriesLine::changePointVisible(int state)
+void SeriesXY::changePointVisible(int state)
 {
     bool s = state == Qt::Checked;
     mCurrentSeries->setPointsVisible(s);
 }
 
-void SeriesLine::updatePointLabelsVisible()
+void SeriesXY::updatePointLabelsVisible()
 {
     Qt::CheckState state = mCurrentSeries->pointLabelsVisible()?Qt::Checked:Qt::Unchecked;
     mPointLabelsVisible->setCheckState(state); // 当前曲线会切换,都要连接,又要避免重复连接
-    disconnect(mPointLabelsVisible,&QCheckBox::stateChanged,this,&SeriesLine::changePointLabelsVisible);
-    connect(mPointLabelsVisible,&QCheckBox::stateChanged,this,&SeriesLine::changePointLabelsVisible);
+    disconnect(mPointLabelsVisible,&QCheckBox::stateChanged,this,&SeriesXY::changePointLabelsVisible);
+    connect(mPointLabelsVisible,&QCheckBox::stateChanged,this,&SeriesXY::changePointLabelsVisible);
 }
 
-void SeriesLine::changePointLabelsVisible(int state)
+void SeriesXY::changePointLabelsVisible(int state)
 {
     bool s = state == Qt::Checked;
     mCurrentSeries->setPointLabelsVisible(s);
 }
 
-void SeriesLine::updatePointLabelsClipping()
+void SeriesXY::updatePointLabelsClipping()
 {
     Qt::CheckState state = mCurrentSeries->pointLabelsClipping()?Qt::Checked:Qt::Unchecked;
     mPointLabelsClipping->setCheckState(state); // 当前曲线会切换,都要连接,又要避免重复连接
-    disconnect(mPointLabelsClipping,&QCheckBox::stateChanged,this,&SeriesLine::changePointLabelsClipping);
-    connect(mPointLabelsClipping,&QCheckBox::stateChanged,this,&SeriesLine::changePointLabelsClipping);
+    disconnect(mPointLabelsClipping,&QCheckBox::stateChanged,this,&SeriesXY::changePointLabelsClipping);
+    connect(mPointLabelsClipping,&QCheckBox::stateChanged,this,&SeriesXY::changePointLabelsClipping);
 }
 
-void SeriesLine::changePointLabelsClipping(int state)
+void SeriesXY::changePointLabelsClipping(int state)
 {
     bool s = state == Qt::Checked;
     mCurrentSeries->setPointLabelsClipping(s);
 }
 
-void SeriesLine::updateColorState()
+void SeriesXY::updateColorState()
 {
-    disconnect(mSetSeriesColor,&QPushButton::clicked,this,&SeriesLine::changeColor);
-    connect(mSetSeriesColor,&QPushButton::clicked,this,&SeriesLine::changeColor);
+    disconnect(mSetSeriesColor,&QPushButton::clicked,this,&SeriesXY::changeColor);
+    connect(mSetSeriesColor,&QPushButton::clicked,this,&SeriesXY::changeColor);
 }
 
-void SeriesLine::changeColor()
+void SeriesXY::changeColor()
 {
     QColor oldcolor = mCurrentSeries->color();
     QColorDialog * dlg = colorDialog(oldcolor);
@@ -151,27 +151,27 @@ void SeriesLine::changeColor()
     dlg->exec(); delete dlg;
 }
 
-void SeriesLine::updateWidthState()
+void SeriesXY::updateWidthState()
 {
     mSetSeriesWidth->setValue(mCurrentSeries->pen().width());
     disconnect(mSetSeriesWidth,SIGNAL(valueChanged(int)),this,SLOT(changeWidth(int)));
     connect(mSetSeriesWidth,SIGNAL(valueChanged(int)),this,SLOT(changeWidth(int)));
 }
 
-void SeriesLine::changeWidth(int width)
+void SeriesXY::changeWidth(int width)
 {
     QPen pen = mCurrentSeries->pen();
     pen.setWidth(width);
     mCurrentSeries->setPen(pen);
 }
 
-void SeriesLine::updatePointLabelsColor()
+void SeriesXY::updatePointLabelsColor()
 {
-    disconnect(mPointLabelsColor ,&QPushButton::clicked,this,&SeriesLine::changeLabelColor);
-    connect(mPointLabelsColor ,&QPushButton::clicked,this,&SeriesLine::changeLabelColor);
+    disconnect(mPointLabelsColor ,&QPushButton::clicked,this,&SeriesXY::changeLabelColor);
+    connect(mPointLabelsColor ,&QPushButton::clicked,this,&SeriesXY::changeLabelColor);
 }
 
-void SeriesLine::changeLabelColor()
+void SeriesXY::changeLabelColor()
 {
     QColor oldcolor = mCurrentSeries->pointLabelsColor();
     QColorDialog * dlg = colorDialog(oldcolor);
@@ -181,13 +181,13 @@ void SeriesLine::changeLabelColor()
     dlg->exec(); delete dlg;
 }
 
-void SeriesLine::updatePointLabelsFont()
+void SeriesXY::updatePointLabelsFont()
 {
-    disconnect(mPointLabelsFont,&QPushButton::clicked,this,&SeriesLine::changeLabelFont);
-    connect(mPointLabelsFont,&QPushButton::clicked,this,&SeriesLine::changeLabelFont);
+    disconnect(mPointLabelsFont,&QPushButton::clicked,this,&SeriesXY::changeLabelFont);
+    connect(mPointLabelsFont,&QPushButton::clicked,this,&SeriesXY::changeLabelFont);
 }
 
-void SeriesLine::changeLabelFont()
+void SeriesXY::changeLabelFont()
 {
     QFont oldfont = mCurrentSeries->pointLabelsFont();
     QFontDialog * dlg = fontDialog(oldfont);
@@ -196,7 +196,7 @@ void SeriesLine::changeLabelFont()
     dlg->exec(); delete dlg;
 }
 
-void SeriesLine::updatePointLabelsFormat()
+void SeriesXY::updatePointLabelsFormat()
 {
     QString format = mCurrentSeries->pointLabelsFormat();
     if (format.contains('x'))
@@ -211,7 +211,7 @@ void SeriesLine::updatePointLabelsFormat()
     connect(mFormatGroup,SIGNAL(buttonClicked(int)),this,SLOT(changeFormat(int)));
 }
 
-void SeriesLine::changeFormat(int id)
+void SeriesXY::changeFormat(int id)
 {
     switch (id) {
             case 0: mCurrentSeries->setPointLabelsFormat("(@xPoint,@yPoint)");break;
@@ -221,7 +221,7 @@ void SeriesLine::changeFormat(int id)
     }
 }
 
-QColorDialog* SeriesLine::colorDialog(const QColor&initColor)
+QColorDialog* SeriesXY::colorDialog(const QColor&initColor)
 {
     QColorDialog * dlg = new QColorDialog(initColor);
     dlg->setFixedSize(800,400);
@@ -231,7 +231,7 @@ QColorDialog* SeriesLine::colorDialog(const QColor&initColor)
     return dlg;
 }
 
-QFontDialog* SeriesLine::fontDialog(const QFont &initFont)
+QFontDialog* SeriesXY::fontDialog(const QFont &initFont)
 {
     QFontDialog * dlg = new QFontDialog(initFont);
     dlg->setFixedSize(800,400);
@@ -241,7 +241,7 @@ QFontDialog* SeriesLine::fontDialog(const QFont &initFont)
     return dlg;
 }
 
-QComboBox* SeriesLine::brushStyleCombo()
+QComboBox* SeriesXY::brushStyleCombo()
 {
     QComboBox * brushstyle = new QComboBox;
 

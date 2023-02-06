@@ -16,7 +16,8 @@ public:
     enum AxisType {Value,Time,Log};
     QPoint axisType() const;
     QPointF axisBase() const;
-    void setHorizontalEnabled(bool checked);
+    void setHorizontalEnabled(bool);
+    void setTimeAxisVisible(bool);
 private:
     QTableView * mTableView;
     QChartView * mChartView;

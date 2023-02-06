@@ -4,21 +4,20 @@ ChartBar::ChartBar(QTableView*tableview,QChartView* chartview,QWidget*parent):
     QToolBar(parent),mTableView(tableview),mChartView(chartview),mChart(chartview->chart())
 {
     mScreenShot = new ScreenShoot(chartview);
-    mAssociateTable = new AssociateTable(tableview,chartview);
-
     QAction * zoombig = new QAction(QIcon(":/images/zoombig.bmp"),tr("放大"));
     QAction * zoomsmall = new QAction(QIcon(":/images/zoomsmall.bmp"),tr("缩小"));
     QAction * zoom = new QAction(QIcon(":/images/zoom.bmp"),tr("还原"));
-    QAction * associatetable = new QAction(QIcon(":/images/associatetable.png"),tr("关联表格"));
-    QAction * clearChart = new QAction(QIcon(":/images/clearChart.png"),tr("清空"));
     QAction * screenshot = new QAction(QIcon(":/images/screenshot.png"),tr("截图"));
+    mAssociatetableAct = new QAction(QIcon(":/images/associatetable.png"),tr("关联表格"));
+    QAction * clearChart = new QAction(QIcon(":/images/clearChart.png"),tr("清空"));
 
     addAction(zoombig);
     addAction(zoomsmall);
     addAction(zoom);
-    addAction(associatetable);
-    addAction(clearChart);
     addAction(screenshot);
+    addAction(clearChart);
+    addAction(mAssociatetableAct);
+
     setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
     connect(zoombig,&QAction::triggered,this,[=]{mChart->zoom(1.2);});
@@ -34,10 +33,9 @@ ChartBar::ChartBar(QTableView*tableview,QChartView* chartview,QWidget*parent):
         emit associateCompeleted(); // 借助此信号来更新工具栏
     });
     connect(screenshot,&QAction::triggered,this,[=]{mScreenShot->exec();});
-    connect(associatetable,&QAction::triggered,this,[=]{ mAssociateTable->exec();});
 
-    connect(this,&ChartBar::tableChanged,mAssociateTable,&AssociateTable::tableChanged);
-    connect(this,&ChartBar::seriesColorChanged,mAssociateTable,&AssociateTable::seriesColorChanged);
-    connect(this,&ChartBar::seriesRemoved,mAssociateTable,&AssociateTable::seriesRemoved);
-    connect(mAssociateTable,&AssociateTable::associateCompeleted,this,&ChartBar::associateCompeleted);
+
+//    connect(this,SIGNAL(seriesRemoved(QScatterSeries*)),mAssociateTable,SLOT(seriesRemoved(QScatterSeries*)));
+    //    connect(this,SIGNAL(seriesColorChanged(QScatterSeries*)),mAssociateTable,SLOT(seriesColorChanged(QScatterSeries*)));
+
 }

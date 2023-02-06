@@ -38,7 +38,7 @@ public:
 
     void addCellMapping(QRect,QColor);
     void addColMapping(int,QColor);
-    void addDoubleColMapping(QLineSeries*,int,int);
+    void addDoubleColMapping(QXYSeries*,int,int);
     void clearMapping();
 private:
     QList<QVector<QVariant> * > mData;

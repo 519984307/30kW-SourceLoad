@@ -1,5 +1,5 @@
-#ifndef SERIESLINE_H
-#define SERIESLINE_H
+#ifndef SERIESXY_H
+#define SERIESXY_H
 
 #include <QGroupBox>
 #include <QColorDialog>
@@ -16,23 +16,22 @@
 #include <QRadioButton>
 #include <QButtonGroup>
 #include <QSpinBox>
-#include <QDebug>
 
 using namespace QtCharts;
 
-class SeriesLine : public QGroupBox
+class SeriesXY: public QGroupBox
 {
     Q_OBJECT
 public:
-    explicit SeriesLine(QChart *,QWidget* = Q_NULLPTR);
-    void setCurrentSeries(QLineSeries*,int);
-    QLineSeries* currentSeries() const;
+    explicit SeriesXY(QChart *,QWidget* = Q_NULLPTR);
+    void setCurrentSeries(QXYSeries*,int);
+    QXYSeries* currentSeries() const;
     void setCurrentSeriesId(int);
     int currentSeriesId() const;
     void updateState();
 private:
     QChart * mChart;
-    QLineSeries * mCurrentSeries;
+    QXYSeries * mCurrentSeries;
     int mCurrentSeriesId;
     QIcon mIcon;
 
@@ -72,7 +71,7 @@ private slots:
      void changeWidth(int);
      void changeFormat(int);
 signals:
-     void seriesColorChanged(QLineSeries*);
+     void seriesColorChanged(QXYSeries*);
 };
 
-#endif // SERIESLINE_H
+#endif // SERIESXY_H

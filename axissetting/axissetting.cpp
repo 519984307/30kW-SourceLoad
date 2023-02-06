@@ -1,5 +1,4 @@
 #include <axissetting/axissetting.h>
-#include <QDebug>
 
 AxisSetting::AxisSetting(QChart*chart):mChart(chart)
 {
@@ -17,6 +16,7 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
 
     mAxisValue = new AxisValue(mChart); //初始化布局,根据当前轴类型动态的显示和隐藏
     mAxisLog = new AxisLog(mChart);
+    mAxisTime = new AxisTime(mChart);
 
     initWhichAxis();
 
@@ -29,6 +29,7 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     addWidget(mAxisGrid);
     addWidget(mAxisValue);
     addWidget(mAxisLog);
+    addWidget(mAxisTime);
     addWidget(new QGroupBox);//为了防止挤压尾部留些空间
 
     //通过removeWidget和addWidget动态切换mAxisValue和mAxisLog有点难
@@ -38,10 +39,17 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
             case QAbstractAxis::AxisTypeValue:
                     mAxisValue->setCurrentAxis(static_cast<QValueAxis*>(mCurrentAxis)); // 确实是value类型才会初始化内部的信号连接
                     mAxisLog->hide();
+                    mAxisTime->hide();
                     break;
             case QAbstractAxis::AxisTypeLogValue:
-                    mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
                     mAxisValue->hide();
+                    mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
+                    mAxisTime->hide();
+                    break;
+            case QAbstractAxis::AxisTypeDateTime:
+                    mAxisValue->hide();
+                    mAxisLog->hide();
+                    mAxisTime->setCurrentAxis(static_cast<QDateTimeAxis*>(mCurrentAxis));
                     break;
             default:break;
     }
@@ -92,11 +100,19 @@ void AxisSetting::initWhichAxis()
                             mAxisValue->setCurrentAxis(static_cast<QValueAxis*>(mCurrentAxis));
                             mAxisValue->show();
                             mAxisLog->hide();
+                            mAxisTime->hide();
                             break;
                     case QAbstractAxis::AxisTypeLogValue:
                             mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
                             mAxisValue->hide();
                             mAxisLog->show();
+                            mAxisTime->hide();
+                            break;
+                    case QAbstractAxis::AxisTypeDateTime:
+                            mAxisTime->setCurrentAxis(static_cast<QDateTimeAxis*>(mCurrentAxis));
+                            mAxisValue->hide();
+                            mAxisLog->hide();
+                            mAxisTime->show();
                             break;
                     default:break;
             }

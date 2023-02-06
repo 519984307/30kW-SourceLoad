@@ -47,6 +47,22 @@ QLineSeries * ChartDataGenerator::sinechart(int amplitude, int count)
 }
 
 
+QScatterSeries * ChartDataGenerator::scatterseries(const QString &n, const QColor &c, double size)
+{
+    QScatterSeries * series = new QScatterSeries;
+    series->setName(n);
+    series->setBorderColor(Qt::white);
+    series->setColor(c);
+    series->setMarkerShape(QScatterSeries::MarkerShape::MarkerShapeCircle);
+    series->setMarkerSize(size);
+    QPen pen = series->pen();
+    pen.setWidth(2);
+    series->setPen(pen);
+    series->setPointLabelsFormat("((@xPoint, @yPoint))");
+    series->setPointLabelsFont(QFont("Times New Roman",8));
+    return  series;
+}
+
 QValueAxis * ChartDataGenerator::axis(int tickcount,const QString& title,const QString& format)
 {
     QValueAxis * ax = new QValueAxis;

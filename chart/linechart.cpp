@@ -1,5 +1,5 @@
 #include <chart/linechart.h>
-#include <QPair>
+
 LineChart::LineChart(QTableView * tableview,QWidget *parent)
     :QMainWindow(parent),mTableView(tableview)
 {
@@ -15,7 +15,7 @@ LineChart::LineChart(QTableView * tableview,QWidget *parent)
     initChart(); // 注意先初始化,mChart具备标题序列和轴了再被后边所用
     mTip->setChart(mChart);
     mChartView = new ChartView(mChart,this);
-    mToolBar = new ChartBar(mTableView,mChartView,this);
+    mToolBar = new LineChartBar(mTableView,mChartView,this);
     addToolBar(Qt::TopToolBarArea,mToolBar);
     mToolBox = new LineChartTool(mChart,this);
     mSplitter = new QSplitter(Qt::Horizontal);
@@ -28,12 +28,12 @@ LineChart::LineChart(QTableView * tableview,QWidget *parent)
     setCentralWidget(mSplitter);
 
     // 工具栏的改变有2个方向可以触发,一个是外部表格导入,触发清空图表,一个是图表工具条的清空动作
-    connect(mToolBar,&ChartBar::associateCompeleted,mToolBox,&LineChartTool::associateCompeleted);
+    connect(mToolBar,&LineChartBar::associateCompeleted,mToolBox,&LineChartTool::associateCompeleted);
     connect(this,&LineChart::associateCompeleted,mToolBox,&LineChartTool::associateCompeleted);
-    connect(this,&LineChart::tableChanged,mToolBar,&ChartBar::tableChanged);
-    connect(mToolBox,&LineChartTool::seriesColorChanged,mToolBar,&ChartBar::seriesColorChanged);
+    connect(this,&LineChart::tableChanged,mToolBar,&LineChartBar::tableChanged);
+    connect(mToolBox,&LineChartTool::seriesColorChanged,mToolBar,&LineChartBar::seriesColorChanged);
     connect(mToolBox,&LineChartTool::seriesColorChanged,this,&LineChart::onSeriesColorChanged);
-    connect(mToolBox,&LineChartTool::seriesRemoved,mToolBar,&ChartBar::seriesRemoved);
+    connect(mToolBox,&LineChartTool::seriesRemoved,mToolBar,&LineChartBar::seriesRemoved);
     connect(mToolBox,&LineChartTool::seriesRemoved,this,&LineChart::onSeriesRemoved);
 }
 
@@ -131,8 +131,6 @@ void  LineChart::addMapping(TableViewModel*model, QXYSeries *series, int col1, i
    model->addColMapping(col1,series->color()); // 上方2行代码可用这2行替代
    model->addColMapping(col2,series->color());
 }
-
-
 
 void LineChart::onSeriesColorChanged(QLineSeries*series)
 {

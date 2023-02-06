@@ -1,16 +1,8 @@
 #ifndef CHARTVIEWWIDGET_H
 #define CHARTVIEWWIDGET_H
 
-#include <QWidget>
-#include <QGridLayout>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QGroupBox>
-#include <QPushButton>
-#include <QTableView>
-#include <QTabWidget>
-#include <QItemSelectionModel>
 #include <chart/linechart.h>
+#include <chart/scatterchart.h>
 #include <tool/tableviewmodel.h>
 #include <QtConcurrent/QtConcurrent>
 using namespace  QtConcurrent;
@@ -31,6 +23,7 @@ private:
     QCheckBox * mImportHeaderBtn;
     QTabWidget * mTab;
     LineChart * mLineTab;
+    ScatterChart * mScatterTab;
 signals:
     void tableChanged();
 };

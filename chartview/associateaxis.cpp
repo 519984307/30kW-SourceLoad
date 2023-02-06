@@ -110,6 +110,11 @@ void AssociateAxis::setHorizontalEnabled(bool checked)
     mHorizontalBox->setEnabled(checked);
 }
 
+void AssociateAxis::setTimeAxisVisible(bool show)
+{
+    mHorizontalTimeAxis->setVisible(show);
+}
+
 QPoint AssociateAxis::axisType() const
 {
     return mAxisType;

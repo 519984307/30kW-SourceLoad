@@ -33,6 +33,7 @@ SOURCES += \
     axissetting/axislog.cpp \
     axissetting/axissetting.cpp \
     axissetting/axisshade.cpp \
+    axissetting/axistime.cpp \
     axissetting/axistitle.cpp \
     axissetting/axisvalue.cpp \
     chart/chart.cpp \
@@ -40,6 +41,7 @@ SOURCES += \
     chart/chartshowtip.cpp \
     chart/linechart.cpp \
     chart/chartdatagenerator.cpp \
+    chart/scatterchart.cpp \
     chartsetting/backgroundarea.cpp \
     chartsetting/backgroundareagradient.cpp \
     chartsetting/backgroundborder.cpp \
@@ -64,12 +66,16 @@ SOURCES += \
     charttool/charttool.cpp \
     charttool/charttoolwidget.cpp \
     charttool/linecharttool.cpp \
+    charttool/scattercharttool.cpp \
     chartview/associateaxis.cpp \
     chartview/associatemode.cpp \
     chartview/associateseries.cpp \
-    chartview/associatetable.cpp \
     chartview/chartbar.cpp \
     chartview/chartview.cpp \
+    chartview/lineassociatetable.cpp \
+    chartview/linechartbar.cpp \
+    chartview/scatterassociatetable.cpp \
+    chartview/scatterchartbar.cpp \
     chartview/screenshoot.cpp \
     communication/communication.cpp \
     communication/communication_connect.cpp \
@@ -103,10 +109,12 @@ SOURCES += \
     monitor/monitor_label.cpp \
     monitor/monitor_spinbox.cpp \
     seriessetting/lineseriessetting.cpp \
+    seriessetting/scatterseriessetting.cpp \
     seriessetting/seriesbox.cpp \
     seriessetting/seriesinfo.cpp \
-    seriessetting/seriesline.cpp \
+    seriessetting/seriesscatter.cpp \
     seriessetting/seriessetting.cpp \
+    seriessetting/seriesxy.cpp \
     setting/logperiod.cpp \
     setting/setting.cpp \
     setting/workmodedialog.cpp \
@@ -130,6 +138,7 @@ HEADERS += \
     axissetting/axislog.h \
     axissetting/axissetting.h \
     axissetting/axisshade.h \
+    axissetting/axistime.h \
     axissetting/axistitle.h \
     axissetting/axisvalue.h \
     chart/chart.h \
@@ -137,6 +146,7 @@ HEADERS += \
     chart/chartshowtip.h \
     chart/linechart.h \
     chart/chartdatagenerator.h \
+    chart/scatterchart.h \
     chartsetting/backgroundarea.h \
     chartsetting/backgroundareagradient.h \
     chartsetting/backgroundborder.h \
@@ -161,12 +171,16 @@ HEADERS += \
     charttool/charttool.h \
     charttool/charttoolwidget.h \
     charttool/linecharttool.h \
+    charttool/scattercharttool.h \
     chartview/associateaxis.h \
     chartview/associatemode.h \
     chartview/associateseries.h \
-    chartview/associatetable.h \
     chartview/chartbar.h \
     chartview/chartview.h \
+    chartview/lineassociatetable.h \
+    chartview/linechartbar.h \
+    chartview/scatterassociatetable.h \
+    chartview/scatterchartbar.h \
     chartview/screenshoot.h \
     communication/communication.h \
     communication/query.h \
@@ -198,10 +212,12 @@ HEADERS += \
     monitor/monitor_label.h \
     monitor/monitor_spinbox.h \
     seriessetting/lineseriessetting.h \
+    seriessetting/scatterseriessetting.h \
     seriessetting/seriesbox.h \
     seriessetting/seriesinfo.h \
-    seriessetting/seriesline.h \
+    seriessetting/seriesscatter.h \
     seriessetting/seriessetting.h \
+    seriessetting/seriesxy.h \
     setting/logperiod.h \
     setting/setting.h \
     setting/workmodedialog.h \

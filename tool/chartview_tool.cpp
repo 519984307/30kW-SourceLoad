@@ -9,6 +9,7 @@ ChartViewWidget::ChartViewWidget(QWidget *parent) : QWidget(parent)
 void ChartViewWidget::closeEvent(QCloseEvent *e)
 {
     mLineTab->closeChildrenWindows(); // 窗口关闭时把所有子窗口都关掉
+    mScatterTab->closeChildrenWindows();
     e->accept();
 }
 
@@ -53,7 +54,9 @@ void ChartViewWidget::init()
     mTab = new QTabWidget;
     mTab->setMinimumWidth(1000);
     mLineTab = new LineChart(mTableView,mTab);
+    mScatterTab = new ScatterChart(mTableView,mTab);
     mTab->addTab(mLineTab,QIcon(":/images/linechart.png"),tr("折线图"));
+    mTab->addTab(mScatterTab,QIcon(":/images/scatterchart.png"),tr("散点图"));
     /*-----------------------------------------layout-----------------------------------------*/
     QSplitter * splitter = new QSplitter(Qt::Horizontal);
     splitter->addWidget(tablebox);
@@ -69,16 +72,20 @@ void ChartViewWidget::init()
 //    mLayout->addWidget(mTab, 1, 1);
 //    mLayout->setColumnStretch(1, 1);
 //    mLayout->setColumnStretch(0, 0);
+
+
     connect(this,&ChartViewWidget::tableChanged,this,[=]{
         mTableModel->clearMapping();// 把颜色去掉,不过颜色的去除稍有延迟,update不起作用
         mTableView->update(QRect(0,0,mTableModel->columnCount(),mTableModel->rowCount()));
         mLineTab->clearChart();
+        mScatterTab->clearChart();
     });
 }
 
 void ChartViewWidget::initConnections()
 {
     connect(this,&ChartViewWidget::tableChanged,mLineTab,&LineChart::tableChanged);
+    connect(this,&ChartViewWidget::tableChanged,mScatterTab,&ScatterChart::tableChanged);
 
     connect(mImportFileBtn,&QPushButton::clicked,this,[=]{
         QDir debugDir= QDir::current();

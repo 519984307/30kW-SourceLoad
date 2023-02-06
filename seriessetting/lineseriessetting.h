@@ -2,7 +2,7 @@
 #define LINESERIESSETTING_H
 
 #include <seriessetting/seriessetting.h>
-#include <seriessetting/seriesline.h>
+#include <seriessetting/seriesxy.h>
 
 class LineSeriesSetting : public QVBoxLayout
 {
@@ -13,7 +13,7 @@ private:
     QChart * mChart;
     QLineSeries * mCurrentSeries;
     SeriesSetting * mGenericSetting; // 使用组合
-    SeriesLine * mLineSetting;
+    SeriesXY * mXYSetting; // 折线图使用XY即可
 signals:
     void associateCompeleted();
     void seriesColorChanged(QLineSeries*);

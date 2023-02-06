@@ -145,7 +145,7 @@ void TableViewModel::addColMapping(int col ,QColor color)
     }
 }
 
-void TableViewModel::addDoubleColMapping(QLineSeries* series,int xCol, int yCol)
+void TableViewModel::addDoubleColMapping(QXYSeries* series,int xCol, int yCol)
 {
    QVXYModelMapper *mapper = new QVXYModelMapper;
    mapper->setXColumn(xCol);

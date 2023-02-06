@@ -2,6 +2,41 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
+    <name>AssociateAxis</name>
+    <message>
+        <location filename="chartview/associateaxis.cpp" line="12"/>
+        <source>坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateaxis.cpp" line="23"/>
+        <location filename="chartview/associateaxis.cpp" line="72"/>
+        <source>线性</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateaxis.cpp" line="24"/>
+        <source>时间</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateaxis.cpp" line="25"/>
+        <location filename="chartview/associateaxis.cpp" line="73"/>
+        <source>对数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateaxis.cpp" line="33"/>
+        <source>水平坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateaxis.cpp" line="80"/>
+        <source>垂直坐标轴</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AssociateMode</name>
     <message>
         <location filename="chartview/associatemode.cpp" line="8"/>
@@ -51,76 +86,38 @@
 <context>
     <name>AssociateSeries</name>
     <message>
-        <location filename="chartview/associateseries.cpp" line="8"/>
+        <location filename="chartview/associateseries.cpp" line="9"/>
         <source>曲线</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="12"/>
+        <location filename="chartview/associateseries.cpp" line="19"/>
         <source>设置曲线颜色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="16"/>
+        <location filename="chartview/associateseries.cpp" line="23"/>
         <source>&amp;线宽</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="17"/>
+        <location filename="chartview/associateseries.cpp" line="24"/>
+        <source>&amp;尺寸</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chartview/associateseries.cpp" line="25"/>
         <source>&amp;颜色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="18"/>
+        <location filename="chartview/associateseries.cpp" line="26"/>
         <source>&amp;当前颜色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="26"/>
+        <location filename="chartview/associateseries.cpp" line="34"/>
         <source>设置颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AssociateTable</name>
-    <message>
-        <location filename="chartview/associatetable.cpp" line="16"/>
-        <source>关联</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AssociateXYAxis</name>
-    <message>
-        <location filename="chartview/associatexyaxis.cpp" line="12"/>
-        <source>坐标轴</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatexyaxis.cpp" line="23"/>
-        <location filename="chartview/associatexyaxis.cpp" line="72"/>
-        <source>线性</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatexyaxis.cpp" line="24"/>
-        <source>时间</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatexyaxis.cpp" line="25"/>
-        <location filename="chartview/associatexyaxis.cpp" line="73"/>
-        <source>对数</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatexyaxis.cpp" line="33"/>
-        <source>水平坐标轴</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="chartview/associatexyaxis.cpp" line="80"/>
-        <source>垂直坐标轴</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -401,17 +398,17 @@
 <context>
     <name>AxisSetting</name>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="60"/>
+        <location filename="axissetting/axissetting.cpp" line="68"/>
         <source>X轴</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="61"/>
+        <location filename="axissetting/axissetting.cpp" line="69"/>
         <source>Y轴</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="71"/>
+        <location filename="axissetting/axissetting.cpp" line="79"/>
         <source>当前轴</source>
         <translation type="unfinished"></translation>
     </message>
@@ -456,6 +453,39 @@
     <message>
         <location filename="axissetting/axisshade.cpp" line="27"/>
         <source>轴阴影</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AxisTime</name>
+    <message>
+        <location filename="axissetting/axistime.cpp" line="20"/>
+        <source>&amp;轴下限值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistime.cpp" line="21"/>
+        <source>&amp;轴上限值</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistime.cpp" line="22"/>
+        <source>&amp;轴主刻度个数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistime.cpp" line="23"/>
+        <source>&amp;日期格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistime.cpp" line="24"/>
+        <source>&amp;时间格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="axissetting/axistime.cpp" line="27"/>
+        <source>其它</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -820,32 +850,32 @@
 <context>
     <name>ChartBar</name>
     <message>
-        <location filename="chartview/chartbar.cpp" line="9"/>
+        <location filename="chartview/chartbar.cpp" line="7"/>
         <source>放大</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/chartbar.cpp" line="10"/>
+        <location filename="chartview/chartbar.cpp" line="8"/>
         <source>缩小</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/chartbar.cpp" line="11"/>
+        <location filename="chartview/chartbar.cpp" line="9"/>
         <source>还原</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/chartbar.cpp" line="12"/>
+        <location filename="chartview/chartbar.cpp" line="11"/>
         <source>关联表格</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/chartbar.cpp" line="13"/>
+        <location filename="chartview/chartbar.cpp" line="12"/>
         <source>清空</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/chartbar.cpp" line="14"/>
+        <location filename="chartview/chartbar.cpp" line="10"/>
         <source>截图</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1054,27 +1084,32 @@
 <context>
     <name>ChartViewWidget</name>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="27"/>
+        <location filename="tool/chartview_tool.cpp" line="28"/>
         <source>导入文件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="28"/>
+        <location filename="tool/chartview_tool.cpp" line="29"/>
         <source>文件带表头?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="56"/>
+        <location filename="tool/chartview_tool.cpp" line="58"/>
         <source>折线图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="86"/>
+        <location filename="tool/chartview_tool.cpp" line="59"/>
+        <source>散点图</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/chartview_tool.cpp" line="93"/>
         <source>Txt/Csv文件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="86"/>
+        <location filename="tool/chartview_tool.cpp" line="93"/>
         <source>*.txt *.csv</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1411,6 +1446,14 @@
     <message>
         <location filename="messagebox/infomation.cpp" line="16"/>
         <source>这是一个提示对话框!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LineAssociateTable</name>
+    <message>
+        <location filename="chartview/lineassociatetable.cpp" line="18"/>
+        <source>关联</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2222,44 +2265,52 @@
     </message>
 </context>
 <context>
+    <name>ScatterAssociateTable</name>
+    <message>
+        <location filename="chartview/scatterassociatetable.cpp" line="18"/>
+        <source>关联</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ScreenShoot</name>
     <message>
-        <location filename="chartview/screenshoot.cpp" line="8"/>
+        <location filename="chartview/screenshoot.cpp" line="7"/>
         <source>截图区域</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/screenshoot.cpp" line="10"/>
+        <location filename="chartview/screenshoot.cpp" line="9"/>
         <source>全屏</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/screenshoot.cpp" line="11"/>
+        <location filename="chartview/screenshoot.cpp" line="10"/>
         <source>图表</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/screenshoot.cpp" line="17"/>
+        <location filename="chartview/screenshoot.cpp" line="16"/>
         <source>图像格式</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/screenshoot.cpp" line="25"/>
+        <location filename="chartview/screenshoot.cpp" line="24"/>
         <source>&amp;格式选择</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/screenshoot.cpp" line="26"/>
+        <location filename="chartview/screenshoot.cpp" line="25"/>
         <source>&amp;输出质量</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/screenshoot.cpp" line="30"/>
+        <location filename="chartview/screenshoot.cpp" line="29"/>
         <source>截图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chartview/screenshoot.cpp" line="43"/>
+        <location filename="chartview/screenshoot.cpp" line="42"/>
         <source>图片保存路径</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2301,75 +2352,45 @@
     </message>
 </context>
 <context>
-    <name>SeriesLine</name>
+    <name>SeriesScatter</name>
     <message>
-        <location filename="seriessetting/seriesline.cpp" line="18"/>
-        <source>设置曲线颜色</source>
+        <location filename="seriessetting/seriesscatter.cpp" line="16"/>
+        <source>设置边框颜色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesline.cpp" line="24"/>
-        <source>设置标签颜色</source>
+        <location filename="seriessetting/seriesscatter.cpp" line="19"/>
+        <source>设置填充颜色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesline.cpp" line="27"/>
-        <source>设置标签格式</source>
+        <location filename="seriessetting/seriesscatter.cpp" line="23"/>
+        <source>&amp;标记形状</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesline.cpp" line="40"/>
-        <source>&amp;数据可见</source>
+        <location filename="seriessetting/seriesscatter.cpp" line="24"/>
+        <source>&amp;标记大小</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesline.cpp" line="41"/>
-        <source>&amp;标签可见</source>
+        <location filename="seriessetting/seriesscatter.cpp" line="25"/>
+        <source>&amp;标记边框</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesline.cpp" line="42"/>
-        <source>&amp;标签剪裁</source>
+        <location filename="seriessetting/seriesscatter.cpp" line="26"/>
+        <source>&amp;标记填充</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesline.cpp" line="43"/>
-        <source>&amp;曲线颜色</source>
+        <location filename="seriessetting/seriesscatter.cpp" line="27"/>
+        <source>标记</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesline.cpp" line="44"/>
-        <source>&amp;曲线宽度</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="seriessetting/seriesline.cpp" line="45"/>
-        <source>&amp;标签颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="seriessetting/seriesline.cpp" line="46"/>
-        <source>&amp;标签格式</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="seriessetting/seriesline.cpp" line="49"/>
-        <source>数据格式</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="seriessetting/seriesline.cpp" line="57"/>
-        <source>数据点</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="seriessetting/seriesline.cpp" line="230"/>
+        <location filename="seriessetting/seriesscatter.cpp" line="129"/>
         <source>设置颜色</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="seriessetting/seriesline.cpp" line="239"/>
-        <source>设置格式</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2393,6 +2414,79 @@
     <message>
         <location filename="seriessetting/seriessetting.cpp" line="38"/>
         <source>&amp;移除曲线</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SeriesXY</name>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="18"/>
+        <source>设置曲线颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="24"/>
+        <source>设置标签颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="27"/>
+        <source>设置标签格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="40"/>
+        <source>&amp;数据可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="41"/>
+        <source>&amp;标签可见</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="42"/>
+        <source>&amp;标签剪裁</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="43"/>
+        <source>&amp;曲线颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="44"/>
+        <source>&amp;曲线宽度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="45"/>
+        <source>&amp;标签颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="46"/>
+        <source>&amp;标签格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="49"/>
+        <source>数据格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="57"/>
+        <source>数据点</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="230"/>
+        <source>设置颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesxy.cpp" line="239"/>
+        <source>设置格式</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

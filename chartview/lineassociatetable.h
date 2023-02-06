@@ -1,5 +1,5 @@
-#ifndef ASSOCIATETABLE_H
-#define ASSOCIATETABLE_H
+#ifndef LINEASSOCIATETABLE_H
+#define LINEASSOCIATETABLE_H
 
 #include <QDialog>
 #include <QVXYModelMapper>
@@ -10,11 +10,11 @@
 #include <chartview/associateseries.h>
 #include <chartview/associatemode.h>
 
-class AssociateTable : public QDialog
+class LineAssociateTable : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AssociateTable(QTableView*,QChartView*,QWidget*parent = Q_NULLPTR);
+    explicit LineAssociateTable(QTableView*,QChartView*,QWidget*parent = Q_NULLPTR);
 private:
     QTableView * mTableView;
     TableViewModel * mTableModel;
@@ -40,4 +40,4 @@ signals:
     void seriesRemoved(QLineSeries*);
 };
 
-#endif // ASSOCIATETABLE_H
+#endif // LINEASSOCIATETABLE_H

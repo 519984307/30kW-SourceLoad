@@ -1,5 +1,4 @@
 #include <chartview/screenshoot.h>
-#include <QDebug>
 
 ScreenShoot::ScreenShoot(QChartView*chartview,QWidget*parent):QDialog(parent),mChartView(chartview)
 {

@@ -1,6 +1,6 @@
-#include <chartview/associatetable.h>
+#include <chartview/lineassociatetable.h>
 
-AssociateTable::AssociateTable(QTableView*tableview,QChartView*chartview,QWidget*parent):
+LineAssociateTable::LineAssociateTable(QTableView*tableview,QChartView*chartview,QWidget*parent):
     QDialog(parent),mTableView(tableview),mChartView(chartview)
 {
     mLegend = new ChartShowLegend;
@@ -11,7 +11,9 @@ AssociateTable::AssociateTable(QTableView*tableview,QChartView*chartview,QWidget
 
     mMode = new AssociateMode(mTableView,mChartView);
     mSeries = new AssociateSeries;
+    mSeries->setMarkerSizeVisible(false); // 折线图不能设置标记大小
     mAxis = new AssociateAxis(mTableView,mChartView);
+    mAxis->setTimeAxisVisible(false);// 时间坐标轴对于折线图不支持,使用时隐藏
 
     mOkBtn = new QPushButton(tr("关联"));
     QHBoxLayout * lay1 = new QHBoxLayout;
@@ -30,20 +32,20 @@ AssociateTable::AssociateTable(QTableView*tableview,QChartView*chartview,QWidget
     initConnections();
 }
 
-void AssociateTable::initConnections()
+void LineAssociateTable::initConnections()
 {
     connect(mMode,&AssociateMode::changeMode,mAxis,&AssociateAxis::setHorizontalEnabled);
-    connect(mOkBtn,&QPushButton::clicked,this,&AssociateTable::onOkBtn);
+    connect(mOkBtn,&QPushButton::clicked,this,&LineAssociateTable::onOkBtn);
 
-    connect(this,&AssociateTable::tableChanged,this,[=]{ // 导入文件后表格model发生了更新
-        disconnect(mOkBtn,&QPushButton::clicked,this,&AssociateTable::onOkBtn);
+    connect(this,&LineAssociateTable::tableChanged,this,[=]{ // 导入文件后表格model发生了更新
+        disconnect(mOkBtn,&QPushButton::clicked,this,&LineAssociateTable::onOkBtn);
         mTableModel = static_cast<TableViewModel*>(mTableView->model()); //更新model再连
-        connect(mOkBtn,&QPushButton::clicked,this,&AssociateTable::onOkBtn);
+        connect(mOkBtn,&QPushButton::clicked,this,&LineAssociateTable::onOkBtn);
 
         mMode->adjustRange(); //调整spinbox和表格列数一致
     });
 
-    connect(this,static_cast<void (AssociateTable::*)(QLineSeries*)>(&AssociateTable::seriesColorChanged),
+    connect(this,static_cast<void (LineAssociateTable::*)(QLineSeries*)>(&LineAssociateTable::seriesColorChanged),
             this,[=](QLineSeries*series){
             if (mSeriesXYColumn.keys().contains(series))
             { // 说明修改的是这里创建出来的series,有可能是linechart.cpp初始化创建的那3个
@@ -53,7 +55,7 @@ void AssociateTable::initConnections()
                 mTableModel->addColMapping(cols.second,series->color());
             }
     });
-    connect(this,static_cast<void (AssociateTable::*)(QLineSeries*)>(&AssociateTable::seriesRemoved),
+    connect(this,static_cast<void (LineAssociateTable::*)(QLineSeries*)>(&LineAssociateTable::seriesRemoved),
             this,[=](QLineSeries*series){
             if (mSeriesXYColumn.keys().contains(series))
             {
@@ -66,7 +68,7 @@ void AssociateTable::initConnections()
     });
 }
 
-void AssociateTable::onOkBtn()
+void LineAssociateTable::onOkBtn()
 {
     bool isSingle = mMode->isSingle();
     if (isSingle) singleMapping();
@@ -77,7 +79,7 @@ void AssociateTable::onOkBtn()
     accept();
 }
 
-void AssociateTable::singleMapping()
+void LineAssociateTable::singleMapping()
 {
     int col = mMode->singleCol();
 
@@ -113,7 +115,7 @@ void AssociateTable::singleMapping()
     mTip->mapping(series);
 }
 
-void AssociateTable::doubleMapping()
+void LineAssociateTable::doubleMapping()
 {
     QPoint point = mMode->doubleCols();
     int xCol = point.x();
@@ -142,12 +144,14 @@ void AssociateTable::doubleMapping()
     mTip->mapping(series);
 }
 
-void AssociateTable::setHorizontalAxis(QLineSeries *series)
+void LineAssociateTable::setHorizontalAxis(QLineSeries *series)
 {
     QValueAxis * valueAxisX;
-    QDateTimeAxis * timeAxisX;
     QLogValueAxis * logAxisX;
+    QDateTimeAxis * timeAxisX;
+    auto datetime = QDateTime::currentDateTime();
     auto axisX = mChartView->chart()->axisX();
+
     if (axisX) mChartView->chart()->removeAxis(axisX); // 首次设置还没有坐标轴
     switch (mAxis->axisType().x()) {
         case AssociateAxis::Value:
@@ -158,6 +162,7 @@ void AssociateTable::setHorizontalAxis(QLineSeries *series)
                 break;
          case AssociateAxis::Time:
                 timeAxisX = new QDateTimeAxis;
+                timeAxisX->setRange(datetime,datetime.addDays(365));
                 mChartView->chart()->addAxis(timeAxisX,Qt::AlignBottom);
                 series->attachAxis(timeAxisX);
                 //qDebug()<<"hor time";
@@ -174,7 +179,7 @@ void AssociateTable::setHorizontalAxis(QLineSeries *series)
     }
 }
 
-void AssociateTable::setVerticalAxis(QLineSeries *series)
+void LineAssociateTable::setVerticalAxis(QLineSeries *series)
 {
     QValueAxis * valueAxisY;
     QLogValueAxis * logAxisY;

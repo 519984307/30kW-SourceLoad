@@ -71,6 +71,7 @@
         <file>images/VerPattern.jpg</file>
         <file>images/associatetable.png</file>
         <file>images/screenshot.png</file>
+        <file>images/scatterchart.png</file>
         <file>images/clearChart.png</file>
     </qresource>
 </RCC>

@@ -198,10 +198,10 @@ ChartToolBox实现这种布局关系后，并提供适当的接口给子类，�
 这里解决了动态添加QGroupBox后但是工具栏的布局没有显示的问题，发现是工具栏的滚动区域QScrollArea的文档明确说明setWidget只能设置一次
 也就是说必须完成全部布局，最后设置布局所在的部件。如果布局实现创建了2个盒子，设置后再添加1个盒子，这个盒子不会显示
 所以解决方案就是ChartTool提供一个接口，接口函数内部调用QScrollArea.setWidget，这个接口用于外部动态添加完盒子后最后调用
-⑥ 增加了子类LineChartTool，明天将全力完成这个子类的功能，也就是折线图的工具栏
+⑦ 增加了子类LineChartTool，明天将全力完成这个子类的功能，也就是折线图的工具栏
 
 
-2023/01/05：
+2023/01/06：
 ① 解决了图和工具栏的比例不协调问题，使其比例4：1比较美观，用户也可以通过分割条调整比例
 ② 增加ChartSetting类，继承自 QVBoxLayout。考虑到关于图表的工具页布局基本是相同的(共同基类都是Chart)，所以将这部分布局写成一个单独的类减少冗余
 这个类将充分发掘QChart可设置的功能和属性，使其尽可能完善丰富。曲线和坐标轴工具页根据曲线类型是不同的，则由子类灵活实现。
@@ -382,6 +382,18 @@ TableViewModel类增加tagXYColumn()函数用于对选择的2列数据进行映�
 ② 缕清绘图模块的同步逻辑，绘制流程图完毕
 ③ 时间坐标轴的支持下周进行
 
+
+2023/2/6：
+① 增加AxisTime类，增加对时间坐标轴的支持
+② axissetting根据时间坐标轴修改代码，增加对value、log和time切换的支持
+③ AssociateTable根据时间坐标轴修改代码，增加对时间坐标轴的支持
+④ 仿照折线图，新增ScatterChart、ScatterChartTool、ScatterSeriesSetting、SeriesScatter类
+⑤ 将原来的SeriesLine改名为SeriesXY，SeriesXY可以用于折线图和散点图，而散点图除了SeriesXY提到的设置还需要加入SeriesScatter
+在ScatterSeriesSetting进行组合
+⑥ AssociateTable类名去掉，改为使用LineAssociateTable，并增加ScatterAssociateTable
+⑦ ChartBar进行修改，改为基类，增加LineChartBar和ScatterChartBar类
+⑧ AssociateSeries增加对散点图Marker的尺寸设置支持
+⑨ 明日研究时间序列的支持，就可以用上时间坐标轴的支持，折线图和散点图使用不了时间轴，画不出来
 
 
 
