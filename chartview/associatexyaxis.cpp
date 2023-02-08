@@ -1,13 +1,11 @@
-#include <chartview/associateaxis.h>
+#include <chartview/associatexyaxis.h>
 
-AssociateAxis::AssociateAxis(QTableView*tableview,QChartView*chartview,QWidget*parent):
-    QGroupBox(parent),mTableView(tableview),mChartView(chartview)
+AssociateXYAxis::AssociateXYAxis(QWidget*parent):QGroupBox(parent)
 {
-        mTableModel = static_cast<TableViewModel*>(mTableView->model());
         mAxisType.setX(AxisType::Value);
         mAxisType.setY(AxisType::Value);
-        mAxisBase.setX(1.0);
-        mAxisBase.setY(1.0);
+        mAxisBase.setX(2.0);
+        mAxisBase.setY(2.0);
         setFont(QFont("Times New Roman",12));
         setTitle(tr("坐标轴"));
         mLayout= new QVBoxLayout;
@@ -16,23 +14,22 @@ AssociateAxis::AssociateAxis(QTableView*tableview,QChartView*chartview,QWidget*p
         setLayout(mLayout);
 }
 
-void AssociateAxis::initHorizonLayout()
+void AssociateXYAxis::initHorizonLayout()
 {
     mHorizontalBox = new QGroupBox;
     QHBoxLayout * hboxlay = new QHBoxLayout;
     mHorizontalValueAxis = new QRadioButton(tr("线性"));
-    mHorizontalTimeAxis = new QRadioButton(tr("时间"));
     mHorizontalLogAxis = new QRadioButton(tr("对数"));
     mHorizontalValueAxis->setChecked(true);
 
     mHorizontalLogBase = new QDoubleSpinBox;
     mHorizontalLogBase->setRange(0.01,100);
     mHorizontalLogBase->setSingleStep(0.01);
+    mHorizontalLogBase->setValue(2.0);
     mHorizontalLogBase->hide();
 
     hboxlay->addWidget(new QLabel(tr("水平坐标轴")));
     hboxlay->addWidget(mHorizontalValueAxis);
-    hboxlay->addWidget(mHorizontalTimeAxis);
     hboxlay->addWidget(mHorizontalLogAxis);
     hboxlay->addWidget(mHorizontalLogBase);
     mHorizontalBox->setLayout(hboxlay);
@@ -41,8 +38,7 @@ void AssociateAxis::initHorizonLayout()
 
     QButtonGroup * group = new QButtonGroup;
     group->addButton(mHorizontalValueAxis,0);
-    group->addButton(mHorizontalTimeAxis,1);
-    group->addButton(mHorizontalLogAxis,2);
+    group->addButton(mHorizontalLogAxis,1);
     connect(group,static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
             this,[=](int id){
             switch (id) {
@@ -51,10 +47,6 @@ void AssociateAxis::initHorizonLayout()
                         mAxisType.setX(AxisType::Value);
                         break;
                 case 1:
-                        mHorizontalLogBase->hide();
-                        mAxisType.setX(AxisType::Time);
-                        break;
-                case 2:
                         mHorizontalLogBase->show();
                         mAxisType.setX(AxisType::Log);
                         break;
@@ -65,7 +57,7 @@ void AssociateAxis::initHorizonLayout()
             this,[=](double base){mAxisBase.setX(base);});
 }
 
-void AssociateAxis::initVerticalLayout()
+void AssociateXYAxis::initVerticalLayout()
 {
     mVerticalBox = new QGroupBox;
     QHBoxLayout * vboxlay = new QHBoxLayout;
@@ -76,6 +68,7 @@ void AssociateAxis::initVerticalLayout()
     mVerticalLogBase = new QDoubleSpinBox;
     mVerticalLogBase->setRange(0.01,100);
     mVerticalLogBase->setSingleStep(0.01);
+    mVerticalLogBase->setValue(2.0);
     mVerticalLogBase->hide();
     vboxlay->addWidget(new QLabel(tr("垂直坐标轴")));
     vboxlay->addWidget(mVerticalValueAxis);
@@ -105,22 +98,17 @@ void AssociateAxis::initVerticalLayout()
             this,[=](double base){mAxisBase.setY(base);});
 }
 
-void AssociateAxis::setHorizontalEnabled(bool checked)
+void AssociateXYAxis::setHorizontalEnabled(bool checked)
 {
     mHorizontalBox->setEnabled(checked);
 }
 
-void AssociateAxis::setTimeAxisVisible(bool show)
-{
-    mHorizontalTimeAxis->setVisible(show);
-}
-
-QPoint AssociateAxis::axisType() const
+QPoint AssociateXYAxis::axisType() const
 {
     return mAxisType;
 }
 
-QPointF AssociateAxis::axisBase() const
+QPointF AssociateXYAxis::axisBase() const
 {
     return mAxisBase;
 }

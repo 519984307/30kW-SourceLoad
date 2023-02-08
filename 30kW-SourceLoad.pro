@@ -25,6 +25,7 @@ TRANSLATIONS = cn.ts \
                                   en.ts
 
 SOURCES += \
+    axissetting/axisbarcategory.cpp \
     axissetting/axisbox.cpp \
     axissetting/axisgrid.cpp \
     axissetting/axisinfo.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
     axissetting/axistime.cpp \
     axissetting/axistitle.cpp \
     axissetting/axisvalue.cpp \
+    chart/barchart.cpp \
     chart/chart.cpp \
     chart/chartshowlegend.cpp \
     chart/chartshowtip.cpp \
@@ -63,13 +65,19 @@ SOURCES += \
     chartsetting/gradientparamwidget.cpp \
     chartsetting/lineargradientparamwidget.cpp \
     chartsetting/radialgradientparamwidget.cpp \
+    charttool/barcharttool.cpp \
     charttool/charttool.cpp \
     charttool/charttoolwidget.cpp \
     charttool/linecharttool.cpp \
     charttool/scattercharttool.cpp \
-    chartview/associateaxis.cpp \
-    chartview/associatemode.cpp \
-    chartview/associateseries.cpp \
+    chartview/associatebaraxis.cpp \
+    chartview/associatebarmode.cpp \
+    chartview/associatebarseries.cpp \
+    chartview/associatexyaxis.cpp \
+    chartview/associatexymode.cpp \
+    chartview/associatexyseries.cpp \
+    chartview/barassociatetable.cpp \
+    chartview/barchartbar.cpp \
     chartview/chartbar.cpp \
     chartview/chartview.cpp \
     chartview/lineassociatetable.cpp \
@@ -130,6 +138,7 @@ SOURCES += \
     tool/tool.cpp
 
 HEADERS += \
+    axissetting/axisbarcategory.h \
     axissetting/axisbox.h \
     axissetting/axisgrid.h \
     axissetting/axisinfo.h \
@@ -141,6 +150,7 @@ HEADERS += \
     axissetting/axistime.h \
     axissetting/axistitle.h \
     axissetting/axisvalue.h \
+    chart/barchart.h \
     chart/chart.h \
     chart/chartshowlegend.h \
     chart/chartshowtip.h \
@@ -168,13 +178,19 @@ HEADERS += \
     chartsetting/gradientparamwidget.h \
     chartsetting/lineargradientparamwidget.h \
     chartsetting/radialgradientparamwidget.h \
+    charttool/barcharttool.h \
     charttool/charttool.h \
     charttool/charttoolwidget.h \
     charttool/linecharttool.h \
     charttool/scattercharttool.h \
-    chartview/associateaxis.h \
-    chartview/associatemode.h \
-    chartview/associateseries.h \
+    chartview/associatebaraxis.h \
+    chartview/associatebarmode.h \
+    chartview/associatebarseries.h \
+    chartview/associatexyaxis.h \
+    chartview/associatexymode.h \
+    chartview/associatexyseries.h \
+    chartview/barassociatetable.h \
+    chartview/barchartbar.h \
     chartview/chartbar.h \
     chartview/chartview.h \
     chartview/lineassociatetable.h \

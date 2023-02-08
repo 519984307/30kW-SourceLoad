@@ -1,5 +1,5 @@
-#ifndef ASSOCIATESERIES_H
-#define ASSOCIATESERIES_H
+#ifndef ASSOCIATEXYSERIES_H
+#define ASSOCIATEXYSERIES_H
 
 #include <QGroupBox>
 #include <QDoubleSpinBox>
@@ -8,11 +8,11 @@
 #include <QColorDialog>
 #include <QFormLayout>
 
-class AssociateSeries : public QGroupBox
+class AssociateXYSeries : public QGroupBox
 {
     Q_OBJECT
 public:
-    explicit AssociateSeries(QWidget*parent = Q_NULLPTR);
+    explicit AssociateXYSeries(QWidget*parent = Q_NULLPTR);
     QColor linecolor() const;
     int linewidth() const;
     double markersize() const;
@@ -29,4 +29,4 @@ private:
     QLineEdit * mLineColorEdit;
 };
 
-#endif // ASSOCIATESERIES_H
+#endif // ASSOCIATEXYSERIES_H

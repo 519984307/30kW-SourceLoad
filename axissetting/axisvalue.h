@@ -3,7 +3,6 @@
 
 #include <QGroupBox>
 #include <QFormLayout>
-#include <QValueAxis>
 #include <QDoubleSpinBox>
 #include <QComboBox>
 #include <QChart>

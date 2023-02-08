@@ -7,9 +7,9 @@
 #include <chart/chartshowlegend.h>
 #include <chart/chartdatagenerator.h>
 #include <chartview/chartview.h>
+#include <tool/tableviewmodel.h>
 #include <chartview/linechartbar.h>
 #include <charttool/linecharttool.h>
-#include <tool/tableviewmodel.h>
 
 class LineChart : public QMainWindow
 {
@@ -33,11 +33,11 @@ private:
     TableViewModel * mTableModel;
     ChartView * mChartView;
     QTableView * mTableView;
-    LineChartTool * mToolBox;
     ChartDataGenerator * mGenerator;
-    LineChartBar * mToolBar;
     ChartShowLegend * mLegend;
     ChartShowTip * mTip;
+    LineChartBar * mToolBar;
+    LineChartTool * mToolBox;
 signals:
     void tableChanged();
     void associateCompeleted();

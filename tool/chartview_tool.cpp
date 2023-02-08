@@ -10,6 +10,7 @@ void ChartViewWidget::closeEvent(QCloseEvent *e)
 {
     mLineTab->closeChildrenWindows(); // 窗口关闭时把所有子窗口都关掉
     mScatterTab->closeChildrenWindows();
+    mBarTab->closeChildrenWindows();
     e->accept();
 }
 
@@ -55,8 +56,10 @@ void ChartViewWidget::init()
     mTab->setMinimumWidth(1000);
     mLineTab = new LineChart(mTableView,mTab);
     mScatterTab = new ScatterChart(mTableView,mTab);
+    mBarTab = new BarChart(mTableView,mTab);
     mTab->addTab(mLineTab,QIcon(":/images/linechart.png"),tr("折线图"));
     mTab->addTab(mScatterTab,QIcon(":/images/scatterchart.png"),tr("散点图"));
+    mTab->addTab(mBarTab,QIcon(":/images/barchart.png"),tr("柱状图"));
     /*-----------------------------------------layout-----------------------------------------*/
     QSplitter * splitter = new QSplitter(Qt::Horizontal);
     splitter->addWidget(tablebox);
@@ -79,6 +82,7 @@ void ChartViewWidget::init()
         mTableView->update(QRect(0,0,mTableModel->columnCount(),mTableModel->rowCount()));
         mLineTab->clearChart();
         mScatterTab->clearChart();
+        mBarTab->clearChart();
     });
 }
 
@@ -86,6 +90,7 @@ void ChartViewWidget::initConnections()
 {
     connect(this,&ChartViewWidget::tableChanged,mLineTab,&LineChart::tableChanged);
     connect(this,&ChartViewWidget::tableChanged,mScatterTab,&ScatterChart::tableChanged);
+    connect(this,&ChartViewWidget::tableChanged,mBarTab,&BarChart::tableChanged);
 
     connect(mImportFileBtn,&QPushButton::clicked,this,[=]{
         QDir debugDir= QDir::current();
@@ -123,6 +128,7 @@ void ChartViewWidget::initConnections()
                 mTableModel->appendRow(lineList);
             }
             outFile.close();
+            mTableModel->update(); // 必须调用更新内部的模型数据
         });
         while (!future.isFinished()) QApplication::processEvents(QEventLoop::AllEvents, 5);
         emit tableChanged();

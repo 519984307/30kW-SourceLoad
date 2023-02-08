@@ -3,7 +3,7 @@
 LineChartTool::LineChartTool(QChart* chart,QWidget*parent)
     :ChartTool(chart,parent)
 {
-    mChartWidget->updateScrollArea(); // 图表设置都相同,只需调用一次更新滑动区域，ChartTool内部已调用过
+    mChartWidget->updateScrollArea(); // 图表设置都相同,只需调用一次更新滑动区域
 
     mSeriesSetting = new LineSeriesSetting(mChart); // 通用设置
     mSeriesWidget->addLayout(mSeriesSetting);

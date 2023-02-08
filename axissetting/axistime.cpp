@@ -2,7 +2,7 @@
 
 AxisTime::AxisTime(QChart * chart,QWidget*parent):
      QGroupBox(parent),mChart(chart),mCurrentAxis(nullptr)
-{
+{ // 时间轴支持5类参数的设置
         mDateFormatString = "dd-MM-yyyy";// 默认dd-MM-yyyy
         mTimeFormatString = "h:mm";// 默认h:mm
 

@@ -16,7 +16,9 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
 
     mAxisValue = new AxisValue(mChart); //初始化布局,根据当前轴类型动态的显示和隐藏
     mAxisLog = new AxisLog(mChart);
+    mAxisBar = new AxisBarCategory(mChart);
     mAxisTime = new AxisTime(mChart);
+
 
     initWhichAxis();
 
@@ -29,26 +31,36 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     addWidget(mAxisGrid);
     addWidget(mAxisValue);
     addWidget(mAxisLog);
+    addWidget(mAxisBar);
     addWidget(mAxisTime);
     addWidget(new QGroupBox);//为了防止挤压尾部留些空间
 
-    //通过removeWidget和addWidget动态切换mAxisValue和mAxisLog有点难
+    //通过removeWidget和addWidget动态切换轴有点难
     // 而且由于QScrollArea布局必须事先确定的问题,不可能实现
     // 但是可以通过hide和show来显示这种效果,布局也已经事先确定了
     switch (mCurrentAxis->type()) {
             case QAbstractAxis::AxisTypeValue:
                     mAxisValue->setCurrentAxis(static_cast<QValueAxis*>(mCurrentAxis)); // 确实是value类型才会初始化内部的信号连接
                     mAxisLog->hide();
+                    mAxisBar->hide();
                     mAxisTime->hide();
                     break;
             case QAbstractAxis::AxisTypeLogValue:
                     mAxisValue->hide();
                     mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
+                    mAxisBar->hide();
+                    mAxisTime->hide();
+                    break;
+            case QAbstractAxis::AxisTypeBarCategory:
+                    mAxisValue->hide();
+                    mAxisLog->hide();
+                    mAxisBar->setCurrentAxis(static_cast<QBarCategoryAxis*>(mCurrentAxis));
                     mAxisTime->hide();
                     break;
             case QAbstractAxis::AxisTypeDateTime:
                     mAxisValue->hide();
                     mAxisLog->hide();
+                    mAxisBar->hide();
                     mAxisTime->setCurrentAxis(static_cast<QDateTimeAxis*>(mCurrentAxis));
                     break;
             default:break;
@@ -100,18 +112,28 @@ void AxisSetting::initWhichAxis()
                             mAxisValue->setCurrentAxis(static_cast<QValueAxis*>(mCurrentAxis));
                             mAxisValue->show();
                             mAxisLog->hide();
+                            mAxisBar->hide();
                             mAxisTime->hide();
                             break;
                     case QAbstractAxis::AxisTypeLogValue:
                             mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
                             mAxisValue->hide();
                             mAxisLog->show();
+                            mAxisBar->hide();
+                            mAxisTime->hide();
+                            break;
+                    case QAbstractAxis::AxisTypeBarCategory:
+                            mAxisBar->setCurrentAxis(static_cast<QBarCategoryAxis*>(mCurrentAxis));
+                            mAxisValue->hide();
+                            mAxisLog->hide();
+                            mAxisBar->show();
                             mAxisTime->hide();
                             break;
                     case QAbstractAxis::AxisTypeDateTime:
                             mAxisTime->setCurrentAxis(static_cast<QDateTimeAxis*>(mCurrentAxis));
                             mAxisValue->hide();
                             mAxisLog->hide();
+                            mAxisBar->hide();
                             mAxisTime->show();
                             break;
                     default:break;

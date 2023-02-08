@@ -16,8 +16,8 @@ ScatterChart::ScatterChart(QTableView * tableview,QWidget *parent)
     mTip->setChart(mChart);
     mChartView = new ChartView(mChart,this);
     mToolBar = new ScatterChartBar(mTableView,mChartView,this);
-
     addToolBar(Qt::TopToolBarArea,mToolBar);
+
     mToolBox = new ScatterChartTool(mChart,this);
     mSplitter = new QSplitter(Qt::Horizontal);
     mSplitter->setChildrenCollapsible(false);

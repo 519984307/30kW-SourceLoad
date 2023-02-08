@@ -3,9 +3,7 @@
 
 #include <QGraphicsSimpleTextItem>
 #include <QGraphicsRectItem>
-#include <QChart>
-#include <QLineSeries>
-#include <QScatterSeries>
+#include <QtCharts>
 using namespace  QtCharts;
 
 class ChartShowTip : public QObject //要继承否则报错
@@ -16,8 +14,10 @@ public:
     void setChart(QChart*);
     void mapping(QLineSeries*);
     void mapping(QScatterSeries*);
+    void mapping(QBarSeries*);
 private:
-    void showToolTip(QPointF point, bool state);
+    void showXYTip(QPointF point, bool state);
+    void showBarTip(bool status, int index, QBarSet *barset);
     QChart* mChart;
     QGraphicsSimpleTextItem * mCoordTip;
     QGraphicsRectItem * mCoordRect;

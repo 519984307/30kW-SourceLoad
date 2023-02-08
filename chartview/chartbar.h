@@ -20,8 +20,6 @@ protected:
 signals:
     void associateCompeleted();
     void tableChanged();
-//        void seriesColorChanged(QScatterSeries*);
-//    void seriesRemoved(QScatterSeries*);
 };
 
 #endif // CHARTBAR_H

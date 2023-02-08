@@ -1,27 +1,23 @@
-﻿#ifndef ASSOCIATEAXIS_H
-#define ASSOCIATEAXIS_H
+﻿#ifndef ASSOCIATEXYAXIS_H
+#define ASSOCIATEXYAXIS_H
 
 #include <QGroupBox>
-#include <QTableView>
-#include <QtCharts>
+#include <QRadioButton>
+#include <QDoubleSpinBox>
+#include <QHBoxLayout>
 #include <QButtonGroup>
-#include <tool/tableviewmodel.h>
-using namespace QtCharts;
+#include <QLabel>
 
-class AssociateAxis : public QGroupBox
+class AssociateXYAxis : public QGroupBox
 {
     Q_OBJECT
 public:
-    explicit AssociateAxis(QTableView*,QChartView*,QWidget*parent = Q_NULLPTR);
-    enum AxisType {Value,Time,Log};
+    explicit AssociateXYAxis(QWidget*parent = Q_NULLPTR);
+    enum AxisType {Value,Log};
     QPoint axisType() const;
     QPointF axisBase() const;
     void setHorizontalEnabled(bool);
-    void setTimeAxisVisible(bool);
 private:
-    QTableView * mTableView;
-    QChartView * mChartView;
-    TableViewModel * mTableModel;
     QVBoxLayout * mLayout;
     QPoint mAxisType;
     QPointF mAxisBase;
@@ -39,4 +35,4 @@ private:
     QDoubleSpinBox * mVerticalLogBase;
 };
 
-#endif // ASSOCIATEAXIS_H
+#endif // ASSOCIATEXYAXIS_H

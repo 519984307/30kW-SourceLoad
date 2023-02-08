@@ -1,9 +1,8 @@
-#include <chartview/associatemode.h>
-#include <QDebug>
-AssociateMode::AssociateMode(QTableView*tableview,QChartView*chartview,QWidget*parent):
-    QGroupBox(parent),mTableView(tableview),mChartView(chartview)
+#include <chartview/associatexymode.h>
+
+AssociateXYMode::AssociateXYMode(TableViewModel*model,QWidget*parent):
+    QGroupBox(parent),mTableModel(model)
 {
-    mTableModel = static_cast<TableViewModel*>(mTableView->model());
     setFont(QFont("Times New Roman",12));
     setTitle(tr("关联"));
 
@@ -61,24 +60,24 @@ AssociateMode::AssociateMode(QTableView*tableview,QChartView*chartview,QWidget*p
     });
 }
 
-bool AssociateMode::isSingle() const
+bool AssociateXYMode::isSingle() const
 {
     return mSingleBtn->isChecked();
 }
 
-void AssociateMode::adjustRange()
+void AssociateXYMode::adjustRange()
 {
     mSingleSpin->setRange(1,mTableModel->columnCount());
     mDoubleSpinX->setRange(1,mTableModel->columnCount());
     mDoubleSpinY->setRange(1,mTableModel->columnCount());
 }
 
-int AssociateMode::singleCol()
+int AssociateXYMode::singleCol()
 {
     return mSingleSpin->value() -1; // 最小值是1,要从0计算
 }
 
-QPoint AssociateMode::doubleCols()
+QPoint AssociateXYMode::doubleCols()
 {
     int xCol = mDoubleSpinX->value() - 1;
     int yCol = mDoubleSpinY->value() - 1;

@@ -396,7 +396,27 @@ TableViewModel类增加tagXYColumn()函数用于对选择的2列数据进行映�
 ⑨ 明日研究时间序列的支持，就可以用上时间坐标轴的支持，折线图和散点图使用不了时间轴，画不出来
 
 
+2023/2/7：
+① 增加BarChart类用于绘制直方图
+② 增加BarChartBar、BarAssociateTable类和柱状图进行配套
+③ 修改AssociateSeries为AssociateXYSeries，AssociateMode改为AssociateXYMode，AssociateAxis为AssociateXYAxis，针对散点图和折线图的曲线关联设置
+④ ChartShowLegend增加对柱状图的支持
+⑤ 增加AssociateBarSeries类，用于设置柱状图的颜色和柱宽；
+⑥ 增加AssociateBarAxis类，用于设置柱状图的2个轴，水平轴自动根据行列名称生成，垂直轴支持线性和对数
+⑦ 如何解决model的数据插入后响应的问题
 
+2023/2/8：
+① 解决导入文件表格不更新数据的问题，需要在clear函数使用提供的接口beginResetModel();
+然后清除数据mData，之后外部添加行调用beginInsertRows(QModelIndex(),mData.count(),mData.count()+1)和endInsertRows()可以实现反复追加行
+最后调用update，内部更新mRowCount、mColumnCount和mHorizontalHeader、mVerticalHeader
+② 增加TableViewModel对QAbstractTableModel提供的接口函数的重载，支持添加和插入空白行和空白列
+③ AssociateBarMode除了行、列映射还增加区域映射模式的支持，需要指定起始列和终止列，起始行和行数
+⑥ 相应的BarAssociateTable增加对区域映射的支持
+⑦ 增加BarChartTool类，用于柱状图的工具栏
+⑧ 增加AxisBarCategory类，用于柱状图横轴有关设置的支持，并在AxisSetting中修改代码增加其支持
+⑨ 明日应增加对柱状图曲线的有关设置支持，即曲线工具栏
+
+2023/2/9：
 
 
 

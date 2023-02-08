@@ -21,15 +21,21 @@ void ChartShowTip::setChart(QChart *chart)
 
 void ChartShowTip::mapping(QLineSeries * series)
 {
-    connect(series, &QLineSeries::hovered, this, &ChartShowTip::showToolTip);
+    connect(series, &QLineSeries::hovered, this, &ChartShowTip::showXYTip);
 }
 
 void ChartShowTip::mapping(QScatterSeries*series)
 {
-    connect(series, &QScatterSeries::hovered, this, &ChartShowTip::showToolTip);
+    connect(series, &QScatterSeries::hovered, this, &ChartShowTip::showXYTip);
 }
 
-void ChartShowTip::showToolTip(QPointF point, bool state)
+void ChartShowTip::mapping(QBarSeries*series)
+{
+    connect(series, &QBarSeries::hovered, this, &ChartShowTip::showBarTip);
+}
+
+
+void ChartShowTip::showXYTip(QPointF point, bool state)
 {
     if (state)
     {
@@ -43,5 +49,22 @@ void ChartShowTip::showToolTip(QPointF point, bool state)
     else {
         mCoordTip->hide();
         mCoordRect->hide();
+    }
+}
+
+void ChartShowTip::showBarTip(bool status, int index, QBarSet *barset)
+{
+    Q_UNUSED(index);
+    auto font = barset->labelFont();
+    if (status)
+    {
+        font.setBold(true);
+        font.setPointSize(20);
+        barset->setLabelFont(font);
+    }
+    else {
+        font.setBold(false);
+        font.setPointSize(12);
+        barset->setLabelFont(font);
     }
 }

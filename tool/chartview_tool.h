@@ -3,7 +3,7 @@
 
 #include <chart/linechart.h>
 #include <chart/scatterchart.h>
-#include <tool/tableviewmodel.h>
+#include <chart/barchart.h>
 #include <QtConcurrent/QtConcurrent>
 using namespace  QtConcurrent;
 
@@ -24,6 +24,7 @@ private:
     QTabWidget * mTab;
     LineChart * mLineTab;
     ScatterChart * mScatterTab;
+    BarChart * mBarTab;
 signals:
     void tableChanged();
 };

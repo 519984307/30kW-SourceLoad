@@ -6,9 +6,9 @@
 #include <QLegendMarker>
 #include <chart/chartshowtip.h>
 #include <chart/chartshowlegend.h>
-#include <chartview/associateaxis.h>
-#include <chartview/associateseries.h>
-#include <chartview/associatemode.h>
+#include <chartview/associatexyaxis.h>
+#include <chartview/associatexyseries.h>
+#include <chartview/associatexymode.h>
 
 class LineAssociateTable : public QDialog
 {
@@ -24,15 +24,14 @@ private:
     void onOkBtn();
     void singleMapping();
     void doubleMapping();
-    void setHorizontalAxis(QLineSeries*);
-    void setVerticalAxis(QLineSeries*);
+    void setAxis(QLineSeries*,Qt::Alignment);
 private:
     QPushButton * mOkBtn;
     ChartShowLegend * mLegend;
     ChartShowTip * mTip;
-    AssociateMode * mMode;
-    AssociateSeries * mSeries;
-    AssociateAxis * mAxis;
+    AssociateXYMode * mMode;
+    AssociateXYSeries * mSeries;
+    AssociateXYAxis * mAxis;
 signals:
     void associateCompeleted();
     void tableChanged();

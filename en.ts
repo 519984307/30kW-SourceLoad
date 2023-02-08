@@ -4,121 +4,223 @@
 <context>
     <name>AssociateAxis</name>
     <message>
-        <location filename="chartview/associateaxis.cpp" line="12"/>
         <source>坐标轴</source>
-        <translation>Axis</translation>
+        <translation type="vanished">Axis</translation>
     </message>
     <message>
-        <location filename="chartview/associateaxis.cpp" line="23"/>
-        <location filename="chartview/associateaxis.cpp" line="72"/>
+        <source>线性</source>
+        <translation type="vanished">value</translation>
+    </message>
+    <message>
+        <source>时间</source>
+        <translation type="vanished">datetime</translation>
+    </message>
+    <message>
+        <source>对数</source>
+        <translation type="vanished">log</translation>
+    </message>
+    <message>
+        <source>水平坐标轴</source>
+        <translation type="vanished">axisX</translation>
+    </message>
+    <message>
+        <source>垂直坐标轴</source>
+        <translation type="vanished">axisY</translation>
+    </message>
+</context>
+<context>
+    <name>AssociateBarAxis</name>
+    <message>
+        <location filename="chartview/associatebaraxis.cpp" line="7"/>
         <source>线性</source>
         <translation>value</translation>
     </message>
     <message>
-        <location filename="chartview/associateaxis.cpp" line="24"/>
-        <source>时间</source>
-        <translation>datetime</translation>
-    </message>
-    <message>
-        <location filename="chartview/associateaxis.cpp" line="25"/>
-        <location filename="chartview/associateaxis.cpp" line="73"/>
+        <location filename="chartview/associatebaraxis.cpp" line="8"/>
         <source>对数</source>
         <translation>log</translation>
     </message>
     <message>
-        <location filename="chartview/associateaxis.cpp" line="33"/>
+        <location filename="chartview/associatebaraxis.cpp" line="15"/>
         <source>水平坐标轴</source>
         <translation>axisX</translation>
     </message>
     <message>
-        <location filename="chartview/associateaxis.cpp" line="80"/>
+        <location filename="chartview/associatebaraxis.cpp" line="16"/>
+        <source>自动</source>
+        <translation>auto</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebaraxis.cpp" line="19"/>
         <source>垂直坐标轴</source>
         <translation>axisY</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebaraxis.cpp" line="31"/>
+        <source>坐标轴</source>
+        <translation>Axis</translation>
+    </message>
+</context>
+<context>
+    <name>AssociateBarMode</name>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="7"/>
+        <source>关联</source>
+        <translation>Associate</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="9"/>
+        <source>关联模式</source>
+        <translation>Associate Mode</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="10"/>
+        <source>行关联</source>
+        <translation>RowMode</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="11"/>
+        <source>列关联</source>
+        <translation>ColMode</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="12"/>
+        <source>区域关联</source>
+        <translation>RegionMode</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="21"/>
+        <source>关联设置</source>
+        <translation>Associate Setting</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="29"/>
+        <source>关联列数</source>
+        <translation>colIndex</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="32"/>
+        <source>关联行数</source>
+        <translation>rowIndex</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="48"/>
+        <source>起始列</source>
+        <translation>firstCol</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="50"/>
+        <source>终止列</source>
+        <translation>lastCol</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="52"/>
+        <source>起始行</source>
+        <translation>firstRow</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="54"/>
+        <source>行数</source>
+        <translation>rowCount</translation>
+    </message>
+</context>
+<context>
+    <name>AssociateBarSeries</name>
+    <message>
+        <location filename="chartview/associatebarseries.cpp" line="8"/>
+        <source>曲线</source>
+        <translation>Curve</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarseries.cpp" line="16"/>
+        <source>设置曲线颜色</source>
+        <translation>SetCurveColor</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarseries.cpp" line="20"/>
+        <source>&amp;柱宽</source>
+        <translation>&amp;barwidth</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarseries.cpp" line="21"/>
+        <source>&amp;颜色</source>
+        <translation>&amp;color</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarseries.cpp" line="22"/>
+        <source>&amp;当前颜色</source>
+        <translation>&amp;current color</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarseries.cpp" line="30"/>
+        <source>设置颜色</source>
+        <translation>Set Color</translation>
     </message>
 </context>
 <context>
     <name>AssociateMode</name>
     <message>
-        <location filename="chartview/associatemode.cpp" line="8"/>
         <source>关联</source>
-        <translation>Association</translation>
+        <translation type="vanished">Association</translation>
     </message>
     <message>
-        <location filename="chartview/associatemode.cpp" line="10"/>
         <source>关联模式</source>
-        <translation>Mode</translation>
+        <translation type="vanished">Mode</translation>
     </message>
     <message>
-        <location filename="chartview/associatemode.cpp" line="11"/>
-        <location filename="chartview/associatemode.cpp" line="19"/>
         <source>单列关联</source>
-        <translation>Single</translation>
+        <translation type="vanished">Single</translation>
     </message>
     <message>
-        <location filename="chartview/associatemode.cpp" line="12"/>
-        <location filename="chartview/associatemode.cpp" line="27"/>
         <source>双列关联</source>
-        <translation>Double</translation>
+        <translation type="vanished">Double</translation>
     </message>
     <message>
-        <location filename="chartview/associatemode.cpp" line="23"/>
-        <location filename="chartview/associatemode.cpp" line="33"/>
         <source>X轴</source>
-        <translation>AxisX</translation>
+        <translation type="vanished">AxisX</translation>
     </message>
     <message>
-        <location filename="chartview/associatemode.cpp" line="23"/>
         <source>自动</source>
-        <translation>auto</translation>
+        <translation type="vanished">auto</translation>
     </message>
     <message>
-        <location filename="chartview/associatemode.cpp" line="24"/>
-        <location filename="chartview/associatemode.cpp" line="34"/>
         <source>Y轴</source>
-        <translation>AxisY</translation>
+        <translation type="vanished">AxisY</translation>
     </message>
     <message>
-        <location filename="chartview/associatemode.cpp" line="38"/>
         <source>关联设置</source>
-        <translation>Setting</translation>
+        <translation type="vanished">Setting</translation>
     </message>
 </context>
 <context>
     <name>AssociateSeries</name>
     <message>
-        <location filename="chartview/associateseries.cpp" line="9"/>
         <source>曲线</source>
-        <translation>Curve</translation>
+        <translation type="vanished">Curve</translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="19"/>
         <source>设置曲线颜色</source>
-        <translation>SetCurveColor</translation>
+        <translation type="vanished">SetCurveColor</translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="23"/>
         <source>&amp;线宽</source>
-        <translation>&amp;LineWidth</translation>
+        <translation type="vanished">&amp;LineWidth</translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="24"/>
         <source>&amp;尺寸</source>
-        <translation>&amp;markersize</translation>
+        <translation type="vanished">&amp;markersize</translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="25"/>
         <source>&amp;颜色</source>
-        <translation>&amp;Color</translation>
+        <translation type="vanished">&amp;Color</translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="26"/>
         <source>&amp;当前颜色</source>
-        <translation>&amp;Current Color</translation>
+        <translation type="vanished">&amp;Current Color</translation>
     </message>
     <message>
-        <location filename="chartview/associateseries.cpp" line="34"/>
         <source>设置颜色</source>
-        <translation>Set Color</translation>
+        <translation type="vanished">Set Color</translation>
     </message>
 </context>
 <context>
@@ -188,28 +290,120 @@
 <context>
     <name>AssociateXYAxis</name>
     <message>
+        <location filename="chartview/associatexyaxis.cpp" line="10"/>
         <source>坐标轴</source>
-        <translation type="vanished">Axis</translation>
+        <translation>Axis</translation>
     </message>
     <message>
+        <location filename="chartview/associatexyaxis.cpp" line="21"/>
+        <location filename="chartview/associatexyaxis.cpp" line="64"/>
         <source>线性</source>
-        <translation type="vanished">value</translation>
+        <translation>value</translation>
     </message>
     <message>
         <source>时间</source>
         <translation type="vanished">datetime</translation>
     </message>
     <message>
+        <location filename="chartview/associatexyaxis.cpp" line="22"/>
+        <location filename="chartview/associatexyaxis.cpp" line="65"/>
         <source>对数</source>
-        <translation type="vanished">log</translation>
+        <translation>log</translation>
     </message>
     <message>
+        <location filename="chartview/associatexyaxis.cpp" line="31"/>
         <source>水平坐标轴</source>
-        <translation type="vanished">axisX</translation>
+        <translation>axisX</translation>
     </message>
     <message>
+        <location filename="chartview/associatexyaxis.cpp" line="73"/>
         <source>垂直坐标轴</source>
-        <translation type="vanished">axisY</translation>
+        <translation>axisY</translation>
+    </message>
+</context>
+<context>
+    <name>AssociateXYMode</name>
+    <message>
+        <location filename="chartview/associatexymode.cpp" line="7"/>
+        <source>关联</source>
+        <translation>Associate</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexymode.cpp" line="9"/>
+        <source>关联模式</source>
+        <translation>Associate Mode</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexymode.cpp" line="10"/>
+        <location filename="chartview/associatexymode.cpp" line="18"/>
+        <source>单列关联</source>
+        <translation>Single</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexymode.cpp" line="11"/>
+        <location filename="chartview/associatexymode.cpp" line="26"/>
+        <source>双列关联</source>
+        <translation>Double</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexymode.cpp" line="22"/>
+        <location filename="chartview/associatexymode.cpp" line="32"/>
+        <source>X轴</source>
+        <translation>AxisX</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexymode.cpp" line="22"/>
+        <source>自动</source>
+        <translation>auto</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexymode.cpp" line="23"/>
+        <location filename="chartview/associatexymode.cpp" line="33"/>
+        <source>Y轴</source>
+        <translation>AxisY</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexymode.cpp" line="37"/>
+        <source>关联设置</source>
+        <translation>Associate Setting</translation>
+    </message>
+</context>
+<context>
+    <name>AssociateXYSeries</name>
+    <message>
+        <location filename="chartview/associatexyseries.cpp" line="9"/>
+        <source>曲线</source>
+        <translation>Curve</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyseries.cpp" line="19"/>
+        <source>设置曲线颜色</source>
+        <translation>SetCurveColor</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyseries.cpp" line="23"/>
+        <source>&amp;线宽</source>
+        <translation>&amp;linewidth</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyseries.cpp" line="24"/>
+        <source>&amp;尺寸</source>
+        <translation>&amp;markersize</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyseries.cpp" line="25"/>
+        <source>&amp;颜色</source>
+        <translation>&amp;color</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyseries.cpp" line="26"/>
+        <source>&amp;当前颜色</source>
+        <translation>&amp;current color</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatexyseries.cpp" line="34"/>
+        <source>设置颜色</source>
+        <translation>Set Color</translation>
     </message>
 </context>
 <context>
@@ -790,6 +984,14 @@
     </message>
 </context>
 <context>
+    <name>BarAssociateTable</name>
+    <message>
+        <location filename="chartview/barassociatetable.cpp" line="15"/>
+        <source>关联</source>
+        <translation>Relate</translation>
+    </message>
+</context>
+<context>
     <name>CSVExport</name>
     <message>
         <location filename="csv/csvexport.cpp" line="48"/>
@@ -1175,32 +1377,37 @@
 <context>
     <name>ChartViewWidget</name>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="28"/>
+        <location filename="tool/chartview_tool.cpp" line="29"/>
         <source>导入文件</source>
         <translation>Import File</translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="29"/>
+        <location filename="tool/chartview_tool.cpp" line="30"/>
         <source>文件带表头?</source>
         <translation>File With Header?</translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="58"/>
+        <location filename="tool/chartview_tool.cpp" line="60"/>
         <source>折线图</source>
         <translation>LineChart</translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="59"/>
+        <location filename="tool/chartview_tool.cpp" line="61"/>
         <source>散点图</source>
         <translation>ScatterChart</translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="93"/>
+        <location filename="tool/chartview_tool.cpp" line="62"/>
+        <source>柱状图</source>
+        <translation>BarChart</translation>
+    </message>
+    <message>
+        <location filename="tool/chartview_tool.cpp" line="98"/>
         <source>Txt/Csv文件</source>
         <translation>Txt/Csv Files</translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="93"/>
+        <location filename="tool/chartview_tool.cpp" line="98"/>
         <source>*.txt *.csv</source>
         <translation>*.txt *.csv</translation>
     </message>
@@ -1597,7 +1804,7 @@ connection before closing it!</translation>
 <context>
     <name>LineAssociateTable</name>
     <message>
-        <location filename="chartview/lineassociatetable.cpp" line="18"/>
+        <location filename="chartview/lineassociatetable.cpp" line="17"/>
         <source>关联</source>
         <translation>Relate</translation>
     </message>
@@ -2585,7 +2792,7 @@ You can view the existing numbers by traversing the button list~</translation>
 <context>
     <name>ScatterAssociateTable</name>
     <message>
-        <location filename="chartview/scatterassociatetable.cpp" line="18"/>
+        <location filename="chartview/scatterassociatetable.cpp" line="17"/>
         <source>关联</source>
         <translation>Relate</translation>
     </message>

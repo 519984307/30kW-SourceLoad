@@ -10,6 +10,7 @@
 #include <axissetting/axisvalue.h>
 #include <axissetting/axislog.h>
 #include <axissetting/axistime.h>
+#include <axissetting/axisbarcategory.h>
 
 //QAbstractAxis具有的所有属性设置,以及Value/Log特有的根据轴类型动态切换
 class AxisSetting : public QVBoxLayout
@@ -35,6 +36,7 @@ private:
     AxisValue * mAxisValue;
     AxisLog * mAxisLog;
     AxisTime * mAxisTime;
+    AxisBarCategory * mAxisBar;
 signals:
     void associateCompeleted();
 };

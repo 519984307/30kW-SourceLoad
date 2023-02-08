@@ -2,13 +2,13 @@
 #define SCATTERASSOCIATETABLE_H
 
 #include <QDialog>
-#include <QVXYModelMapper>
 #include <QLegendMarker>
 #include <chart/chartshowtip.h>
 #include <chart/chartshowlegend.h>
-#include <chartview/associateaxis.h>
-#include <chartview/associateseries.h>
-#include <chartview/associatemode.h>
+#include <chartview/associatexyaxis.h>
+#include <chartview/associatexymode.h>
+#include <chartview/associatexyseries.h>
+#include <QVXYModelMapper>
 
 class ScatterAssociateTable : public QDialog
 {
@@ -24,15 +24,14 @@ private:
     void onOkBtn();
     void singleMapping();
     void doubleMapping();
-    void setHorizontalAxis(QScatterSeries*);
-    void setVerticalAxis(QScatterSeries*);
+    void setAxis(QScatterSeries *,Qt::Alignment);
 private:
     QPushButton * mOkBtn;
     ChartShowLegend * mLegend;
     ChartShowTip * mTip;
-    AssociateMode * mMode;
-    AssociateSeries * mSeries;
-    AssociateAxis * mAxis;
+    AssociateXYMode * mMode;
+    AssociateXYAxis * mAxis;
+    AssociateXYSeries * mSeries;
 signals:
     void associateCompeleted();
     void tableChanged();

@@ -1,6 +1,6 @@
-#include <chartview/associateseries.h>
+#include <chartview/associatexyseries.h>
 
-AssociateSeries::AssociateSeries(QWidget*parent):QGroupBox(parent)
+AssociateXYSeries::AssociateXYSeries(QWidget*parent):QGroupBox(parent)
 {
         mLineColor = Qt::white;
         mLineWidth = 2;
@@ -45,27 +45,27 @@ AssociateSeries::AssociateSeries(QWidget*parent):QGroupBox(parent)
                 this,[=](double size){mMarkerSize = size;});
 }
 
-QColor AssociateSeries::linecolor() const
+QColor AssociateXYSeries::linecolor() const
 {
     return mLineColor;
 }
 
-int AssociateSeries::linewidth() const
+int AssociateXYSeries::linewidth() const
 {
     return  mLineWidth;
 }
 
-double AssociateSeries::markersize() const
+double AssociateXYSeries::markersize() const
 {
     return mMarkerSize;
 }
 
-void AssociateSeries::setLineWidthVisible(bool show)
+void AssociateXYSeries::setLineWidthVisible(bool show)
 {
     mLineWidthSpin->setEnabled(show);
 }
 
-void AssociateSeries::setMarkerSizeVisible(bool show)
+void AssociateXYSeries::setMarkerSizeVisible(bool show)
 {
     mMarkerSizeSpin->setEnabled(show);
 }

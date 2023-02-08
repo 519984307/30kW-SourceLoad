@@ -1,6 +1,8 @@
 #include <chart/chartshowlegend.h>
+#include <QDebug>
 
-ChartShowLegend::ChartShowLegend(QObject*parent):QObject(parent),mShowLegend(true)
+ChartShowLegend::ChartShowLegend(QObject*parent):
+    QObject(parent),mShowLegend(true)
 {
 
 }
@@ -54,6 +56,37 @@ void ChartShowLegend::legendMarkerClicked() // 这个函数不能放在chart.cpp
                 marker->setPen(pen);
                 break;
         }
+    case QLegendMarker::LegendMarkerTypeBar:
+    {
+                QBarSeries * series = static_cast<QBarSeries*>(marker->series());
+                QList<QBarSet*> barsets = series->barSets();
+                mShowLegend = !mShowLegend;
+
+                foreach(QBarSet* set,barsets)
+                {
+                    if (set->label() == marker->label())
+                    {
+                        auto color1 = set->labelColor();
+                        auto color2 =set->color();
+                        auto color3 = set->borderColor();
+                        if (mShowLegend) {
+                            color1.setAlphaF(1.0);
+                            color2.setAlphaF(1.0);
+                            color3.setAlphaF(1.0);
+                        }
+                        else {
+                            color1.setAlphaF(0.); // 用透明度来实现显示隐藏的效果
+                            color2.setAlphaF(0.);
+                            color3.setAlphaF(0.);
+                        }
+                        set->setLabelColor(color1);
+                        set->setColor(color2);
+                        set->setBorderColor(color3);
+                    }
+                }
+                break;
+    }
+
     default: break;
     }
 }

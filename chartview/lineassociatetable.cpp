@@ -9,11 +9,10 @@ LineAssociateTable::LineAssociateTable(QTableView*tableview,QChartView*chartview
     mTableModel = static_cast<TableViewModel*>(mTableView->model());
     QVBoxLayout * lay = new QVBoxLayout(this);
 
-    mMode = new AssociateMode(mTableView,mChartView);
-    mSeries = new AssociateSeries;
+    mMode = new AssociateXYMode(mTableModel);
+    mSeries = new AssociateXYSeries;
     mSeries->setMarkerSizeVisible(false); // 折线图不能设置标记大小
-    mAxis = new AssociateAxis(mTableView,mChartView);
-    mAxis->setTimeAxisVisible(false);// 时间坐标轴对于折线图不支持,使用时隐藏
+    mAxis = new AssociateXYAxis;
 
     mOkBtn = new QPushButton(tr("关联"));
     QHBoxLayout * lay1 = new QHBoxLayout;
@@ -34,7 +33,7 @@ LineAssociateTable::LineAssociateTable(QTableView*tableview,QChartView*chartview
 
 void LineAssociateTable::initConnections()
 {
-    connect(mMode,&AssociateMode::changeMode,mAxis,&AssociateAxis::setHorizontalEnabled);
+    connect(mMode,&AssociateXYMode::changeMode,mAxis,&AssociateXYAxis::setHorizontalEnabled);
     connect(mOkBtn,&QPushButton::clicked,this,&LineAssociateTable::onOkBtn);
 
     connect(this,&LineAssociateTable::tableChanged,this,[=]{ // 导入文件后表格model发生了更新
@@ -104,14 +103,11 @@ void LineAssociateTable::singleMapping()
         *series  << point;
     }
 
-    //qDebug()<<mAxis->axisType()<<mAxis->axisBase();
     mChartView->chart()->addSeries(series);
-    //setHorizontalAxis(series); // 单映射是自动生成线性坐标轴的
-    QValueAxis * axisX = new QValueAxis; // 对数/时间坐标轴没有意义,此时选择水平轴使能禁止
+    QValueAxis * axisX = new QValueAxis; // 单映射是自动生成线性坐标轴,对数坐标轴没有意义
     mChartView->chart()->addAxis(axisX,Qt::AlignBottom);
     series->attachAxis(axisX);
-    setVerticalAxis(series);
-
+    setAxis(series,Qt::AlignLeft);
     mTip->mapping(series);
 }
 
@@ -139,67 +135,46 @@ void LineAssociateTable::doubleMapping()
 
     //chart->removeAllSeries();
     mChartView->chart()->addSeries(series);
-    setHorizontalAxis(series);
-    setVerticalAxis(series);
+    setAxis(series,Qt::AlignBottom);
+    setAxis(series,Qt::AlignLeft);
     mTip->mapping(series);
 }
 
-void LineAssociateTable::setHorizontalAxis(QLineSeries *series)
+void LineAssociateTable::setAxis(QLineSeries *series,Qt::Alignment alignment)
 {
-    QValueAxis * valueAxisX;
-    QLogValueAxis * logAxisX;
-    QDateTimeAxis * timeAxisX;
-    auto datetime = QDateTime::currentDateTime();
-    auto axisX = mChartView->chart()->axisX();
+    QValueAxis * valueAxis;
+    QLogValueAxis * logAxis;
+    QAbstractAxis * axis;
+    int type;
+    if (alignment == Qt::AlignBottom)
+    {
+        axis = mChartView->chart()->axisX();
+        type = mAxis->axisType().x();
+    }
+    else{
+        axis = mChartView->chart()->axisY();
+        type = mAxis->axisType().y();
+    }
 
-    if (axisX) mChartView->chart()->removeAxis(axisX); // 首次设置还没有坐标轴
-    switch (mAxis->axisType().x()) {
-        case AssociateAxis::Value:
-                valueAxisX = new QValueAxis;
-                mChartView->chart()->addAxis(valueAxisX,Qt::AlignBottom);
-                series->attachAxis(valueAxisX);
+    if (axis) mChartView->chart()->removeAxis(axis); // 首次设置还没有坐标轴
+
+    switch (type) {
+        case AssociateXYAxis::Value:
+                valueAxis = new QValueAxis;
+                mChartView->chart()->addAxis(valueAxis,alignment);
+                series->attachAxis(valueAxis);
                 //qDebug()<<"hor value";
                 break;
-         case AssociateAxis::Time:
-                timeAxisX = new QDateTimeAxis;
-                timeAxisX->setRange(datetime,datetime.addDays(365));
-                mChartView->chart()->addAxis(timeAxisX,Qt::AlignBottom);
-                series->attachAxis(timeAxisX);
-                //qDebug()<<"hor time";
-                break;
-          case AssociateAxis::Log:
-                logAxisX = new QLogValueAxis;
-                logAxisX->setBase(2.); //默认
-                auto base = mAxis->axisBase().x();
-                if (base != 1.0) logAxisX->setBase(base);
-                mChartView->chart()->addAxis(logAxisX,Qt::AlignBottom);
-                series->attachAxis(logAxisX);
+          case AssociateXYAxis::Log:
+                logAxis = new QLogValueAxis;
+                logAxis->setBase(2.); //默认
+                auto base = alignment==Qt::AlignBottom?
+                            mAxis->axisBase().x():mAxis->axisBase().y();
+                if (base != 1.0) logAxis->setBase(base);
+                mChartView->chart()->addAxis(logAxis,alignment);
+                series->attachAxis(logAxis);
                 //qDebug()<<"hor log base = "<<logAxisX->base();
                 break;
     }
 }
 
-void LineAssociateTable::setVerticalAxis(QLineSeries *series)
-{
-    QValueAxis * valueAxisY;
-    QLogValueAxis * logAxisY;
-    auto axisY = mChartView->chart()->axisY();
-    if (axisY) mChartView->chart()->removeAxis(axisY);
-    switch (mAxis->axisType().y()) {
-        case AssociateAxis::Value:
-                valueAxisY = new QValueAxis;
-                mChartView->chart()->addAxis(valueAxisY,Qt::AlignLeft);
-                series->attachAxis(valueAxisY);
-                //qDebug()<<"ver value";
-                break;
-          case AssociateAxis::Log:
-                logAxisY = new QLogValueAxis;
-                logAxisY->setBase(2.);
-                auto base = mAxis->axisBase().y();
-                if (base != 1.0) logAxisY->setBase(base);
-                mChartView->chart()->addAxis(logAxisY,Qt::AlignLeft);
-                series->attachAxis(logAxisY);
-                //qDebug()<<"ver log base = "<<logAxisY->base();
-                break;
-    }
-}

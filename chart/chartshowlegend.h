@@ -2,7 +2,7 @@
 #define CHARTSHOWLEGEND_H
 
 #include <QObject>
-#include <QChart>
+#include <QtCharts>
 #include <QLegendMarker>
 using namespace QtCharts;
 
