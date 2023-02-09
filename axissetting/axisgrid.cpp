@@ -14,6 +14,7 @@ AxisGrid::AxisGrid(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*p
     updatePenWidthState();
 
     QFormLayout * lay = new QFormLayout;
+    lay->setSizeConstraint(QLayout::SetNoConstraint);
     lay->addRow(tr("&主网格可见"),mAxisGridVisibility);
     lay->addRow(tr("&主网格颜色"),mAxisGridColor);
     lay->addRow(tr("&主网格宽度"),mAxisGridWidth);

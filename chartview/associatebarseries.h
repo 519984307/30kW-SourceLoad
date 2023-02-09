@@ -15,6 +15,7 @@ public:
     explicit AssociateBarSeries(QWidget*parent = Q_NULLPTR);
     QColor barcolor() const;
     double barwidth() const;
+    void setBarColorEnabled(bool);
 private:
     QColor mBarColor;
     double mBarWidth;

@@ -15,19 +15,30 @@ class AssociateBarMode : public QGroupBox
     Q_OBJECT
 public:
     explicit AssociateBarMode(TableViewModel*,QWidget*parent =Q_NULLPTR);
-    struct AssociateRect
+    struct AssociateColParams
     {
         int firstColumn;
         int lastColumn;
-        int firstRow;
+        int startRow;
         int rowCount;
     };
-    bool isRectMode() const;
+    struct AssociateRowParams
+    {
+        int firstRow;
+        int lastRow;
+        int startColumn;
+        int columnCount;
+    };
+    bool isColRegionMode() const;
+    bool isRowRegionMode() const;
     bool isRowMode() const;
     bool isColMode() const;
+    bool isRegionMode() const;
+    bool isRowColMode() const;
     int associateRow() const;
     int associateCol() const;
-    AssociateRect associateRect() const;
+    AssociateColParams associateColParams() const;
+    AssociateRowParams associateRowParams() const;
     void adjustRange();
 private:
     TableViewModel * mTableModel;
@@ -35,16 +46,25 @@ private:
     QGroupBox * mAssociateModeBox;
     QRadioButton * mRowMode;
     QRadioButton * mColMode;
-    QRadioButton * mRectMode;
+    QRadioButton * mRowRegionMode;
+    QRadioButton * mColRegionMode;
 
     QGroupBox * mAssociateSpinBox;
-    QGroupBox * mRectBox;
+    QGroupBox * mColRegionBox;
+    QGroupBox * mRowRegionBox;
+
     QSpinBox * mFirstColumnSpin;
     QSpinBox * mLastColumnSpin;
-    QSpinBox * mFirstRowSpin;
+    QSpinBox * mStartRowSpin;
     QSpinBox * mRowCountSpin;
+    QSpinBox * mFirstRowSpin;
+    QSpinBox * mLastRowSpin;
+    QSpinBox * mStartColumnSpin;
+    QSpinBox * mColumnCountSpin;
     QSpinBox * mRowSpin;
     QSpinBox * mColSpin;
+signals:
+     void modeChanged(bool);
 };
 
 #endif // ASSOCIATEBARMODE_H

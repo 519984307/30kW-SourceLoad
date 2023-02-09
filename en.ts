@@ -85,43 +85,61 @@
     </message>
     <message>
         <location filename="chartview/associatebarmode.cpp" line="12"/>
-        <source>区域关联</source>
-        <translation>RegionMode</translation>
+        <source>行区域关联</source>
+        <oldsource>区域关联</oldsource>
+        <translation>RowRegionMode</translation>
     </message>
     <message>
-        <location filename="chartview/associatebarmode.cpp" line="21"/>
+        <location filename="chartview/associatebarmode.cpp" line="13"/>
+        <source>列区域关联</source>
+        <translation>ColRegionMode</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="23"/>
         <source>关联设置</source>
         <translation>Associate Setting</translation>
     </message>
     <message>
-        <location filename="chartview/associatebarmode.cpp" line="29"/>
+        <location filename="chartview/associatebarmode.cpp" line="31"/>
         <source>关联列数</source>
         <translation>colIndex</translation>
     </message>
     <message>
-        <location filename="chartview/associatebarmode.cpp" line="32"/>
+        <location filename="chartview/associatebarmode.cpp" line="34"/>
         <source>关联行数</source>
         <translation>rowIndex</translation>
     </message>
     <message>
-        <location filename="chartview/associatebarmode.cpp" line="48"/>
+        <location filename="chartview/associatebarmode.cpp" line="50"/>
+        <location filename="chartview/associatebarmode.cpp" line="75"/>
         <source>起始列</source>
         <translation>firstCol</translation>
     </message>
     <message>
-        <location filename="chartview/associatebarmode.cpp" line="50"/>
+        <location filename="chartview/associatebarmode.cpp" line="52"/>
         <source>终止列</source>
         <translation>lastCol</translation>
     </message>
     <message>
-        <location filename="chartview/associatebarmode.cpp" line="52"/>
+        <location filename="chartview/associatebarmode.cpp" line="54"/>
+        <location filename="chartview/associatebarmode.cpp" line="71"/>
         <source>起始行</source>
         <translation>firstRow</translation>
     </message>
     <message>
-        <location filename="chartview/associatebarmode.cpp" line="54"/>
+        <location filename="chartview/associatebarmode.cpp" line="56"/>
         <source>行数</source>
         <translation>rowCount</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="73"/>
+        <source>终止行</source>
+        <translation>lastRow</translation>
+    </message>
+    <message>
+        <location filename="chartview/associatebarmode.cpp" line="77"/>
+        <source>列数</source>
+        <translation>colCount</translation>
     </message>
 </context>
 <context>
@@ -407,6 +425,24 @@
     </message>
 </context>
 <context>
+    <name>AxisBarCategory</name>
+    <message>
+        <location filename="axissetting/axisbarcategory.cpp" line="6"/>
+        <source>清空类别</source>
+        <translation>clearCategories</translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisbarcategory.cpp" line="7"/>
+        <source>设置类别</source>
+        <translation>setCategories</translation>
+    </message>
+    <message>
+        <location filename="axissetting/axisbarcategory.cpp" line="19"/>
+        <source>类别轴</source>
+        <translation>barType</translation>
+    </message>
+</context>
+<context>
     <name>AxisBox</name>
     <message>
         <location filename="axissetting/axisbox.cpp" line="38"/>
@@ -435,37 +471,37 @@
         <translation>SetMinorGridColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="17"/>
+        <location filename="axissetting/axisgrid.cpp" line="18"/>
         <source>&amp;主网格可见</source>
         <translation>&amp;MajorGridVisible</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="18"/>
+        <location filename="axissetting/axisgrid.cpp" line="19"/>
         <source>&amp;主网格颜色</source>
         <translation>&amp;MajorGridColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="19"/>
+        <location filename="axissetting/axisgrid.cpp" line="20"/>
         <source>&amp;主网格宽度</source>
         <translation>&amp;MajorGridWidth</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="20"/>
+        <location filename="axissetting/axisgrid.cpp" line="21"/>
         <source>&amp;次网格可见</source>
         <translation>&amp;MinorGridVisible</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="21"/>
+        <location filename="axissetting/axisgrid.cpp" line="22"/>
         <source>&amp;次网格颜色</source>
         <translation>&amp;MinorGridColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="22"/>
+        <location filename="axissetting/axisgrid.cpp" line="23"/>
         <source>&amp;次网格宽度</source>
         <translation>&amp;MinorGridWidth</translation>
     </message>
     <message>
-        <location filename="axissetting/axisgrid.cpp" line="23"/>
+        <location filename="axissetting/axisgrid.cpp" line="24"/>
         <source>轴网格</source>
         <translation>Grid</translation>
     </message>
@@ -473,92 +509,92 @@
 <context>
     <name>AxisInfo</name>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="23"/>
+        <location filename="axissetting/axisinfo.cpp" line="24"/>
         <source>轴对齐: </source>
         <translation>Alignment: </translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="24"/>
+        <location filename="axissetting/axisinfo.cpp" line="25"/>
         <source>轴方向: </source>
         <translation>Orientation: </translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="25"/>
+        <location filename="axissetting/axisinfo.cpp" line="26"/>
         <source>轴类型: </source>
         <translation>Type: </translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="26"/>
+        <location filename="axissetting/axisinfo.cpp" line="27"/>
         <source>轴可见</source>
         <translation>Visible</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="27"/>
+        <location filename="axissetting/axisinfo.cpp" line="28"/>
         <source>轴反转</source>
         <translation>Reverse</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="29"/>
+        <location filename="axissetting/axisinfo.cpp" line="30"/>
         <source>轴</source>
         <translation>Info</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="75"/>
+        <location filename="axissetting/axisinfo.cpp" line="76"/>
         <source>左对齐</source>
         <translation>AlignLeft</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="76"/>
+        <location filename="axissetting/axisinfo.cpp" line="77"/>
         <source>右对齐</source>
         <translation>AlignRight</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="77"/>
+        <location filename="axissetting/axisinfo.cpp" line="78"/>
         <source>顶部对齐</source>
         <translation>AlignTop</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="78"/>
+        <location filename="axissetting/axisinfo.cpp" line="79"/>
         <source>底部对齐</source>
         <translation>AlignBottom</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="86"/>
+        <location filename="axissetting/axisinfo.cpp" line="87"/>
         <source>水平</source>
         <translation>Horizontal</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="86"/>
+        <location filename="axissetting/axisinfo.cpp" line="87"/>
         <source>垂直</source>
         <translation>Vertical</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="94"/>
+        <location filename="axissetting/axisinfo.cpp" line="95"/>
         <source>无坐标轴</source>
         <translation>NoAxis</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="95"/>
+        <location filename="axissetting/axisinfo.cpp" line="96"/>
         <source>线性坐标轴</source>
         <translation>ValueAxis</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="96"/>
+        <location filename="axissetting/axisinfo.cpp" line="97"/>
         <source>条形坐标轴</source>
         <translation>BarAxis</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="97"/>
+        <location filename="axissetting/axisinfo.cpp" line="98"/>
         <source>类别坐标轴</source>
         <translation>CategoryAxis</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="98"/>
+        <location filename="axissetting/axisinfo.cpp" line="99"/>
         <source>时间坐标轴</source>
         <translation>DateTimeAxis</translation>
     </message>
     <message>
-        <location filename="axissetting/axisinfo.cpp" line="99"/>
+        <location filename="axissetting/axisinfo.cpp" line="100"/>
         <source>对数坐标轴</source>
         <translation>LogAxis</translation>
     </message>
@@ -578,27 +614,27 @@
         <translation>SetTickFont</translation>
     </message>
     <message>
-        <location filename="axissetting/axislabel.cpp" line="25"/>
+        <location filename="axissetting/axislabel.cpp" line="26"/>
         <source>&amp;标签可见</source>
         <translation>&amp;Visible</translation>
     </message>
     <message>
-        <location filename="axissetting/axislabel.cpp" line="26"/>
+        <location filename="axissetting/axislabel.cpp" line="27"/>
         <source>&amp;标签角度</source>
         <translation>&amp;Angle</translation>
     </message>
     <message>
-        <location filename="axissetting/axislabel.cpp" line="27"/>
+        <location filename="axissetting/axislabel.cpp" line="28"/>
         <source>&amp;标签颜色</source>
         <translation>&amp;Color</translation>
     </message>
     <message>
-        <location filename="axissetting/axislabel.cpp" line="28"/>
+        <location filename="axissetting/axislabel.cpp" line="29"/>
         <source>&amp;标签格式</source>
         <translation>&amp;Font</translation>
     </message>
     <message>
-        <location filename="axissetting/axislabel.cpp" line="31"/>
+        <location filename="axissetting/axislabel.cpp" line="32"/>
         <source>轴标签</source>
         <translation>Tick</translation>
     </message>
@@ -612,22 +648,22 @@
         <translation>SetLineColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisline.cpp" line="13"/>
+        <location filename="axissetting/axisline.cpp" line="14"/>
         <source>&amp;轴线可见</source>
         <translation>&amp;Visible</translation>
     </message>
     <message>
-        <location filename="axissetting/axisline.cpp" line="14"/>
+        <location filename="axissetting/axisline.cpp" line="15"/>
         <source>&amp;轴线颜色</source>
         <translation>&amp;Color</translation>
     </message>
     <message>
-        <location filename="axissetting/axisline.cpp" line="15"/>
+        <location filename="axissetting/axisline.cpp" line="16"/>
         <source>&amp;轴线宽度</source>
         <translation>&amp;Width</translation>
     </message>
     <message>
-        <location filename="axissetting/axisline.cpp" line="16"/>
+        <location filename="axissetting/axisline.cpp" line="17"/>
         <source>轴线</source>
         <translation>Line</translation>
     </message>
@@ -645,37 +681,41 @@
         <translation>support format string(d,i,o,x,X,f,F,e,E,g,G,c)etc</translation>
     </message>
     <message>
-        <location filename="axissetting/axislog.cpp" line="24"/>
+        <location filename="axissetting/axislog.cpp" line="25"/>
         <source>&amp;轴主刻度个数</source>
         <translation>&amp;MajorTickCount</translation>
     </message>
     <message>
-        <location filename="axissetting/axislog.cpp" line="25"/>
+        <location filename="axissetting/axislog.cpp" line="26"/>
         <source>&amp;轴次刻度个数</source>
         <translation>&amp;MinorTickCount</translation>
     </message>
     <message>
-        <location filename="axissetting/axislog.cpp" line="26"/>
+        <location filename="axissetting/axislog.cpp" line="27"/>
         <source>&amp;轴底数</source>
         <translation>&amp;Base</translation>
     </message>
     <message>
-        <location filename="axissetting/axislog.cpp" line="27"/>
+        <location filename="axissetting/axislog.cpp" line="28"/>
         <source>&amp;轴下限值</source>
         <translation>&amp;LowerLimit</translation>
     </message>
     <message>
-        <location filename="axissetting/axislog.cpp" line="28"/>
+        <location filename="axissetting/axislog.cpp" line="29"/>
         <source>&amp;轴上限值</source>
         <translation>&amp;UpperLimit</translation>
     </message>
     <message>
-        <location filename="axissetting/axislog.cpp" line="40"/>
-        <source>其它</source>
-        <translation>Other</translation>
+        <location filename="axissetting/axislog.cpp" line="43"/>
+        <source>对数轴</source>
+        <translation>logType</translation>
     </message>
     <message>
-        <location filename="axissetting/axislog.cpp" line="107"/>
+        <source>其它</source>
+        <translation type="vanished">Other</translation>
+    </message>
+    <message>
+        <location filename="axissetting/axislog.cpp" line="110"/>
         <source>%1</source>
         <translation>%1</translation>
     </message>
@@ -683,17 +723,22 @@
 <context>
     <name>AxisSetting</name>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="68"/>
+        <location filename="axissetting/axissetting.cpp" line="24"/>
+        <source>其它</source>
+        <translation>Other</translation>
+    </message>
+    <message>
+        <location filename="axissetting/axissetting.cpp" line="101"/>
         <source>X轴</source>
         <translation>Axis X</translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="69"/>
+        <location filename="axissetting/axissetting.cpp" line="102"/>
         <source>Y轴</source>
         <translation>Axis Y</translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="79"/>
+        <location filename="axissetting/axissetting.cpp" line="113"/>
         <source>当前轴</source>
         <translation>Current Axis</translation>
     </message>
@@ -711,32 +756,32 @@
         <translation>SetBackgroundColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisshade.cpp" line="22"/>
+        <location filename="axissetting/axisshade.cpp" line="23"/>
         <source>&amp;阴影可见</source>
         <translation>&amp;ShadowVisible</translation>
     </message>
     <message>
-        <location filename="axissetting/axisshade.cpp" line="23"/>
+        <location filename="axissetting/axisshade.cpp" line="24"/>
         <source>&amp;边框颜色</source>
         <translation>&amp;BorderColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisshade.cpp" line="24"/>
+        <location filename="axissetting/axisshade.cpp" line="25"/>
         <source>&amp;边框宽度</source>
         <translation>&amp;BorderWidth</translation>
     </message>
     <message>
-        <location filename="axissetting/axisshade.cpp" line="25"/>
+        <location filename="axissetting/axisshade.cpp" line="26"/>
         <source>&amp;背景颜色</source>
         <translation>&amp;BackgroundColor</translation>
     </message>
     <message>
-        <location filename="axissetting/axisshade.cpp" line="26"/>
+        <location filename="axissetting/axisshade.cpp" line="27"/>
         <source>&amp;背景样式</source>
         <translation>&amp;BackgroundStyle</translation>
     </message>
     <message>
-        <location filename="axissetting/axisshade.cpp" line="27"/>
+        <location filename="axissetting/axisshade.cpp" line="28"/>
         <source>轴阴影</source>
         <translation>Shadow</translation>
     </message>
@@ -744,34 +789,38 @@
 <context>
     <name>AxisTime</name>
     <message>
-        <location filename="axissetting/axistime.cpp" line="20"/>
+        <location filename="axissetting/axistime.cpp" line="21"/>
         <source>&amp;轴下限值</source>
         <translation>&amp;LowerLimit</translation>
     </message>
     <message>
-        <location filename="axissetting/axistime.cpp" line="21"/>
+        <location filename="axissetting/axistime.cpp" line="22"/>
         <source>&amp;轴上限值</source>
         <translation>&amp;UpperLimit</translation>
     </message>
     <message>
-        <location filename="axissetting/axistime.cpp" line="22"/>
+        <location filename="axissetting/axistime.cpp" line="23"/>
         <source>&amp;轴主刻度个数</source>
         <translation>&amp;MajorTickCount</translation>
     </message>
     <message>
-        <location filename="axissetting/axistime.cpp" line="23"/>
+        <location filename="axissetting/axistime.cpp" line="24"/>
         <source>&amp;日期格式</source>
         <translation>&amp;DateFormat</translation>
     </message>
     <message>
-        <location filename="axissetting/axistime.cpp" line="24"/>
+        <location filename="axissetting/axistime.cpp" line="25"/>
         <source>&amp;时间格式</source>
         <translation>&amp;TimeFormat</translation>
     </message>
     <message>
-        <location filename="axissetting/axistime.cpp" line="27"/>
+        <location filename="axissetting/axistime.cpp" line="28"/>
+        <source>时间轴</source>
+        <translation>timeType</translation>
+    </message>
+    <message>
         <source>其它</source>
-        <translation>Other</translation>
+        <translation type="vanished">Other</translation>
     </message>
 </context>
 <context>
@@ -789,27 +838,27 @@
         <translation>SetTitleFont</translation>
     </message>
     <message>
-        <location filename="axissetting/axistitle.cpp" line="19"/>
+        <location filename="axissetting/axistitle.cpp" line="20"/>
         <source>&amp;标题可见</source>
         <translation>&amp;Visible</translation>
     </message>
     <message>
-        <location filename="axissetting/axistitle.cpp" line="20"/>
+        <location filename="axissetting/axistitle.cpp" line="21"/>
         <source>&amp;标题颜色</source>
         <translation>&amp;Color</translation>
     </message>
     <message>
-        <location filename="axissetting/axistitle.cpp" line="21"/>
+        <location filename="axissetting/axistitle.cpp" line="22"/>
         <source>&amp;标题格式</source>
         <translation>&amp;Font</translation>
     </message>
     <message>
-        <location filename="axissetting/axistitle.cpp" line="25"/>
+        <location filename="axissetting/axistitle.cpp" line="26"/>
         <source>设置标题</source>
         <translation>SetTitle</translation>
     </message>
     <message>
-        <location filename="axissetting/axistitle.cpp" line="34"/>
+        <location filename="axissetting/axistitle.cpp" line="37"/>
         <source>轴标题</source>
         <translation>Title</translation>
     </message>
@@ -822,34 +871,38 @@
         <translation>Set Format Scale</translation>
     </message>
     <message>
-        <location filename="axissetting/axisvalue.cpp" line="20"/>
+        <location filename="axissetting/axisvalue.cpp" line="21"/>
         <source>轴下限值</source>
         <translation>LowerLimit</translation>
     </message>
     <message>
-        <location filename="axissetting/axisvalue.cpp" line="22"/>
+        <location filename="axissetting/axisvalue.cpp" line="23"/>
         <source>轴上限值</source>
         <translation>UpperLimit</translation>
     </message>
     <message>
-        <location filename="axissetting/axisvalue.cpp" line="24"/>
+        <location filename="axissetting/axisvalue.cpp" line="25"/>
         <source>轴主刻度个数</source>
         <translation>MajorTickCount</translation>
     </message>
     <message>
-        <location filename="axissetting/axisvalue.cpp" line="26"/>
+        <location filename="axissetting/axisvalue.cpp" line="27"/>
         <source>轴次刻度个数</source>
         <translation>MinorTickCount</translation>
     </message>
     <message>
-        <location filename="axissetting/axisvalue.cpp" line="30"/>
+        <location filename="axissetting/axisvalue.cpp" line="31"/>
         <source>支持格式字符串(d,i,o,x,X,f,F,e,E,g,G,c)等</source>
         <translation>support format string(d,i,o,x,X,f,F,e,E,g,G,c)etc</translation>
     </message>
     <message>
-        <location filename="axissetting/axisvalue.cpp" line="34"/>
+        <location filename="axissetting/axisvalue.cpp" line="35"/>
+        <source>线性轴</source>
+        <translation>valueType</translation>
+    </message>
+    <message>
         <source>其它</source>
-        <translation>Other</translation>
+        <translation type="vanished">Other</translation>
     </message>
 </context>
 <context>
@@ -2974,6 +3027,88 @@ You can view the existing numbers by traversing the button list~</translation>
     </message>
 </context>
 <context>
+    <name>SeriesBar</name>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="22"/>
+        <source>居中</source>
+        <translation>Center</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="22"/>
+        <source>顶部靠下</source>
+        <translation>InSideTop</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="23"/>
+        <source>底部</source>
+        <translation>Bottom</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="23"/>
+        <source>顶部靠上</source>
+        <translation>OutSideTop</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="26"/>
+        <source>设置标签格式</source>
+        <translation>SetLabelFont</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="29"/>
+        <source>设置边框颜色</source>
+        <translation>SetBorderColor</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="33"/>
+        <source>&amp;柱宽</source>
+        <translation>&amp;BarWidth</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="34"/>
+        <source>&amp;标签可见</source>
+        <translation>&amp;Visible</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="35"/>
+        <source>&amp;标签角度</source>
+        <translation>&amp;Angle</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="36"/>
+        <source>&amp;标签位置</source>
+        <translation>&amp;Position</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="37"/>
+        <source>&amp;标签格式</source>
+        <translation>&amp;Font</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="38"/>
+        <source>&amp;边框颜色</source>
+        <translation>&amp;BorderColor</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="40"/>
+        <source>标签和柱</source>
+        <translation>LabelBar</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="169"/>
+        <source>设置颜色</source>
+        <translation>Set Color</translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbar.cpp" line="178"/>
+        <source>设置格式</source>
+        <translation>SetFont</translation>
+    </message>
+    <message>
+        <source>标签和柱宽</source>
+        <translation type="vanished">Label-BarWidth</translation>
+    </message>
+</context>
+<context>
     <name>SeriesInfo</name>
     <message>
         <location filename="seriessetting/seriesinfo.cpp" line="19"/>
@@ -3106,22 +3241,22 @@ You can view the existing numbers by traversing the button list~</translation>
 <context>
     <name>SeriesSetting</name>
     <message>
-        <location filename="seriessetting/seriessetting.cpp" line="10"/>
+        <location filename="seriessetting/seriessetting.cpp" line="9"/>
         <source>当前曲线</source>
         <translation>Current Curve</translation>
     </message>
     <message>
-        <location filename="seriessetting/seriessetting.cpp" line="34"/>
+        <location filename="seriessetting/seriessetting.cpp" line="33"/>
         <source>移除</source>
         <translation>remove</translation>
     </message>
     <message>
-        <location filename="seriessetting/seriessetting.cpp" line="37"/>
+        <location filename="seriessetting/seriessetting.cpp" line="36"/>
         <source>&amp;切换曲线</source>
         <translation>&amp;Toggle Curve</translation>
     </message>
     <message>
-        <location filename="seriessetting/seriessetting.cpp" line="38"/>
+        <location filename="seriessetting/seriessetting.cpp" line="37"/>
         <source>&amp;移除曲线</source>
         <translation>&amp;Remove Curve</translation>
     </message>

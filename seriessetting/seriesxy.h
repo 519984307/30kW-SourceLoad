@@ -20,7 +20,7 @@
 using namespace QtCharts;
 
 class SeriesXY: public QGroupBox
-{
+{ // scatter和value的共同设置
     Q_OBJECT
 public:
     explicit SeriesXY(QChart *,QWidget* = Q_NULLPTR);

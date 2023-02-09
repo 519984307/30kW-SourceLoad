@@ -90,8 +90,11 @@ INPUT(
 ./debug\monitor_initial.o
 ./debug\monitor_label.o
 ./debug\monitor_spinbox.o
+./debug\barseriessetting.o
 ./debug\lineseriessetting.o
 ./debug\scatterseriessetting.o
+./debug\seriesbar.o
+./debug\seriesbarset.o
 ./debug\seriesbox.o
 ./debug\seriesinfo.o
 ./debug\seriesscatter.o
@@ -197,8 +200,11 @@ INPUT(
 ./debug\moc_monitor.o
 ./debug\moc_monitor_label.o
 ./debug\moc_monitor_spinbox.o
+./debug\moc_barseriessetting.o
 ./debug\moc_lineseriessetting.o
 ./debug\moc_scatterseriessetting.o
+./debug\moc_seriesbar.o
+./debug\moc_seriesbarset.o
 ./debug\moc_seriesbox.o
 ./debug\moc_seriesinfo.o
 ./debug\moc_seriesscatter.o

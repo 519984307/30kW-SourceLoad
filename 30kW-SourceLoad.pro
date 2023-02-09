@@ -116,8 +116,11 @@ SOURCES += \
     monitor/monitor_initial.cpp \
     monitor/monitor_label.cpp \
     monitor/monitor_spinbox.cpp \
+    seriessetting/barseriessetting.cpp \
     seriessetting/lineseriessetting.cpp \
     seriessetting/scatterseriessetting.cpp \
+    seriessetting/seriesbar.cpp \
+    seriessetting/seriesbarset.cpp \
     seriessetting/seriesbox.cpp \
     seriessetting/seriesinfo.cpp \
     seriessetting/seriesscatter.cpp \
@@ -227,8 +230,11 @@ HEADERS += \
     monitor/monitor.h \
     monitor/monitor_label.h \
     monitor/monitor_spinbox.h \
+    seriessetting/barseriessetting.h \
     seriessetting/lineseriessetting.h \
     seriessetting/scatterseriessetting.h \
+    seriessetting/seriesbar.h \
+    seriessetting/seriesbarset.h \
     seriessetting/seriesbox.h \
     seriessetting/seriesinfo.h \
     seriessetting/seriesscatter.h \

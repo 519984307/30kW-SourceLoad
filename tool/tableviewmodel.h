@@ -56,7 +56,8 @@ public:
     void addColMapping(int,QColor);
     void addRowMapping(int,QColor);
     void addDoubleColMapping(QXYSeries*,int,int);
-    void addRectMapping(int,int,int,int,QList<QColor>);
+    void addColRegionMapping(int,int,int,int,QList<QColor>);
+    void addRowRegionMapping(int,int,int,int,QList<QColor>);
 
     void setDefaultMapping();
     void clearMapping();

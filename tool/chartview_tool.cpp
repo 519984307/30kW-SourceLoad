@@ -22,7 +22,7 @@ void ChartViewWidget::init()
     setWindowFlag(Qt::Window);
     Qt::WindowFlags flags = windowFlags();
     setWindowFlags(flags^Qt::WindowContextHelpButtonHint);
-    setMinimumSize(QSize(2000,900));
+    setMinimumSize(QSize(2000,1050));
     setFont(QFont("Times New Roman",12));
 
     /*-----------------------------------------table-----------------------------------------*/

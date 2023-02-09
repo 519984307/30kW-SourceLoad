@@ -16,12 +16,15 @@ class BarChart: public QMainWindow
     Q_OBJECT
 public:
     explicit BarChart(QTableView *,QWidget *parent = Q_NULLPTR);
+    enum AssociateMode {RowMode,ColMode,RowRegionMode,ColRegionMode};
     void clearChart();
     void closeChildrenWindows();
 private:
     void initChart();
+    void onSeriesColorChanged(QBarSeries*,QColor,int);
     QSplitter * mSplitter;
     Chart * mChart;
+    QBarSeries * mCurrentSeries;
     TableViewModel * mTableModel;
     ChartView * mChartView;
     QTableView * mTableView;
@@ -32,6 +35,7 @@ private:
     BarChartTool * mToolBox;
 signals:
     void tableChanged();
+    void modeChanged(int,int);
     void associateCompeleted();
 };
 

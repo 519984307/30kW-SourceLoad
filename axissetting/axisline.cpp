@@ -10,6 +10,7 @@ AxisLine::AxisLine(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*p
     mAxisLineWidth = new QSpinBox;
     updatePenWidthState();
     QFormLayout* lay = new QFormLayout;
+    lay->setSizeConstraint(QLayout::SetNoConstraint);
     lay->addRow(tr("&轴线可见"),mAxisLineVisibility);
     lay->addRow(tr("&轴线颜色"),mAxisLineColor);
     lay->addRow(tr("&轴线宽度"),mAxisLineWidth);

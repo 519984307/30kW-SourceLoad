@@ -20,6 +20,7 @@ AxisInfo::AxisInfo(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget*p
     updateTypeState();
 
     QFormLayout * lay = new QFormLayout;
+    lay->setSizeConstraint(QLayout::SetNoConstraint);
     lay->addRow(tr("轴对齐: "),mAxisAlignment);
     lay->addRow(tr("轴方向: "),mAxisOrientation);
     lay->addRow(tr("轴类型: "),mAxisType);

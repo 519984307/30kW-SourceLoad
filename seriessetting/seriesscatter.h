@@ -13,7 +13,7 @@
 using namespace QtCharts;
 
 class SeriesScatter : public QGroupBox
-{
+{ // 在xyseries基础之上 scatter独有的性质
     Q_OBJECT
 public:
     explicit SeriesScatter(QChart *,QWidget* = Q_NULLPTR);

@@ -4,13 +4,12 @@
 #include <seriessetting/seriesinfo.h>
 
 class SeriesSetting : public QVBoxLayout
-{
+{ // 通用曲线设置
     Q_OBJECT
 public:
     explicit SeriesSetting(QChart*);
     void closeChildrenWindows();
 private:
-    QIcon mIcon;
     QChart * mChart;
     QAbstractSeries * mCurrentSeries;
     QGroupBox * mWhichSeries;

@@ -417,7 +417,16 @@ TableViewModel类增加tagXYColumn()函数用于对选择的2列数据进行映�
 ⑨ 明日应增加对柱状图曲线的有关设置支持，即曲线工具栏
 
 2023/2/9：
+① AssociateBarMode进一步将区域模式拆分成水平区域和垂直区域模式
+② 解决滚动区域小部件互相挤压的问题，改用使能禁止代替hide和show
+③ 增加BarSeriesSetting类，不使用通用设置，只使用seriesinfo，因为柱状图特殊无需切换和移除曲线
+④ 增加SeriesBar类，对柱状图曲线的有关支持
+⑤ 增加SeriesBarSet类，用于对柱状图曲线的不同类别的柱子颜色，求和进行设置和显示
+⑥ 完成行列模式柱状图某个系列颜色改变然后让表格重映射对应列的逻辑
+void BarAssociateTable::onSeriesColorChanged(QBarSeries*series,QColor color, int flag)
+明日继续完成行列区域模式的映射
 
-
+2023/2/10：
+①
 
                                         ^

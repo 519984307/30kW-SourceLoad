@@ -21,23 +21,26 @@ AxisLog::AxisLog(QChart * chart,QWidget*parent):
    //tip->setMinimumHeight(30);
 
    QFormLayout * lay = new QFormLayout;
+   lay->setSizeConstraint(QLayout::SetNoConstraint);
    lay->addRow(tr("&轴主刻度个数"),mTickCount);
    lay->addRow(tr("&轴次刻度个数"),mMinorTickCount);
    lay->addRow(tr("&轴底数"),mBase);
    lay->addRow(tr("&轴下限值"),mMinRange);
    lay->addRow(tr("&轴上限值"),mMaxRange);
    QHBoxLayout * llay = new QHBoxLayout;
+   llay->setSizeConstraint(QLayout::SetNoConstraint);
    llay->addWidget(mLabelFormatEdit);
    llay->addWidget(mLabelFormatBtn);
 
    QVBoxLayout * vlay = new QVBoxLayout;
+   vlay->setSizeConstraint(QLayout::SetNoConstraint);
    vlay->addLayout(lay);
    vlay->addLayout(llay);
    vlay->addWidget(tip);
 
    setLayout(vlay); // 布局不影响先初始化完毕
    setMinimumWidth(450); // 跟随axisbox.cpp
-   setTitle(tr("其它"));
+   setTitle(tr("对数轴"));
 }
 
 void AxisLog::setCurrentAxis(QLogValueAxis*axis)

@@ -17,6 +17,7 @@ AxisValue::AxisValue(QChart * chart,QWidget*parent):
     mTickCount->setMinimum(2); // 最小2,默认5
 
     QGridLayout * lay = new QGridLayout;
+    lay->setSizeConstraint(QLayout::SetNoConstraint);
     lay->addWidget(new QLabel(tr("轴下限值")),0,0);
     lay->addWidget(mMinRange,0,1);
     lay->addWidget(new QLabel(tr("轴上限值")),1,0);
@@ -31,7 +32,7 @@ AxisValue::AxisValue(QChart * chart,QWidget*parent):
 
     setLayout(lay); // 布局不影响先初始化完毕
     setMinimumWidth(450); // 跟随axisbox.cpp
-    setTitle(tr("其它"));
+    setTitle(tr("线性轴"));
 }
 
 void AxisValue::setCurrentAxis(QValueAxis * axis)

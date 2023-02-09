@@ -336,14 +336,26 @@ void TableViewModel::addDoubleColMapping(QXYSeries* series,int xCol, int yCol)
    addColMapping(yCol,series->color());
 }
 
-void TableViewModel::addRectMapping(int firstColumn, int lastColumn, int firstRow, int rowCount,QList<QColor> colorlist)
+void TableViewModel::addColRegionMapping(int firstColumn, int lastColumn, int firstRow, int rowCount,QList<QColor> colorlist)
 {// 对指定的区域进行映射
     for(int col = firstColumn; col <= lastColumn; ++col)
     { // 需要带等号,例如1和4,就是要映射第2和第5列, x坐标
         for(int row = firstRow; row<firstRow+rowCount; ++row)
-        { // 不带等号,例如首行3,count=5,那么包括第3行在内的row=3,4,5,6,7需要映射,y坐标
+        { // 不带等号,例如首行3,count=5,那么包括第3行在内的row=3,4,5,6,7需要映射,y坐标,故row不能取到8
             addCellMapping(QRect(col,row,1,1),colorlist[col]);
         }
+    }
+}
+
+void TableViewModel::addRowRegionMapping(int firstRow, int lastRow, int firstColumn, int columnCount,QList<QColor> colorlist)
+{// 对指定的区域进行映射
+    for(int row = firstRow; row <= lastRow; ++row)
+    {// 例如1,4,也就是映射第2行到第5行,y坐标
+        for(int col=firstColumn; col < firstColumn+columnCount; ++col)
+        {// 同样不带等号,如果首列1,count=3,包括第1列在内的col=1,2,3需要映射x坐标,故col不能取到4
+            addCellMapping(QRect(col,row,1,1),colorlist[row]);
+        }
+
     }
 }
 

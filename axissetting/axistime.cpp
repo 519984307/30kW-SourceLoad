@@ -17,6 +17,7 @@ AxisTime::AxisTime(QChart * chart,QWidget*parent):
                               <<"hh:mm:ss.zzz ap"<<"none");
 
         QFormLayout * lay = new QFormLayout;
+        lay->setSizeConstraint(QLayout::SetNoConstraint);
         lay->addRow(tr("&轴下限值"),mMinTimeEdit);
         lay->addRow(tr("&轴上限值"),mMaxTimeEdit);
         lay->addRow(tr("&轴主刻度个数"),mTickCount);
@@ -24,7 +25,7 @@ AxisTime::AxisTime(QChart * chart,QWidget*parent):
         lay->addRow(tr("&时间格式"),mTimeFormat);
         setLayout(lay);
         setMinimumWidth(450); // 跟随axisbox.cpp
-        setTitle(tr("其它"));
+        setTitle(tr("时间轴"));
 }
 
 void AxisTime::setCurrentAxis(QDateTimeAxis * axis)

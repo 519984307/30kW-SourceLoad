@@ -4,6 +4,8 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
 {
     setObjectName("AxisSettingsLayout");
     mIcon.addFile(":/images/toolbox_axis.png");
+    setSizeConstraint(QLayout::SetMaximumSize);
+
     mCurrentAxis = mChart->axisX();// 默认X为操作轴
 
     mWhichAxis = new QGroupBox;
@@ -19,6 +21,15 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     mAxisBar = new AxisBarCategory(mChart);
     mAxisTime = new AxisTime(mChart);
 
+    QGroupBox* box = new QGroupBox(tr("其它"));
+    QVBoxLayout * lay = new QVBoxLayout;
+    lay->setSizeConstraint(QLayout::SetNoConstraint);
+    lay->addWidget(mAxisValue);
+    lay->addWidget(mAxisLog);
+    lay->addWidget(mAxisBar);
+    lay->addWidget(mAxisTime);
+    box->setLayout(lay);
+
 
     initWhichAxis();
 
@@ -29,39 +40,49 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     addWidget(mAxisShade);
     addWidget(mAxisLine);
     addWidget(mAxisGrid);
-    addWidget(mAxisValue);
-    addWidget(mAxisLog);
-    addWidget(mAxisBar);
-    addWidget(mAxisTime);
-    addWidget(new QGroupBox);//为了防止挤压尾部留些空间
+    addWidget(box);
+    //addSpacing(10);//为了防止挤压尾部留些空间
 
     //通过removeWidget和addWidget动态切换轴有点难
     // 而且由于QScrollArea布局必须事先确定的问题,不可能实现
     // 但是可以通过hide和show来显示这种效果,布局也已经事先确定了
+    // 2023/2/9,由于show和hide会导致挤压,所以改用enable来设定,一个妥协策略
     switch (mCurrentAxis->type()) {
             case QAbstractAxis::AxisTypeValue:
                     mAxisValue->setCurrentAxis(static_cast<QValueAxis*>(mCurrentAxis)); // 确实是value类型才会初始化内部的信号连接
-                    mAxisLog->hide();
-                    mAxisBar->hide();
-                    mAxisTime->hide();
+//                    mAxisLog->hide();
+//                    mAxisBar->hide();
+//                    mAxisTime->hide();
+                    mAxisLog->setEnabled(false);
+                    mAxisBar->setEnabled(false);
+                    mAxisTime->setEnabled(false);
                     break;
             case QAbstractAxis::AxisTypeLogValue:
-                    mAxisValue->hide();
                     mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
-                    mAxisBar->hide();
-                    mAxisTime->hide();
+//                    mAxisValue->hide();
+//                    mAxisBar->hide();
+//                    mAxisTime->hide();
+                    mAxisValue->setEnabled(false);
+                    mAxisBar->setEnabled(false);
+                    mAxisTime->setEnabled(false);
                     break;
             case QAbstractAxis::AxisTypeBarCategory:
-                    mAxisValue->hide();
-                    mAxisLog->hide();
                     mAxisBar->setCurrentAxis(static_cast<QBarCategoryAxis*>(mCurrentAxis));
-                    mAxisTime->hide();
+//                    mAxisValue->hide();
+//                    mAxisLog->hide();
+//                    mAxisTime->hide();
+                    mAxisValue->setEnabled(false);
+                    mAxisLog->setEnabled(false);
+                    mAxisTime->setEnabled(false);
                     break;
             case QAbstractAxis::AxisTypeDateTime:
-                    mAxisValue->hide();
-                    mAxisLog->hide();
-                    mAxisBar->hide();
+//                    mAxisValue->hide();
+//                    mAxisLog->hide();
+//                    mAxisBar->hide();
                     mAxisTime->setCurrentAxis(static_cast<QDateTimeAxis*>(mCurrentAxis));
+                    mAxisValue->setEnabled(false);
+                    mAxisLog->setEnabled(false);
+                    mAxisBar->setEnabled(false);
                     break;
             default:break;
     }
@@ -85,6 +106,7 @@ void AxisSetting::initWhichAxis()
     mAxisX->setChecked(true); // 默认操作x轴
 
     QHBoxLayout * lay = new QHBoxLayout;
+    lay->setSizeConstraint(QLayout::SetNoConstraint);
     lay->addWidget(mAxisX);
     lay->addWidget(mAxisY);
     mWhichAxis ->setLayout(lay);
@@ -110,31 +132,47 @@ void AxisSetting::initWhichAxis()
             switch (mCurrentAxis->type()) { // 无论切换的X还是Y,类型都可能是Value或Log,都要去判断,只要是value类型就让value布局显示
                     case QAbstractAxis::AxisTypeValue:
                             mAxisValue->setCurrentAxis(static_cast<QValueAxis*>(mCurrentAxis));
-                            mAxisValue->show();
-                            mAxisLog->hide();
-                            mAxisBar->hide();
-                            mAxisTime->hide();
+//                            mAxisValue->show();
+//                            mAxisLog->hide();
+//                            mAxisBar->hide();
+//                            mAxisTime->hide();
+                            mAxisValue->setEnabled(true);
+                            mAxisLog->setEnabled(false);
+                            mAxisBar->setEnabled(false);
+                            mAxisTime->setEnabled(false);
                             break;
                     case QAbstractAxis::AxisTypeLogValue:
                             mAxisLog->setCurrentAxis(static_cast<QLogValueAxis*>(mCurrentAxis));
-                            mAxisValue->hide();
-                            mAxisLog->show();
-                            mAxisBar->hide();
-                            mAxisTime->hide();
+//                            mAxisValue->hide();
+//                            mAxisLog->show();
+//                            mAxisBar->hide();
+//                            mAxisTime->hide();
+                            mAxisValue->setEnabled(false);
+                            mAxisLog->setEnabled(true);
+                            mAxisBar->setEnabled(false);
+                            mAxisTime->setEnabled(false);
                             break;
                     case QAbstractAxis::AxisTypeBarCategory:
                             mAxisBar->setCurrentAxis(static_cast<QBarCategoryAxis*>(mCurrentAxis));
-                            mAxisValue->hide();
-                            mAxisLog->hide();
-                            mAxisBar->show();
-                            mAxisTime->hide();
+//                            mAxisValue->hide();
+//                            mAxisLog->hide();
+//                            mAxisBar->show();
+//                            mAxisTime->hide();
+                            mAxisValue->setEnabled(false);
+                            mAxisLog->setEnabled(false);
+                            mAxisBar->setEnabled(true);
+                            mAxisTime->setEnabled(false);
                             break;
                     case QAbstractAxis::AxisTypeDateTime:
                             mAxisTime->setCurrentAxis(static_cast<QDateTimeAxis*>(mCurrentAxis));
-                            mAxisValue->hide();
-                            mAxisLog->hide();
-                            mAxisBar->hide();
-                            mAxisTime->show();
+//                            mAxisValue->hide();
+//                            mAxisLog->hide();
+//                            mAxisBar->hide();
+//                            mAxisTime->show();
+                            mAxisValue->setEnabled(false);
+                            mAxisLog->setEnabled(false);
+                            mAxisBar->setEnabled(false);
+                            mAxisTime->setEnabled(true);
                             break;
                     default:break;
             }

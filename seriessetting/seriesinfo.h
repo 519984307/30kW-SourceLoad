@@ -7,7 +7,8 @@ class SeriesInfo : public SeriesBox
 {
     Q_OBJECT
 public:
-    explicit SeriesInfo(QChart *,QAbstractSeries*, const QIcon&, QWidget* = Q_NULLPTR);
+    explicit SeriesInfo(QChart *,QWidget* = Q_NULLPTR);
+    void updateInfo();
 private:
     void updateState() override;
     QCheckBox * mSeriseVisible;

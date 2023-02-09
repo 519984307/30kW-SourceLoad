@@ -1,7 +1,7 @@
 #include <seriessetting/seriesinfo.h>
 
-SeriesInfo::SeriesInfo(QChart * chart,QAbstractSeries*series, const QIcon&icon, QWidget*parent):
-    SeriesBox(chart,series,icon,parent)
+SeriesInfo::SeriesInfo(QChart * chart,QWidget*parent):
+    SeriesBox(chart,parent)
 {
         mSeriesType = new QLabel;
         updateTypeState();
@@ -34,6 +34,11 @@ SeriesInfo::SeriesInfo(QChart * chart,QAbstractSeries*series, const QIcon&icon, 
         setTitle(tr("曲线"));
 }
 
+void SeriesInfo::updateInfo()
+{ // 用于给外部使用,对setCurrentSeries的一层封装
+    if (!mChart->series().count())  return; // empty之后可能还没关联,这个时候没有新的series就不要进行
+     setCurrentSeries(mChart->series().at(0),0);// 内部调用updateState()更新
+}
 
 void SeriesInfo::updateState()
 {

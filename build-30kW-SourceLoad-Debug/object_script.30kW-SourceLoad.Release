@@ -90,8 +90,11 @@ INPUT(
 ./release\monitor_initial.o
 ./release\monitor_label.o
 ./release\monitor_spinbox.o
+./release\barseriessetting.o
 ./release\lineseriessetting.o
 ./release\scatterseriessetting.o
+./release\seriesbar.o
+./release\seriesbarset.o
 ./release\seriesbox.o
 ./release\seriesinfo.o
 ./release\seriesscatter.o
@@ -197,8 +200,11 @@ INPUT(
 ./release\moc_monitor.o
 ./release\moc_monitor_label.o
 ./release\moc_monitor_spinbox.o
+./release\moc_barseriessetting.o
 ./release\moc_lineseriessetting.o
 ./release\moc_scatterseriessetting.o
+./release\moc_seriesbar.o
+./release\moc_seriesbarset.o
 ./release\moc_seriesbox.o
 ./release\moc_seriesinfo.o
 ./release\moc_seriesscatter.o

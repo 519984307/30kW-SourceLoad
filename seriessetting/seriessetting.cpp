@@ -3,13 +3,12 @@
 SeriesSetting::SeriesSetting(QChart*chart): mChart(chart),mCurrentSeries(nullptr)
 {
     setObjectName("SeriesSettingsLayout");
-    mIcon.addFile(":/images/toolbox_series.png");
 
     mCurrentSeries = mChart->series().at(0);
 
     mWhichSeries = new QGroupBox(tr("当前曲线"));
     initWhichSeries();
-    mSeriesInfo = new SeriesInfo(mChart,mCurrentSeries,mIcon);
+    mSeriesInfo = new SeriesInfo(mChart);
 
     addWidget(mWhichSeries);
     addWidget(mSeriesInfo);

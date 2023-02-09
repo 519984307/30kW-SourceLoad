@@ -19,6 +19,7 @@ AxisShade::AxisShade(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget
         updateBrushStyleState();
 
         QFormLayout* lay = new QFormLayout;
+        lay->setSizeConstraint(QLayout::SetNoConstraint);
         lay->addRow(tr("&阴影可见"),mAxisShadeVisibility);
         lay->addRow(tr("&边框颜色"),mAxisShadeBorderColor);
         lay->addRow(tr("&边框宽度"),mAxisShadePenWidth);

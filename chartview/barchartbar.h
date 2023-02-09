@@ -11,6 +11,9 @@ public:
     explicit BarChartBar(QTableView*,QChartView*,QWidget*parent = Q_NULLPTR);
 private:
     BarAssociateTable * mAssociateTable;
+signals:
+    void modeChanged(int,int);
+    void seriesColorChanged(QBarSeries*,QColor,int);
 };
 
 #endif // BARCHARTBAR_H

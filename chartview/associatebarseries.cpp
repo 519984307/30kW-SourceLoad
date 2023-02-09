@@ -3,7 +3,7 @@
 AssociateBarSeries::AssociateBarSeries(QWidget*parent):QGroupBox(parent)
 {
     mBarColor = Qt::white;
-    mBarWidth = 2.;
+    mBarWidth = 10.;
     setFont(QFont("Times New Roman",12));
     setTitle(tr("曲线"));
 
@@ -47,4 +47,11 @@ QColor AssociateBarSeries::barcolor() const
 double  AssociateBarSeries::barwidth() const
 {
     return  mBarWidth;
+}
+
+
+void AssociateBarSeries::setBarColorEnabled(bool checked)
+{
+    mBarColorBtn->setEnabled(!checked);
+    mBarColorEdit->setEnabled(!checked);
 }

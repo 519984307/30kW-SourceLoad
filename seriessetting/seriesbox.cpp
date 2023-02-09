@@ -1,8 +1,10 @@
 #include <seriessetting/seriesbox.h>
 
-SeriesBox::SeriesBox(QChart *chart,QAbstractSeries*series, const QIcon&icon,QWidget*parent):
-    QGroupBox(parent),mChart(chart),mCurrentSeries(series),mCurrentSeriesId(0),mIcon(icon)
+SeriesBox::SeriesBox(QChart *chart,QWidget*parent):
+    QGroupBox(parent),mChart(chart),mCurrentSeriesId(0)
 {
+    mCurrentSeries = chart->series().at(0);
+    mIcon.addFile(":/images/toolbox_series.png");
     setFont(QFont("Times New Roman",12));
     setMinimumWidth(450); // 和charttool.cpp保持一致稍小一些
 }

@@ -3,6 +3,8 @@
 BarAssociateTable::BarAssociateTable(QTableView*tableview,QChartView*chartview,QWidget*parent):
     QDialog(parent),mTableView(tableview),mChartView(chartview)
 {
+    mCurrentSeries = nullptr;
+    mAssociateMode = AssociateMode::RowMode;
     mLegend = new ChartShowLegend;
     mTip = new ChartShowTip;
     mTip->setChart(mChartView->chart());
@@ -33,6 +35,9 @@ void BarAssociateTable::initConnections()
 {
     connect(mOkBtn,&QPushButton::clicked,this,&BarAssociateTable::onOkBtn);
 
+    connect(mMode,&AssociateBarMode::modeChanged, // 如果选择区域模式,set的颜色自动生成不允许设置
+            mSeries,&AssociateBarSeries::setBarColorEnabled);
+
     connect(this,&BarAssociateTable::tableChanged,this,[=]{
         disconnect(mOkBtn,&QPushButton::clicked,this,&BarAssociateTable::onOkBtn);
         mTableModel = static_cast<TableViewModel*>(mTableView->model());
@@ -40,40 +45,48 @@ void BarAssociateTable::initConnections()
         mMode->adjustRange();
     });
 
-//    connect(this,static_cast<void (BarAssociateTable::*)(QScatterSeries*)>(&BarAssociateTable::seriesColorChanged),
-//            this,[=](QBarSeries*series){
-//            if (mSeriesXYColumn.keys().contains(series))
-//            {
-//                auto cols = mSeriesXYColumn[series];
-//                mTableModel->addColMapping(cols.first,series->color());
-//                if (cols.second < 0) return;
-//                mTableModel->addColMapping(cols.second,series->color());
-//            }
-//    });
-//    connect(this,static_cast<void (ScatterAssociateTable::*)(QBarSeries*)>(&BarAssociateTable::seriesRemoved),
-//            this,[=](QBarSeries*series){
-//            if (mSeriesXYColumn.keys().contains(series))
-//            {
-//                auto cols = mSeriesXYColumn[series];
-//                mTableModel->addColMapping(cols.first,Qt::white);
-//                if (cols.second < 0) return;
-//                mTableModel->addColMapping(cols.second,Qt::white);
-//                mSeriesXYColumn.remove(series);
-//            }
-//    });
+    connect(this,&BarAssociateTable::seriesColorChanged,this,&BarAssociateTable::onSeriesColorChanged);
+}
+
+void BarAssociateTable::onSeriesColorChanged(QBarSeries*series,QColor color, int flag)
+{
+    if(series == mCurrentSeries) // 可能series来自初始化方向的
+    {
+        switch (mAssociateMode) {
+                case 0: mTableModel->addRowMapping(flag,color);break;
+                case 1:mTableModel->addColMapping(flag,color);break;
+                case 2:
+                        break;
+                case 3:
+                        break;
+        }
+    }
 }
 
 void BarAssociateTable::onOkBtn()
 {
-    if (mMode->isRectMode()) rectMapping();
-    else nonRegionMapping();
+    //和XY折线图散点图不同,这里不允许多重添加曲线,否则颜色的反向映射会出问题
+    mChartView->chart()->removeAllSeries();
+    if (mMode->isRegionMode()) regionMapping();
+    else rcMapping();
     mLegend->mapping(mChartView->chart());
     emit associateCompeleted();
     accept();
 }
 
-void BarAssociateTable::nonRegionMapping()
-{
+QBarSeries * BarAssociateTable::createSeries()
+{ // 4种模式共用
+    QBarSeries * series = new QBarSeries;
+    series->setBarWidth(mSeries->barwidth());
+    series->setLabelsVisible(true);
+    series->setLabelsPosition(QAbstractBarSeries::LabelsOutsideEnd);
+    series->setName("bar curve");
+    mCurrentSeries = series;
+    return series;
+}
+
+QBarSet * BarAssociateTable::createSet()
+{ // 只用于行列模式,区域是自动生成的无需手动创建
     int row,col;
     QVector<QVariant> data;
     if (mMode->isRowMode()) { // 行模式,水平轴就是列名
@@ -81,19 +94,17 @@ void BarAssociateTable::nonRegionMapping()
         data = mTableModel->rowData(row);
         //qDebug()<<"row data = "<<data;
         mTableModel->addRowMapping(row,mSeries->barcolor());
+        mAssociateMode = AssociateMode::RowMode;
+        emit modeChanged(AssociateMode::RowMode,row);
     }
     else {// 列模式,水平轴就是行名
         col = mMode->associateCol();
         data = mTableModel->colData(col);
         //qDebug()<<"col data = "<<data;
         mTableModel->addColMapping(col,mSeries->barcolor());
+        mAssociateMode = AssociateMode::ColMode;
+        emit modeChanged(AssociateMode::ColMode,col);
     }
-
-    QBarSeries * series = new QBarSeries;
-    series->setBarWidth(mSeries->barwidth());
-    series->setLabelsVisible(true);
-    series->setLabelsPosition(QAbstractBarSeries::LabelsOutsideEnd);
-    series->setName("bar curve");
 
     QBarSet * set = new QBarSet("");
     if (mMode->isRowMode())
@@ -105,6 +116,13 @@ void BarAssociateTable::nonRegionMapping()
     for(int x = 0; x <data.count(); ++x) {
         if (data[x].isValid()) set->append(data[x].toDouble());
     }
+    return set;
+}
+
+void BarAssociateTable::rcMapping()
+{
+    auto series = createSeries();
+    auto set = createSet();
 
     if (set->count() == 0) { // 可能是空白行和列数据无效直接返回
         accept();
@@ -116,50 +134,95 @@ void BarAssociateTable::nonRegionMapping()
 
     //mSeriesXYColumn[series] = qMakePair<int,int>(col,-1);
 
-    setAxisX(series,nonRegionCategories());
+    setAxisX(series,rcCategories());
     setAxisY(series);
     mTip->mapping(series);
 }
 
-void BarAssociateTable::rectMapping()
+void BarAssociateTable::createColRegionMapping(QBarSeries*series)
 {
-    auto mappedParams = mMode->associateRect();
-    QBarSeries *series = new QBarSeries;
-    series->setBarWidth(mSeries->barwidth());
-    series->setLabelsVisible(true);
-    series->setLabelsPosition(QAbstractBarSeries::LabelsOutsideEnd);
-    series->setName("bar curve");
-
+    auto params = mMode->associateColParams();
     QVBarModelMapper *mapper = new QVBarModelMapper(this);
-    mapper->setFirstBarSetColumn(mappedParams.firstColumn);
-    mapper->setLastBarSetColumn(mappedParams.lastColumn);
-    mapper->setFirstRow(mappedParams.firstRow);
-    mapper->setRowCount(mappedParams.rowCount);
+    mapper->setFirstBarSetColumn(params.firstColumn);
+    mapper->setLastBarSetColumn(params.lastColumn);
+    mapper->setFirstRow(params.startRow);
+    mapper->setRowCount(params.rowCount);
     mapper->setSeries(series);
-    mapper->setModel(mTableModel); // 映射就已经做好了series的basset,无需手动获取model的数据并创建barset
+    mapper->setModel(mTableModel); // series自动生成好barset
     mChartView->chart()->addSeries(series); // 图表要先添加曲线,否则下方colorlist得到的全是黑色
 
+    auto categorycolor = getBarSetParams(series);
+
+    mTableModel->addColRegionMapping(params.firstColumn,params.lastColumn,
+                                params.startRow,params.rowCount,categorycolor.colors);
+    setAxisX(series,categorycolor.categories);
+    setAxisY(series);
+
+    // 告知区域的起始列,结合切换序列的索引,就可以得到那条序列所处的列数
+    // 例如起始列3,区域有4列,也就是3,4,5,6这4列; 但是切换序列的索引只会有0,1,2,3
+    // 那么序列3其实对应的就是第6列,所以切换序列根据index+firstColumn(3)即可得到当前序列的实际列位置
+    mAssociateMode = AssociateMode::ColRegionMode;
+    emit modeChanged(AssociateMode::ColRegionMode,params.firstColumn);
+}
+
+void BarAssociateTable::createRowRegionMapping(QBarSeries*series)
+{
+    auto params = mMode->associateRowParams();
+    QHBarModelMapper *mapper = new QHBarModelMapper(this);
+    mapper->setFirstBarSetRow(params.firstRow);
+    mapper->setLastBarSetRow(params.lastRow);
+    mapper->setFirstColumn(params.startColumn);
+    mapper->setColumnCount(params.columnCount);
+    mapper->setSeries(series);
+    mapper->setModel(mTableModel); // series自动生成好barset
+    mChartView->chart()->addSeries(series); // 图表要先添加曲线,否则下方colorlist得到的全是黑色
+
+    auto categorycolor = getBarSetParams(series);
+
+    mTableModel->addRowRegionMapping(params.firstRow,params.lastRow,
+                                params.startColumn,params.columnCount,categorycolor.colors);
+    setAxisX(series,categorycolor.categories);
+    setAxisY(series);
+
+    // 告知区域的起始行,结合切换序列的索引,就可以得到那条序列所处的行数
+    // 例如起始行3,区域有4行,也就是3,4,5,6这4行; 但是切换序列的索引只会有0,1,2,3
+    // 那么序列3其实对应的就是第6行,所以切换序列根据index+firstRow(3)即可得到当前序列的实际行位置
+    mAssociateMode = AssociateMode::RowRegionMode;
+    emit modeChanged(AssociateMode::RowRegionMode,params.firstRow);
+}
+
+BarAssociateTable::CategoryColor BarAssociateTable::getBarSetParams(QBarSeries*series) const
+{
     auto barsets = series->barSets();
 
     QStringList categories;
-    QList<QColor> colorlist;
+    QColorList colorlist;
     for (int i = 0; i < barsets.count(); ++i) {
-        auto label = barsets.at(i)->label();
-        if (label.toInt())
-        {
-            categories.append("col "+label);// 水平轴名称
-            //barsets.at(i)->setLabel("col "+label); // 图例名称,这里会导致异常不设置了,应该是底层原因
-        }
-        else categories.append(label);
+        barsets.at(i)->setBorderColor(Qt::black);
+        barsets.at(i)->setLabelFont(QFont("Times New Roman",12));
+        barsets.at(i)->setLabelColor(barsets.at(i)->color());
+        //barsets.at(i)->setLabel("col "); // 自动生成的,不能设置会导致异常
+        //barsets.at(i)->setColor(Qt::red); // 可以设置,但是不要设置,用自动生成的
+        //qDebug()<<barsets.at(i)->sum();
+        categories.append(barsets.at(i)->label());
         colorlist.append(barsets.at(i)->color());//用填充色不用文字颜色
         // color=brush.color ≠ pen.color=labelcolor=labelbrush.color ≠bordercolor
 //        qDebug()<<barsets.at(i)->color()<<barsets.at(i)->brush().color()<<barsets.at(i)->pen().color()<<
 //                  barsets.at(i)->labelColor()<<barsets.at(i)->labelBrush().color();
     }
-    mTableModel->addRectMapping(mappedParams.firstColumn,mappedParams.lastColumn,
-                                mappedParams.firstRow,mappedParams.rowCount,colorlist);
-    setAxisX(series,categories);
-    setAxisY(series);
+
+    return CategoryColor{categories,colorlist};
+}
+
+void BarAssociateTable::regionMapping()
+{
+    auto series = createSeries();
+
+    if (mMode->isRowRegionMode())
+        createRowRegionMapping(series);
+    else
+        createColRegionMapping(series);
+
     mTip->mapping(series);
 }
 
@@ -197,7 +260,7 @@ void BarAssociateTable::setAxisY(QBarSeries *series)
     }
 }
 
-QStringList BarAssociateTable::nonRegionCategories() const
+QStringList BarAssociateTable::rcCategories() const
 {
     QStringList categories; // 用来设置水平轴的label
     if (mMode->isRowMode())

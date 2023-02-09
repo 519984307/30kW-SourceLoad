@@ -22,6 +22,7 @@ AxisLabel::AxisLabel(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget
     updateFontState();
 
     QFormLayout* lay = new QFormLayout;
+    lay->setSizeConstraint(QLayout::SetNoConstraint);
     lay->addRow(tr("&标签可见"),mAxisLabelVisibility);
     lay->addRow(tr("&标签角度"),mAxisLabelAngle);
     lay->addRow(tr("&标签颜色"),mAxisLabelColor);

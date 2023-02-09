@@ -23,7 +23,7 @@ class SeriesBox : public QGroupBox
 {
     Q_OBJECT
 public:
-    explicit SeriesBox(QChart *,QAbstractSeries*, const QIcon&, QWidget* = Q_NULLPTR);
+    explicit SeriesBox(QChart *,QWidget* = Q_NULLPTR);
     void setChart(QChart*);
     QChart* chart() const;
     void setCurrentSeries(QAbstractSeries*,int);

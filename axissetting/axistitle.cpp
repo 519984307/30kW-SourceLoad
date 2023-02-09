@@ -16,6 +16,7 @@ AxisTitle::AxisTitle(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget
         //updateTitleBrushState();
 
         QFormLayout * formlay = new QFormLayout;
+        formlay->setSizeConstraint(QLayout::SetNoConstraint);
         formlay->addRow(tr("&标题可见"),mAxisTitleVisible);
         formlay->addRow(tr("&标题颜色"),mAxisTitleColor);
         formlay->addRow(tr("&标题格式"),mAxisTitleFont);
@@ -24,11 +25,13 @@ AxisTitle::AxisTitle(QChart * chart,QAbstractAxis*axis,const QIcon&icon, QWidget
         mAxisTitleText = new QLineEdit;
         mAxisTitleSetText = new QPushButton(tr("设置标题"));
         QHBoxLayout * tlay = new QHBoxLayout;
+        tlay->setSizeConstraint(QLayout::SetNoConstraint);
         tlay->addWidget(mAxisTitleText);
         tlay->addWidget(mAxisTitleSetText);
         updateTitleTextState();
 
         QVBoxLayout * lay = new QVBoxLayout;
+        lay->setSizeConstraint(QLayout::SetNoConstraint);
         lay->addLayout(formlay);
         lay->addLayout(tlay);
         setTitle(tr("轴标题"));
