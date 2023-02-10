@@ -87,7 +87,8 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
             default:break;
     }
 
-    connect(this,&AxisSetting::associateCompeleted,this,[=]{mAxisX->click();});// 表格关联完成当前曲线变化导致其携带的当前轴可能变化故要更新
+    connect(this,&AxisSetting::associateCompeleted,this,[=]{
+        mAxisX->click();});// 表格关联完成当前曲线变化导致其携带的当前轴可能变化故要更新
 
 }
 

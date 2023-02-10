@@ -38,6 +38,7 @@ private:
     TableViewModel * mTableModel;
     QChartView *mChartView;
     QBarSeries * mCurrentSeries;
+    QPair<int,int> mRegionFlagCount;
     AssociateMode mAssociateMode;
     QPushButton * mOkBtn;
     ChartShowLegend * mLegend;

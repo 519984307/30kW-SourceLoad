@@ -170,7 +170,7 @@ AssociateBarMode::AssociateColParams  AssociateBarMode::associateColParams() con
     AssociateColParams  rect = {
         mFirstColumnSpin->value()-1,
         mLastColumnSpin->value()-1,
-        mFirstRowSpin->value()-1,
+        mStartRowSpin->value()-1,
         mRowCountSpin->value()
     };
     return rect;
@@ -181,7 +181,7 @@ AssociateBarMode::AssociateRowParams  AssociateBarMode::associateRowParams() con
     AssociateRowParams  rect = {
         mFirstRowSpin->value()-1,
         mLastRowSpin->value()-1,
-        mFirstColumnSpin->value()-1,
+        mStartColumnSpin->value()-1,
         mColumnCountSpin->value()
     };
     return rect;
@@ -194,7 +194,7 @@ void AssociateBarMode::adjustRange()
 
     mFirstColumnSpin->setRange(1,mTableModel->columnCount());
     mLastColumnSpin->setRange(1,mTableModel->columnCount());
-    mFirstRowSpin->setRange(1,mTableModel->rowCount());
+    mStartRowSpin->setRange(1,mTableModel->rowCount());
     mRowCountSpin->setRange(1,mTableModel->rowCount());
 
     mFirstRowSpin->setRange(1,mTableModel->rowCount());

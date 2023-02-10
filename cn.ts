@@ -266,17 +266,17 @@
 <context>
     <name>AxisBarCategory</name>
     <message>
-        <location filename="axissetting/axisbarcategory.cpp" line="6"/>
+        <location filename="axissetting/axisbarcategory.cpp" line="7"/>
         <source>清空类别</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axisbarcategory.cpp" line="7"/>
+        <location filename="axissetting/axisbarcategory.cpp" line="8"/>
         <source>设置类别</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axisbarcategory.cpp" line="19"/>
+        <location filename="axissetting/axisbarcategory.cpp" line="20"/>
         <source>类别轴</source>
         <translation type="unfinished"></translation>
     </message>
@@ -563,17 +563,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="101"/>
+        <location filename="axissetting/axissetting.cpp" line="102"/>
         <source>X轴</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="102"/>
+        <location filename="axissetting/axissetting.cpp" line="103"/>
         <source>Y轴</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="113"/>
+        <location filename="axissetting/axissetting.cpp" line="114"/>
         <source>当前轴</source>
         <translation type="unfinished"></translation>
     </message>
@@ -866,7 +866,7 @@
 <context>
     <name>BarAssociateTable</name>
     <message>
-        <location filename="chartview/barassociatetable.cpp" line="15"/>
+        <location filename="chartview/barassociatetable.cpp" line="17"/>
         <source>关联</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2504,78 +2504,111 @@
 <context>
     <name>SeriesBar</name>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="22"/>
+        <location filename="seriessetting/seriesbar.cpp" line="23"/>
         <source>居中</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="22"/>
+        <location filename="seriessetting/seriesbar.cpp" line="23"/>
         <source>顶部靠下</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="23"/>
+        <location filename="seriessetting/seriesbar.cpp" line="24"/>
         <source>底部</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="23"/>
+        <location filename="seriessetting/seriesbar.cpp" line="24"/>
         <source>顶部靠上</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="26"/>
+        <location filename="seriessetting/seriesbar.cpp" line="27"/>
         <source>设置标签格式</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="29"/>
+        <location filename="seriessetting/seriesbar.cpp" line="30"/>
         <source>设置边框颜色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="33"/>
+        <location filename="seriessetting/seriesbar.cpp" line="34"/>
         <source>&amp;柱宽</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="34"/>
+        <location filename="seriessetting/seriesbar.cpp" line="35"/>
         <source>&amp;标签可见</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="35"/>
+        <location filename="seriessetting/seriesbar.cpp" line="36"/>
         <source>&amp;标签角度</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="36"/>
+        <location filename="seriessetting/seriesbar.cpp" line="37"/>
         <source>&amp;标签位置</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="37"/>
+        <location filename="seriessetting/seriesbar.cpp" line="38"/>
         <source>&amp;标签格式</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="38"/>
+        <location filename="seriessetting/seriesbar.cpp" line="39"/>
         <source>&amp;边框颜色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="40"/>
+        <location filename="seriessetting/seriesbar.cpp" line="41"/>
         <source>标签和柱</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="169"/>
+        <location filename="seriessetting/seriesbar.cpp" line="170"/>
         <source>设置颜色</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="seriessetting/seriesbar.cpp" line="178"/>
+        <location filename="seriessetting/seriesbar.cpp" line="179"/>
         <source>设置格式</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SeriesBarSet</name>
+    <message>
+        <location filename="seriessetting/seriesbarset.cpp" line="16"/>
+        <source>设置系列颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbarset.cpp" line="20"/>
+        <source>&amp;当前系列</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbarset.cpp" line="21"/>
+        <source>&amp;系列和数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbarset.cpp" line="22"/>
+        <source>&amp;系列颜色</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbarset.cpp" line="24"/>
+        <source>系列</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriesbarset.cpp" line="124"/>
+        <source>设置颜色</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

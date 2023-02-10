@@ -427,6 +427,64 @@ void BarAssociateTable::onSeriesColorChanged(QBarSeries*series,QColor color, int
 明日继续完成行列区域模式的映射
 
 2023/2/10：
-①
+① 完成行、列、行区域、列区域颜色反向映射表格的问题，并解决首行/首列更改导致的异常，是因为颜色的索引越界导致的
+② 解决"ASSERT: "width > 0.0" in file painting\qrasterizer.cpp, line 761"的问题
+原因是直方图绘制某个系列时，如果这列的数据全部是0，或者全部是字符(toDouble也变成0)，这个系列绘制就没有意义，因为每个类别都是0就导致整体系列宽度是0
+所以解决办法是：
+开始绘制之前检测是否所有数据有效，也即是是否为空表，空表不能绘制；
+对于行或者列模式，可以事先检测取到的行/列数据是否有效，空行或者空列不能绘制；
+对于行或者列区域模式，也要事先检测该区域是否不为空，空区域也不能绘制；
+为此在TableViewModel类内增加了以下10个函数用于检测。
+qreal dataSummary(const QVector<QVariant>&) const;
+bool isRowDataValid(int) const;
+bool isColumnDataValid(int) const;
+bool isRowRegionDataValid(int,int,int,int) const;
+bool isColRegionDataValid(int,int,int,int) const;
+bool isAllDataValid() const;
+QVector<QVariant> rowData(int) const;
+QVector<QVariant> rowData(int,int,int) const;
+QVector<QVariant> colData(int) const;
+QVector<QVariant> colData(int,int,int) const;
+③ 柱状图的流程图绘制完毕，下周继续开发饼图和时间序列的图
 
-                                        ^
+2023/2/11：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

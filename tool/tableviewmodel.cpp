@@ -239,6 +239,12 @@ bool TableViewModel::insertColumns(int column, int count, const QModelIndex &par
     return true;
 }
 
+void TableViewModel::appendColumn()
+{
+    if (mColumnCount == 0) insertColumn(0);
+    else insertColumn(mColumnCount);
+}
+
 bool TableViewModel::removeColumns(int column, int count, const QModelIndex &parent)
 {// 同理
     beginRemoveColumns(parent,column,column+count-1);
@@ -261,24 +267,82 @@ bool TableViewModel::removeColumns(int column, int count, const QModelIndex &par
 }
 
 QVector<QVariant> TableViewModel::rowData(int row) const
-{
+{ // 整行数据
     return *mData[row];
 }
 
-void TableViewModel::appendColumn()
-{
-    if (mColumnCount == 0) insertColumn(0);
-    else insertColumn(mColumnCount);
+QVector<QVariant> TableViewModel::rowData(int row, int firstCol, int colCount) const
+{ // 该行指定长度范围的数据
+    // row外部传入可以保证不越界, firstCol+colCount可能越界
+    // 例如只有6列,firstCol=5,colCount=6,就会导致c可以取到10,导致越界
+    int lastCol = firstCol + colCount - 1;
+    if (lastCol>mColumnCount - 1) lastCol = mColumnCount - 1; // lastCol最多取到列数-1
+
+    QVector<QVariant> d;
+    for(int c = firstCol; c <= lastCol; ++c)
+        d.append(rowData(row)[c]);
+    return d;
 }
 
 QVector<QVariant> TableViewModel::colData(int col) const
 {
     QVector<QVariant> d;
     for(int r = 0 ; r < mData.count(); ++r)
-    {
         d.append(mData.at(r)->at(col));
-    }
     return d;
+}
+
+QVector<QVariant> TableViewModel::colData(int col, int firstRow, int rowCount) const
+{
+    int lastRow = firstRow + rowCount -1;
+    if (lastRow>mRowCount-1) lastRow = mRowCount -1; // 同理最多取到行数-1
+    QVector<QVariant> d;
+    for(int r = firstRow ; r <=lastRow; ++r)
+        d.append(mData.at(r)->at(col)); // col外部可以保证不越界
+    return d;
+}
+
+qreal TableViewModel::dataSummary(const QVector<QVariant> &data) const
+{
+    // 验证数据是否有效,如果和为0,直方图绘制该系列会导致
+        // "ASSERT: "width > 0.0" in file painting\qrasterizer.cpp, line 761" 异常
+        qreal sum = 0.0;
+        for(auto d: data) sum +=d.toDouble();
+        return  sum;
+}
+
+bool TableViewModel::isRowDataValid(int row) const
+{
+    return  dataSummary(rowData(row)) > 0.0;
+}
+
+bool TableViewModel::isColumnDataValid(int col) const
+{
+    return dataSummary(colData(col)) > 0.0;
+}
+
+bool TableViewModel::isRowRegionDataValid(int firstRow, int lastRow, int firstCol, int colCount) const
+{
+    qreal sum = 0.0;
+    for(int r = firstRow; r <= lastRow; ++r)
+        sum += dataSummary(rowData(r,firstCol,colCount));
+    return sum>0.0;
+}
+
+bool TableViewModel::isColRegionDataValid(int firstCol, int lastCol, int firstRow, int rowCount) const
+{
+    qreal sum = 0.0;
+    for(int c = firstCol; c <= lastCol; ++c)
+        sum += dataSummary(colData(c,firstRow,rowCount));
+    return sum>0.0;
+}
+
+bool TableViewModel::isAllDataValid() const
+{
+    double sum = 0.0;
+    for(int r = 0; r < mData.count(); ++r)
+        sum += dataSummary(rowData(r));
+    return sum > 0.0;
 }
 
 Qt::ItemFlags TableViewModel::flags(const QModelIndex &index) const
@@ -317,12 +381,34 @@ void TableViewModel::addColMapping(int col ,QColor color)
     }
 }
 
+void TableViewModel::addColMapping(int col, int firstRow, int rowCount, QColor color)
+{ // 对列的指定范围进行映射,例如起始2,共3行的区域,即2,3,4, 所以不取等号2+3=5
+    auto lastRow = firstRow+rowCount - 1; // 0基准的实际值
+    if (lastRow > mRowCount-1) lastRow = mRowCount; // 最后1行不能超过最大行数-1
+    for(int row = firstRow; row <= lastRow; ++row) // 0基准取等号
+    {
+        addCellMapping(QRect(col,row,1,1),color);
+    }
+}
+
 void TableViewModel::addRowMapping(int row, QColor color)
 {// 对整行单元格进行映射,row从0计算
     for(int col = 0; col < mColumnCount; ++col)
     {// row是垂直方向,表示y坐标, x坐标遍历列即可
         addCellMapping(QRect(col,row,1,1),color);
     }
+}
+
+void TableViewModel::addRowMapping(int row, int firstCol, int colCount, QColor color)
+{// 对行的指定范围映射
+    auto lastCol = firstCol+colCount - 1; // 0基准的实际值
+    if (lastCol > mColumnCount-1) lastCol = mColumnCount; // 最后1列不能超过最大列数-1
+    for(int col = firstCol; col <= lastCol; ++col)// 0基准取等号
+    {
+        addCellMapping(QRect(col,row,1,1),color);
+    }
+//    qDebug()<<"（4）行区域模式，系列对应的实际行数为 "<<row<<", 事先保存的起始列为"<<firstCol
+//           <<",保存的映射列数为"<<colCount;
 }
 
 void TableViewModel::addDoubleColMapping(QXYSeries* series,int xCol, int yCol)
@@ -337,25 +423,19 @@ void TableViewModel::addDoubleColMapping(QXYSeries* series,int xCol, int yCol)
 }
 
 void TableViewModel::addColRegionMapping(int firstColumn, int lastColumn, int firstRow, int rowCount,QList<QColor> colorlist)
-{// 对指定的区域进行映射
-    for(int col = firstColumn; col <= lastColumn; ++col)
-    { // 需要带等号,例如1和4,就是要映射第2和第5列, x坐标
-        for(int row = firstRow; row<firstRow+rowCount; ++row)
-        { // 不带等号,例如首行3,count=5,那么包括第3行在内的row=3,4,5,6,7需要映射,y坐标,故row不能取到8
-            addCellMapping(QRect(col,row,1,1),colorlist[col]);
-        }
+{// 对指定的连续列区域进行映射
+    for(int col = firstColumn; col <= lastColumn; ++col) // 每列都映射,firstColumn和lastColumn基准是0,要带等号
+    {
+        addColMapping(col,firstRow,rowCount,colorlist[col-firstColumn]); // 对该列的指定段映射
     }
 }
 
 void TableViewModel::addRowRegionMapping(int firstRow, int lastRow, int firstColumn, int columnCount,QList<QColor> colorlist)
-{// 对指定的区域进行映射
-    for(int row = firstRow; row <= lastRow; ++row)
-    {// 例如1,4,也就是映射第2行到第5行,y坐标
-        for(int col=firstColumn; col < firstColumn+columnCount; ++col)
-        {// 同样不带等号,如果首列1,count=3,包括第1列在内的col=1,2,3需要映射x坐标,故col不能取到4
-            addCellMapping(QRect(col,row,1,1),colorlist[row]);
-        }
-
+{// 对指定的连续行区域进行映射
+    for(int row = firstRow; row <= lastRow; ++row) // 每行都映射,firstRow,lastRow基准是0带等号
+    { // 首行可能改变,例如第4行开始连续3行,对应4,5,6; 此时colorlist获取的颜色个数是3,使用colorlist[row]会导致越界
+        // 0,1,2不越界,所以对应关系是row-firstRow
+        addRowMapping(row,firstColumn,columnCount,colorlist[row-firstRow]); // 对该行的指定段映射
     }
 }
 

@@ -44,20 +44,31 @@ public:
     void appendRow();
     void appendRow(QVector<QVariant> *);
     void appendRow(const QStringList&);
-    QVector<QVariant> rowData(int) const;
-
     void appendColumn();
+
+    qreal dataSummary(const QVector<QVariant>&) const;
+    bool isRowDataValid(int) const;
+    bool isColumnDataValid(int) const;
+    bool isRowRegionDataValid(int,int,int,int) const;
+    bool isColRegionDataValid(int,int,int,int) const;
+    bool isAllDataValid() const;
+
+    QVector<QVariant> rowData(int) const;
+    QVector<QVariant> rowData(int,int,int) const;
     QVector<QVariant> colData(int) const;
+    QVector<QVariant> colData(int,int,int) const;
 
     void addCellMapping(QRect,QColor);
-    QColor cellColor(int) const;
-    QColor cellColor(int,int) const;
-
     void addColMapping(int,QColor);
+    void addColMapping(int,int,int,QColor);
     void addRowMapping(int,QColor);
+    void addRowMapping(int,int,int,QColor);
     void addDoubleColMapping(QXYSeries*,int,int);
     void addColRegionMapping(int,int,int,int,QList<QColor>);
     void addRowRegionMapping(int,int,int,int,QList<QColor>);
+
+    QColor cellColor(int) const;
+    QColor cellColor(int,int) const;
 
     void setDefaultMapping();
     void clearMapping();

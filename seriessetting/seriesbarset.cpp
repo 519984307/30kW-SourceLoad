@@ -38,6 +38,8 @@ void SeriesBarSet::updateAssociateMode(int mode,int flag)
 {
     mAssociateMode = AssociateMode(mode); // 枚举值是对应的
     mAssociateFlags[mAssociateMode] = flag;
+//    qDebug()<<"（2）当前关联模式为 "<<mAssociateMode
+//           <<"对应关系为(row,col,rowRegion,colRegion), 传输的参数为 "<<flag<<"含义对应为(row,col,firstRow,firstCol)";
     // rowMode,flag=row,系列对应的表格行,系列只可能1个 , flag + 0
     // colMode,flag=col,系列对应的表格列,系列只可能1个, flag + 0
     // rowRegionMode,flag = firstRow, 区域的起始行,那么当前系列对应的表格行就是flag+index
@@ -94,14 +96,20 @@ void SeriesBarSet::changeColor()
             barsets.at(mCurrentCategory->currentIndex())->setLabelColor(color);
             switch (mAssociateMode) { // 不管哪种模式都告知了要映射的行列数和颜色,区别是区域模式还要根据起始行列来映射
                     //行/列模式告知系列对应的表格行/列,把接收来的原封不动返回,index一定为0
-                    case 0: emit seriesColorChanged(mCurrentSeries,color,mAssociateFlags[0]);break; // row = row + 0
-                    case 1: emit seriesColorChanged(mCurrentSeries,color,mAssociateFlags[1]);break; // col = col + 0
+                    case 0: //qDebug()<<"（3）行模式，返回的实际行数 row= "<<mAssociateFlags[0];
+                            emit seriesColorChanged(mCurrentSeries,color,mAssociateFlags[0]);
+                            break; // row = row + 0
+                    case 1: //qDebug()<<"（3）列模式，返回的实际列数 col= "<<mAssociateFlags[1];
+                             emit seriesColorChanged(mCurrentSeries,color,mAssociateFlags[1]);
+                            break; // col = col + 0
                     // 区域模式,当前系列的对应的表格实际行列数应当让起始行/列 + index(因为区域是连续的)
                     // 第3行开始,连续4行,表格行3,4,5,6对应index0,1,2,3,所以index+first就是表格实际行
-                    case 2: emit seriesColorChanged(mCurrentSeries,color,mAssociateFlags[2]
-                        +mCurrentCategory->currentIndex());break;  // row = firstRow+index
-                    case 3: emit seriesColorChanged(mCurrentSeries,color,mAssociateFlags[3]
-                        +mCurrentCategory->currentIndex());break; // col = firstCol + index
+                    case 2://qDebug()<<"（3）行区域模式，返回的实际行数 row= "<<mAssociateFlags[2]+mCurrentCategory->currentIndex();
+                            emit seriesColorChanged(mCurrentSeries,color,mAssociateFlags[2]+mCurrentCategory->currentIndex());
+                            break;  // row = firstRow+index
+                    case 3://qDebug()<<"（3）列区域模式，返回的实际列数 col= "<<mAssociateFlags[3]+mCurrentCategory->currentIndex();
+                            emit seriesColorChanged(mCurrentSeries,color,mAssociateFlags[3]+mCurrentCategory->currentIndex());
+                            break; // col = firstCol + index
             }
     });
     dlg->exec(); delete dlg;

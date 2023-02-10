@@ -79,7 +79,6 @@ void BarChart::clearChart()
     if (mChart->axisX()) mChart->removeAxis(mChart->axisX());
     if (mChart->axisY()) mChart->removeAxis(mChart->axisY());
     if (mChart->series().count()) mChart->removeAllSeries();
-    //mSeriesXYColumn.clear(); // 这里存放的指针和对应的内容也要清空
     emit associateCompeleted(); // 文件导入调用clearChart清空图表还要通知曲线工具栏更改combo
 }
 

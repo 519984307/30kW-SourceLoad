@@ -1,4 +1,5 @@
 #include <axissetting/axisbarcategory.h>
+#include <QDebug>
 
 AxisBarCategory::AxisBarCategory(QChart * chart,QWidget*parent):
     QGroupBox(parent),mChart(chart),mCurrentAxis(nullptr),mCategoriesCount(0)
