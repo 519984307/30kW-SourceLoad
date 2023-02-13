@@ -63,6 +63,48 @@ QScatterSeries * ChartDataGenerator::scatterseries(const QString &n, const QColo
     return  series;
 }
 
+QPieSeries * ChartDataGenerator::pie()
+{
+    //    QHPieModelMapper * mapper = new QHPieModelMapper(this);
+    //    mapper->setModel(mTableModel);
+    //    mapper->setSeries(series);
+    //    mapper->setFirstColumn(0);
+    //    mapper->setColumnCount(6);
+    //    mapper->setLabelsRow(0);
+    //    mapper->setValuesRow(1);
+
+    //    QVPieModelMapper * mapper = new QVPieModelMapper(this);
+    //    mapper->setModel(mTableModel);
+    //    mapper->setSeries(series);
+    //    mapper->setFirstRow(0);
+    //    mapper->setRowCount(mTableModel->rowCount());
+    //    mapper->setLabelsColumn(0);
+    //    mapper->setValuesColumn(1);
+    QPieSeries * series = new QPieSeries;
+    series->append("A",0.1);
+    series->append("B",0.15);
+    series->append("C",0.2);
+    series->append("D",0.5);
+    series->append("E",0.05);
+    series->setHoleSize(0.2);
+    series->setPieSize(0.7);
+    series->setPieStartAngle(0.);
+    series->setPieEndAngle(360.);
+    series->setLabelsVisible(true);
+    series->setLabelsPosition(QPieSlice::LabelOutside);
+    series->setHorizontalPosition(0.5);
+    series->setVerticalPosition(0.5);
+    series->setName("percent");
+    foreach(auto s, series->slices())
+    {
+        s->setLabelColor(Qt::black);
+        s->setLabelFont(QFont("Times New Roman",12));
+        s->setBorderColor(Qt::black);
+        s->setBorderWidth(2);
+    }
+    return series;
+}
+
 QValueAxis * ChartDataGenerator::axis(int tickcount,const QString& title,const QString& format)
 {
     QValueAxis * ax = new QValueAxis;

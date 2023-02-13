@@ -1,7 +1,7 @@
 #ifndef AXISSHADE_H
 #define AXISSHADE_H
 
-#include <axissetting/axisbox.h>
+#include "axisbox.h"
 
 class AxisShade : public AxisBox
 {

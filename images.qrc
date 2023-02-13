@@ -74,5 +74,6 @@
         <file>images/scatterchart.png</file>
         <file>images/clearChart.png</file>
         <file>images/barchart.png</file>
+        <file>images/piechart.png</file>
     </qresource>
 </RCC>

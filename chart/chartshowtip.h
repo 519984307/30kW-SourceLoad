@@ -15,10 +15,13 @@ public:
     void mapping(QLineSeries*);
     void mapping(QScatterSeries*);
     void mapping(QBarSeries*);
+    void mapping(QPieSeries*);
 private:
     void showXYTip(QPointF point, bool state);
     void showBarTip(bool status, int index, QBarSet *barset);
+    void showPieTip(QPieSlice *slice, bool state);
     QChart* mChart;
+    QBrush mPieBrush;
     QGraphicsSimpleTextItem * mCoordTip;
     QGraphicsRectItem * mCoordRect;
 };

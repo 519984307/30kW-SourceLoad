@@ -17,6 +17,7 @@ INPUT(
 ./debug\chartshowtip.o
 ./debug\linechart.o
 ./debug\chartdatagenerator.o
+./debug\piechart.o
 ./debug\scatterchart.o
 ./debug\backgroundarea.o
 ./debug\backgroundareagradient.o
@@ -43,6 +44,7 @@ INPUT(
 ./debug\charttool.o
 ./debug\charttoolwidget.o
 ./debug\linecharttool.o
+./debug\piecharttool.o
 ./debug\scattercharttool.o
 ./debug\associatebaraxis.o
 ./debug\associatebarmode.o
@@ -56,6 +58,7 @@ INPUT(
 ./debug\chartview.o
 ./debug\lineassociatetable.o
 ./debug\linechartbar.o
+./debug\piechartbar.o
 ./debug\scatterassociatetable.o
 ./debug\scatterchartbar.o
 ./debug\screenshoot.o
@@ -92,11 +95,13 @@ INPUT(
 ./debug\monitor_spinbox.o
 ./debug\barseriessetting.o
 ./debug\lineseriessetting.o
+./debug\pieseriessetting.o
 ./debug\scatterseriessetting.o
 ./debug\seriesbar.o
 ./debug\seriesbarset.o
 ./debug\seriesbox.o
 ./debug\seriesinfo.o
+./debug\seriespie.o
 ./debug\seriesscatter.o
 ./debug\seriessetting.o
 ./debug\seriesxy.o
@@ -133,6 +138,7 @@ INPUT(
 ./debug\moc_chartshowtip.o
 ./debug\moc_linechart.o
 ./debug\moc_chartdatagenerator.o
+./debug\moc_piechart.o
 ./debug\moc_scatterchart.o
 ./debug\moc_backgroundarea.o
 ./debug\moc_backgroundareagradient.o
@@ -159,6 +165,7 @@ INPUT(
 ./debug\moc_charttool.o
 ./debug\moc_charttoolwidget.o
 ./debug\moc_linecharttool.o
+./debug\moc_piecharttool.o
 ./debug\moc_scattercharttool.o
 ./debug\moc_associatebaraxis.o
 ./debug\moc_associatebarmode.o
@@ -172,6 +179,7 @@ INPUT(
 ./debug\moc_chartview.o
 ./debug\moc_lineassociatetable.o
 ./debug\moc_linechartbar.o
+./debug\moc_piechartbar.o
 ./debug\moc_scatterassociatetable.o
 ./debug\moc_scatterchartbar.o
 ./debug\moc_screenshoot.o
@@ -202,11 +210,13 @@ INPUT(
 ./debug\moc_monitor_spinbox.o
 ./debug\moc_barseriessetting.o
 ./debug\moc_lineseriessetting.o
+./debug\moc_pieseriessetting.o
 ./debug\moc_scatterseriessetting.o
 ./debug\moc_seriesbar.o
 ./debug\moc_seriesbarset.o
 ./debug\moc_seriesbox.o
 ./debug\moc_seriesinfo.o
+./debug\moc_seriespie.o
 ./debug\moc_seriesscatter.o
 ./debug\moc_seriessetting.o
 ./debug\moc_seriesxy.o

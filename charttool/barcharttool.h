@@ -1,9 +1,9 @@
 #ifndef BARCHARTTOOL_H
 #define BARCHARTTOOL_H
 
-#include <charttool/charttool.h>
-#include <axissetting/axissetting.h>
-#include <seriessetting/barseriessetting.h>
+#include "charttool.h"
+#include "../axissetting/axissetting.h"
+#include "../seriessetting/barseriessetting.h"
 
 class BarChartTool : public ChartTool
 {

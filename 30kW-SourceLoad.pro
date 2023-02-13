@@ -43,6 +43,7 @@ SOURCES += \
     chart/chartshowtip.cpp \
     chart/linechart.cpp \
     chart/chartdatagenerator.cpp \
+    chart/piechart.cpp \
     chart/scatterchart.cpp \
     chartsetting/backgroundarea.cpp \
     chartsetting/backgroundareagradient.cpp \
@@ -69,6 +70,7 @@ SOURCES += \
     charttool/charttool.cpp \
     charttool/charttoolwidget.cpp \
     charttool/linecharttool.cpp \
+    charttool/piecharttool.cpp \
     charttool/scattercharttool.cpp \
     chartview/associatebaraxis.cpp \
     chartview/associatebarmode.cpp \
@@ -82,6 +84,7 @@ SOURCES += \
     chartview/chartview.cpp \
     chartview/lineassociatetable.cpp \
     chartview/linechartbar.cpp \
+    chartview/piechartbar.cpp \
     chartview/scatterassociatetable.cpp \
     chartview/scatterchartbar.cpp \
     chartview/screenshoot.cpp \
@@ -118,11 +121,13 @@ SOURCES += \
     monitor/monitor_spinbox.cpp \
     seriessetting/barseriessetting.cpp \
     seriessetting/lineseriessetting.cpp \
+    seriessetting/pieseriessetting.cpp \
     seriessetting/scatterseriessetting.cpp \
     seriessetting/seriesbar.cpp \
     seriessetting/seriesbarset.cpp \
     seriessetting/seriesbox.cpp \
     seriessetting/seriesinfo.cpp \
+    seriessetting/seriespie.cpp \
     seriessetting/seriesscatter.cpp \
     seriessetting/seriessetting.cpp \
     seriessetting/seriesxy.cpp \
@@ -159,6 +164,7 @@ HEADERS += \
     chart/chartshowtip.h \
     chart/linechart.h \
     chart/chartdatagenerator.h \
+    chart/piechart.h \
     chart/scatterchart.h \
     chartsetting/backgroundarea.h \
     chartsetting/backgroundareagradient.h \
@@ -185,6 +191,7 @@ HEADERS += \
     charttool/charttool.h \
     charttool/charttoolwidget.h \
     charttool/linecharttool.h \
+    charttool/piecharttool.h \
     charttool/scattercharttool.h \
     chartview/associatebaraxis.h \
     chartview/associatebarmode.h \
@@ -198,6 +205,7 @@ HEADERS += \
     chartview/chartview.h \
     chartview/lineassociatetable.h \
     chartview/linechartbar.h \
+    chartview/piechartbar.h \
     chartview/scatterassociatetable.h \
     chartview/scatterchartbar.h \
     chartview/screenshoot.h \
@@ -232,11 +240,13 @@ HEADERS += \
     monitor/monitor_spinbox.h \
     seriessetting/barseriessetting.h \
     seriessetting/lineseriessetting.h \
+    seriessetting/pieseriessetting.h \
     seriessetting/scatterseriessetting.h \
     seriessetting/seriesbar.h \
     seriessetting/seriesbarset.h \
     seriessetting/seriesbox.h \
     seriessetting/seriesinfo.h \
+    seriessetting/seriespie.h \
     seriessetting/seriesscatter.h \
     seriessetting/seriessetting.h \
     seriessetting/seriesxy.h \

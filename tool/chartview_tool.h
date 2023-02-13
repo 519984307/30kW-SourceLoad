@@ -1,9 +1,10 @@
 #ifndef CHARTVIEWWIDGET_H
 #define CHARTVIEWWIDGET_H
 
-#include <chart/linechart.h>
-#include <chart/scatterchart.h>
-#include <chart/barchart.h>
+#include "../chart/linechart.h"
+#include "../chart/scatterchart.h"
+#include "../chart/barchart.h"
+#include "../chart/piechart.h"
 #include <QtConcurrent/QtConcurrent>
 using namespace  QtConcurrent;
 
@@ -25,6 +26,7 @@ private:
     LineChart * mLineTab;
     ScatterChart * mScatterTab;
     BarChart * mBarTab;
+    PieChart * mPieTab;
 signals:
     void tableChanged();
 };

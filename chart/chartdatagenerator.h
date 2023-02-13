@@ -17,6 +17,7 @@ public:
     QLineSeries * sinechart(int=1,int=100);
     QLineSeries * lineseries(const QString&,const QColor&);
     QScatterSeries * scatterseries(const QString&,const QColor&,double=15.);
+    QPieSeries * pie();
     QValueAxis * axis(int,const QString& ="data point",const QString& ="%i");
     QLogValueAxis * logaxis(qreal,const QString& ="data point");
     QImage startPattern();

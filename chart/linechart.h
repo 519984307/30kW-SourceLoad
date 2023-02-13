@@ -2,14 +2,14 @@
 #define LINECHART_H
 
 #include <QMainWindow>
-#include <chart/chart.h>
-#include <chart/chartshowtip.h>
-#include <chart/chartshowlegend.h>
-#include <chart/chartdatagenerator.h>
-#include <chartview/chartview.h>
-#include <tool/tableviewmodel.h>
-#include <chartview/linechartbar.h>
-#include <charttool/linecharttool.h>
+#include "chart.h"
+#include "chartshowtip.h"
+#include "chartshowlegend.h"
+#include "chartdatagenerator.h"
+#include "../chartview/chartview.h"
+#include "../tool/tableviewmodel.h"
+#include "../chartview/linechartbar.h"
+#include "../charttool/linecharttool.h"
 
 class LineChart : public QMainWindow
 {

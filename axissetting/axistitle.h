@@ -1,6 +1,7 @@
 #ifndef AXISTITLE_H
 #define AXISTITLE_H
-#include <axissetting/axisbox.h>
+
+#include "axisbox.h"
 
 class AxisTitle : public AxisBox
 {

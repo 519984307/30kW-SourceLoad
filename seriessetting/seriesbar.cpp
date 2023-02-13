@@ -38,7 +38,7 @@ SeriesBar::SeriesBar(QChart * chart,QWidget* parent):
     lay->addRow(tr("&标签格式"),mLabelFont);
     lay->addRow(tr("&边框颜色"),mBorderColor);
 
-    setTitle(tr("标签和柱"));
+    setTitle(tr("柱状图"));
     setLayout(lay);
 }
 

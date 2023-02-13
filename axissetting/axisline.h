@@ -1,7 +1,7 @@
 #ifndef AXISLINE_H
 #define AXISLINE_H
 
-#include <axissetting/axisbox.h>
+#include "axisbox.h"
 
 class AxisLine : public AxisBox
 {

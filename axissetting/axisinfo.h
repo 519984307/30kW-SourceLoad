@@ -1,7 +1,7 @@
 #ifndef AXISINFO_H
 #define AXISINFO_H
 
-#include <axissetting/axisbox.h>
+#include "axisbox.h"
 
 class AxisInfo : public AxisBox
 {

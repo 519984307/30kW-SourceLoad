@@ -1,8 +1,8 @@
 #ifndef AXISLABEL_H
 #define AXISLABEL_H
 
-#include <axissetting/axisbox.h>
-#include <chartsetting/gradientparamspinbox.h>
+#include "axisbox.h"
+#include "../chartsetting/gradientparamspinbox.h"
 
 class AxisLabel : public AxisBox
 {

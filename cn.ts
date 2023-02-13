@@ -558,22 +558,22 @@
 <context>
     <name>AxisSetting</name>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="24"/>
+        <location filename="axissetting/axissetting.cpp" line="26"/>
         <source>其它</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="102"/>
+        <location filename="axissetting/axissetting.cpp" line="104"/>
         <source>X轴</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="103"/>
+        <location filename="axissetting/axissetting.cpp" line="105"/>
         <source>Y轴</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="axissetting/axissetting.cpp" line="114"/>
+        <location filename="axissetting/axissetting.cpp" line="116"/>
         <source>当前轴</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1257,37 +1257,42 @@
 <context>
     <name>ChartViewWidget</name>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="29"/>
+        <location filename="tool/chartview_tool.cpp" line="32"/>
         <source>导入文件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="30"/>
+        <location filename="tool/chartview_tool.cpp" line="33"/>
         <source>文件带表头?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="60"/>
+        <location filename="tool/chartview_tool.cpp" line="64"/>
         <source>折线图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="61"/>
+        <location filename="tool/chartview_tool.cpp" line="65"/>
         <source>散点图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="62"/>
+        <location filename="tool/chartview_tool.cpp" line="66"/>
         <source>柱状图</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="98"/>
+        <location filename="tool/chartview_tool.cpp" line="67"/>
+        <source>饼图</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tool/chartview_tool.cpp" line="105"/>
         <source>Txt/Csv文件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tool/chartview_tool.cpp" line="98"/>
+        <location filename="tool/chartview_tool.cpp" line="105"/>
         <source>*.txt *.csv</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2292,6 +2297,14 @@
     </message>
 </context>
 <context>
+    <name>PieChartTool</name>
+    <message>
+        <location filename="charttool/piecharttool.cpp" line="8"/>
+        <source>饼图没有坐标轴,无需进行设置~</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QueryPanel</name>
     <message>
         <location filename="setting/querypanel.cpp" line="12"/>
@@ -2565,7 +2578,8 @@
     </message>
     <message>
         <location filename="seriessetting/seriesbar.cpp" line="41"/>
-        <source>标签和柱</source>
+        <source>柱状图</source>
+        <oldsource>标签和柱</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2637,6 +2651,55 @@
     <message>
         <location filename="seriessetting/seriesinfo.cpp" line="34"/>
         <source>曲线</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SeriesPie</name>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="43"/>
+        <source>&amp;系列和数</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="44"/>
+        <source>&amp;标签位置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="45"/>
+        <source>&amp;饼洞比例</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="46"/>
+        <source>&amp;饼块比例</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="47"/>
+        <source>&amp;水平位置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="48"/>
+        <source>&amp;垂直位置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="49"/>
+        <source>&amp;起始角度</source>
+        <oldsource>起始角度</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="50"/>
+        <source>&amp;终止角度</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="seriessetting/seriespie.cpp" line="52"/>
+        <source>饼图</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

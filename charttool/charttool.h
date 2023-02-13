@@ -2,8 +2,8 @@
 #define CHARTTOOL_H
 
 #include <QToolBox>
-#include <charttool/charttoolwidget.h>
-#include <chartsetting/chartsetting.h>
+#include "charttoolwidget.h"
+#include "../chartsetting/chartsetting.h"
 
 class ChartTool : public QToolBox
 {

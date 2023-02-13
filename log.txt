@@ -448,7 +448,13 @@ QVector<QVariant> colData(int,int,int) const;
 ③ 柱状图的流程图绘制完毕，下周继续开发饼图和时间序列的图
 
 2023/2/11：
-
+① 迁徙工程从qtcreator到visual studio，移除不必要的文件夹csv,test等
+② 增加PieChart类主窗口
+③ 增加PieChartTool 饼图工具栏
+④ 增加PieChartBar 饼图工具条
+⑤ 增加SeriesPie 饼图曲线设置
+⑥ 增加SeriesPieSlice 饼图系列设置
+⑦ 增加PieSeriesSetting 饼图的工具栏设置（饼图没有轴，无需轴设置）
 
 
 

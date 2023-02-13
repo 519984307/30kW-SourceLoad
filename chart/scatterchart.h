@@ -2,14 +2,14 @@
 #define SCATTERCHART_H
 
 #include <QMainWindow>
-#include <chart/chart.h>
-#include <chart/chartshowtip.h>
-#include <chart/chartshowlegend.h>
-#include <chart/chartdatagenerator.h>
-#include <chartview/chartview.h>
-#include <chartview/scatterchartbar.h>
-#include <charttool/scattercharttool.h>
-#include <tool/tableviewmodel.h>
+#include "chart.h"
+#include "chartshowtip.h"
+#include "chartshowlegend.h"
+#include "chartdatagenerator.h"
+#include "../chartview/chartview.h"
+#include "../tool/tableviewmodel.h"
+#include "../chartview/scatterchartbar.h"
+#include "../charttool/scattercharttool.h"
 
 class ScatterChart : public QMainWindow
 {

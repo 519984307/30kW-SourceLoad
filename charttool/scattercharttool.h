@@ -1,9 +1,9 @@
 #ifndef SCATTERCHARTTOOL_H
 #define SCATTERCHARTTOOL_H
 
-#include <charttool/charttool.h>
-#include <seriessetting/scatterseriessetting.h>
-#include <axissetting/axissetting.h>
+#include "charttool.h"
+#include "../seriessetting/scatterseriessetting.h"
+#include "../axissetting/axissetting.h"
 
 class ScatterChartTool : public ChartTool
 {

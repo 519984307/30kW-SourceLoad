@@ -1,6 +1,7 @@
 #ifndef AXISGRID_H
 #define AXISGRID_H
-#include <axissetting/axisbox.h>
+
+#include "axisbox.h"
 
 class AxisGrid : public AxisBox
 {

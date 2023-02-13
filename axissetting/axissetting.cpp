@@ -5,8 +5,10 @@ AxisSetting::AxisSetting(QChart*chart):mChart(chart)
     setObjectName("AxisSettingsLayout");
     mIcon.addFile(":/images/toolbox_axis.png");
     setSizeConstraint(QLayout::SetMaximumSize);
+    mCurrentAxis = nullptr;
 
-    mCurrentAxis = mChart->axisX();// 默认X为操作轴
+    if (mChart->axisX()) mCurrentAxis = mChart->axisX();// 默认X为操作轴,饼图没有轴
+    if (!mCurrentAxis) return;
 
     mWhichAxis = new QGroupBox;
     mAxisInfo = new AxisInfo(mChart,mCurrentAxis,mIcon);

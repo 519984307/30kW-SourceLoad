@@ -1,4 +1,4 @@
-#include <tool/chartview_tool.h>
+#include "chartview_tool.h"
 
 ChartViewWidget::ChartViewWidget(QWidget *parent) : QWidget(parent)
 {
@@ -11,6 +11,7 @@ void ChartViewWidget::closeEvent(QCloseEvent *e)
     mLineTab->closeChildrenWindows(); // 窗口关闭时把所有子窗口都关掉
     mScatterTab->closeChildrenWindows();
     mBarTab->closeChildrenWindows();
+    mPieTab->closeChildrenWindows();
     e->accept();
 }
 
@@ -57,9 +58,11 @@ void ChartViewWidget::init()
     mLineTab = new LineChart(mTableView,mTab);
     mScatterTab = new ScatterChart(mTableView,mTab);
     mBarTab = new BarChart(mTableView,mTab);
+    mPieTab = new PieChart(mTableView,mTab);
     mTab->addTab(mLineTab,QIcon(":/images/linechart.png"),tr("折线图"));
     mTab->addTab(mScatterTab,QIcon(":/images/scatterchart.png"),tr("散点图"));
     mTab->addTab(mBarTab,QIcon(":/images/barchart.png"),tr("柱状图"));
+    mTab->addTab(mPieTab,QIcon(":/images/piechart.png"),tr("饼图"));
     /*-----------------------------------------layout-----------------------------------------*/
     QSplitter * splitter = new QSplitter(Qt::Horizontal);
     splitter->addWidget(tablebox);
@@ -83,6 +86,7 @@ void ChartViewWidget::init()
         mLineTab->clearChart();
         mScatterTab->clearChart();
         mBarTab->clearChart();
+        mPieTab->clearChart();
     });
 }
 
@@ -91,6 +95,7 @@ void ChartViewWidget::initConnections()
     connect(this,&ChartViewWidget::tableChanged,mLineTab,&LineChart::tableChanged);
     connect(this,&ChartViewWidget::tableChanged,mScatterTab,&ScatterChart::tableChanged);
     connect(this,&ChartViewWidget::tableChanged,mBarTab,&BarChart::tableChanged);
+    connect(this,&ChartViewWidget::tableChanged,mPieTab,&PieChart::tableChanged);
 
     connect(mImportFileBtn,&QPushButton::clicked,this,[=]{
         QDir debugDir= QDir::current();

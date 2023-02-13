@@ -34,6 +34,11 @@ void ChartShowTip::mapping(QBarSeries*series)
     connect(series, &QBarSeries::hovered, this, &ChartShowTip::showBarTip);
 }
 
+void ChartShowTip::mapping(QPieSeries*series)
+{
+    connect(series, &QPieSeries::hovered, this, &ChartShowTip::showPieTip);
+}
+
 
 void ChartShowTip::showXYTip(QPointF point, bool state)
 {
@@ -66,5 +71,19 @@ void ChartShowTip::showBarTip(bool status, int index, QBarSet *barset)
         font.setBold(false);
         font.setPointSize(12);
         barset->setLabelFont(font);
+    }
+}
+
+void ChartShowTip::showPieTip(QPieSlice *slice, bool state)
+{
+    slice->setExplodeDistanceFactor(0.2);
+    slice->setExploded(state);
+    if (state) {
+        QBrush brush = slice->brush();
+        mPieBrush = brush;
+        brush.setColor(brush.color().lighter());
+        slice->setBrush(brush);
+    } else {
+        slice->setBrush(mPieBrush);
     }
 }

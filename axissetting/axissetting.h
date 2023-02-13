@@ -1,17 +1,16 @@
 #ifndef AXISSETTING_H
 #define AXISSETTING_H
 
-#include <axissetting/axisinfo.h>
-#include <axissetting/axistitle.h>
-#include <axissetting/axislabel.h>
-#include <axissetting/axisshade.h>
-#include <axissetting/axisline.h>
-#include <axissetting/axisgrid.h>
-#include <axissetting/axisvalue.h>
-#include <axissetting/axislog.h>
-#include <axissetting/axistime.h>
-#include <axissetting/axisbarcategory.h>
-
+#include "axisinfo.h"
+#include "axistitle.h"
+#include "axislabel.h"
+#include "axisshade.h"
+#include "axisline.h"
+#include "axisgrid.h"
+#include "axisvalue.h"
+#include "axislog.h"
+#include "axistime.h"
+#include "axisbarcategory.h"
 //QAbstractAxis具有的所有属性设置,以及Value/Log特有的根据轴类型动态切换
 class AxisSetting : public QVBoxLayout
 {
